@@ -74,8 +74,8 @@ Table 1a before the numbers are quoted. Everything the draft prints for them che
 the frequency table (M 4, F 4; D 3, I 5; ≥30 5, <30 3; ≥65 3, 60–64 4, <60 1) and the
 deficits (8/8, 9/7, 7/9, 5/4/7) are reproduced exactly.
 
-The source's equations were lost in the document conversions, so every reading below is
-documented in `latc.py`:
+The source's formulas are intact as Word equations in the manuscript submitted to IJSER;
+plain-text extraction drops them. Every step below is documented in `latc.py`:
 
 * **I-1** Card(Ai) counts the distinct values *that appear in T0*. Declared domains are
   not consulted.
@@ -85,9 +85,11 @@ documented in `latc.py`:
 * **I-4** Corollary 4 [12]: k(Ax = v) = ∏ Card / Card(Ax) − freq(Ax = v).
 * **I-5** The source has no valid-state constraint.
 
-There are two readings of how the rows are assembled:
+The appendix of both editions (English and Spanish) specifies Reading B. Reading A is a
+shortcut the main text's description of Corollary 4 admits, and is kept to show why it
+fails:
 
-* **Reading A, deficit block fill.** This is the literal reading of "columns filled in
+* **Reading A, deficit block fill.** The shortcut suggested by "columns filled in
   frequency-table order, each column filled with value blocks in sequence". Each column
   is filled independently with k(v) copies of each value. The row-level critique applies
   to this reading.
@@ -95,8 +97,9 @@ There are two readings of how the rows are assembled:
   frequencies of T0 ∪ Cp, using a per-column "quantity of repetitions", and then matches
   the T0 rows (footnote 7). The worked example's Table 3 / Table 9 shows all 24 rows in
   odometer order, with the T0 rows marked by instance number. Under this reading LATC is
-  explicit enumeration plus membership matching. The repetition formula
-  r_j = ∏_{k>j} Card(Ak) is my reconstruction; the source's own expression is lost.
+  explicit enumeration plus membership matching. The source gives the repetition count as
+  CR_j = Card(C⁰) / ∏_{k=1..j} Card(Ak), which equals r_j = ∏_{k>j} Card(Ak), the block
+  length used here.
 
 ## Results (reference run, seed 20210101)
 

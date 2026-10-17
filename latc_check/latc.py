@@ -1,7 +1,9 @@
-"""Reconstruction of LATC (Raggio & Russell, IJSER 12(1), 2021).
+"""LATC as specified in Raggio & Russell, IJSER 12(1), 2021.
 
-The source's formulas survive only partly (equation objects were lost in the
-.docx conversions), so each step below records the reading taken.
+The source's formulas are Word equation objects, which plain-text extraction
+drops; each step below records the formula used.  The appendix of both the
+English and the Spanish edition specifies Reading B; Reading A is a shortcut
+the main text admits, kept to show why it fails.
 
 Steps common to both readings
 -----------------------------
@@ -47,7 +49,7 @@ with their instance numbers, the other 16 marked "?".  Read this way LATC is
 explicit enumeration of the product of observed domains followed by
 membership matching, and the deficits are only a cross-check.  The
 repetition count for column j is r_j = prod_{k>j} Card(Ak) (truth-table
-generation); the source's exact expression is lost.
+generation), which equals the source's CR_j = Card(C0) / prod_{k<=j} Card(Ak).
 """
 
 from __future__ import annotations
