@@ -64,6 +64,10 @@ holds the output of the reference run.
 | `rank.py` | mixed-radix rank index: a complete table as a flat bytearray of outcome codes |
 | `large.py` | large-scale test (millions of rows), behind `--large` |
 | `dmn_compare.py` | baseline B4: COMPLETE against DMN analysis on the pension tables, the counterexample, random scenarios, timing |
+| `datasets.py` | loaders and checks for the UCI Car Evaluation and Nursery tables (`data/raw/`) |
+| `tree.py` | ID3 decision-tree learner; tree paths as DMN rules |
+| `dmn_import.py` | decision tables from DMN 1.1–1.5 XML, for the FEEL subset `dmn.py` models; everything else is skipped with a reason |
+| `datasets_report.py` | public-dataset experiments (`run_datasets.py`), written to `results/datasets/` |
 
 ## Source and interpretive choices
 
@@ -336,6 +340,68 @@ millions of cases, which is a generalisation decision rather than a computation.
   computation for batches of probes (`ravel_multi_index`) and the code-array fill,
   likely by 10–100×. PyPy would speed up the per-row loops. Neither changes the row
   count, the 1 byte-per-row floor or the review cost.
+
+## Public datasets (`run_datasets.py`)
+
+```bash
+python run_datasets.py            # about 2-3 minutes; --help for options
+```
+
+It writes `results/datasets/uci_car.json`, `uci_nursery.json`, `baselines.json`,
+`dmn_tck.json`, `summary.csv` and `SUMMARY.md` (one comparable table across datasets and
+methods). The existing result files are not touched. Sources, licences and citations of the
+data are in `data/README.md`. The DMN TCK is read from a clone next to this repository
+(`../dmn-tck`, or `--tck PATH`). LendingClub was not used, because it needs a Kaggle login.
+
+**Data.** UCI Car Evaluation (6 attributes, 4×4×4×3×3×3 = 1,728 states) and UCI Nursery
+(8 attributes, 3×5×4×4×3×2×3×3 = 12,960 states) are both the full product of their
+declared domains, with no duplicate tuples and one class per tuple. The domains are
+declared in the value order of the `.names` files. The prose `.names` files spell four values
+differently from the data (`v-high`/`vhigh`, `5-more`/`5more`, `v-good`/`vgood`,
+`non-prob`/`nonprob`), so the loader reads them from `.c45-names` and checks the order.
+
+**Completion** (seed 20210101, 20 random T0 per level, T0 = 90 % to 1 % of the rows; and
+structured removal of every value of every attribute, 21 cases for Car and 27 for Nursery):
+
+* COMPLETE and DMN with declared values are exact in every run (240 random and 48
+  structured).
+* LATC Reading A is exact in no run. At 50 % it misses 856.3 of 864 rows on Car and 6,470.3
+  of 6,480 on Nursery.
+* Reading B and DMN with observed values are exact whenever T0 shows every declared value.
+  That holds in every random run except one: a Car T0 of 17 rows (1 %) lacked one value, and
+  both then missed 432 rows. Under structured removal they miss every missing row in all 48
+  cases, which is the "unobserved declared value" failure on real data.
+* T0 plus COMPLETE's rows, with the true classes, restores the original table exactly and
+  soundly (coverage 1, single-hit, no conflicts) in all 288 runs.
+* DMN reports fewer gap regions than missing states, for example 2,760.7 regions for 6,480
+  missing states on Nursery at 50 %, and 1 region under structured removal. In the reference
+  run it took 9 to 69 times as long as COMPLETE (0.34 s against 5.5 ms per run on Nursery at
+  50 %).
+
+**Compact rules.** An ID3 tree over each full table, one UNIQUE rule per leaf, has 0 gaps
+and 0 overlaps and expands exactly to the full table:
+
+* Car: 296 rules with 1,634 non-`-` input cells, against 1,728 rows with 10,368 input cells;
+* Nursery: 839 rules with 5,586 such cells, against 12,960 rows with 103,680 cells.
+
+Merging leaf siblings that share a class into a `OneOf` entry gives 175 rules (949 cells)
+and 421 rules (2,812 cells). The seeded faults were dropping the largest rule, dropping the
+smallest rule, and widening one entry to `-`. DMN analysis and COMPLETE's structural checks
+detect every one of them, and the expanded DMN gaps equal COMPLETE's uncovered tuples. The
+rank index agrees with a dict on all 1,728 and 12,960 states.
+
+**DMN TCK** (commit `9402e87`): 168 `.dmn` files, of which 36 contain decision tables; there
+are 70 tables, all DMN 1.5.
+
+* 19 tables parse in the modelled subset. 51 are skipped: boolean input 18, COLLECT 14,
+  multiple outputs 4, non-literal FEEL 4, other input types 7, RULE ORDER 2, OUTPUT ORDER 2.
+* If booleans are treated as the enumeration (true, false), 35 tables parse.
+* The exhaustive oracle agrees with the sweep on every table it can run on: on the exact
+  domain where it is finite, otherwise on a bounded integer proxy.
+* Gaps and overlaps in TCK tables are reported, not judged, because the TCK tests engines and
+  not completeness.
+* Some reported gaps contain no integer, for example (9..10), because numbers are
+  real-valued (D-1). `SUMMARY.md` counts them separately.
 
 ## What the evidence supports, and what it does not
 

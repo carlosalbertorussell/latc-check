@@ -1,0 +1,321 @@
+{
+  "pension": {
+    "states": 24,
+    "t0_rows": 8,
+    "domain_sizes": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "methods": {
+      "COMPLETE": {
+        "runs": 1,
+        "exact_rate": 1.0,
+        "mean_missed": 0,
+        "max_missed": 0,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 16,
+        "mean_expected_rows": 16,
+        "mean_ms": 0.015099998563528061
+      },
+      "LATC A (deficit fill)": {
+        "runs": 1,
+        "exact_rate": 0.0,
+        "mean_missed": 13,
+        "max_missed": 13,
+        "mean_duplicates": 11,
+        "mean_regenerated_t0": 6,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 16,
+        "mean_expected_rows": 16,
+        "mean_ms": 0.0540000619366765
+      },
+      "LATC B (odometer)": {
+        "runs": 1,
+        "exact_rate": 1.0,
+        "mean_missed": 0,
+        "max_missed": 0,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 16,
+        "mean_expected_rows": 16,
+        "mean_ms": 0.02359994687139988
+      },
+      "DMN (declared values)": {
+        "runs": 1,
+        "exact_rate": 1.0,
+        "mean_missed": 0,
+        "max_missed": 0,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 16,
+        "mean_expected_rows": 16,
+        "mean_ms": 0.25939999613910913,
+        "mean_regions": 7,
+        "mean_raw_regions": 10,
+        "max_overlap_pairs": 0
+      },
+      "DMN (observed values)": {
+        "runs": 1,
+        "exact_rate": 1.0,
+        "mean_missed": 0,
+        "max_missed": 0,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 16,
+        "mean_expected_rows": 16,
+        "mean_ms": 0.23020000662654638,
+        "mean_regions": 7,
+        "mean_raw_regions": 10,
+        "max_overlap_pairs": 0
+      }
+    }
+  },
+  "random": {
+    "observed": {
+      "trials": 1000,
+      "mean_t0_rows": 14.174,
+      "mean_states": 23.126,
+      "attributes": "2-4",
+      "methods": {
+        "COMPLETE": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 8.952,
+          "mean_expected_rows": 8.952,
+          "mean_ms": 0.0071748001500964165
+        },
+        "LATC A (deficit fill)": {
+          "runs": 1000,
+          "exact_rate": 0.263,
+          "mean_missed": 6.757,
+          "max_missed": 36,
+          "mean_duplicates": 4.86,
+          "mean_regenerated_t0": 4.186,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 8.952,
+          "mean_expected_rows": 8.952,
+          "mean_ms": 0.04706120037008077
+        },
+        "LATC B (odometer)": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 8.952,
+          "mean_expected_rows": 8.952,
+          "mean_ms": 0.021622100961394608
+        },
+        "DMN (declared values)": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 8.952,
+          "mean_expected_rows": 8.952,
+          "mean_ms": 0.21400030015502125,
+          "mean_regions": 4.945,
+          "mean_raw_regions": 5.996,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 8.952,
+          "mean_expected_rows": 8.952,
+          "mean_ms": 0.20886189956218004,
+          "mean_regions": 4.962,
+          "mean_raw_regions": 6.003,
+          "max_overlap_pairs": 0
+        }
+      }
+    },
+    "unobserved": {
+      "trials": 1000,
+      "mean_t0_rows": 11.119,
+      "mean_states": 26.227,
+      "attributes": "2-4",
+      "methods": {
+        "COMPLETE": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 15.108,
+          "mean_expected_rows": 15.108,
+          "mean_ms": 0.0077908007660880685
+        },
+        "LATC A (deficit fill)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 13.248,
+          "max_missed": 40,
+          "mean_duplicates": 2.707,
+          "mean_regenerated_t0": 2.971,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6.208,
+          "mean_expected_rows": 15.108,
+          "mean_ms": 0.04562620050273836
+        },
+        "LATC B (odometer)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 8.9,
+          "max_missed": 24,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6.208,
+          "mean_expected_rows": 15.108,
+          "mean_ms": 0.020124702248722315
+        },
+        "DMN (declared values)": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 15.108,
+          "mean_expected_rows": 15.108,
+          "mean_ms": 0.21497539954725653,
+          "mean_regions": 5.334,
+          "mean_raw_regions": 7.552,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 8.9,
+          "max_missed": 24,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6.208,
+          "mean_expected_rows": 15.108,
+          "mean_ms": 0.18732010491658002,
+          "mean_regions": 3.758,
+          "mean_raw_regions": 4.471,
+          "max_overlap_pairs": 0
+        }
+      }
+    },
+    "constrained": {
+      "trials": 1000,
+      "mean_t0_rows": 12.393,
+      "mean_states": 19.109,
+      "attributes": "2-4",
+      "methods": {
+        "COMPLETE": {
+          "runs": 1000,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6.716,
+          "mean_expected_rows": 6.716,
+          "mean_ms": 0.01109539798926562
+        },
+        "LATC A (deficit fill)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 5.406,
+          "max_missed": 28,
+          "mean_duplicates": 7.671,
+          "mean_regenerated_t0": 6.405,
+          "mean_outside_space": 3.066,
+          "mean_candidate_rows": 12.968,
+          "mean_expected_rows": 6.716,
+          "mean_ms": 0.058210497023537755
+        },
+        "LATC B (odometer)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 6.252,
+          "mean_candidate_rows": 12.968,
+          "mean_expected_rows": 6.716,
+          "mean_ms": 0.02730910258833319
+        },
+        "DMN (declared values)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 6.252,
+          "mean_candidate_rows": 12.968,
+          "mean_expected_rows": 6.716,
+          "mean_ms": 0.29327250039204955,
+          "mean_regions": 6.739,
+          "mean_raw_regions": 8.177,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 1000,
+          "exact_rate": 0.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 6.252,
+          "mean_candidate_rows": 12.968,
+          "mean_expected_rows": 6.716,
+          "mean_ms": 0.29051129787694663,
+          "mean_regions": 6.709,
+          "mean_raw_regions": 8.218,
+          "max_overlap_pairs": 0
+        }
+      }
+    }
+  },
+  "matches_results_json": {
+    "observed/COMPLETE": true,
+    "observed/LATC A (deficit fill)": true,
+    "observed/LATC B (odometer)": true,
+    "observed/DMN (declared values)": true,
+    "observed/DMN (observed values)": true,
+    "unobserved/COMPLETE": true,
+    "unobserved/LATC A (deficit fill)": true,
+    "unobserved/LATC B (odometer)": true,
+    "unobserved/DMN (declared values)": true,
+    "unobserved/DMN (observed values)": true,
+    "constrained/COMPLETE": true,
+    "constrained/LATC A (deficit fill)": true,
+    "constrained/LATC B (odometer)": true,
+    "constrained/DMN (declared values)": true,
+    "constrained/DMN (observed values)": true
+  }
+}

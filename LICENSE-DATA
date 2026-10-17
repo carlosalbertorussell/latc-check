@@ -14,3 +14,8 @@ The worked-example tables are transcribed from Raggio, R. A., & Russell, C. A.
 (2021), "Business Rules (BR); Expert Systems (KBS); LATC Algorithm. A proposal
 for functional integration", International Journal of Scientific & Engineering
 Research, 12(1). Cite that work when reusing them.
+
+The files under data/raw/ are third-party data from the UCI Machine Learning
+Repository (Car Evaluation and Nursery, CC BY 4.0, by their creators); the
+copyright notice above does not apply to them. See data/README.md for their
+sources and citations.

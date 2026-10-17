@@ -1,0 +1,2287 @@
+{
+  "title": "UCI Nursery",
+  "file_info": {
+    "dataset": "nursery",
+    "title": "UCI Nursery",
+    "url": "https://archive.ics.uci.edu/dataset/76/nursery",
+    "data_file": "nursery.data",
+    "blank_lines": 1,
+    "malformed_lines": [],
+    "names_order_matches": true,
+    "names_spelling_differs": [
+      "social: 'non-prob' vs 'nonprob'"
+    ]
+  },
+  "verification": {
+    "attributes": 8,
+    "domain_sizes": [
+      3,
+      5,
+      4,
+      4,
+      3,
+      2,
+      3,
+      3
+    ],
+    "states": 12960,
+    "rows": 12960,
+    "rows_equal_product": true,
+    "duplicate_condition_tuples": 0,
+    "tuples_with_more_than_one_class": 0,
+    "rows_out_of_domain": 0,
+    "undeclared_classes": [],
+    "class_counts": {
+      "recommend": 2,
+      "priority": 4266,
+      "not_recom": 4320,
+      "very_recom": 328,
+      "spec_prior": 4044
+    },
+    "full_product": true,
+    "one_class_per_tuple": true
+  },
+  "random_removal": {
+    "0.9": {
+      "keep_share": 0.9,
+      "t0_rows": 11664,
+      "seeds": 20,
+      "methods": {
+        "COMPLETE": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 1296,
+          "mean_expected_rows": 1296,
+          "mean_ms": 7.43682500324212
+        },
+        "LATC A (deficit fill)": {
+          "runs": 20,
+          "exact_rate": 0.0,
+          "mean_missed": 1294,
+          "max_missed": 1296,
+          "mean_duplicates": 1276.2,
+          "mean_regenerated_t0": 1176.2,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 1296,
+          "mean_expected_rows": 1296,
+          "mean_ms": 78.81922998349182
+        },
+        "LATC B (odometer)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 1296,
+          "mean_expected_rows": 1296,
+          "mean_ms": 35.83160999696702
+        },
+        "DMN (declared values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 1296,
+          "mean_expected_rows": 1296,
+          "mean_ms": 431.7314699990675,
+          "mean_regions": 928.85,
+          "mean_raw_regions": 1212.2,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 1296,
+          "mean_expected_rows": 1296,
+          "mean_ms": 438.6860649974551,
+          "mean_regions": 928.85,
+          "mean_raw_regions": 1212.85,
+          "max_overlap_pairs": 0
+        }
+      },
+      "mean_unobserved_declared_values": 0,
+      "runs_with_unobserved_value": 0,
+      "restore_ok": 20,
+      "restore_runs": 20
+    },
+    "0.75": {
+      "keep_share": 0.75,
+      "t0_rows": 9720,
+      "seeds": 20,
+      "methods": {
+        "COMPLETE": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 3240,
+          "mean_expected_rows": 3240,
+          "mean_ms": 4.793410014826804
+        },
+        "LATC A (deficit fill)": {
+          "runs": 20,
+          "exact_rate": 0.0,
+          "mean_missed": 3234,
+          "max_missed": 3238,
+          "mean_duplicates": 3220.15,
+          "mean_regenerated_t0": 2424.05,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 3240,
+          "mean_expected_rows": 3240,
+          "mean_ms": 40.928475034888834
+        },
+        "LATC B (odometer)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 3240,
+          "mean_expected_rows": 3240,
+          "mean_ms": 21.984675008570775
+        },
+        "DMN (declared values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 3240,
+          "mean_expected_rows": 3240,
+          "mean_ms": 310.07086500758305,
+          "mean_regions": 1836.8,
+          "mean_raw_regions": 2704,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 3240,
+          "mean_expected_rows": 3240,
+          "mean_ms": 306.9780899968464,
+          "mean_regions": 1838.3,
+          "mean_raw_regions": 2702.85,
+          "max_overlap_pairs": 0
+        }
+      },
+      "mean_unobserved_declared_values": 0,
+      "runs_with_unobserved_value": 0,
+      "restore_ok": 20,
+      "restore_runs": 20
+    },
+    "0.5": {
+      "keep_share": 0.5,
+      "t0_rows": 6480,
+      "seeds": 20,
+      "methods": {
+        "COMPLETE": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6480,
+          "mean_expected_rows": 6480,
+          "mean_ms": 5.520735000027344
+        },
+        "LATC A (deficit fill)": {
+          "runs": 20,
+          "exact_rate": 0.0,
+          "mean_missed": 6470.3,
+          "max_missed": 6475,
+          "mean_duplicates": 6460.15,
+          "mean_regenerated_t0": 3854.2,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6480,
+          "mean_expected_rows": 6480,
+          "mean_ms": 36.04097499628551
+        },
+        "LATC B (odometer)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6480,
+          "mean_expected_rows": 6480,
+          "mean_ms": 22.775839996756986
+        },
+        "DMN (declared values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6480,
+          "mean_expected_rows": 6480,
+          "mean_ms": 336.621025018394,
+          "mean_regions": 2760.65,
+          "mean_raw_regions": 4270.45,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 6480,
+          "mean_expected_rows": 6480,
+          "mean_ms": 337.95339500065893,
+          "mean_regions": 2761.45,
+          "mean_raw_regions": 4275.35,
+          "max_overlap_pairs": 0
+        }
+      },
+      "mean_unobserved_declared_values": 0,
+      "runs_with_unobserved_value": 0,
+      "restore_ok": 20,
+      "restore_runs": 20
+    },
+    "0.25": {
+      "keep_share": 0.25,
+      "t0_rows": 3240,
+      "seeds": 20,
+      "methods": {
+        "COMPLETE": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 9720,
+          "mean_expected_rows": 9720,
+          "mean_ms": 5.738989997189492
+        },
+        "LATC A (deficit fill)": {
+          "runs": 20,
+          "exact_rate": 0.0,
+          "mean_missed": 9705.1,
+          "max_missed": 9708,
+          "mean_duplicates": 9700.1,
+          "mean_regenerated_t0": 3436.15,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 9720,
+          "mean_expected_rows": 9720,
+          "mean_ms": 24.512804998084903
+        },
+        "LATC B (odometer)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 9720,
+          "mean_expected_rows": 9720,
+          "mean_ms": 20.152040000539273
+        },
+        "DMN (declared values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 9720,
+          "mean_expected_rows": 9720,
+          "mean_ms": 275.1250050147064,
+          "mean_regions": 2897.5,
+          "mean_raw_regions": 4351.65,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 9720,
+          "mean_expected_rows": 9720,
+          "mean_ms": 269.47662998572923,
+          "mean_regions": 2897.65,
+          "mean_raw_regions": 4346.25,
+          "max_overlap_pairs": 0
+        }
+      },
+      "mean_unobserved_declared_values": 0,
+      "runs_with_unobserved_value": 0,
+      "restore_ok": 20,
+      "restore_runs": 20
+    },
+    "0.1": {
+      "keep_share": 0.1,
+      "t0_rows": 1296,
+      "seeds": 20,
+      "methods": {
+        "COMPLETE": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 11664,
+          "mean_expected_rows": 11664,
+          "mean_ms": 2.504080010112375
+        },
+        "LATC A (deficit fill)": {
+          "runs": 20,
+          "exact_rate": 0.0,
+          "mean_missed": 11647.25,
+          "max_missed": 11650,
+          "mean_duplicates": 11644.45,
+          "mean_regenerated_t0": 3111.85,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 11664,
+          "mean_expected_rows": 11664,
+          "mean_ms": 12.528234999626875
+        },
+        "LATC B (odometer)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 11664,
+          "mean_expected_rows": 11664,
+          "mean_ms": 13.741825002944097
+        },
+        "DMN (declared values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 11664,
+          "mean_expected_rows": 11664,
+          "mean_ms": 129.96430500643328,
+          "mean_regions": 2166.55,
+          "mean_raw_regions": 3016,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 11664,
+          "mean_expected_rows": 11664,
+          "mean_ms": 128.87450499692932,
+          "mean_regions": 2169.1,
+          "mean_raw_regions": 3017.9,
+          "max_overlap_pairs": 0
+        }
+      },
+      "mean_unobserved_declared_values": 0,
+      "runs_with_unobserved_value": 0,
+      "restore_ok": 20,
+      "restore_runs": 20
+    },
+    "0.01": {
+      "keep_share": 0.01,
+      "t0_rows": 130,
+      "seeds": 20,
+      "methods": {
+        "COMPLETE": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 12830,
+          "mean_expected_rows": 12830,
+          "mean_ms": 1.681220013415441
+        },
+        "LATC A (deficit fill)": {
+          "runs": 20,
+          "exact_rate": 0.0,
+          "mean_missed": 12812,
+          "max_missed": 12814,
+          "mean_duplicates": 12810.75,
+          "mean_regenerated_t0": 2661.75,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 12830,
+          "mean_expected_rows": 12830,
+          "mean_ms": 6.210615020245314
+        },
+        "LATC B (odometer)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 12830,
+          "mean_expected_rows": 12830,
+          "mean_ms": 10.433540015947074
+        },
+        "DMN (declared values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 12830,
+          "mean_expected_rows": 12830,
+          "mean_ms": 22.987899993313476,
+          "mean_regions": 559.3,
+          "mean_raw_regions": 653.55,
+          "max_overlap_pairs": 0
+        },
+        "DMN (observed values)": {
+          "runs": 20,
+          "exact_rate": 1.0,
+          "mean_missed": 0,
+          "max_missed": 0,
+          "mean_duplicates": 0,
+          "mean_regenerated_t0": 0,
+          "mean_outside_space": 0,
+          "mean_candidate_rows": 12830,
+          "mean_expected_rows": 12830,
+          "mean_ms": 23.289475013734773,
+          "mean_regions": 563.4,
+          "mean_raw_regions": 657.8,
+          "max_overlap_pairs": 0
+        }
+      },
+      "mean_unobserved_declared_values": 0,
+      "runs_with_unobserved_value": 0,
+      "restore_ok": 20,
+      "restore_runs": 20
+    }
+  },
+  "structured_removal": {
+    "cases": [
+      {
+        "attribute": "parents",
+        "value": "usual",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "parents",
+        "value": "pretentious",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "parents",
+        "value": "great_pret",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "proper",
+        "t0_rows": 10368,
+        "missing": 2592,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "less_proper",
+        "t0_rows": 10368,
+        "missing": 2592,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "improper",
+        "t0_rows": 10368,
+        "missing": 2592,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "critical",
+        "t0_rows": 10368,
+        "missing": 2592,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "very_crit",
+        "t0_rows": 10368,
+        "missing": 2592,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 2592,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 2592,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "complete",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "completed",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "incomplete",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "foster",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "1",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "2",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "3",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "more",
+        "t0_rows": 9720,
+        "missing": 3240,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 3240,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 3240,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "housing",
+        "value": "convenient",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "housing",
+        "value": "less_conv",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "housing",
+        "value": "critical",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "finance",
+        "value": "convenient",
+        "t0_rows": 6480,
+        "missing": 6480,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 6480
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 6480,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 6480,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 6480,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 6480,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "finance",
+        "value": "inconv",
+        "t0_rows": 6480,
+        "missing": 6480,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 6480
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 6480,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 6480,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 6480,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 6480,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "social",
+        "value": "nonprob",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "social",
+        "value": "slightly_prob",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "social",
+        "value": "problematic",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "health",
+        "value": "recommended",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "health",
+        "value": "priority",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      },
+      {
+        "attribute": "health",
+        "value": "not_recom",
+        "t0_rows": 8640,
+        "missing": 4320,
+        "methods": {
+          "COMPLETE": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320
+          },
+          "LATC A (deficit fill)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "LATC B (odometer)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0
+          },
+          "DMN (declared values)": {
+            "exact": true,
+            "missed": 0,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 4320,
+            "regions": 1
+          },
+          "DMN (observed values)": {
+            "exact": false,
+            "missed": 4320,
+            "duplicates": 0,
+            "regenerated_t0": 0,
+            "outside_space": 0,
+            "n_candidate": 0,
+            "regions": 0
+          }
+        },
+        "restore": {
+          "sound": true,
+          "equals_full_table": true,
+          "coverage": 1.0,
+          "single_hit": true,
+          "conflicts": 0
+        }
+      }
+    ],
+    "methods": {
+      "COMPLETE": {
+        "runs": 27,
+        "exact_rate": 1.0,
+        "mean_missed": 0,
+        "max_missed": 0,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 3840,
+        "mean_expected_rows": 3840,
+        "mean_ms": 4.2156740695376085
+      },
+      "LATC A (deficit fill)": {
+        "runs": 27,
+        "exact_rate": 0.0,
+        "mean_missed": 3840,
+        "max_missed": 6480,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 0,
+        "mean_expected_rows": 3840,
+        "mean_ms": 6.783696301108985
+      },
+      "LATC B (odometer)": {
+        "runs": 27,
+        "exact_rate": 0.0,
+        "mean_missed": 3840,
+        "max_missed": 6480,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 0,
+        "mean_expected_rows": 3840,
+        "mean_ms": 16.06538518400932
+      },
+      "DMN (declared values)": {
+        "runs": 27,
+        "exact_rate": 1.0,
+        "mean_missed": 0,
+        "max_missed": 0,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 3840,
+        "mean_expected_rows": 3840,
+        "mean_ms": 178.84562963067933,
+        "mean_regions": 1,
+        "mean_raw_regions": 731.7777777777778,
+        "max_overlap_pairs": 0
+      },
+      "DMN (observed values)": {
+        "runs": 27,
+        "exact_rate": 0.0,
+        "mean_missed": 3840,
+        "max_missed": 6480,
+        "mean_duplicates": 0,
+        "mean_regenerated_t0": 0,
+        "mean_outside_space": 0,
+        "mean_candidate_rows": 0,
+        "mean_expected_rows": 3840,
+        "mean_ms": 183.02350370127155,
+        "mean_regions": 0,
+        "mean_raw_regions": 0,
+        "max_overlap_pairs": 0
+      }
+    },
+    "t0_rows_min": 6480,
+    "t0_rows_max": 10368,
+    "restore_ok": 27,
+    "restore_runs": 27
+  },
+  "compact_rules": {
+    "tree": {
+      "leaves": 839,
+      "inner_nodes": 320,
+      "max_depth": 8
+    },
+    "learn_ms": 258.8136999402195,
+    "full_table": {
+      "rules": 12960,
+      "non_wildcard_cells": 103680,
+      "cells": 116640
+    },
+    "variants": {
+      "one rule per leaf": {
+        "review_size": {
+          "rules": 839,
+          "non_wildcard_cells": 5586,
+          "cells": 7551
+        },
+        "entry_kinds": {
+          "Point": 5586,
+          "ANY": 1126
+        },
+        "gap_regions": 0,
+        "overlap_pairs": 0,
+        "violating_pairs": 0,
+        "analysis_ms": 24.60080001037568,
+        "expands_to_full_table": true,
+        "structural_sound": true,
+        "misaligned": 0,
+        "faults": [
+          {
+            "fault": "drop rule 838 (largest, covers 4320 tuples)",
+            "dmn_gap_regions": 1,
+            "dmn_gap_tuples": 4320,
+            "dmn_overlap_pairs": 0,
+            "dmn_violating_pairs": 0,
+            "dmn_maximal_overlap_sets": 0,
+            "complete_uncovered": 4320,
+            "complete_multi_hit": 0,
+            "complete_conflicts": 0,
+            "dmn_gaps_equal_complete_missing": true,
+            "dmn_detects": true,
+            "complete_detects": true,
+            "dmn_ms": 26.09539998229593,
+            "complete_ms": 31.68740007095039
+          },
+          {
+            "fault": "drop rule 606 (smallest, covers 1 tuples)",
+            "dmn_gap_regions": 1,
+            "dmn_gap_tuples": 1,
+            "dmn_overlap_pairs": 0,
+            "dmn_violating_pairs": 0,
+            "dmn_maximal_overlap_sets": 0,
+            "complete_uncovered": 1,
+            "complete_multi_hit": 0,
+            "complete_conflicts": 0,
+            "dmn_gaps_equal_complete_missing": true,
+            "dmn_detects": true,
+            "complete_detects": true,
+            "dmn_ms": 24.39729997422546,
+            "complete_ms": 40.541599970310926
+          },
+          {
+            "fault": "widen rule 0, input health, to '-'",
+            "dmn_gap_regions": 0,
+            "dmn_gap_tuples": 0,
+            "dmn_overlap_pairs": 2,
+            "dmn_violating_pairs": 2,
+            "dmn_maximal_overlap_sets": 2,
+            "complete_uncovered": 0,
+            "complete_multi_hit": 2,
+            "complete_conflicts": 2,
+            "dmn_gaps_equal_complete_missing": true,
+            "dmn_detects": true,
+            "complete_detects": true,
+            "dmn_ms": 23.982000071555376,
+            "complete_ms": 42.635400081053376
+          }
+        ]
+      },
+      "same-class leaves merged (OneOf)": {
+        "review_size": {
+          "rules": 421,
+          "non_wildcard_cells": 2812,
+          "cells": 3789
+        },
+        "entry_kinds": {
+          "ANY": 556,
+          "Point": 2518,
+          "OneOf": 294
+        },
+        "gap_regions": 0,
+        "overlap_pairs": 0,
+        "violating_pairs": 0,
+        "analysis_ms": 15.916100004687905,
+        "expands_to_full_table": true,
+        "structural_sound": true,
+        "misaligned": 0,
+        "faults": [
+          {
+            "fault": "drop rule 0 (largest, covers 4320 tuples)",
+            "dmn_gap_regions": 1,
+            "dmn_gap_tuples": 4320,
+            "dmn_overlap_pairs": 0,
+            "dmn_violating_pairs": 0,
+            "dmn_maximal_overlap_sets": 0,
+            "complete_uncovered": 4320,
+            "complete_multi_hit": 0,
+            "complete_conflicts": 0,
+            "dmn_gaps_equal_complete_missing": true,
+            "dmn_detects": true,
+            "complete_detects": true,
+            "dmn_ms": 18.20460008457303,
+            "complete_ms": 29.232600005343556
+          },
+          {
+            "fault": "drop rule 308 (smallest, covers 1 tuples)",
+            "dmn_gap_regions": 1,
+            "dmn_gap_tuples": 1,
+            "dmn_overlap_pairs": 0,
+            "dmn_violating_pairs": 0,
+            "dmn_maximal_overlap_sets": 0,
+            "complete_uncovered": 1,
+            "complete_multi_hit": 0,
+            "complete_conflicts": 0,
+            "dmn_gaps_equal_complete_missing": true,
+            "dmn_detects": true,
+            "complete_detects": true,
+            "dmn_ms": 15.393099980428815,
+            "complete_ms": 38.6026999913156
+          },
+          {
+            "fault": "widen rule 0, input health, to '-'",
+            "dmn_gap_regions": 0,
+            "dmn_gap_tuples": 0,
+            "dmn_overlap_pairs": 420,
+            "dmn_violating_pairs": 420,
+            "dmn_maximal_overlap_sets": 420,
+            "complete_uncovered": 0,
+            "complete_multi_hit": 8640,
+            "complete_conflicts": 8640,
+            "dmn_gaps_equal_complete_missing": true,
+            "dmn_detects": true,
+            "complete_detects": true,
+            "dmn_ms": 22.38580002449453,
+            "complete_ms": 66.7812000028789
+          }
+        ]
+      }
+    }
+  },
+  "rank_index": {
+    "rows": 12960,
+    "build_ms": 17.580099985934794,
+    "dict_build_ms": 1.865199999883771,
+    "code_bytes": 12960,
+    "metadata_bytes": 531,
+    "lookups": 12960,
+    "agree_with_dict": 12960,
+    "out_of_domain_probe_is_referral": true,
+    "lookup_median_us": 1.3,
+    "lookup_p99_us": 2.4
+  }
+}

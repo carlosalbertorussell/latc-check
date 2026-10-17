@@ -1,0 +1,3607 @@
+{
+  "root": "dmn-tck",
+  "booleans_skip": {
+    "files": 168,
+    "files_with_tables": 36,
+    "file_errors": {},
+    "tables": 70,
+    "parsed": 19,
+    "skipped": 51,
+    "versions": {
+      "1.5": 70
+    },
+    "skip_reasons": {
+      "input type boolean": 18,
+      "hit policy COLLECT": 14,
+      "multiple outputs": 4,
+      "unsupported FEEL: non-literal expression": 4,
+      "input type date": 3,
+      "hit policy RULE ORDER": 2,
+      "hit policy OUTPUT ORDER": 2,
+      "input type time": 1,
+      "input type dateTime": 1,
+      "input type dayTimeDuration": 1,
+      "input type yearMonthDuration": 1
+    },
+    "skipped_tables": [
+      {
+        "file": "TestCases/compliance-level-2/0004-simpletable-U/0004-simpletable-U.dmn",
+        "name": "Approval Status",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 3 (isAffordable): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-2/0005-simpletable-A/0005-simpletable-A.dmn",
+        "name": "Approval Status",
+        "hit_policy": "ANY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 3 (isAffordable): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-2/0006-simpletable-P1/0006-simpletable-P1.dmn",
+        "name": "Approval Status",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 3 (isAffordable): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-2/0007-simpletable-P2/0007-simpletable-P2.dmn",
+        "name": "Approval Status",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 3 (isAffordable): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-2/0010-multi-output-U/0010-multi-output-U.dmn",
+        "name": "Approval",
+        "hit_policy": "UNIQUE",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0108-first-hitpolicy/0108-first-hitpolicy.dmn",
+        "name": "Approval",
+        "hit_policy": "FIRST",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0109-ruleOrder-hitpolicy/0109-ruleOrder-hitpolicy.dmn",
+        "name": "Approval",
+        "hit_policy": "RULE ORDER",
+        "reason": "hit policy RULE ORDER",
+        "all_reasons": [
+          "hit policy RULE ORDER",
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0110-outputOrder-hitpolicy/0110-outputOrder-hitpolicy.dmn",
+        "name": "Approval Status",
+        "hit_policy": "OUTPUT ORDER",
+        "reason": "hit policy OUTPUT ORDER",
+        "all_reasons": [
+          "hit policy OUTPUT ORDER",
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0112-ruleOrder-hitpolicy-singleinoutcol/0112-ruleOrder-hitpolicy-singleinoutcol.dmn",
+        "name": "Approval",
+        "hit_policy": "RULE ORDER",
+        "reason": "hit policy RULE ORDER",
+        "all_reasons": [
+          "hit policy RULE ORDER"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0113-outputOrder-hitpolicy-singleinoutcol/0113-outputOrder-hitpolicy-singleinoutcol.dmn",
+        "name": "Approval Status",
+        "hit_policy": "OUTPUT ORDER",
+        "reason": "hit policy OUTPUT ORDER",
+        "all_reasons": [
+          "hit policy OUTPUT ORDER"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0114-min-collect-hitpolicy/0114-min-collect-hitpolicy.dmn",
+        "name": "CarInsurance",
+        "hit_policy": "COLLECT MIN",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0115-sum-collect-hitpolicy/0115-sum-collect-hitpolicy.dmn",
+        "name": "Salary",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0116-count-collect-hitpolicy/0116-count-collect-hitpolicy.dmn",
+        "name": "Salary",
+        "hit_policy": "COLLECT COUNT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0117-multi-any-hitpolicy/0117-multi-any-hitpolicy.dmn",
+        "name": "Approval",
+        "hit_policy": "ANY",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0118-multi-priority-hitpolicy/0118-multi-priority-hitpolicy.dmn",
+        "name": "Approval Status",
+        "hit_policy": "PRIORITY",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0119-multi-collect-hitpolicy/0119-multi-collect-hitpolicy.dmn",
+        "name": "Approval Status",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT",
+          "multiple outputs",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "EligibilityRules",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 2 (Pre-bureauAffordability): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "Pre-bureauRiskCategoryTable",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 (ExistingCustomer): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "Post-bureauRiskCategoryTable",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 (ExistingCustomer): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "ApplicationRiskScoreModel",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "RoutingRules",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean",
+          "input type boolean"
+        ],
+        "detail": "input 2 (Post-bureauAffordability): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0008-listGen/0008-listGen.dmn",
+        "name": "listGen4",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0008-listGen/0008-listGen.dmn",
+        "name": "listGen5",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "priceInRange",
+        "hit_policy": "PRIORITY",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "[numB..numC]"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "dateCompare1",
+        "hit_policy": "UNIQUE",
+        "reason": "input type date",
+        "all_reasons": [
+          "input type date"
+        ],
+        "detail": "input 1 (dateD): typeRef 'date'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "dateCompare2",
+        "hit_policy": "UNIQUE",
+        "reason": "input type date",
+        "all_reasons": [
+          "input type date"
+        ],
+        "detail": "input 1 (dateD): typeRef 'date'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0020-vacation-days/0020-vacation-days.dmn",
+        "name": "Extra days case 1",
+        "hit_policy": "COLLECT MAX",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0020-vacation-days/0020-vacation-days.dmn",
+        "name": "Extra days case 2",
+        "hit_policy": "COLLECT MAX",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0020-vacation-days/0020-vacation-days.dmn",
+        "name": "Extra days case 3",
+        "hit_policy": "COLLECT MAX",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Boolean",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 (Another boolean): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare String",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "Complex.aString"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Number",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "Complex.aNumber"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Date",
+        "hit_policy": "UNIQUE",
+        "reason": "input type date",
+        "all_reasons": [
+          "input type date"
+        ],
+        "detail": "input 1 (Another Date): typeRef 'date'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Time",
+        "hit_policy": "UNIQUE",
+        "reason": "input type time",
+        "all_reasons": [
+          "input type time"
+        ],
+        "detail": "input 1 (Another Time): typeRef 'time'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Date and Time",
+        "hit_policy": "UNIQUE",
+        "reason": "input type dateTime",
+        "all_reasons": [
+          "input type dateTime"
+        ],
+        "detail": "input 1 (Another Date and Time): typeRef 'dateTime'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Days and Time Duration",
+        "hit_policy": "UNIQUE",
+        "reason": "input type dayTimeDuration",
+        "all_reasons": [
+          "input type dayTimeDuration"
+        ],
+        "detail": "input 1 (Another Days and Time Duration): typeRef 'dayTimeDuration'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Years and Months Duration",
+        "hit_policy": "UNIQUE",
+        "reason": "input type yearMonthDuration",
+        "all_reasons": [
+          "input type yearMonthDuration"
+        ],
+        "detail": "input 1 (Another Years and Months Duration): typeRef 'yearMonthDuration'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0039-dt-list-semantics/0039-dt-list-semantics.dmn",
+        "name": "Symptom Analysis",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Eligibility rules",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 2 (Pre-Bureau Affordability): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Routing rules",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean",
+          "input type boolean"
+        ],
+        "detail": "input 2 (Post-bureau affordability): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Post-bureau risk category table",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 (Existing Customer): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Pre-bureau risk category table",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 (Existing Customer): typeRef 'boolean'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Application risk score model",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/non-compliant/0019-flight-rebooking/0019-flight-rebooking.dmn",
+        "name": "passenger priority",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": ">= Passenger2.Miles"
+      },
+      {
+        "file": "TestExamples/calc-discount/A.1.dmn",
+        "name": "Calculate Price Decision",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 2 (priority): typeRef None"
+      },
+      {
+        "file": "TestExamples/calc-discount/A.2.dmn",
+        "name": "Calculate Price Decision",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT",
+          "input type boolean"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Eligibility Rules",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 2 ('Pre-bureau Affordability'): typeRef None"
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Pre-bureau Risk Category Table",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 ('Existing Customer'): typeRef None"
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Post-bureau Risk Category Table",
+        "hit_policy": "UNIQUE",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean"
+        ],
+        "detail": "input 1 ('Existing Customer'): typeRef None"
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Application Risk Score Model",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Routing Rules",
+        "hit_policy": "PRIORITY",
+        "reason": "input type boolean",
+        "all_reasons": [
+          "input type boolean",
+          "input type boolean"
+        ],
+        "detail": "input 2 ('Post-bureau Affordability'): typeRef None"
+      }
+    ],
+    "analysed": [
+      {
+        "file": "TestCases/compliance-level-2/0111-first-hitpolicy-singleoutputcol/0111-first-hitpolicy-singleoutputcol.dmn",
+        "name": "Advertisement",
+        "hit_policy": "FIRST",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "age",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<= 0"
+        ],
+        "overlapping_pairs": 3,
+        "pairs_with_different_outputs": 3,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.32849994022399187,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "age: domain not a closed integer range; proxy grid of 41 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "Strategy",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 3,
+        "domains": [
+          "Eligibility: {ELIGIBLE, INELIGIBLE}",
+          "Bureau Call: {FULL, MINI, NONE}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Eligibility",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Bureau Call",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.06490002851933241,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "CreditContingencyFactorTable",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "RiskCategory: {DECLINE, HIGH, LOW, MEDIUM, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "RiskCategory",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.03929995000362396,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "BureauCallTypeTable",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "Pre-bureauRiskCategory: {HIGH, MEDIUM, LOW, DECLINE, VERY LOW, <other>}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Pre-bureauRiskCategory",
+            "type": "string",
+            "domain": "mentioned+OTHER"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<other>"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.042899977415800095,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "priceGt10",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 2,
+        "domains": [
+          "structA.price: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "structA.price",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.056600081734359264,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "structA.price: domain not a closed integer range; proxy grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0035-test-structure-output/0035-test-structure-output.dmn",
+        "name": "single encode to hex",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 7,
+        "domains": [
+          "digit: [0..15]"
+        ],
+        "domain_sources": [
+          {
+            "input": "digit",
+            "type": "number",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 6,
+        "gap_regions_unmerged": 6,
+        "gaps": [
+          "(9..10)",
+          "(10..11)",
+          "(11..12)",
+          "(12..13)",
+          "(13..14)",
+          "(14..15)"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 6,
+        "ms": 0.14759995974600315,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 31 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0037-dt-on-bkm-implicit-params/0037-dt-on-bkm-implicit-params.dmn",
+        "name": "Description",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 2,
+        "domains": [
+          "Person.Gender: {Male, Female}",
+          "Person.Name: {<other>}",
+          "Person.Children: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Person.Gender",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Person.Name",
+            "type": "string",
+            "domain": "mentioned+OTHER"
+          },
+          {
+            "input": "Person.Children",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.06360001862049103,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Person.Children: domain not a closed integer range; proxy grid of 2 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0038-dt-on-bkm-explicit-params/0038-dt-on-bkm-explicit-params.dmn",
+        "name": "Description",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 2,
+        "domains": [
+          "Person.Gender: {Male, Female}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Person.Gender",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.02629996743053198,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 2 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0040-singlenestedcontext/0040-singlenestedcontext.dmn",
+        "name": "Boxed Context",
+        "hit_policy": "UNIQUE",
+        "inputs": 4,
+        "rules": 3,
+        "domains": [
+          "Principal: (-inf..inf)",
+          "Term: (-inf..inf)",
+          "Rate: (-inf..inf)",
+          "Fees: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Principal",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Term",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Rate",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Fees",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 20,
+        "gap_regions_unmerged": 20,
+        "gaps": [
+          "< 30000 | - | - | -",
+          "(30000..600000) | - | - | -",
+          "> 600000 | - | - | -",
+          "30000 | < 60 | - | -",
+          "30000 | > 60 | - | -",
+          "30000 | 60 | < 0.0375 | -",
+          "30000 | 60 | > 0.0375 | -",
+          "30000 | 60 | 0.0375 | < 100",
+          "30000 | 60 | 0.0375 | > 100",
+          "600000 | < 360 | - | -",
+          "600000 | (360..365) | - | -",
+          "600000 | > 365 | - | -"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 6,
+        "ms": 0.4453000146895647,
+        "oracle": {
+          "mode": "not run",
+          "note": "Principal: domain not a closed integer range; no integer proxy (non-integer bound or open finite domain)"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0041-multiple-nestedcontext/0041-multiple-nestedcontext.dmn",
+        "name": "Boxed Context",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 3,
+        "domains": [
+          "Principal: (-inf..inf)",
+          "Term: (-inf..inf)",
+          "Rate: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Principal",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Term",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Rate",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 14,
+        "gap_regions_unmerged": 14,
+        "gaps": [
+          "< 30000 | - | -",
+          "(30000..600000) | - | -",
+          "> 600000 | - | -",
+          "30000 | < 60 | -",
+          "30000 | > 60 | -",
+          "30000 | 60 | < 0.0375",
+          "30000 | 60 | > 0.0375",
+          "600000 | < 360 | -",
+          "600000 | (360..365) | -",
+          "600000 | > 365 | -",
+          "600000 | 360 | < 0.0375",
+          "600000 | 360 | > 0.0375"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.28609996661543846,
+        "oracle": {
+          "mode": "not run",
+          "note": "Principal: domain not a closed integer range; no integer proxy (non-integer bound or open finite domain)"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0086-import/0086-import.dmn",
+        "name": "A Decision Ctx with DT",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 2,
+        "domains": [
+          "A Person.age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "A Person.age",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.0513000413775444,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "A Person.age: domain not a closed integer range; proxy grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Strategy",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 3,
+        "domains": [
+          "Eligibility: {INELIGIBLE, ELIGIBLE}",
+          "Bureau call type: {FULL, MINI, NONE}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Eligibility",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Bureau call type",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.05409994628280401,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Bureau call type table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "Pre-Bureau Risk Category: {DECLINE, HIGH, MEDIUM, LOW, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Pre-Bureau Risk Category",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.036899931728839874,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Credit contingency factor table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "Risk Category: {DECLINE, HIGH, MEDIUM, LOW, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Risk Category",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.05059991963207722,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0088-no-decision-logic/0088-no-decision-logic.dmn",
+        "name": "Graduation DT",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 6,
+        "domains": [
+          "Grade: {A, B, C, D, E, F, <other>}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Grade",
+            "type": "string (inferred)",
+            "domain": "mentioned+OTHER"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<other>"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.09200000204145908,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 7 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Strategy",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 3,
+        "domains": [
+          "Eligibility: {ELIGIBLE, INELIGIBLE}",
+          "Bureau Call: {FULL, MINI, NONE}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Eligibility",
+            "type": "string (inferred)",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Bureau Call",
+            "type": "string (inferred)",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.09059999138116837,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Credit Contingency Factor Table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "'Risk Category': {DECLINE, HIGH, LOW, MEDIUM, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Risk Category'",
+            "type": "string (inferred)",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.05650008097290993,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Bureau Call Type Table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "'Pre-bureau Risk Category': {HIGH, MEDIUM, LOW, DECLINE, VERY LOW, <other>}"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Pre-bureau Risk Category'",
+            "type": "string (inferred)",
+            "domain": "mentioned+OTHER"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<other>"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.06829993799328804,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestExamples/order-discount/order-discount.dmn",
+        "name": "Order Discount",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 5,
+        "domains": [
+          "Amount: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Amount",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 3,
+        "gap_regions_unmerged": 3,
+        "gaps": [
+          "(999..1000)",
+          "(1999..2000)",
+          "(4999..5000)"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 3,
+        "ms": 0.2394999610260129,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Amount: domain not a closed integer range; proxy grid of 9005 points"
+        }
+      }
+    ]
+  },
+  "booleans_enum": {
+    "files": 168,
+    "files_with_tables": 36,
+    "file_errors": {},
+    "tables": 70,
+    "parsed": 35,
+    "skipped": 35,
+    "versions": {
+      "1.5": 70
+    },
+    "skip_reasons": {
+      "hit policy COLLECT": 14,
+      "unsupported FEEL: non-literal expression": 5,
+      "multiple outputs": 4,
+      "input type date": 3,
+      "hit policy RULE ORDER": 2,
+      "hit policy OUTPUT ORDER": 2,
+      "input type time": 1,
+      "input type dateTime": 1,
+      "input type dayTimeDuration": 1,
+      "input type yearMonthDuration": 1,
+      "unsupported FEEL: numeric disjunction": 1
+    },
+    "skipped_tables": [
+      {
+        "file": "TestCases/compliance-level-2/0010-multi-output-U/0010-multi-output-U.dmn",
+        "name": "Approval",
+        "hit_policy": "UNIQUE",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0108-first-hitpolicy/0108-first-hitpolicy.dmn",
+        "name": "Approval",
+        "hit_policy": "FIRST",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0109-ruleOrder-hitpolicy/0109-ruleOrder-hitpolicy.dmn",
+        "name": "Approval",
+        "hit_policy": "RULE ORDER",
+        "reason": "hit policy RULE ORDER",
+        "all_reasons": [
+          "hit policy RULE ORDER",
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0110-outputOrder-hitpolicy/0110-outputOrder-hitpolicy.dmn",
+        "name": "Approval Status",
+        "hit_policy": "OUTPUT ORDER",
+        "reason": "hit policy OUTPUT ORDER",
+        "all_reasons": [
+          "hit policy OUTPUT ORDER",
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0112-ruleOrder-hitpolicy-singleinoutcol/0112-ruleOrder-hitpolicy-singleinoutcol.dmn",
+        "name": "Approval",
+        "hit_policy": "RULE ORDER",
+        "reason": "hit policy RULE ORDER",
+        "all_reasons": [
+          "hit policy RULE ORDER"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0113-outputOrder-hitpolicy-singleinoutcol/0113-outputOrder-hitpolicy-singleinoutcol.dmn",
+        "name": "Approval Status",
+        "hit_policy": "OUTPUT ORDER",
+        "reason": "hit policy OUTPUT ORDER",
+        "all_reasons": [
+          "hit policy OUTPUT ORDER"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0114-min-collect-hitpolicy/0114-min-collect-hitpolicy.dmn",
+        "name": "CarInsurance",
+        "hit_policy": "COLLECT MIN",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0115-sum-collect-hitpolicy/0115-sum-collect-hitpolicy.dmn",
+        "name": "Salary",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0116-count-collect-hitpolicy/0116-count-collect-hitpolicy.dmn",
+        "name": "Salary",
+        "hit_policy": "COLLECT COUNT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0117-multi-any-hitpolicy/0117-multi-any-hitpolicy.dmn",
+        "name": "Approval",
+        "hit_policy": "ANY",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0118-multi-priority-hitpolicy/0118-multi-priority-hitpolicy.dmn",
+        "name": "Approval Status",
+        "hit_policy": "PRIORITY",
+        "reason": "multiple outputs",
+        "all_reasons": [
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-2/0119-multi-collect-hitpolicy/0119-multi-collect-hitpolicy.dmn",
+        "name": "Approval Status",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT",
+          "multiple outputs"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "ApplicationRiskScoreModel",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0008-listGen/0008-listGen.dmn",
+        "name": "listGen4",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0008-listGen/0008-listGen.dmn",
+        "name": "listGen5",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "priceInRange",
+        "hit_policy": "PRIORITY",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "[numB..numC]"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "dateCompare1",
+        "hit_policy": "UNIQUE",
+        "reason": "input type date",
+        "all_reasons": [
+          "input type date"
+        ],
+        "detail": "input 1 (dateD): typeRef 'date'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "dateCompare2",
+        "hit_policy": "UNIQUE",
+        "reason": "input type date",
+        "all_reasons": [
+          "input type date"
+        ],
+        "detail": "input 1 (dateD): typeRef 'date'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0020-vacation-days/0020-vacation-days.dmn",
+        "name": "Extra days case 1",
+        "hit_policy": "COLLECT MAX",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0020-vacation-days/0020-vacation-days.dmn",
+        "name": "Extra days case 2",
+        "hit_policy": "COLLECT MAX",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0020-vacation-days/0020-vacation-days.dmn",
+        "name": "Extra days case 3",
+        "hit_policy": "COLLECT MAX",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Boolean",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "Complex.aBoolean"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare String",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "Complex.aString"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Number",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": "Complex.aNumber"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Date",
+        "hit_policy": "UNIQUE",
+        "reason": "input type date",
+        "all_reasons": [
+          "input type date"
+        ],
+        "detail": "input 1 (Another Date): typeRef 'date'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Time",
+        "hit_policy": "UNIQUE",
+        "reason": "input type time",
+        "all_reasons": [
+          "input type time"
+        ],
+        "detail": "input 1 (Another Time): typeRef 'time'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Date and Time",
+        "hit_policy": "UNIQUE",
+        "reason": "input type dateTime",
+        "all_reasons": [
+          "input type dateTime"
+        ],
+        "detail": "input 1 (Another Date and Time): typeRef 'dateTime'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Days and Time Duration",
+        "hit_policy": "UNIQUE",
+        "reason": "input type dayTimeDuration",
+        "all_reasons": [
+          "input type dayTimeDuration"
+        ],
+        "detail": "input 1 (Another Days and Time Duration): typeRef 'dayTimeDuration'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0036-dt-variable-input/0036-dt-variable-input.dmn",
+        "name": "Compare Years and Months Duration",
+        "hit_policy": "UNIQUE",
+        "reason": "input type yearMonthDuration",
+        "all_reasons": [
+          "input type yearMonthDuration"
+        ],
+        "detail": "input 1 (Another Years and Months Duration): typeRef 'yearMonthDuration'"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0039-dt-list-semantics/0039-dt-list-semantics.dmn",
+        "name": "Symptom Analysis",
+        "hit_policy": "COLLECT",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Routing rules",
+        "hit_policy": "PRIORITY",
+        "reason": "unsupported FEEL: numeric disjunction",
+        "all_reasons": [
+          "unsupported FEEL: numeric disjunction"
+        ],
+        "detail": "inputValues of Credit score: null, [0..999]"
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Application risk score model",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestCases/non-compliant/0019-flight-rebooking/0019-flight-rebooking.dmn",
+        "name": "passenger priority",
+        "hit_policy": "UNIQUE",
+        "reason": "unsupported FEEL: non-literal expression",
+        "all_reasons": [
+          "unsupported FEEL: non-literal expression"
+        ],
+        "detail": ">= Passenger2.Miles"
+      },
+      {
+        "file": "TestExamples/calc-discount/A.2.dmn",
+        "name": "Calculate Price Decision",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Application Risk Score Model",
+        "hit_policy": "COLLECT SUM",
+        "reason": "hit policy COLLECT",
+        "all_reasons": [
+          "hit policy COLLECT"
+        ],
+        "detail": ""
+      }
+    ],
+    "analysed": [
+      {
+        "file": "TestCases/compliance-level-2/0004-simpletable-U/0004-simpletable-U.dmn",
+        "name": "Approval Status",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 4,
+        "domains": [
+          "Age: (-inf..inf)",
+          "RiskCategory: {High, Low, Medium}",
+          "isAffordable: {true, false}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Age",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "RiskCategory",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "isAffordable",
+            "type": "boolean",
+            "domain": "booleans"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.38410001434385777,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 30 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-2/0005-simpletable-A/0005-simpletable-A.dmn",
+        "name": "Approval Status",
+        "hit_policy": "ANY",
+        "inputs": 3,
+        "rules": 4,
+        "domains": [
+          "Age: (-inf..inf)",
+          "RiskCategory: {High, Low, Medium}",
+          "isAffordable: {true, false}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Age",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "RiskCategory",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "isAffordable",
+            "type": "boolean",
+            "domain": "booleans"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 3,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.17190002836287022,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 30 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-2/0006-simpletable-P1/0006-simpletable-P1.dmn",
+        "name": "Approval Status",
+        "hit_policy": "PRIORITY",
+        "inputs": 3,
+        "rules": 4,
+        "domains": [
+          "Age: (-inf..inf)",
+          "RiskCategory: {High, Low, Medium}",
+          "isAffordable: {true, false}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Age",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "RiskCategory",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "isAffordable",
+            "type": "boolean",
+            "domain": "booleans"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 3,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.18640002235770226,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 30 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-2/0007-simpletable-P2/0007-simpletable-P2.dmn",
+        "name": "Approval Status",
+        "hit_policy": "PRIORITY",
+        "inputs": 3,
+        "rules": 2,
+        "domains": [
+          "Age: (-inf..inf)",
+          "RiskCategory: {High, Low, Medium}",
+          "isAffordable: {true, false}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Age",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "RiskCategory",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "isAffordable",
+            "type": "boolean",
+            "domain": "booleans"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 1,
+        "pairs_with_different_outputs": 1,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.125400023534894,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 30 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-2/0111-first-hitpolicy-singleoutputcol/0111-first-hitpolicy-singleoutputcol.dmn",
+        "name": "Advertisement",
+        "hit_policy": "FIRST",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "age",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<= 0"
+        ],
+        "overlapping_pairs": 3,
+        "pairs_with_different_outputs": 3,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.13289996422827244,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "age: domain not a closed integer range; proxy grid of 41 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "Strategy",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 3,
+        "domains": [
+          "Eligibility: {ELIGIBLE, INELIGIBLE}",
+          "Bureau Call: {FULL, MINI, NONE}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Eligibility",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Bureau Call",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.05550007335841656,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "CreditContingencyFactorTable",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "RiskCategory: {DECLINE, HIGH, LOW, MEDIUM, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "RiskCategory",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.03620004281401634,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "EligibilityRules",
+        "hit_policy": "PRIORITY",
+        "inputs": 3,
+        "rules": 4,
+        "domains": [
+          "Pre-bureauRiskCategory: {DECLINE, <other>}",
+          "Pre-bureauAffordability: {true, false}",
+          "Age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Pre-bureauRiskCategory",
+            "type": "string",
+            "domain": "mentioned+OTHER"
+          },
+          {
+            "input": "Pre-bureauAffordability",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "Age",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 6,
+        "pairs_with_different_outputs": 3,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.1697000116109848,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 20 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "BureauCallTypeTable",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "Pre-bureauRiskCategory: {HIGH, MEDIUM, LOW, DECLINE, VERY LOW, <other>}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Pre-bureauRiskCategory",
+            "type": "string",
+            "domain": "mentioned+OTHER"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<other>"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.05989999044686556,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "Pre-bureauRiskCategoryTable",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 8,
+        "domains": [
+          "ExistingCustomer: {true, false}",
+          "ApplicationRiskScore: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "ExistingCustomer",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "ApplicationRiskScore",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "false | 130"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.16679998952895403,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "ApplicationRiskScore: domain not a closed integer range; proxy grid of 210 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "Post-bureauRiskCategoryTable",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 13,
+        "domains": [
+          "ExistingCustomer: {true, false}",
+          "ApplicationRiskScore: (-inf..inf)",
+          "CreditScore: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "ExistingCustomer",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "ApplicationRiskScore",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "CreditScore",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.300500076264143,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "ApplicationRiskScore: domain not a closed integer range; proxy grid of 12350 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0004-lending/0004-lending.dmn",
+        "name": "RoutingRules",
+        "hit_policy": "PRIORITY",
+        "inputs": 4,
+        "rules": 5,
+        "domains": [
+          "Post-bureauRiskCategory: {HIGH, <other>}",
+          "Post-bureauAffordability: {true, false}",
+          "Bankrupt: {true, false}",
+          "CreditScore: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Post-bureauRiskCategory",
+            "type": "string",
+            "domain": "mentioned+OTHER"
+          },
+          {
+            "input": "Post-bureauAffordability",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "Bankrupt",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "CreditScore",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 10,
+        "pairs_with_different_outputs": 8,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.5822000093758106,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "CreditScore: domain not a closed integer range; proxy grid of 40 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0017-tableTests/0017-tableTests.dmn",
+        "name": "priceGt10",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 2,
+        "domains": [
+          "structA.price: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "structA.price",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.08430005982518196,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "structA.price: domain not a closed integer range; proxy grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0035-test-structure-output/0035-test-structure-output.dmn",
+        "name": "single encode to hex",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 7,
+        "domains": [
+          "digit: [0..15]"
+        ],
+        "domain_sources": [
+          {
+            "input": "digit",
+            "type": "number",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 6,
+        "gap_regions_unmerged": 6,
+        "gaps": [
+          "(9..10)",
+          "(10..11)",
+          "(11..12)",
+          "(12..13)",
+          "(13..14)",
+          "(14..15)"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 6,
+        "ms": 0.24530000519007444,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 31 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0037-dt-on-bkm-implicit-params/0037-dt-on-bkm-implicit-params.dmn",
+        "name": "Description",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 2,
+        "domains": [
+          "Person.Gender: {Male, Female}",
+          "Person.Name: {<other>}",
+          "Person.Children: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Person.Gender",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Person.Name",
+            "type": "string",
+            "domain": "mentioned+OTHER"
+          },
+          {
+            "input": "Person.Children",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.0841999426484108,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Person.Children: domain not a closed integer range; proxy grid of 2 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0038-dt-on-bkm-explicit-params/0038-dt-on-bkm-explicit-params.dmn",
+        "name": "Description",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 2,
+        "domains": [
+          "Person.Gender: {Male, Female}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Person.Gender",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.027399975806474686,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 2 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0040-singlenestedcontext/0040-singlenestedcontext.dmn",
+        "name": "Boxed Context",
+        "hit_policy": "UNIQUE",
+        "inputs": 4,
+        "rules": 3,
+        "domains": [
+          "Principal: (-inf..inf)",
+          "Term: (-inf..inf)",
+          "Rate: (-inf..inf)",
+          "Fees: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Principal",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Term",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Rate",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Fees",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 20,
+        "gap_regions_unmerged": 20,
+        "gaps": [
+          "< 30000 | - | - | -",
+          "(30000..600000) | - | - | -",
+          "> 600000 | - | - | -",
+          "30000 | < 60 | - | -",
+          "30000 | > 60 | - | -",
+          "30000 | 60 | < 0.0375 | -",
+          "30000 | 60 | > 0.0375 | -",
+          "30000 | 60 | 0.0375 | < 100",
+          "30000 | 60 | 0.0375 | > 100",
+          "600000 | < 360 | - | -",
+          "600000 | (360..365) | - | -",
+          "600000 | > 365 | - | -"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 6,
+        "ms": 0.4559000954031944,
+        "oracle": {
+          "mode": "not run",
+          "note": "Principal: domain not a closed integer range; no integer proxy (non-integer bound or open finite domain)"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0041-multiple-nestedcontext/0041-multiple-nestedcontext.dmn",
+        "name": "Boxed Context",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 3,
+        "domains": [
+          "Principal: (-inf..inf)",
+          "Term: (-inf..inf)",
+          "Rate: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Principal",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Term",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Rate",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 14,
+        "gap_regions_unmerged": 14,
+        "gaps": [
+          "< 30000 | - | -",
+          "(30000..600000) | - | -",
+          "> 600000 | - | -",
+          "30000 | < 60 | -",
+          "30000 | > 60 | -",
+          "30000 | 60 | < 0.0375",
+          "30000 | 60 | > 0.0375",
+          "600000 | < 360 | -",
+          "600000 | (360..365) | -",
+          "600000 | > 365 | -",
+          "600000 | 360 | < 0.0375",
+          "600000 | 360 | > 0.0375"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.3755000652745366,
+        "oracle": {
+          "mode": "not run",
+          "note": "Principal: domain not a closed integer range; no integer proxy (non-integer bound or open finite domain)"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0086-import/0086-import.dmn",
+        "name": "A Decision Ctx with DT",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 2,
+        "domains": [
+          "A Person.age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "A Person.age",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.08769996929913759,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "A Person.age: domain not a closed integer range; proxy grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Strategy",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 3,
+        "domains": [
+          "Eligibility: {INELIGIBLE, ELIGIBLE}",
+          "Bureau call type: {FULL, MINI, NONE}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Eligibility",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Bureau call type",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.06059999577701092,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Eligibility rules",
+        "hit_policy": "PRIORITY",
+        "inputs": 3,
+        "rules": 4,
+        "domains": [
+          "Pre-Bureau Risk Category: {DECLINE, HIGH, MEDIUM, LOW, VERY LOW}",
+          "Pre-Bureau Affordability: {true, false}",
+          "Age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Pre-Bureau Risk Category",
+            "type": "string",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Pre-Bureau Affordability",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "Age",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 6,
+        "pairs_with_different_outputs": 3,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.19869999960064888,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 50 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Bureau call type table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "Pre-Bureau Risk Category: {DECLINE, HIGH, MEDIUM, LOW, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Pre-Bureau Risk Category",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.042400090023875237,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Credit contingency factor table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "Risk Category: {DECLINE, HIGH, MEDIUM, LOW, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Risk Category",
+            "type": "string",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.033800024539232254,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Post-bureau risk category table",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 13,
+        "domains": [
+          "Existing Customer: {true, false}",
+          "Application Risk Score: (-inf..inf)",
+          "Credit Score: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Existing Customer",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "Application Risk Score",
+            "type": "number",
+            "domain": "unbounded"
+          },
+          {
+            "input": "Credit Score",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.32730004750192165,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Application Risk Score: domain not a closed integer range; proxy grid of 12350 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0087-chapter-11-example/0087-chapter-11-example.dmn",
+        "name": "Pre-bureau risk category table",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 8,
+        "domains": [
+          "Existing Customer: {true, false}",
+          "Application Risk Score: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Existing Customer",
+            "type": "boolean",
+            "domain": "booleans"
+          },
+          {
+            "input": "Application Risk Score",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.251100049354136,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Application Risk Score: domain not a closed integer range; proxy grid of 210 points"
+        }
+      },
+      {
+        "file": "TestCases/compliance-level-3/0088-no-decision-logic/0088-no-decision-logic.dmn",
+        "name": "Graduation DT",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 6,
+        "domains": [
+          "Grade: {A, B, C, D, E, F, <other>}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Grade",
+            "type": "string (inferred)",
+            "domain": "mentioned+OTHER"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<other>"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.06370001938194036,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 7 points"
+        }
+      },
+      {
+        "file": "TestExamples/calc-discount/A.1.dmn",
+        "name": "Calculate Price Decision",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 6,
+        "domains": [
+          "age: (-inf..inf)",
+          "priority: {true, false}"
+        ],
+        "domain_sources": [
+          {
+            "input": "age",
+            "type": "number (inferred)",
+            "domain": "unbounded"
+          },
+          {
+            "input": "priority",
+            "type": "boolean (inferred)",
+            "domain": "booleans"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "[2..3) | -"
+        ],
+        "overlapping_pairs": 2,
+        "pairs_with_different_outputs": 2,
+        "maximal_overlap_sets": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "violating_pairs": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.1447000540792942,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "age: domain not a closed integer range; proxy grid of 66 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Strategy",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 3,
+        "domains": [
+          "Eligibility: {ELIGIBLE, INELIGIBLE}",
+          "Bureau Call: {FULL, MINI, NONE}"
+        ],
+        "domain_sources": [
+          {
+            "input": "Eligibility",
+            "type": "string (inferred)",
+            "domain": "inputValues"
+          },
+          {
+            "input": "Bureau Call",
+            "type": "string (inferred)",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.05419994704425335,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Credit Contingency Factor Table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "'Risk Category': {DECLINE, HIGH, LOW, MEDIUM, VERY LOW}"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Risk Category'",
+            "type": "string (inferred)",
+            "domain": "inputValues"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.0366999302059412,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 5 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Eligibility Rules",
+        "hit_policy": "PRIORITY",
+        "inputs": 3,
+        "rules": 4,
+        "domains": [
+          "'Pre-bureau Risk Category': {DECLINE, <other>}",
+          "'Pre-bureau Affordability': {true, false}",
+          "Age: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Pre-bureau Risk Category'",
+            "type": "string (inferred)",
+            "domain": "mentioned+OTHER"
+          },
+          {
+            "input": "'Pre-bureau Affordability'",
+            "type": "boolean (inferred)",
+            "domain": "booleans"
+          },
+          {
+            "input": "Age",
+            "type": "number (inferred)",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 6,
+        "pairs_with_different_outputs": 3,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.17989997286349535,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "Age: domain not a closed integer range; proxy grid of 20 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Bureau Call Type Table",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 3,
+        "domains": [
+          "'Pre-bureau Risk Category': {HIGH, MEDIUM, LOW, DECLINE, VERY LOW, <other>}"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Pre-bureau Risk Category'",
+            "type": "string (inferred)",
+            "domain": "mentioned+OTHER"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "<other>"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.04610000178217888,
+        "oracle": {
+          "mode": "exact domain",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "grid of 6 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Pre-bureau Risk Category Table",
+        "hit_policy": "UNIQUE",
+        "inputs": 2,
+        "rules": 8,
+        "domains": [
+          "'Existing Customer': {true, false}",
+          "'Application Risk Score': (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Existing Customer'",
+            "type": "boolean (inferred)",
+            "domain": "booleans"
+          },
+          {
+            "input": "'Application Risk Score'",
+            "type": "number (inferred)",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 1,
+        "gap_regions_unmerged": 1,
+        "gaps": [
+          "false | 130"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.16549997963011265,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "'Application Risk Score': domain not a closed integer range; proxy grid of 210 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Post-bureau Risk Category Table",
+        "hit_policy": "UNIQUE",
+        "inputs": 3,
+        "rules": 13,
+        "domains": [
+          "'Existing Customer': {true, false}",
+          "'Application Risk Score': (-inf..inf)",
+          "'Credit Score': (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Existing Customer'",
+            "type": "boolean (inferred)",
+            "domain": "booleans"
+          },
+          {
+            "input": "'Application Risk Score'",
+            "type": "number (inferred)",
+            "domain": "unbounded"
+          },
+          {
+            "input": "'Credit Score'",
+            "type": "number (inferred)",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.5694000283256173,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "'Application Risk Score': domain not a closed integer range; proxy grid of 12350 points"
+        }
+      },
+      {
+        "file": "TestExamples/lending1/lending1.dmn",
+        "name": "Routing Rules",
+        "hit_policy": "PRIORITY",
+        "inputs": 4,
+        "rules": 5,
+        "domains": [
+          "'Post-bureau Risk Category': {HIGH, <other>}",
+          "'Post-bureau Affordability': {true, false}",
+          "Bankrupt: {true, false}",
+          "'Credit Score': (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "'Post-bureau Risk Category'",
+            "type": "string (inferred)",
+            "domain": "mentioned+OTHER"
+          },
+          {
+            "input": "'Post-bureau Affordability'",
+            "type": "boolean (inferred)",
+            "domain": "booleans"
+          },
+          {
+            "input": "Bankrupt",
+            "type": "boolean (inferred)",
+            "domain": "booleans"
+          },
+          {
+            "input": "'Credit Score'",
+            "type": "number (inferred)",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 0,
+        "gap_regions_unmerged": 0,
+        "gaps": [],
+        "overlapping_pairs": 10,
+        "pairs_with_different_outputs": 8,
+        "maximal_overlap_sets": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 0,
+        "ms": 0.40010001976042986,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true,
+            "never_fire": true
+          },
+          "note": "'Credit Score': domain not a closed integer range; proxy grid of 40 points"
+        }
+      },
+      {
+        "file": "TestExamples/order-discount/order-discount.dmn",
+        "name": "Order Discount",
+        "hit_policy": "UNIQUE",
+        "inputs": 1,
+        "rules": 5,
+        "domains": [
+          "Amount: (-inf..inf)"
+        ],
+        "domain_sources": [
+          {
+            "input": "Amount",
+            "type": "number",
+            "domain": "unbounded"
+          }
+        ],
+        "gap_regions": 3,
+        "gap_regions_unmerged": 3,
+        "gaps": [
+          "(999..1000)",
+          "(1999..2000)",
+          "(4999..5000)"
+        ],
+        "overlapping_pairs": 0,
+        "pairs_with_different_outputs": 0,
+        "maximal_overlap_sets": [],
+        "violating_pairs": [],
+        "masked_pairs": [],
+        "never_fire": [],
+        "undeclared_values": 0,
+        "integer_free_gap_regions": 3,
+        "ms": 0.13830000534653664,
+        "oracle": {
+          "mode": "bounded proxy",
+          "agree": true,
+          "properties": {
+            "gaps": true,
+            "gaps_disjoint": true,
+            "pairs": true,
+            "maximal_sets": true,
+            "violations": true
+          },
+          "note": "Amount: domain not a closed integer range; proxy grid of 9005 points"
+        }
+      }
+    ]
+  }
+}
