@@ -1,0 +1,16 @@
+The data files in this repository (results/, results_report.txt, and the tables
+transcribed in latc_check/examples.py) are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+
+Copyright (c) 2026 Carlos A. Russell
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, provide a link to the
+license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+The worked-example tables are transcribed from Raggio, R. A., & Russell, C. A.
+(2021), "Business Rules (BR); Expert Systems (KBS); LATC Algorithm. A proposal
+for functional integration", International Journal of Scientific & Engineering
+Research, 12(1). Cite that work when reusing them.

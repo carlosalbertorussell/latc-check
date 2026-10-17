@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "latc_check: independent checks for finite-domain decision-table completion"
+version: 0.1.0
+license: MIT
+authors:
+  - family-names: Russell
+    given-names: Carlos A.
+date-released: 2026-10-17
+references:
+  - type: article
+    title: "Business Rules (BR); Expert Systems (KBS); LATC Algorithm. A proposal for functional integration"
+    authors:
+      - family-names: Raggio
+        given-names: Raul A.
+      - family-names: Russell
+        given-names: Carlos A.
+    journal: "International Journal of Scientific & Engineering Research"
+    volume: 12
+    issue: 1
+    year: 2021

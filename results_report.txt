@@ -1,0 +1,317 @@
+latc_check 0.1.0 | Python 3.15.0 | Windows-11-10.0.26100-SP0
+
+RQ2.1  Worked example: pension rule (Table 1a)
+----------------------------------------------
+Source rows: TRANSCRIBED_FROM_DRAFT (check against the published IJSER Table 1a).
+T0 rows 8; prod Card(Ai) = 24; Corollary 3 missing = 16; exact complement = 16.
+Corollary 4 deficits: Sex M:8, F:8; Activity D:9, I:7; ContributionYears >=30:7, <30:9; Age >=65:5, 60-64:4, <60:7
+Published complementary table (16 rows) == exact complement: True
+Reading A, deficit block fill:     rows 16/16, missed 13, duplicates 11, regenerated T0 6, outside space 0, exact False
+Reading A, best of 48 block orders: rows 16/16, missed 10, duplicates 10, regenerated T0 0, outside space 0, exact False; any order exact: False
+Reading B, odometer + T0 matching: rows 16/16, missed 0, duplicates 0, regenerated T0 0, outside space 0, exact True
+Reading A's marginals equal the deficits: True; source's summed-frequency check on T0 + Reading A passes: True
+Distinct 16-row sets of the 24-cell space with exactly these deficits: 586; of those disjoint from T0: 1
+Reading A rows (* = already in T0):
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+          M     D  >=30 60-64
+          M     D  >=30 60-64
+          M     D   <30 60-64
+    *     F     D   <30 60-64
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+
+RQ2.2  Two-attribute counterexample
+-----------------------------------
+T0 = [('M', 'D'), ('F', 'I')]; exact complement = [('M', 'I'), ('F', 'D')]
+Reading A fill = [('M', 'D'), ('F', 'I')] -> rows 2/2, missed 2, duplicates 0, regenerated T0 2, outside space 0, exact False
+Twin T0 = [('M', 'I'), ('F', 'D')] has the same frequency table (True) and complement [('M', 'D'), ('F', 'I')].
+With block order [('M', 'F'), ('D', 'I')] both get [('M', 'D'), ('F', 'I')]: correct for at most one.
+Reading B: rows 2/2, missed 0, duplicates 0, regenerated T0 0, outside space 0, exact True
+
+RQ2.3  Randomised property tests (1000 tables per scenario, seed 20210101)
+--------------------------------------------------------------------------
+scenario     method                              trials          exact_rate         mean_missed     mean_duplicates mean_regenerated_t0  mean_outside_space
+observed     reference                             1000               1.000                   0                   0                   0                   0
+observed     latc_A_deficit_fill                   1000               0.263               6.757               4.860               4.186                   0
+observed     latc_A_best_order                      935               0.483               4.276               3.801               0.691                   0
+observed     latc_B_odometer                       1000               1.000                   0                   0                   0                   0
+             corollary3_count_equals_true_missing: 1.000
+             complement_passes_[12]_deficit_check: 1.000
+             complement_passes_valid_space_deficit_check: 1.000
+unobserved   reference                             1000               1.000                   0                   0                   0                   0
+unobserved   latc_A_deficit_fill                   1000               0.000              13.248               2.707               2.971                   0
+unobserved   latc_A_best_order                     1000               0.000              11.595               2.259               0.578                   0
+unobserved   latc_B_odometer                       1000               0.000               8.900                   0                   0                   0
+             corollary3_count_equals_true_missing: 0.000
+             complement_passes_[12]_deficit_check: 0.000
+             complement_passes_valid_space_deficit_check: 1.000
+constrained  reference                             1000               1.000                   0                   0                   0                   0
+constrained  latc_A_deficit_fill                   1000               0.000               5.406               7.671               6.405               3.066
+constrained  latc_A_best_order                      936               0.000               2.935               6.189               2.241               2.136
+constrained  latc_B_odometer                       1000               0.000                   0                   0                   0               6.252
+             corollary3_count_equals_true_missing: 0.000
+             complement_passes_[12]_deficit_check: 0.000
+             complement_passes_valid_space_deficit_check: 1.000
+latc_A_best_order only covers tables with <= 2000 block orders.
+
+RQ4.1  Structural checks on the completed pension table (T0 + published Table 2 bis)
+------------------------------------------------------------------------------------
+rows 24, valid_space 24, coverage 1.0, uncovered 0, multi_hit_tuples 0, single_hit True, conflicting_tuples 0, rows_outside_valid_space 0, unknown_outcomes 0, undeclared_outcomes 0 -> sound: True
+Injected conflicting duplicate: multi-hit 1, conflicts 1, sound False
+
+RQ4.2  Out-of-domain inputs
+---------------------------
+8 out-of-domain probes routed to 'Out of Range' (never to an in-domain row): {'dict': 8, 'sha512': 8, 'prime': 8}
+Example reason: Age=130 out of range
+Assumed operating ranges: Age (18, 120), contribution years (0, 60).
+
+RQ4.3  Keying
+-------------
+Canonical bytes of T0 row 1: {"Activity":"D","Age":">=65","ContributionYears":">=30","Sex":"M"}
+Naive ';'-join: ('a;b','c') and ('a','b;c') collide: True; canonical bytes collide: False
+Distinct primes per (attribute, value): one-to-one True, 24/24 distinct keys, {'max_key_bits': 13, 'max_key_digits': 4, 'fits_int64': True, 'fits_uint64': True, 'fits_float64_exact': True}
+Ambiguous assignment (j-th value of every attribute -> j-th prime): one-to-one False, 9/24 distinct keys (15 rows lost to collisions)
+Forced-collision test (SHA-512 truncated to 8 bits, 1024 rows, 770 colliding inserts): verified index correct 1024/1024, digest-only index correct 254/1024
+Prime key size at 10 attributes x 8 values: 73 bits (fits int64: False)
+
+RQ4.4  Scaling benchmark (rows <= 300,000)
+------------------------------------------
+  n card      rows  build_s  prime_s     MiB  bits  canon_ns  hash_ns  probe_ns  pkey_ns pprobe_ns
+  2    2         4    0.000    0.000     0.0     5      9460     1496       188     1800        36
+  2    3         9    0.000    0.000     0.0     7      8344     1323       338     1542        45
+  2    4        16    0.000    0.000     0.0     8      9465     1250       195     1072        34
+  2    6        36    0.001    0.000     0.0     9     10669     1199       359     1622        37
+  2    8        64    0.001    0.000     0.0    10      7701     1167       182      752        24
+  3    2         8    0.000    0.000     0.0     9     10253     1158       190     1951        28
+  3    3        27    0.001    0.000     0.0    11      9773     1116       174     2050        36
+  3    4        64    0.001    0.000     0.0    13     10097     2265       317     1675        87
+  3    6       216    0.005    0.001     0.1    15      9385     1063       174      994        88
+  3    8       512    0.011    0.001     0.1    17      9490     1459       198     1228        41
+  4    2        16    0.000    0.000     0.0    13     12674     1011       158     1080        37
+  4    3        81    0.001    0.000     0.0    16     14079     1015       171     1091        39
+  4    4       256    0.004    0.000     0.1    18     11225     1004       172     1065        38
+  4    6     1,296    0.017    0.002     0.4    22     10989      925       173      971        44
+  4    8     4,096    0.063    0.005     1.6    24     10905     1016       228     1406        48
+  6    2        64    0.001    0.000     0.0    23     24984      978       138     1158        33
+  6    3       729    0.012    0.001     0.3    28     15339      933       174     1203        32
+  6    4     4,096    0.118    0.006     1.7    31     21912     1070       249     1301        51
+  6    6    46,656    1.021    0.079    21.1    36     20561     1121       307     1516        99
+  6    8   262,144    6.251    0.529   114.2    39     19611     1084       325     1260       106
+  8    2       256    0.011    0.001     0.1    34     30191     1302       167     2283        55
+  8    3     6,561    0.238    0.010     3.1    40     31676     1806       345     2319        82
+  8    4    65,536    3.438    0.216    30.7    45     21059     1311       292     1748       206
+ 10    2     1,024    0.028    0.002     0.4    46     28730     1097       397     1666        88
+ 10    3    59,049    1.929    0.176    29.8    54     29015     1256       725     1808        78
+25 configurations, up to 262,144 rows (6 attributes x 8 values).
+Largest build: 6.25 s (SHA-512 index), 0.53 s (prime index), peak 114.2 MiB traced.
+Per-lookup medians across configurations: canonicalise 11.2 us, SHA-512 1.12 us, verified probe 0.20 us; prime key 1.41 us, prime probe 0.04 us.
+Prime keys fit int64 in every configuration run.
+CSV: results\benchmark.csv
+
+B4.1  DMN gap analysis of T0 (Table 1a as 8 DMN rules)
+------------------------------------------------------
+DMN gap regions: 7 merged (10 before merging; 7 with list-entry grouping), covering 16 tuples; COMPLETE: 16 rows.
+Expanded DMN gaps == COMPLETE's rows: True; partly covered bins 0; overlapping pairs 0.
+    gap: M | D | [0..30) | -
+    gap: M | - | [30..60] | [18..65)
+    gap: M | I | [0..30) | [18..60)
+    gap: F | D | - | [18..60)
+    gap: F | D | [0..30) | [65..120]
+    gap: F | - | [30..60] | [65..120]
+    gap: F | I | [0..30) | -
+
+B4.2  The completed rule written compactly (wildcards and intervals)
+--------------------------------------------------------------------
+Compact UNIQUE table: 8 rules, 25 non-'-' input cells; exact table: 24 rows, 96 input cells.
+Expands to the 24 completed rows with the same outcomes: True; DMN gaps 0, overlaps 0; COMPLETE structural check: coverage 1.0, single-hit True.
+Seeded fault drop_rule_5: DMN gaps 1 region(s)/1 tuple(s), overlap pairs [] (0 UNIQUE violations) | COMPLETE uncovered 1, multi-hit 0, conflicts 0
+Seeded fault widen_rule_2: DMN gaps 0 region(s)/0 tuple(s), overlap pairs [(1, 2), (1, 3), (1, 4)] (3 UNIQUE violations) | COMPLETE uncovered 0, multi-hit 4, conflicts 4
+
+B4.3  Raw Table 1 (Age written as >=65, >=60, <60, <65)
+-------------------------------------------------------
+Overlapping pairs by hit policy: {'UNIQUE': 0, 'ANY': 0, 'FIRST': 0} -> no rows conflict under UNIQUE.
+Age elementary cells from the rule bounds: 18, (18..60), 60, (60..65), 65, (65..120), 120 (the normalised bins <60, 60-64, >=65 up to the range end points).
+Raw rules cover 12 of 24 discretised tuples; Table 1a covers 8. DMN gaps: 4 regions / 12 tuples, equal to COMPLETE on the discretised raw table: True.
+LATC on the raw labels as opaque values: Card(Age) 4, prod Card 32, missing 24.
+    row 1: M D >=30 >=65 -> YES     => 1a M D >=30 >=65 -> YES     
+    row 2: M I >=30 >=65 -> YES     => 1a M I >=30 >=65 -> YES     
+    row 3: F D >=30 >=60 -> YES     => 1a F D >=30 60-64 -> YES    narrowed from 2 tuples
+    row 4: F I >=30 >=60 -> YES     => 1a F I >=30 60-64 -> YES    narrowed from 2 tuples
+    row 5: F I >=30 <60 -> NO       => 1a F I >=30 <60 -> NO       
+    row 6: M I <30 >=65 -> YES      => 1a M I <30 >=65 -> Rv       outcome changed
+    row 7: M I <30 <65 -> NO        => 1a M I <30 60-64 -> NO      narrowed from 2 tuples
+    row 8: F D <30 >=60 -> Rv       => 1a F D <30 60-64 -> YES     narrowed from 2 tuples; outcome changed
+
+B4.4  Counterexample and random scenarios (same 1000 tables per scenario as RQ2.3)
+----------------------------------------------------------------------------------
+Counterexample T0: DMN gaps ['M | I', 'F | D'] -> exact True
+Counterexample twin: DMN gaps ['M | D', 'F | I'] -> exact True
+scenario     variant                          exact_rate   missed  outside  regions   points
+observed     dmn_declared_values                   1.000    0.000    0.000     4.95     8.95
+observed     dmn_observed_values                   1.000    0.000    0.000     4.96     8.95
+observed     dmn_declared+constraint_filter        1.000    0.000    0.000     4.95     8.95
+unobserved   dmn_declared_values                   1.000    0.000    0.000     5.33    15.11
+unobserved   dmn_observed_values                   0.000    8.900    0.000     3.76    15.11
+unobserved   dmn_declared+constraint_filter        1.000    0.000    0.000     5.33    15.11
+constrained  dmn_declared_values                   0.000    0.000    6.252     6.74     6.72
+constrained  dmn_observed_values                   0.000    0.000    6.252     6.71     6.72
+constrained  dmn_declared+constraint_filter        1.000    0.000    0.000     6.74     6.72
+DMN has no valid-state constraint: natively, impossible states are reported as gaps; the filtered variant drops them with the exact model's constraint, outside DMN.
+
+B4.5  Analysis time, T0 = random half of the space (space <= 300,000)
+---------------------------------------------------------------------
+  n card    space  missing COMPLETE_s    DMN_s  regions
+  2    2        4        2     0.0000   0.0000        1
+  2    3        9        5     0.0000   0.0001        3
+  2    4       16        8     0.0000   0.0001        5
+  2    6       36       18     0.0000   0.0002       11
+  2    8       64       32     0.0000   0.0003       17
+  3    2        8        4     0.0000   0.0001        2
+  3    3       27       14     0.0000   0.0001        7
+  3    4       64       32     0.0000   0.0003       16
+  3    6      216      108     0.0000   0.0010       51
+  3    8      512      256     0.0001   0.0024      120
+  4    2       16        8     0.0000   0.0002        5
+  4    3       81       41     0.0000   0.0006       20
+  4    4      256      128     0.0001   0.0016       64
+  4    6    1,296      648     0.0003   0.0076      289
+  4    8    4,096    2,048     0.0006   0.0368      900
+  6    2       64       32     0.0001   0.0008       17
+  6    3      729      365     0.0001   0.0106      176
+  6    4    4,096    2,048     0.0015   0.0499      882
+  6    6   46,656   23,328     0.0127   0.7984    9,732
+  6    8  262,144  131,072     0.1666   5.1629   53,668
+  8    2      256      128     0.0036   0.0260       66
+  8    3    6,561    3,281     0.0027   0.1051    1,385
+  8    4   65,536   32,768     0.0282   1.5459   13,485
+ 10    2    1,024      512     0.0025   0.0379      233
+ 10    3   59,049   29,525     0.0215   1.9000   12,158
+CSV: results\dmn_benchmark.csv
+DMN 1.4 XML: results\dmn (pension_t0, pension_compact, pension_raw_table1)
+
+L1  Large-scale test (behind --large)
+-------------------------------------
+[1M-10x4] 1,048,576 rows
+  COMPLETE stream 0.2 s, rank stream 0.1 s
+  rank index 0.2 s, 1.0 MiB
+  dict: 1.6 s
+  sha512: 4.4 s
+  prime: 4.9 s
+  DMN sparse T0: 0.6 s, 6,313 regions
+  DMN dense: skipped, projected 3.94 GiB > 60% of 0.94 GiB available
+[1M-20x2] 1,048,576 rows
+  COMPLETE stream 0.3 s, rank stream 0.1 s
+  rank index 0.2 s, 1.0 MiB
+  dict: 2.4 s
+  sha512: 4.5 s
+  prime: 5.0 s
+  DMN sparse T0: 2.0 s, 7,786 regions
+  DMN dense: skipped, projected 7.30 GiB > 60% of 1.00 GiB available
+[4M-11x4] 4,194,304 rows
+  COMPLETE stream 0.7 s, rank stream 0.2 s
+  rank index 0.8 s, 4.0 MiB
+  dict: 11.1 s
+  sha512: skipped, projected 1.74 GiB > 60% of 0.99 GiB available
+  prime: 16.0 s
+  DMN sparse T0: 1.0 s, 7,816 regions
+  DMN dense: skipped, rows > dense_dmn_max_rows (1,100,000)
+[16.8M-12x4] 16,777,216 rows
+  COMPLETE stream 3.8 s, rank stream 1.2 s
+  rank index 3.6 s, 16.0 MiB
+  dict: skipped, rows > heavy_max_rows (4,200,000)
+  sha512: skipped, rows > heavy_max_rows (4,200,000)
+  prime: skipped, rows > heavy_max_rows (4,200,000)
+  DMN sparse T0: 0.7 s, 9,290 regions
+  DMN dense: skipped, rows > dense_dmn_max_rows (1,100,000)
+[16.8M-24x2 deep] 16,777,216 rows
+  COMPLETE stream 4.0 s, rank stream 0.8 s
+  rank index 3.4 s, 16.0 MiB
+  dict: skipped, rows > heavy_max_rows (4,200,000)
+  sha512: skipped, rows > heavy_max_rows (4,200,000)
+  prime: skipped, rows > heavy_max_rows (4,200,000)
+  DMN sparse T0: 2.9 s, 11,775 regions
+  DMN dense: skipped, rows > dense_dmn_max_rows (1,100,000)
+[16.8M-4x64 wide] 16,777,216 rows
+  COMPLETE stream 1.8 s, rank stream 1.0 s
+  rank index 12.7 s, 16.0 MiB
+  dict: skipped, rows > heavy_max_rows (4,200,000)
+  sha512: skipped, rows > heavy_max_rows (4,200,000)
+  prime: skipped, rows > heavy_max_rows (4,200,000)
+  DMN sparse T0: 0.3 s, 4,509 regions
+  DMN dense: skipped, rows > dense_dmn_max_rows (1,100,000)
+[67M-13x4] 67,108,864 rows
+  COMPLETE stream 12.0 s, rank stream 3.5 s
+  rank index 20.3 s, 64.0 MiB
+  dict: skipped, rows > heavy_max_rows (4,200,000)
+  sha512: skipped, rows > heavy_max_rows (4,200,000)
+  prime: skipped, rows > heavy_max_rows (4,200,000)
+  DMN sparse T0: 1.0 s, 10,782 regions
+  DMN dense: skipped, rows > dense_dmn_max_rows (1,100,000)
+
+Hardware: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz, 8 logical CPUs, 15.7 GiB RAM (1.7 GiB available at start), Windows-11-10.0.26100-SP0, CPython 3.15.0
+
+L2  Build, memory and disk
+--------------------------
+shape                    rows COMPLETE_s rankstr_s  rank_s rank_MiB load_s             dict           sha512            prime  bits
+1M-10x4             1,048,576        0.2       0.1     0.2      1.0   0.06      1.6s/186MiB      4.4s/255MiB       4.9s/12MiB    60
+1M-20x2             1,048,576        0.3       0.1     0.2      1.0   0.04      2.4s/369MiB      4.5s/438MiB       5.0s/19MiB   115
+4M-11x4             4,194,304        0.7       0.2     0.8      4.0   0.05     11.1s/816MiB     skip(1.7GiB)      16.0s/52MiB    67
+16.8M-12x4         16,777,216        3.8       1.2     3.6     16.0   0.07     skip(4.7GiB)     skip(7.2GiB)     skip(1.8GiB)    75
+16.8M-24x2 deep    16,777,216        4.0       0.8     3.4     16.0   0.06     skip(8.1GiB)    skip(10.6GiB)     skip(1.9GiB)   146
+16.8M-4x64 wide    16,777,216        1.8       1.0    12.7     16.0   0.12     skip(2.7GiB)     skip(5.0GiB)     skip(1.7GiB)    39
+67M-13x4           67,108,864       12.0       3.5    20.3     64.0   0.16    skip(20.0GiB)    skip(30.1GiB)     skip(7.1GiB)    83
+dict/sha512/prime: build time / pickled size, or skip(projected in-memory size). Projections use traced bytes per row from the first 100k rows.
+  1M-10x4: dmn_dense: projected 3.94 GiB > 60% of 0.94 GiB available
+  1M-20x2: dmn_dense: projected 7.30 GiB > 60% of 1.00 GiB available
+  4M-11x4: sha512: projected 1.74 GiB > 60% of 0.99 GiB available; dmn_dense: rows > dense_dmn_max_rows (1,100,000)
+  16.8M-12x4: dict: rows > heavy_max_rows (4,200,000); sha512: rows > heavy_max_rows (4,200,000); prime: rows > heavy_max_rows (4,200,000); dmn_dense: rows > dense_dmn_max_rows (1,100,000)
+  16.8M-24x2 deep: dict: rows > heavy_max_rows (4,200,000); sha512: rows > heavy_max_rows (4,200,000); prime: rows > heavy_max_rows (4,200,000); dmn_dense: rows > dense_dmn_max_rows (1,100,000)
+  16.8M-4x64 wide: dict: rows > heavy_max_rows (4,200,000); sha512: rows > heavy_max_rows (4,200,000); prime: rows > heavy_max_rows (4,200,000); dmn_dense: rows > dense_dmn_max_rows (1,100,000)
+  67M-13x4: dict: rows > heavy_max_rows (4,200,000); sha512: rows > heavy_max_rows (4,200,000); prime: rows > heavy_max_rows (4,200,000); dmn_dense: rows > dense_dmn_max_rows (1,100,000)
+Streaming COMPLETE peak traced memory: 1M-10x4 1 KiB, 1M-20x2 1 KiB, 4M-11x4 1 KiB, 16.8M-12x4 1 KiB, 16.8M-24x2 deep 2 KiB, 16.8M-4x64 wide 1 KiB, 67M-13x4 1 KiB (plus the T0 set, 157 KiB for 1000 rows).
+
+L3  Lookup latency, median/p99 in microseconds (100,000 random probes)
+----------------------------------------------------------------------
+shape                  canon     canon$     sha512    dict_pr   sha_pr+v       pkey       p_pr       rank     arr[i]       DICT        SHA      PRIME       RANK
+1M-10x4           41.5/123.1    1.6/3.6    1.6/5.6    0.8/1.9    0.9/1.9    3.6/9.5    0.5/1.5    1.9/4.7    0.2/0.5    2.1/5.4   4.8/12.1   3.3/11.1    2.2/6.0
+1M-20x2           59.7/200.1    1.5/5.8    1.5/3.8    0.7/1.3    0.8/2.0   3.1/10.2    0.5/1.6    1.7/4.2    0.1/0.3    2.0/5.2   3.8/11.5   4.1/18.3    1.9/8.8
+4M-11x4           31.5/124.6    1.0/3.9    1.5/6.4    0.7/1.5          -    2.0/5.0    0.5/1.3    1.3/5.3    0.3/0.5    1.5/5.1          -    2.4/8.2    1.4/6.4
+16.8M-12x4        37.8/123.7    1.0/2.3    1.5/3.5          -          -    2.4/9.3          -    1.4/3.0    0.2/0.5          -          -          -    1.5/3.5
+16.8M-24x2 deep   76.7/248.1    2.1/6.5    2.2/4.6          -          -   3.8/15.9          -    2.5/9.6    0.2/0.5          -          -          -    2.5/9.6
+16.8M-4x64 wide    16.4/48.5    0.8/1.8    1.6/3.4          -          -    1.8/5.6          -    0.9/2.2    0.2/0.5          -          -          -    1.2/4.6
+67M-13x4           41.1/84.6    1.2/2.4    1.7/3.5          -          -    2.8/6.0          -    1.6/3.2    0.2/0.5          -          -          -    1.7/4.6
+canon = generic canonical_bytes, canon$ = cached fragments; capitals are end to end. Timer overhead (empty call) 100 ns is included; perf_counter_ns resolution on this OS may be 100 ns.
+
+L4  DMN gap analysis at scale
+-----------------------------
+1M-10x4           sparse T0 (1000 rules): 0.61 s, 6,313 gap regions (cover ok True); dense skipped (projected 3.94 GiB > 60% of 0.94 GiB available)
+1M-20x2           sparse T0 (1000 rules): 2.00 s, 7,786 gap regions (cover ok True); dense skipped (projected 7.30 GiB > 60% of 1.00 GiB available)
+4M-11x4           sparse T0 (1000 rules): 0.97 s, 7,816 gap regions (cover ok True); dense skipped (rows > dense_dmn_max_rows (1,100,000))
+16.8M-12x4        sparse T0 (1000 rules): 0.75 s, 9,290 gap regions (cover ok True); dense skipped (rows > dense_dmn_max_rows (1,100,000))
+16.8M-24x2 deep   sparse T0 (1000 rules): 2.90 s, 11,775 gap regions (cover ok True); dense skipped (rows > dense_dmn_max_rows (1,100,000))
+16.8M-4x64 wide   sparse T0 (1000 rules): 0.25 s, 4,509 gap regions (cover ok True); dense skipped (rows > dense_dmn_max_rows (1,100,000))
+67M-13x4          sparse T0 (1000 rules): 0.99 s, 10,782 gap regions (cover ok True); dense skipped (rows > dense_dmn_max_rows (1,100,000))
+
+L5  Review cost at 30 s per row (illustrative)
+----------------------------------------------
+shape              rows to review        hours  person-years  h if 1/DMN region
+1M-10x4                 1,047,576        8,730           5.0                 53
+1M-20x2                 1,047,576        8,730           5.0                 65
+4M-11x4                 4,193,304       34,944          19.9                 65
+16.8M-12x4             16,776,216      139,802          79.4                 77
+16.8M-24x2 deep        16,776,216      139,802          79.4                 98
+16.8M-4x64 wide        16,776,216      139,802          79.4                 38
+67M-13x4               67,107,864      559,232         317.7                 90
+Person-year = 1760 h (assumption). The DMN column is a lower bound that holds only if every gap region gets a single outcome.
+CSV: results\large.csv
+
+JSON: results\results.json
