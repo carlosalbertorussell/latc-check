@@ -6,6 +6,8 @@ license: MIT
 authors:
   - family-names: Russell
     given-names: Carlos A.
+    orcid: "https://orcid.org/0009-0003-3741-0230"
+    affiliation: "Independent Researcher, Buenos Aires, Argentina"
 date-released: 2026-10-17
 references:
   - type: article
