@@ -51,7 +51,7 @@ def worked_example() -> dict:
     n_sets_disjoint = count_marginal_solutions(free, latc.deficits(t))
 
     h("RQ2.1  Worked example: pension rule (Table 1a)")
-    print(f"Source rows: {ex.SOURCE_STATUS} (check against the published IJSER Table 1a).")
+    print(f"Source rows: {ex.SOURCE_STATUS}.")
     print(f"T0 rows {len(t.rows)}; prod Card(Ai) = {latc.product_of_cards(t)}; "
           f"Corollary 3 missing = {latc.missing_count(t)}; exact complement = {len(ref)}.")
     print("Corollary 4 deficits:", "; ".join(

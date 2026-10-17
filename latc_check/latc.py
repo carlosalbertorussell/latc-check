@@ -43,7 +43,7 @@ The IJSER appendix ("Assembling the Table") builds the table from the
 prod Card / Card(Ai) times), with a "quantity of repetitions" per column, and
 then replaces the placeholder outcome of every assembled row that matches a
 T0 row with that row's result (footnote 7: keep the same order in all
-generated tables so rows can be matched).  The worked example's Table 3 /
+generated tables so rows can be matched).  The worked example's completed
 Table 9 shows exactly this: all 24 rows in odometer order, T0 results marked
 with their instance numbers, the other 16 marked "?".  Read this way LATC is
 explicit enumeration of the product of observed domains followed by

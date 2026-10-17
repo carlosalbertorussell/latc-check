@@ -2,12 +2,11 @@
 
 Pension rule (Raggio & Russell 2021)
 ------------------------------------
-Transcribed from the authors' English draft "Business Rules (BR); Expert
-Systems (KBS); LATC Algorithm (English)" (Google Doc, last edited 2020-07-22,
-Drive folder "Raul Raggio LATC").  In the final IJSER .docx (Feb 2021) the
-tables are embedded as images and could not be machine-read, so the rows below
-**must be checked against the published Table 1a / Table 8 of the IJSER
-article before the numbers are quoted** (status: TRANSCRIBED_FROM_DRAFT).
+Transcribed from Raggio & Russell, IJSER 12(1), 2021.  Table 1a and the
+completed 24-row table were checked cell by cell against the manuscript
+submitted to IJSER, where the tables are images (status:
+CHECKED_AGAINST_IJSER_MANUSCRIPT).  That manuscript prints row 6 of the
+completed table as "SI"; it is read here as YES.
 
 Value labels are ASCII renderings of the source:
 
@@ -22,7 +21,7 @@ from __future__ import annotations
 
 from .model import DecisionTable, Row, RV, attrs
 
-SOURCE_STATUS = "TRANSCRIBED_FROM_DRAFT"  # verify against published Table 1a
+SOURCE_STATUS = "CHECKED_AGAINST_IJSER_MANUSCRIPT"
 
 PENSION_ATTRS = attrs([
     ("Sex", ("M", "F")),
@@ -43,9 +42,9 @@ PENSION_T0 = [
     Row(("F", "D", "<30", "60-64"), "YES"),
 ]
 
-# Published complementary table ("Table 2" in the draft, "Table 8" in IJSER)
-# with the experts' valuation ("2 bis" / "8 bis").  The leading number is the
-# row's position in the 24-row Table 3 / Table 9.
+# Published complementary table (Table 8 in IJSER) with the experts'
+# valuation (Table 8 Bis).  The leading number is the row's position in the
+# 24-row completed table (Table 9).
 PENSION_PUBLISHED_COMPLEMENT = [
     (1, ("M", "D", ">=30", "<60"), "NO"),
     (2, ("M", "D", ">=30", "60-64"), "NO"),

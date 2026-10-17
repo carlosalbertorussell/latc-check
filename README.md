@@ -66,13 +66,12 @@ holds the output of the reference run.
 
 ## Source and interpretive choices
 
-**Table 1a.** The worked example uses the real T0 rows, not a reconstruction. They are
-transcribed from the authors' English draft (Google Doc, last edited 2020-07-22). In the
-final IJSER .docx the tables are images and could not be machine-read. The rows are
-therefore marked `TRANSCRIBED_FROM_DRAFT` and should be checked against the published
-Table 1a before the numbers are quoted. Everything the draft prints for them checks out:
-the frequency table (M 4, F 4; D 3, I 5; ≥30 5, <30 3; ≥65 3, 60–64 4, <60 1) and the
-deficits (8/8, 9/7, 7/9, 5/4/7) are reproduced exactly.
+**Tables.** The worked example uses the real T0 rows of Table 1a and the published
+complementary table, transcribed from the IJSER article and checked cell by cell against
+the manuscript submitted to the journal, where the tables are images (status
+`CHECKED_AGAINST_IJSER_MANUSCRIPT`). The frequency table (M 4, F 4; D 3, I 5; ≥30 5,
+<30 3; ≥65 3, 60–64 4, <60 1) and the deficits (8/8, 9/7, 7/9, 5/4/7) are reproduced
+exactly.
 
 The source's formulas are intact as Word equations in the manuscript submitted to IJSER;
 plain-text extraction drops them. Every step below is documented in `latc.py`:
@@ -85,9 +84,7 @@ plain-text extraction drops them. Every step below is documented in `latc.py`:
 * **I-4** Corollary 4 [12]: k(Ax = v) = ∏ Card / Card(Ax) − freq(Ax = v).
 * **I-5** The source has no valid-state constraint.
 
-The appendix of the IJSER article specifies Reading B, as does the authors' 2020 English
-edition. Reading A is a
-shortcut the main text's description of Corollary 4 admits, and is kept to show why it
+The appendix of the IJSER article specifies Reading B. Reading A is a shortcut the main text's description of Corollary 4 admits, and is kept to show why it
 fails:
 
 * **Reading A, deficit block fill.** The shortcut suggested by "columns filled in
@@ -96,7 +93,7 @@ fails:
   to this reading.
 * **Reading B, odometer assembly.** The IJSER appendix builds the table from the *summed*
   frequencies of T0 ∪ Cp, using a per-column "quantity of repetitions", and then matches
-  the T0 rows (footnote 7). The worked example's Table 3 / Table 9 shows all 24 rows in
+  the T0 rows (footnote 7). The worked example's completed Table 9 shows all 24 rows in
   odometer order, with the T0 rows marked by instance number. Under this reading LATC is
   explicit enumeration plus membership matching. The source gives the repetition count as
   CR_j = Card(C⁰) / ∏_{k=1..j} Card(Ak), which equals r_j = ∏_{k>j} Card(Ak), the block
@@ -341,7 +338,7 @@ millions of cases, which is a generalisation decision rather than a computation.
 * The operating ranges used for the out-of-range tests (Age 18–120, contribution years
   0–60) are assumptions; the source does not state them.
 
-## Source discrepancies noted while transcribing (draft)
+## Source discrepancies noted while transcribing
 
 * "q(Ci0) = 18" should be 8.
 * The Contribution-years domain is printed as {≥30; >30}; it should be {≥30; <30}.
@@ -350,8 +347,11 @@ millions of cases, which is a generalisation decision rather than a computation.
   is the same in the Word file submitted to IJSER. Table 1a agrees with the experts'
   outcomes for the complementary rows (age-eligible, fewer than 30 contribution years:
   D → YES, I → Rv), so it is taken as the intended version.
-* The Age value order in Table 3 (<60, 60–64, ≥65) is the reverse of the frequency
-  table's order.
+* The Age value order in the completed Table 9 (<60, 60–64, ≥65) is the reverse of the
+  frequency table's order.
+* In Table 9, the block of rows 10–12 (M, I, <30) lists Age as ≥65, <60, 60–64, unlike
+  every other block. All 24 states still appear once.
+* Table 9 prints row 6's final result as "SI" (Spanish); it is read as YES.
 
 ## Licence and citation
 

@@ -2,7 +2,7 @@ latc_check 0.1.0 | Python 3.15.0 | Windows-11-10.0.26100-SP0
 
 RQ2.1  Worked example: pension rule (Table 1a)
 ----------------------------------------------
-Source rows: TRANSCRIBED_FROM_DRAFT (check against the published IJSER Table 1a).
+Source rows: CHECKED_AGAINST_IJSER_MANUSCRIPT.
 T0 rows 8; prod Card(Ai) = 24; Corollary 3 missing = 16; exact complement = 16.
 Corollary 4 deficits: Sex M:8, F:8; Activity D:9, I:7; ContributionYears >=30:7, <30:9; Age >=65:5, 60-64:4, <60:7
 Published complementary table (16 rows) == exact complement: True
