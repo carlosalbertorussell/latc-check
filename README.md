@@ -68,6 +68,7 @@ holds the output of the reference run.
 | `tree.py` | ID3 decision-tree learner; tree paths as DMN rules |
 | `dmn_import.py` | decision tables from DMN 1.1–1.5 XML, for the FEEL subset `dmn.py` models; everything else is skipped with a reason |
 | `datasets_report.py` | public-dataset experiments (`run_datasets.py`), written to `results/datasets/` |
+| `sensitivity.py` | schema migration (cut points, merged / split values, constraints, policy change) by box relations over the rank index (`run_sensitivity.py`), written to `results/sensitivity/` |
 
 ## Source and interpretive choices
 
@@ -402,6 +403,94 @@ are 70 tables, all DMN 1.5.
   not completeness.
 * Some reported gaps contain no integer, for example (9..10), because numbers are
   real-valued (D-1). `SUMMARY.md` counts them separately.
+
+## Sensitivity and policy change (`run_sensitivity.py`)
+
+```bash
+python run_sensitivity.py         # about 40-50 s; --help for options
+```
+
+It writes `cut_points.json`, `merge_split.json`, `constraints.json`, `policy_change.json` and
+`SUMMARY.md` to `results/sensitivity/`. The code is in `sensitivity.py`. The definitions S-1
+to S-9 are in its docstring.
+
+**One operation.** Every experiment migrates approved rows from one schema to another over
+the same raw inputs. A state is a box: an interval per numeric input (assumed ranges Age 18–120,
+contribution years 0–60), and a set of atomic values per enumerated input. The old states that
+meet a new state are found per dimension and addressed through the rank index.
+
+An approved row's *fate* is one of:
+
+* unchanged;
+* merged into a larger state;
+* split into several states;
+* reshaped (only partly inside some new state).
+
+A new state is one of:
+
+* identical, contained or uniform: it inherits an outcome;
+* conflicting: approved rows with different outcomes meet in it;
+* partial or unapproved.
+
+The review load is COMPLETE on the mapped T0. In every run it equals conflicting + partial +
+unapproved, and the expanded DMN gaps equal it.
+
+**Cut points (pension, 5 Age × 4 contribution discretisations).** These choices change what
+"complete" means:
+
+* The published bins give 24 states and 16 missing (7 DMN regions).
+* Over the 20 discretisations, the missing count ranges from 13 to 36.
+* Refinements ({55,60,65}, contribution <20/20–29/≥30) keep every T0 row aligned and create no
+  conflicts, but they raise the load from 16 to 23, 25 or 36.
+* Moving the contribution threshold to 25 or 35 misaligns all 8 T0 rows and all 8 raw Table 1
+  rules. None of the 16 published complementary rows keeps its meaning.
+* Dropping the 60 cut leaves 16 states. 11 of the 16 complementary rows are merged, and 4 new
+  states are conflicting: F I ≥30 <65, for example, joins a YES row and a NO row.
+* DMN on T0's raw intervals gives 7 regions under every discretisation, because the sweep uses
+  rule bounds, not bins. The bins matter only when the gaps are turned back into reviewable
+  states.
+
+**Merged and split values (T0 = 50 %, seed 20210101).**
+
+* Only 1 of 15 adjacent merges keeps Car a function (doors 4+5more), and only 2 of 19 keep
+  Nursery one (children 3+more, social nonprob+slightly_prob).
+* The other merges create 2 to 4,320 conflicting merged states. Examples: Car persons 2+4
+  gives 264, and Nursery health priority+not_recom gives 4,320 out of 8,640.
+* Splits never conflict and leave the DMN region count unchanged (391 and 2,751). They raise the
+  missing states, for example from 864 to between 1,072 and 1,164 on Car.
+
+**Constraints.**
+
+* COMPLETE equals the filtered unconstrained complement in all 10 cases, and the generalised
+  deficit check passes.
+* Reading B is not exact in any of the 6 cases that exclude states.
+* Native DMN reports every impossible state as a gap, for example 74 on Car (doors=2 with
+  persons=more) and 429 on Nursery (form=foster with children=more).
+* Adding the impossible states as explicit DMN rules removes those gaps, at the cost of
+  overlaps with the T0 rows that lie in them.
+* "Contribution ≤ age − 18" excludes no state on the published bins and 4 on Age {45,60,65}.
+  DMN rules can mark impossible bins, but not the diagonal raw region itself.
+
+**Policy change (pension; approved = T0 + 16 published rows).**
+
+| version | change | approved rows whose meaning changed (T0 / complement) | re-review | no outcome | policy-affected | affected ⊆ re-review |
+|---|---|---|---|---|---|---|
+| v2 | M 65 → 67, cuts {60,67} | 7 / 9 | 16 | 4 | 4 | yes |
+| v2-refined | M 65 → 67, cuts {60,65,67} | 3 / 5 | 16 | 0 | 4 | yes, but 4 contained states inherit the old (wrong) outcome |
+| v2b | M 65 → 67 and F 60 → 62 | 8 / 16 | 24 | 8 | 8 | yes |
+| v3 | contribution 30 → 35 | 8 / 16 | 24 | 3 | 3 | yes |
+| v4 | Rv → NO, no cut moves | 0 / 0 | 0 | 0 | 3 | **no** |
+
+How to read the table:
+
+* Shared bins carry a change for M into F rows.
+* A schema comparison finds every policy-affected state when a cut moves. It finds none when
+  only outcomes change (v4), so a rule comparison is also needed.
+* An inherited outcome is the old policy's outcome, even when the state is merely contained.
+
+On Nursery, moving the boundary between `children` 3 and more (3-4 / 5+) means 6,480 states to
+re-review with the full table approved. With T0 approved, 9,699 states need re-review and 7,308
+have no outcome.
 
 ## What the evidence supports, and what it does not
 

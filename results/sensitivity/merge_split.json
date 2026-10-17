@@ -1,0 +1,5390 @@
+{
+  "car": {
+    "dataset": "car",
+    "t0_rows": 864,
+    "baseline": {
+      "states": 1728,
+      "t0_rows": 864,
+      "missing": 864,
+      "complete_ms": 0.44440000783652067,
+      "dmn_gap_regions": 391,
+      "dmn_gap_tuples": 864,
+      "dmn_partial_bins": 0,
+      "dmn_gaps_equal_complete": true,
+      "dmn_ms": 16.784399980679154
+    },
+    "merges": [
+      {
+        "attribute": "buying",
+        "values": [
+          "vhigh",
+          "high"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 36,
+        "full_table_conflict_original_states": 72,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 396,
+            "conflicting": 36,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 72
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 439,
+            "merged": 425,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 439,
+            "contained": 0,
+            "uniform": 86,
+            "conflicting": 14,
+            "partial": 225,
+            "unapproved": 532
+          },
+          "conflict_old_states": 28
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 525,
+          "missing": 771,
+          "complete_ms": 0.256099971011281,
+          "dmn_gap_regions": 290,
+          "dmn_gap_tuples": 771,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 9.68799996189773
+        },
+        "review_breakdown": {
+          "partial": 225,
+          "conflicting": 14,
+          "unapproved": 532
+        }
+      },
+      {
+        "attribute": "buying",
+        "values": [
+          "high",
+          "med"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 105,
+        "full_table_conflict_original_states": 210,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 327,
+            "conflicting": 105,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 210
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 429,
+            "merged": 435,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 429,
+            "contained": 0,
+            "uniform": 79,
+            "conflicting": 31,
+            "partial": 215,
+            "unapproved": 542
+          },
+          "conflict_old_states": 62
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 508,
+          "missing": 788,
+          "complete_ms": 0.42970001231878996,
+          "dmn_gap_regions": 294,
+          "dmn_gap_tuples": 788,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 12.174499919638038
+        },
+        "review_breakdown": {
+          "partial": 215,
+          "conflicting": 31,
+          "unapproved": 542
+        }
+      },
+      {
+        "attribute": "buying",
+        "values": [
+          "med",
+          "low"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 46,
+        "full_table_conflict_original_states": 92,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 386,
+            "conflicting": 46,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 92
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 425,
+            "merged": 439,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 425,
+            "contained": 0,
+            "uniform": 102,
+            "conflicting": 15,
+            "partial": 205,
+            "unapproved": 549
+          },
+          "conflict_old_states": 30
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 527,
+          "missing": 769,
+          "complete_ms": 0.4461000207811594,
+          "dmn_gap_regions": 307,
+          "dmn_gap_tuples": 769,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 9.180600056424737
+        },
+        "review_breakdown": {
+          "partial": 205,
+          "conflicting": 15,
+          "unapproved": 549
+        }
+      },
+      {
+        "attribute": "maint",
+        "values": [
+          "vhigh",
+          "high"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 59,
+        "full_table_conflict_original_states": 118,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 373,
+            "conflicting": 59,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 118
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 429,
+            "merged": 435,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 429,
+            "contained": 0,
+            "uniform": 94,
+            "conflicting": 13,
+            "partial": 221,
+            "unapproved": 539
+          },
+          "conflict_old_states": 26
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 523,
+          "missing": 773,
+          "complete_ms": 0.4520000657066703,
+          "dmn_gap_regions": 295,
+          "dmn_gap_tuples": 773,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 11.588699999265373
+        },
+        "review_breakdown": {
+          "partial": 221,
+          "conflicting": 13,
+          "unapproved": 539
+        }
+      },
+      {
+        "attribute": "maint",
+        "values": [
+          "high",
+          "med"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 82,
+        "full_table_conflict_original_states": 164,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 350,
+            "conflicting": 82,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 164
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 429,
+            "merged": 435,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 429,
+            "contained": 0,
+            "uniform": 78,
+            "conflicting": 29,
+            "partial": 221,
+            "unapproved": 539
+          },
+          "conflict_old_states": 58
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 507,
+          "missing": 789,
+          "complete_ms": 0.44980004895478487,
+          "dmn_gap_regions": 287,
+          "dmn_gap_tuples": 789,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 11.200900073163211
+        },
+        "review_breakdown": {
+          "partial": 221,
+          "conflicting": 29,
+          "unapproved": 539
+        }
+      },
+      {
+        "attribute": "maint",
+        "values": [
+          "med",
+          "low"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 23,
+        "full_table_conflict_original_states": 46,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 409,
+            "conflicting": 23,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 46
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 435,
+            "merged": 429,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 435,
+            "contained": 0,
+            "uniform": 106,
+            "conflicting": 4,
+            "partial": 209,
+            "unapproved": 542
+          },
+          "conflict_old_states": 8
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 541,
+          "missing": 755,
+          "complete_ms": 0.430900021456182,
+          "dmn_gap_regions": 301,
+          "dmn_gap_tuples": 755,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 10.553100029937923
+        },
+        "review_breakdown": {
+          "partial": 209,
+          "conflicting": 4,
+          "unapproved": 542
+        }
+      },
+      {
+        "attribute": "doors",
+        "values": [
+          "2",
+          "3"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 34,
+        "full_table_conflict_original_states": 68,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 398,
+            "conflicting": 34,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 68
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 445,
+            "merged": 419,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 445,
+            "contained": 0,
+            "uniform": 95,
+            "conflicting": 8,
+            "partial": 213,
+            "unapproved": 535
+          },
+          "conflict_old_states": 16
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 540,
+          "missing": 756,
+          "complete_ms": 0.471399980597198,
+          "dmn_gap_regions": 291,
+          "dmn_gap_tuples": 756,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 10.222599958069623
+        },
+        "review_breakdown": {
+          "partial": 213,
+          "conflicting": 8,
+          "unapproved": 535
+        }
+      },
+      {
+        "attribute": "doors",
+        "values": [
+          "3",
+          "4"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 16,
+        "full_table_conflict_original_states": 32,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 416,
+            "conflicting": 16,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 32
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 428,
+            "merged": 436,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 428,
+            "contained": 0,
+            "uniform": 113,
+            "conflicting": 4,
+            "partial": 202,
+            "unapproved": 549
+          },
+          "conflict_old_states": 8
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 541,
+          "missing": 755,
+          "complete_ms": 0.4206000594422221,
+          "dmn_gap_regions": 307,
+          "dmn_gap_tuples": 755,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 10.243199998512864
+        },
+        "review_breakdown": {
+          "partial": 202,
+          "conflicting": 4,
+          "unapproved": 549
+        }
+      },
+      {
+        "attribute": "doors",
+        "values": [
+          "4",
+          "5more"
+        ],
+        "states": 1296,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 864,
+            "merged": 864,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 864,
+            "contained": 0,
+            "uniform": 432,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1296,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 419,
+            "merged": 445,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 419,
+            "contained": 0,
+            "uniform": 113,
+            "conflicting": 0,
+            "partial": 219,
+            "unapproved": 545
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 1296,
+          "t0_rows": 532,
+          "missing": 764,
+          "complete_ms": 0.430600019171834,
+          "dmn_gap_regions": 299,
+          "dmn_gap_tuples": 764,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 10.724400053732097
+        },
+        "review_breakdown": {
+          "partial": 219,
+          "conflicting": 0,
+          "unapproved": 545
+        }
+      },
+      {
+        "attribute": "persons",
+        "values": [
+          "2",
+          "4"
+        ],
+        "states": 1152,
+        "full_table_conflicts": 264,
+        "full_table_conflict_original_states": 528,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 576,
+            "merged": 1152,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 0,
+            "uniform": 312,
+            "conflicting": 264,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 528
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 295,
+            "merged": 569,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 295,
+            "contained": 0,
+            "uniform": 67,
+            "conflicting": 71,
+            "partial": 293,
+            "unapproved": 426
+          },
+          "conflict_old_states": 142
+        },
+        "completion": {
+          "states": 1152,
+          "t0_rows": 362,
+          "missing": 790,
+          "complete_ms": 0.3331999760121107,
+          "dmn_gap_regions": 228,
+          "dmn_gap_tuples": 790,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 7.561199949122965
+        },
+        "review_breakdown": {
+          "partial": 293,
+          "conflicting": 71,
+          "unapproved": 426
+        }
+      },
+      {
+        "attribute": "persons",
+        "values": [
+          "4",
+          "more"
+        ],
+        "states": 1152,
+        "full_table_conflicts": 34,
+        "full_table_conflict_original_states": 68,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 576,
+            "merged": 1152,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 0,
+            "uniform": 542,
+            "conflicting": 34,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 68
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 276,
+            "merged": 588,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 276,
+            "contained": 0,
+            "uniform": 155,
+            "conflicting": 5,
+            "partial": 268,
+            "unapproved": 448
+          },
+          "conflict_old_states": 10
+        },
+        "completion": {
+          "states": 1152,
+          "t0_rows": 431,
+          "missing": 721,
+          "complete_ms": 0.2609000075608492,
+          "dmn_gap_regions": 278,
+          "dmn_gap_tuples": 721,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 9.063499979674816
+        },
+        "review_breakdown": {
+          "partial": 268,
+          "conflicting": 5,
+          "unapproved": 448
+        }
+      },
+      {
+        "attribute": "lug_boot",
+        "values": [
+          "small",
+          "med"
+        ],
+        "states": 1152,
+        "full_table_conflicts": 98,
+        "full_table_conflict_original_states": 196,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 576,
+            "merged": 1152,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 0,
+            "uniform": 478,
+            "conflicting": 98,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 196
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 296,
+            "merged": 568,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 296,
+            "contained": 0,
+            "uniform": 113,
+            "conflicting": 25,
+            "partial": 292,
+            "unapproved": 426
+          },
+          "conflict_old_states": 50
+        },
+        "completion": {
+          "states": 1152,
+          "t0_rows": 409,
+          "missing": 743,
+          "complete_ms": 0.2536999527364969,
+          "dmn_gap_regions": 263,
+          "dmn_gap_tuples": 743,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 10.356300044804811
+        },
+        "review_breakdown": {
+          "partial": 292,
+          "conflicting": 25,
+          "unapproved": 426
+        }
+      },
+      {
+        "attribute": "lug_boot",
+        "values": [
+          "med",
+          "big"
+        ],
+        "states": 1152,
+        "full_table_conflicts": 48,
+        "full_table_conflict_original_states": 96,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 576,
+            "merged": 1152,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 0,
+            "uniform": 528,
+            "conflicting": 48,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 96
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 292,
+            "merged": 572,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 292,
+            "contained": 0,
+            "uniform": 121,
+            "conflicting": 11,
+            "partial": 308,
+            "unapproved": 420
+          },
+          "conflict_old_states": 22
+        },
+        "completion": {
+          "states": 1152,
+          "t0_rows": 413,
+          "missing": 739,
+          "complete_ms": 0.26540004182606936,
+          "dmn_gap_regions": 268,
+          "dmn_gap_tuples": 739,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 7.55630002822727
+        },
+        "review_breakdown": {
+          "partial": 308,
+          "conflicting": 11,
+          "unapproved": 420
+        }
+      },
+      {
+        "attribute": "safety",
+        "values": [
+          "low",
+          "med"
+        ],
+        "states": 1152,
+        "full_table_conflicts": 219,
+        "full_table_conflict_original_states": 438,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 576,
+            "merged": 1152,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 0,
+            "uniform": 357,
+            "conflicting": 219,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 438
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 297,
+            "merged": 567,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 297,
+            "contained": 0,
+            "uniform": 88,
+            "conflicting": 53,
+            "partial": 285,
+            "unapproved": 429
+          },
+          "conflict_old_states": 106
+        },
+        "completion": {
+          "states": 1152,
+          "t0_rows": 385,
+          "missing": 767,
+          "complete_ms": 0.23280002642422915,
+          "dmn_gap_regions": 277,
+          "dmn_gap_tuples": 767,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 9.549799957312644
+        },
+        "review_breakdown": {
+          "partial": 285,
+          "conflicting": 53,
+          "unapproved": 429
+        }
+      },
+      {
+        "attribute": "safety",
+        "values": [
+          "med",
+          "high"
+        ],
+        "states": 1152,
+        "full_table_conflicts": 175,
+        "full_table_conflict_original_states": 350,
+        "functional": false,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 576,
+            "merged": 1152,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 0,
+            "uniform": 401,
+            "conflicting": 175,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 350
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 1152,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 279,
+            "merged": 585,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 279,
+            "contained": 0,
+            "uniform": 100,
+            "conflicting": 46,
+            "partial": 293,
+            "unapproved": 434
+          },
+          "conflict_old_states": 92
+        },
+        "completion": {
+          "states": 1152,
+          "t0_rows": 379,
+          "missing": 773,
+          "complete_ms": 0.24209998082369566,
+          "dmn_gap_regions": 284,
+          "dmn_gap_tuples": 773,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 10.502499993890524
+        },
+        "review_breakdown": {
+          "partial": 293,
+          "conflicting": 46,
+          "unapproved": 434
+        }
+      }
+    ],
+    "splits": [
+      {
+        "attribute": "buying",
+        "value": "vhigh",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 657,
+            "merged": 0,
+            "split": 207,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 657,
+            "contained": 414,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1089
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1071,
+          "missing": 1089,
+          "complete_ms": 0.8967999601736665,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1089,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 17.50690001063049
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1089
+        }
+      },
+      {
+        "attribute": "buying",
+        "value": "high",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 646,
+            "merged": 0,
+            "split": 218,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 646,
+            "contained": 436,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1078
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1082,
+          "missing": 1078,
+          "complete_ms": 0.47200010158121586,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1078,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 17.597900005057454
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1078
+        }
+      },
+      {
+        "attribute": "buying",
+        "value": "med",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 647,
+            "merged": 0,
+            "split": 217,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 647,
+            "contained": 434,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1079
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1081,
+          "missing": 1079,
+          "complete_ms": 0.7317999843508005,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1079,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.021199968643486
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1079
+        }
+      },
+      {
+        "attribute": "buying",
+        "value": "low",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 642,
+            "merged": 0,
+            "split": 222,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 642,
+            "contained": 444,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1074
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1086,
+          "missing": 1074,
+          "complete_ms": 0.443900004029274,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1074,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 20.39900003001094
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1074
+        }
+      },
+      {
+        "attribute": "maint",
+        "value": "vhigh",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 643,
+            "merged": 0,
+            "split": 221,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 643,
+            "contained": 442,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1075
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1085,
+          "missing": 1075,
+          "complete_ms": 0.5271000554785132,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1075,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 17.119099968113005
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1075
+        }
+      },
+      {
+        "attribute": "maint",
+        "value": "high",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 650,
+            "merged": 0,
+            "split": 214,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 650,
+            "contained": 428,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1082
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1078,
+          "missing": 1082,
+          "complete_ms": 1.5529000665992498,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1082,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 16.7424000101164
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1082
+        }
+      },
+      {
+        "attribute": "maint",
+        "value": "med",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 643,
+            "merged": 0,
+            "split": 221,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 643,
+            "contained": 442,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1075
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1085,
+          "missing": 1075,
+          "complete_ms": 0.5539000267162919,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1075,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.510499969124794
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1075
+        }
+      },
+      {
+        "attribute": "maint",
+        "value": "low",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 656,
+            "merged": 0,
+            "split": 208,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 656,
+            "contained": 416,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1088
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1072,
+          "missing": 1088,
+          "complete_ms": 0.4696999676525593,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1088,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 17.111599911004305
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1088
+        }
+      },
+      {
+        "attribute": "doors",
+        "value": "2",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 660,
+            "merged": 0,
+            "split": 204,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 660,
+            "contained": 408,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1092
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1068,
+          "missing": 1092,
+          "complete_ms": 0.4275999963283539,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1092,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 17.97639997676015
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1092
+        }
+      },
+      {
+        "attribute": "doors",
+        "value": "3",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 649,
+            "merged": 0,
+            "split": 215,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 649,
+            "contained": 430,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1081
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1079,
+          "missing": 1081,
+          "complete_ms": 0.564300105907023,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1081,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.281099968589842
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1081
+        }
+      },
+      {
+        "attribute": "doors",
+        "value": "4",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 643,
+            "merged": 0,
+            "split": 221,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 643,
+            "contained": 442,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1075
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1085,
+          "missing": 1075,
+          "complete_ms": 0.475799897685647,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1075,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.470000009983778
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1075
+        }
+      },
+      {
+        "attribute": "doors",
+        "value": "5more",
+        "states": 2160,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1296,
+            "merged": 0,
+            "split": 432,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1296,
+            "contained": 864,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2160,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 640,
+            "merged": 0,
+            "split": 224,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 640,
+            "contained": 448,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1072
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2160,
+          "t0_rows": 1088,
+          "missing": 1072,
+          "complete_ms": 0.42619998566806316,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1072,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 20.467500085942447
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1072
+        }
+      },
+      {
+        "attribute": "persons",
+        "value": "2",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 588,
+            "merged": 0,
+            "split": 276,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 588,
+            "contained": 552,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1164
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1140,
+          "missing": 1164,
+          "complete_ms": 0.5283999489620328,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1164,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 29.76840001065284
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1164
+        }
+      },
+      {
+        "attribute": "persons",
+        "value": "4",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 571,
+            "merged": 0,
+            "split": 293,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 571,
+            "contained": 586,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1147
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1157,
+          "missing": 1147,
+          "complete_ms": 0.5071000196039677,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1147,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 19.60340002551675
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1147
+        }
+      },
+      {
+        "attribute": "persons",
+        "value": "more",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 569,
+            "merged": 0,
+            "split": 295,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 569,
+            "contained": 590,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1145
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1159,
+          "missing": 1145,
+          "complete_ms": 0.5246000364422798,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1145,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 19.442099961452186
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1145
+        }
+      },
+      {
+        "attribute": "lug_boot",
+        "value": "small",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 572,
+            "merged": 0,
+            "split": 292,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 572,
+            "contained": 584,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1148
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1156,
+          "missing": 1148,
+          "complete_ms": 0.5801999941468239,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1148,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 19.611400086432695
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1148
+        }
+      },
+      {
+        "attribute": "lug_boot",
+        "value": "med",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 588,
+            "merged": 0,
+            "split": 276,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 588,
+            "contained": 552,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1164
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1140,
+          "missing": 1164,
+          "complete_ms": 0.5528000183403492,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1164,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 17.562200082466006
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1164
+        }
+      },
+      {
+        "attribute": "lug_boot",
+        "value": "big",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 568,
+            "merged": 0,
+            "split": 296,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 568,
+            "contained": 592,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1144
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1160,
+          "missing": 1144,
+          "complete_ms": 0.5566999316215515,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1144,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.158100079745054
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1144
+        }
+      },
+      {
+        "attribute": "safety",
+        "value": "low",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 585,
+            "merged": 0,
+            "split": 279,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 585,
+            "contained": 558,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1161
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1143,
+          "missing": 1161,
+          "complete_ms": 0.5532000213861465,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1161,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.517800024710596
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1161
+        }
+      },
+      {
+        "attribute": "safety",
+        "value": "med",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 576,
+            "merged": 0,
+            "split": 288,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 576,
+            "contained": 576,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1152
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1152,
+          "missing": 1152,
+          "complete_ms": 1.0619999375194311,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1152,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 18.70550005696714
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1152
+        }
+      },
+      {
+        "attribute": "safety",
+        "value": "high",
+        "states": 2304,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 1728,
+          "fates": {
+            "unchanged": 1152,
+            "merged": 0,
+            "split": 576,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 1152,
+            "contained": 1152,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 1728,
+          "new_states": 2304,
+          "approved_rows": 864,
+          "fates": {
+            "unchanged": 567,
+            "merged": 0,
+            "split": 297,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 567,
+            "contained": 594,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 1143
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 2304,
+          "t0_rows": 1161,
+          "missing": 1143,
+          "complete_ms": 0.5686000222340226,
+          "dmn_gap_regions": 391,
+          "dmn_gap_tuples": 1143,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 20.67310002166778
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 1143
+        }
+      }
+    ]
+  },
+  "nursery": {
+    "dataset": "nursery",
+    "t0_rows": 6480,
+    "baseline": {
+      "states": 12960,
+      "t0_rows": 6480,
+      "missing": 6480,
+      "complete_ms": 6.3229999504983425,
+      "dmn_gap_regions": 2751,
+      "dmn_gap_tuples": 6480,
+      "dmn_partial_bins": 0,
+      "dmn_gaps_equal_complete": true,
+      "dmn_ms": 266.63760002702475
+    },
+    "merges": [
+      {
+        "attribute": "parents",
+        "values": [
+          "usual",
+          "pretentious"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 574,
+        "full_table_conflict_original_states": 1148,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 3746,
+            "conflicting": 574,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 1148
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2121,
+            "merged": 4359,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2121,
+            "contained": 0,
+            "uniform": 945,
+            "conflicting": 140,
+            "partial": 2189,
+            "unapproved": 3245
+          },
+          "conflict_old_states": 280
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 3066,
+          "missing": 5574,
+          "complete_ms": 3.899000003002584,
+          "dmn_gap_regions": 1851,
+          "dmn_gap_tuples": 5574,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 172.7997000562027
+        },
+        "review_breakdown": {
+          "partial": 2189,
+          "conflicting": 140,
+          "unapproved": 3245
+        }
+      },
+      {
+        "attribute": "parents",
+        "values": [
+          "pretentious",
+          "great_pret"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 890,
+        "full_table_conflict_original_states": 1780,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 3430,
+            "conflicting": 890,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 1780
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2174,
+            "merged": 4306,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2174,
+            "contained": 0,
+            "uniform": 858,
+            "conflicting": 216,
+            "partial": 2158,
+            "unapproved": 3234
+          },
+          "conflict_old_states": 432
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 3032,
+          "missing": 5608,
+          "complete_ms": 3.3672000281512737,
+          "dmn_gap_regions": 1839,
+          "dmn_gap_tuples": 5608,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 145.89079993311316
+        },
+        "review_breakdown": {
+          "partial": 2158,
+          "conflicting": 216,
+          "unapproved": 3234
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "values": [
+          "proper",
+          "less_proper"
+        ],
+        "states": 10368,
+        "full_table_conflicts": 2,
+        "full_table_conflict_original_states": 4,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 7776,
+            "merged": 5184,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 7776,
+            "contained": 0,
+            "uniform": 2590,
+            "conflicting": 2,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 4
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3848,
+            "merged": 2632,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3848,
+            "contained": 0,
+            "uniform": 661,
+            "conflicting": 1,
+            "partial": 1308,
+            "unapproved": 4550
+          },
+          "conflict_old_states": 2
+        },
+        "completion": {
+          "states": 10368,
+          "t0_rows": 4509,
+          "missing": 5859,
+          "complete_ms": 4.335399949923158,
+          "dmn_gap_regions": 2285,
+          "dmn_gap_tuples": 5859,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 190.60309999622405
+        },
+        "review_breakdown": {
+          "partial": 1308,
+          "conflicting": 1,
+          "unapproved": 4550
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "values": [
+          "less_proper",
+          "improper"
+        ],
+        "states": 10368,
+        "full_table_conflicts": 572,
+        "full_table_conflict_original_states": 1144,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 7776,
+            "merged": 5184,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 7776,
+            "contained": 0,
+            "uniform": 2020,
+            "conflicting": 572,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 1144
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3862,
+            "merged": 2618,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3862,
+            "contained": 0,
+            "uniform": 525,
+            "conflicting": 134,
+            "partial": 1300,
+            "unapproved": 4547
+          },
+          "conflict_old_states": 268
+        },
+        "completion": {
+          "states": 10368,
+          "t0_rows": 4387,
+          "missing": 5981,
+          "complete_ms": 3.318500006571412,
+          "dmn_gap_regions": 2190,
+          "dmn_gap_tuples": 5981,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 169.1813999786973
+        },
+        "review_breakdown": {
+          "partial": 1300,
+          "conflicting": 134,
+          "unapproved": 4547
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "values": [
+          "improper",
+          "critical"
+        ],
+        "states": 10368,
+        "full_table_conflicts": 572,
+        "full_table_conflict_original_states": 1144,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 7776,
+            "merged": 5184,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 7776,
+            "contained": 0,
+            "uniform": 2020,
+            "conflicting": 572,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 1144
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3881,
+            "merged": 2599,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3881,
+            "contained": 0,
+            "uniform": 501,
+            "conflicting": 144,
+            "partial": 1309,
+            "unapproved": 4533
+          },
+          "conflict_old_states": 288
+        },
+        "completion": {
+          "states": 10368,
+          "t0_rows": 4382,
+          "missing": 5986,
+          "complete_ms": 3.4742000279948115,
+          "dmn_gap_regions": 2172,
+          "dmn_gap_tuples": 5986,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 149.70770000945777
+        },
+        "review_breakdown": {
+          "partial": 1309,
+          "conflicting": 144,
+          "unapproved": 4533
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "values": [
+          "critical",
+          "very_crit"
+        ],
+        "states": 10368,
+        "full_table_conflicts": 254,
+        "full_table_conflict_original_states": 508,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 7776,
+            "merged": 5184,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 7776,
+            "contained": 0,
+            "uniform": 2338,
+            "conflicting": 254,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 508
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 10368,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3918,
+            "merged": 2562,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3918,
+            "contained": 0,
+            "uniform": 567,
+            "conflicting": 63,
+            "partial": 1302,
+            "unapproved": 4518
+          },
+          "conflict_old_states": 126
+        },
+        "completion": {
+          "states": 10368,
+          "t0_rows": 4485,
+          "missing": 5883,
+          "complete_ms": 4.352100077085197,
+          "dmn_gap_regions": 2184,
+          "dmn_gap_tuples": 5883,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 194.12919995374978
+        },
+        "review_breakdown": {
+          "partial": 1302,
+          "conflicting": 63,
+          "unapproved": 4518
+        }
+      },
+      {
+        "attribute": "form",
+        "values": [
+          "complete",
+          "completed"
+        ],
+        "states": 9720,
+        "full_table_conflicts": 102,
+        "full_table_conflict_original_states": 204,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 0,
+            "uniform": 3138,
+            "conflicting": 102,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 204
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3270,
+            "merged": 3210,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3270,
+            "contained": 0,
+            "uniform": 769,
+            "conflicting": 22,
+            "partial": 1628,
+            "unapproved": 4031
+          },
+          "conflict_old_states": 44
+        },
+        "completion": {
+          "states": 9720,
+          "t0_rows": 4039,
+          "missing": 5681,
+          "complete_ms": 5.699199973605573,
+          "dmn_gap_regions": 2103,
+          "dmn_gap_tuples": 5681,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 205.5813999613747
+        },
+        "review_breakdown": {
+          "partial": 1628,
+          "conflicting": 22,
+          "unapproved": 4031
+        }
+      },
+      {
+        "attribute": "form",
+        "values": [
+          "completed",
+          "incomplete"
+        ],
+        "states": 9720,
+        "full_table_conflicts": 114,
+        "full_table_conflict_original_states": 228,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 0,
+            "uniform": 3126,
+            "conflicting": 114,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 228
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3226,
+            "merged": 3254,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3226,
+            "contained": 0,
+            "uniform": 802,
+            "conflicting": 33,
+            "partial": 1584,
+            "unapproved": 4075
+          },
+          "conflict_old_states": 66
+        },
+        "completion": {
+          "states": 9720,
+          "t0_rows": 4028,
+          "missing": 5692,
+          "complete_ms": 3.535900032147765,
+          "dmn_gap_regions": 2117,
+          "dmn_gap_tuples": 5692,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 180.8374000247568
+        },
+        "review_breakdown": {
+          "partial": 1584,
+          "conflicting": 33,
+          "unapproved": 4075
+        }
+      },
+      {
+        "attribute": "form",
+        "values": [
+          "incomplete",
+          "foster"
+        ],
+        "states": 9720,
+        "full_table_conflicts": 114,
+        "full_table_conflict_original_states": 228,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 0,
+            "uniform": 3126,
+            "conflicting": 114,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 228
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3210,
+            "merged": 3270,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3210,
+            "contained": 0,
+            "uniform": 809,
+            "conflicting": 38,
+            "partial": 1576,
+            "unapproved": 4087
+          },
+          "conflict_old_states": 76
+        },
+        "completion": {
+          "states": 9720,
+          "t0_rows": 4019,
+          "missing": 5701,
+          "complete_ms": 4.19000000692904,
+          "dmn_gap_regions": 2116,
+          "dmn_gap_tuples": 5701,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 204.28519998677075
+        },
+        "review_breakdown": {
+          "partial": 1576,
+          "conflicting": 38,
+          "unapproved": 4087
+        }
+      },
+      {
+        "attribute": "children",
+        "values": [
+          "1",
+          "2"
+        ],
+        "states": 9720,
+        "full_table_conflicts": 216,
+        "full_table_conflict_original_states": 432,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 0,
+            "uniform": 3024,
+            "conflicting": 216,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 432
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3219,
+            "merged": 3261,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3219,
+            "contained": 0,
+            "uniform": 770,
+            "conflicting": 52,
+            "partial": 1617,
+            "unapproved": 4062
+          },
+          "conflict_old_states": 104
+        },
+        "completion": {
+          "states": 9720,
+          "t0_rows": 3989,
+          "missing": 5731,
+          "complete_ms": 2.9647001065313816,
+          "dmn_gap_regions": 2099,
+          "dmn_gap_tuples": 5731,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 132.6260999776423
+        },
+        "review_breakdown": {
+          "partial": 1617,
+          "conflicting": 52,
+          "unapproved": 4062
+        }
+      },
+      {
+        "attribute": "children",
+        "values": [
+          "2",
+          "3"
+        ],
+        "states": 9720,
+        "full_table_conflicts": 228,
+        "full_table_conflict_original_states": 456,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 0,
+            "uniform": 3012,
+            "conflicting": 228,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 456
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3201,
+            "merged": 3279,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3201,
+            "contained": 0,
+            "uniform": 780,
+            "conflicting": 58,
+            "partial": 1603,
+            "unapproved": 4078
+          },
+          "conflict_old_states": 116
+        },
+        "completion": {
+          "states": 9720,
+          "t0_rows": 3981,
+          "missing": 5739,
+          "complete_ms": 2.794400090351701,
+          "dmn_gap_regions": 2085,
+          "dmn_gap_tuples": 5739,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 180.07729994133115
+        },
+        "review_breakdown": {
+          "partial": 1603,
+          "conflicting": 58,
+          "unapproved": 4078
+        }
+      },
+      {
+        "attribute": "children",
+        "values": [
+          "3",
+          "more"
+        ],
+        "states": 9720,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 0,
+            "uniform": 3240,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 9720,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3261,
+            "merged": 3219,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3261,
+            "contained": 0,
+            "uniform": 804,
+            "conflicting": 0,
+            "partial": 1611,
+            "unapproved": 4044
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 9720,
+          "t0_rows": 4065,
+          "missing": 5655,
+          "complete_ms": 3.1633999897167087,
+          "dmn_gap_regions": 2119,
+          "dmn_gap_tuples": 5655,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 129.3876999989152
+        },
+        "review_breakdown": {
+          "partial": 1611,
+          "conflicting": 0,
+          "unapproved": 4044
+        }
+      },
+      {
+        "attribute": "housing",
+        "values": [
+          "convenient",
+          "less_conv"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 444,
+        "full_table_conflict_original_states": 888,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 3876,
+            "conflicting": 444,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 888
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2157,
+            "merged": 4323,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2157,
+            "contained": 0,
+            "uniform": 954,
+            "conflicting": 113,
+            "partial": 2189,
+            "unapproved": 3227
+          },
+          "conflict_old_states": 226
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 3111,
+          "missing": 5529,
+          "complete_ms": 2.4109999649226665,
+          "dmn_gap_regions": 1880,
+          "dmn_gap_tuples": 5529,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 117.03339999075979
+        },
+        "review_breakdown": {
+          "partial": 2189,
+          "conflicting": 113,
+          "unapproved": 3227
+        }
+      },
+      {
+        "attribute": "housing",
+        "values": [
+          "less_conv",
+          "critical"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 304,
+        "full_table_conflict_original_states": 608,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 4016,
+            "conflicting": 304,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 608
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2137,
+            "merged": 4343,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2137,
+            "contained": 0,
+            "uniform": 1004,
+            "conflicting": 88,
+            "partial": 2159,
+            "unapproved": 3252
+          },
+          "conflict_old_states": 176
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 3141,
+          "missing": 5499,
+          "complete_ms": 2.556400024332106,
+          "dmn_gap_regions": 1908,
+          "dmn_gap_tuples": 5499,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 134.92159999441355
+        },
+        "review_breakdown": {
+          "partial": 2159,
+          "conflicting": 88,
+          "unapproved": 3252
+        }
+      },
+      {
+        "attribute": "finance",
+        "values": [
+          "convenient",
+          "inconv"
+        ],
+        "states": 6480,
+        "full_table_conflicts": 444,
+        "full_table_conflict_original_states": 888,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 6480,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 0,
+            "merged": 12960,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 0,
+            "contained": 0,
+            "uniform": 6036,
+            "conflicting": 444,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 888
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 6480,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 0,
+            "merged": 6480,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 0,
+            "contained": 0,
+            "uniform": 1534,
+            "conflicting": 126,
+            "partial": 3160,
+            "unapproved": 1660
+          },
+          "conflict_old_states": 252
+        },
+        "completion": {
+          "states": 6480,
+          "t0_rows": 1534,
+          "missing": 4946,
+          "complete_ms": 1.596700050868094,
+          "dmn_gap_regions": 1457,
+          "dmn_gap_tuples": 4946,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 75.61409997288138
+        },
+        "review_breakdown": {
+          "partial": 3160,
+          "conflicting": 126,
+          "unapproved": 1660
+        }
+      },
+      {
+        "attribute": "social",
+        "values": [
+          "nonprob",
+          "slightly_prob"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 4320,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2128,
+            "merged": 4352,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2128,
+            "contained": 0,
+            "uniform": 1133,
+            "conflicting": 0,
+            "partial": 2086,
+            "unapproved": 3293
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 3261,
+          "missing": 5379,
+          "complete_ms": 4.292699974030256,
+          "dmn_gap_regions": 1951,
+          "dmn_gap_tuples": 5379,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 130.3577000508085
+        },
+        "review_breakdown": {
+          "partial": 2086,
+          "conflicting": 0,
+          "unapproved": 3293
+        }
+      },
+      {
+        "attribute": "social",
+        "values": [
+          "slightly_prob",
+          "problematic"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 609,
+        "full_table_conflict_original_states": 1218,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 3711,
+            "conflicting": 609,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 1218
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2173,
+            "merged": 4307,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2173,
+            "contained": 0,
+            "uniform": 930,
+            "conflicting": 152,
+            "partial": 2143,
+            "unapproved": 3242
+          },
+          "conflict_old_states": 304
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 3103,
+          "missing": 5537,
+          "complete_ms": 2.6225000619888306,
+          "dmn_gap_regions": 1902,
+          "dmn_gap_tuples": 5537,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 121.65039998944849
+        },
+        "review_breakdown": {
+          "partial": 2143,
+          "conflicting": 152,
+          "unapproved": 3242
+        }
+      },
+      {
+        "attribute": "health",
+        "values": [
+          "recommended",
+          "priority"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 1218,
+        "full_table_conflict_original_states": 2436,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 3102,
+            "conflicting": 1218,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 2436
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2127,
+            "merged": 4353,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2127,
+            "contained": 0,
+            "uniform": 779,
+            "conflicting": 324,
+            "partial": 2147,
+            "unapproved": 3263
+          },
+          "conflict_old_states": 648
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 2906,
+          "missing": 5734,
+          "complete_ms": 2.5378999998793006,
+          "dmn_gap_regions": 1963,
+          "dmn_gap_tuples": 5734,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 115.39649998303503
+        },
+        "review_breakdown": {
+          "partial": 2147,
+          "conflicting": 324,
+          "unapproved": 3263
+        }
+      },
+      {
+        "attribute": "health",
+        "values": [
+          "priority",
+          "not_recom"
+        ],
+        "states": 8640,
+        "full_table_conflicts": 4320,
+        "full_table_conflict_original_states": 8640,
+        "functional": false,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 4320,
+            "merged": 8640,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4320,
+            "contained": 0,
+            "uniform": 0,
+            "conflicting": 4320,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 8640
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 8640,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 2147,
+            "merged": 4333,
+            "split": 0,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 2147,
+            "contained": 0,
+            "uniform": 0,
+            "conflicting": 1054,
+            "partial": 2225,
+            "unapproved": 3214
+          },
+          "conflict_old_states": 2108
+        },
+        "completion": {
+          "states": 8640,
+          "t0_rows": 2147,
+          "missing": 6493,
+          "complete_ms": 2.3086000001057982,
+          "dmn_gap_regions": 1865,
+          "dmn_gap_tuples": 6493,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 120.06610003300011
+        },
+        "review_breakdown": {
+          "partial": 2225,
+          "conflicting": 1054,
+          "unapproved": 3214
+        }
+      }
+    ],
+    "splits": [
+      {
+        "attribute": "parents",
+        "value": "usual",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4306,
+            "merged": 0,
+            "split": 2174,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4306,
+            "contained": 4348,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8626
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8654,
+          "missing": 8626,
+          "complete_ms": 6.339399958960712,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8626,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 302.33899992890656
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8626
+        }
+      },
+      {
+        "attribute": "parents",
+        "value": "pretentious",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4295,
+            "merged": 0,
+            "split": 2185,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4295,
+            "contained": 4370,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8615
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8665,
+          "missing": 8615,
+          "complete_ms": 8.475199923850596,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8615,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 300.1054000342265
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8615
+        }
+      },
+      {
+        "attribute": "parents",
+        "value": "great_pret",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4359,
+            "merged": 0,
+            "split": 2121,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4359,
+            "contained": 4242,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8679
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8601,
+          "missing": 8679,
+          "complete_ms": 5.558999953791499,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8679,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 292.47829993255436
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8679
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "proper",
+        "states": 15552,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 10368,
+            "merged": 0,
+            "split": 2592,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 10368,
+            "contained": 5184,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 5180,
+            "merged": 0,
+            "split": 1300,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 5180,
+            "contained": 2600,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 7772
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 15552,
+          "t0_rows": 7780,
+          "missing": 7772,
+          "complete_ms": 7.136699976399541,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 7772,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 317.02019996009767
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 7772
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "less_proper",
+        "states": 15552,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 10368,
+            "merged": 0,
+            "split": 2592,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 10368,
+            "contained": 5184,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 5148,
+            "merged": 0,
+            "split": 1332,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 5148,
+            "contained": 2664,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 7740
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 15552,
+          "t0_rows": 7812,
+          "missing": 7740,
+          "complete_ms": 12.610599980689585,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 7740,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 548.018499976024
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 7740
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "improper",
+        "states": 15552,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 10368,
+            "merged": 0,
+            "split": 2592,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 10368,
+            "contained": 5184,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 5194,
+            "merged": 0,
+            "split": 1286,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 5194,
+            "contained": 2572,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 7786
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 15552,
+          "t0_rows": 7766,
+          "missing": 7786,
+          "complete_ms": 13.240500004030764,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 7786,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 662.2086999705061
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 7786
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "critical",
+        "states": 15552,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 10368,
+            "merged": 0,
+            "split": 2592,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 10368,
+            "contained": 5184,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 5167,
+            "merged": 0,
+            "split": 1313,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 5167,
+            "contained": 2626,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 7759
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 15552,
+          "t0_rows": 7793,
+          "missing": 7759,
+          "complete_ms": 11.01719995494932,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 7759,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 335.5138999177143
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 7759
+        }
+      },
+      {
+        "attribute": "has_nurs",
+        "value": "very_crit",
+        "states": 15552,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 10368,
+            "merged": 0,
+            "split": 2592,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 10368,
+            "contained": 5184,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 15552,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 5231,
+            "merged": 0,
+            "split": 1249,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 5231,
+            "contained": 2498,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 7823
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 15552,
+          "t0_rows": 7729,
+          "missing": 7823,
+          "complete_ms": 7.77839997317642,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 7823,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 382.1491999551654
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 7823
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "complete",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4894,
+            "merged": 0,
+            "split": 1586,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4894,
+            "contained": 3172,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8134
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8066,
+          "missing": 8134,
+          "complete_ms": 6.220800103619695,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8134,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 273.6249000299722
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8134
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "completed",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4856,
+            "merged": 0,
+            "split": 1624,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4856,
+            "contained": 3248,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8096
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8104,
+          "missing": 8096,
+          "complete_ms": 7.458599982783198,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8096,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 285.11739999521524
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8096
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "incomplete",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4850,
+            "merged": 0,
+            "split": 1630,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4850,
+            "contained": 3260,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8090
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8110,
+          "missing": 8090,
+          "complete_ms": 6.297299987636507,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8090,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 279.63809994980693
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8090
+        }
+      },
+      {
+        "attribute": "form",
+        "value": "foster",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4840,
+            "merged": 0,
+            "split": 1640,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4840,
+            "contained": 3280,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8080
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8120,
+          "missing": 8080,
+          "complete_ms": 5.391899961978197,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8080,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 283.7181000504643
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8080
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "1",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4866,
+            "merged": 0,
+            "split": 1614,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4866,
+            "contained": 3228,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8106
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8094,
+          "missing": 8106,
+          "complete_ms": 4.862000001594424,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8106,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 256.3015000196174
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8106
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "2",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4833,
+            "merged": 0,
+            "split": 1647,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4833,
+            "contained": 3294,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8073
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8127,
+          "missing": 8073,
+          "complete_ms": 7.034900016151369,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8073,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 331.5617999760434
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8073
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "3",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4848,
+            "merged": 0,
+            "split": 1632,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4848,
+            "contained": 3264,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8088
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8112,
+          "missing": 8088,
+          "complete_ms": 6.747799925506115,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8088,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 247.1486000576988
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8088
+        }
+      },
+      {
+        "attribute": "children",
+        "value": "more",
+        "states": 16200,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 9720,
+            "merged": 0,
+            "split": 3240,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 9720,
+            "contained": 6480,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 16200,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4893,
+            "merged": 0,
+            "split": 1587,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4893,
+            "contained": 3174,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8133
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 16200,
+          "t0_rows": 8067,
+          "missing": 8133,
+          "complete_ms": 5.32039999961853,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8133,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 263.92409997060895
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8133
+        }
+      },
+      {
+        "attribute": "housing",
+        "value": "convenient",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4343,
+            "merged": 0,
+            "split": 2137,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4343,
+            "contained": 4274,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8663
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8617,
+          "missing": 8663,
+          "complete_ms": 5.609199986793101,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8663,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 286.10899997875094
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8663
+        }
+      },
+      {
+        "attribute": "housing",
+        "value": "less_conv",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4294,
+            "merged": 0,
+            "split": 2186,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4294,
+            "contained": 4372,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8614
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8666,
+          "missing": 8614,
+          "complete_ms": 7.558000041171908,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8614,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 239.68360002618283
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8614
+        }
+      },
+      {
+        "attribute": "housing",
+        "value": "critical",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4323,
+            "merged": 0,
+            "split": 2157,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4323,
+            "contained": 4314,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8643
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8637,
+          "missing": 8643,
+          "complete_ms": 7.657899986952543,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8643,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 301.79029994178563
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8643
+        }
+      },
+      {
+        "attribute": "finance",
+        "value": "convenient",
+        "states": 19440,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 19440,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 0,
+            "split": 6480,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 12960,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 19440,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3234,
+            "merged": 0,
+            "split": 3246,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3234,
+            "contained": 6492,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 9714
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 19440,
+          "t0_rows": 9726,
+          "missing": 9714,
+          "complete_ms": 7.619500043801963,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 9714,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 300.95830000936985
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 9714
+        }
+      },
+      {
+        "attribute": "finance",
+        "value": "inconv",
+        "states": 19440,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 19440,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 6480,
+            "merged": 0,
+            "split": 6480,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 6480,
+            "contained": 12960,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 19440,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 3246,
+            "merged": 0,
+            "split": 3234,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 3246,
+            "contained": 6468,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 9726
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 19440,
+          "t0_rows": 9714,
+          "missing": 9726,
+          "complete_ms": 6.402099970728159,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 9726,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 297.508200048469
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 9726
+        }
+      },
+      {
+        "attribute": "social",
+        "value": "nonprob",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4307,
+            "merged": 0,
+            "split": 2173,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4307,
+            "contained": 4346,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8627
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8653,
+          "missing": 8627,
+          "complete_ms": 6.051199976354837,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8627,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 394.69330001156777
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8627
+        }
+      },
+      {
+        "attribute": "social",
+        "value": "slightly_prob",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4301,
+            "merged": 0,
+            "split": 2179,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4301,
+            "contained": 4358,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8621
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8659,
+          "missing": 8621,
+          "complete_ms": 6.018200074322522,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8621,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 328.3508999738842
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8621
+        }
+      },
+      {
+        "attribute": "social",
+        "value": "problematic",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4352,
+            "merged": 0,
+            "split": 2128,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4352,
+            "contained": 4256,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8672
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8608,
+          "missing": 8672,
+          "complete_ms": 5.197699996642768,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8672,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 300.558999995701
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8672
+        }
+      },
+      {
+        "attribute": "health",
+        "value": "recommended",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4333,
+            "merged": 0,
+            "split": 2147,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4333,
+            "contained": 4294,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8653
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8627,
+          "missing": 8653,
+          "complete_ms": 5.459100008010864,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8653,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 260.4913000250235
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8653
+        }
+      },
+      {
+        "attribute": "health",
+        "value": "priority",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4274,
+            "merged": 0,
+            "split": 2206,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4274,
+            "contained": 4412,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8594
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8686,
+          "missing": 8594,
+          "complete_ms": 5.881699966266751,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8594,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 282.00360003393143
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8594
+        }
+      },
+      {
+        "attribute": "health",
+        "value": "not_recom",
+        "states": 17280,
+        "full_table_conflicts": 0,
+        "full_table_conflict_original_states": 0,
+        "functional": true,
+        "full_table": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 12960,
+          "fates": {
+            "unchanged": 8640,
+            "merged": 0,
+            "split": 4320,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 8640,
+            "contained": 8640,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 0
+          },
+          "conflict_old_states": 0
+        },
+        "mapped_t0": {
+          "old_states": 12960,
+          "new_states": 17280,
+          "approved_rows": 6480,
+          "fates": {
+            "unchanged": 4353,
+            "merged": 0,
+            "split": 2127,
+            "reshaped": 0
+          },
+          "categories": {
+            "identical": 4353,
+            "contained": 4254,
+            "uniform": 0,
+            "conflicting": 0,
+            "partial": 0,
+            "unapproved": 8673
+          },
+          "conflict_old_states": 0
+        },
+        "completion": {
+          "states": 17280,
+          "t0_rows": 8607,
+          "missing": 8673,
+          "complete_ms": 6.755999987944961,
+          "dmn_gap_regions": 2751,
+          "dmn_gap_tuples": 8673,
+          "dmn_partial_bins": 0,
+          "dmn_gaps_equal_complete": true,
+          "dmn_ms": 238.98030002601445
+        },
+        "review_breakdown": {
+          "partial": 0,
+          "conflicting": 0,
+          "unapproved": 8673
+        }
+      }
+    ]
+  }
+}

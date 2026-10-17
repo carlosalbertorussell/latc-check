@@ -1,0 +1,1094 @@
+{
+  "pension": [
+    {
+      "version": "v2",
+      "change": "M pension age 65 -> 67; schema keeps only the cuts the new rule needs",
+      "schema_v2": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=67/60-66/<60",
+      "rule_v2": {
+        "m": 67
+      },
+      "v1_states": 24,
+      "v2_states": 24,
+      "approved_fates": {
+        "t0": {
+          "reshaped": 3,
+          "merged": 4,
+          "unchanged": 1
+        },
+        "complement": {
+          "unchanged": 7,
+          "merged": 4,
+          "reshaped": 5
+        }
+      },
+      "approved_meaning_changed": [
+        {
+          "state": "M D >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M D >=30 >=67",
+            "M D >=30 60-66"
+          ]
+        },
+        {
+          "state": "M I >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M I >=30 >=67",
+            "M I >=30 60-66"
+          ]
+        },
+        {
+          "state": "F D >=30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "F D >=30 60-66"
+          ]
+        },
+        {
+          "state": "F I >=30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "F I >=30 60-66"
+          ]
+        },
+        {
+          "state": "M I <30 >=65",
+          "outcome": "Rv",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M I <30 >=67",
+            "M I <30 60-66"
+          ]
+        },
+        {
+          "state": "M I <30 60-64",
+          "outcome": "NO",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "M I <30 60-66"
+          ]
+        },
+        {
+          "state": "F D <30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "F D <30 60-66"
+          ]
+        },
+        {
+          "state": "M D >=30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D >=30 60-66"
+          ]
+        },
+        {
+          "state": "M D <30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D <30 60-66"
+          ]
+        },
+        {
+          "state": "M D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M D <30 >=67",
+            "M D <30 60-66"
+          ]
+        },
+        {
+          "state": "M I >=30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M I >=30 60-66"
+          ]
+        },
+        {
+          "state": "F D >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F D >=30 >=67",
+            "F D >=30 60-66"
+          ]
+        },
+        {
+          "state": "F D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F D <30 >=67",
+            "F D <30 60-66"
+          ]
+        },
+        {
+          "state": "F I >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F I >=30 >=67",
+            "F I >=30 60-66"
+          ]
+        },
+        {
+          "state": "F I <30 60-64",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F I <30 60-66"
+          ]
+        },
+        {
+          "state": "F I <30 >=65",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F I <30 >=67",
+            "F I <30 60-66"
+          ]
+        }
+      ],
+      "v2_categories": {
+        "identical": 8,
+        "contained": 8,
+        "uniform": 4,
+        "conflicting": 4,
+        "partial": 0,
+        "unapproved": 0
+      },
+      "re_review": 16,
+      "no_outcome": 4,
+      "policy_affected": 4,
+      "policy_affected_states": [
+        "M D <30 60-66",
+        "M D >=30 60-66",
+        "M I <30 60-66",
+        "M I >=30 60-66"
+      ],
+      "affected_within_re_review": true,
+      "affected_not_flagged": [],
+      "wrong_inherited_outcomes": {
+        "identical": 0,
+        "contained": 0,
+        "uniform": 0
+      },
+      "t0_only": {
+        "categories": {
+          "identical": 1,
+          "contained": 3,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 5,
+          "unapproved": 14
+        },
+        "no_approved_row": 14,
+        "partly_approved": 5
+      }
+    },
+    {
+      "version": "v2-refined",
+      "change": "M pension age 65 -> 67; schema keeps the old cut 65 as well",
+      "schema_v2": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=67/65-66/60-64/<60",
+      "rule_v2": {
+        "m": 67
+      },
+      "v1_states": 24,
+      "v2_states": 32,
+      "approved_fates": {
+        "t0": {
+          "split": 3,
+          "unchanged": 5
+        },
+        "complement": {
+          "unchanged": 11,
+          "split": 5
+        }
+      },
+      "approved_meaning_changed": [
+        {
+          "state": "M D >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "split",
+          "new_states": [
+            "M D >=30 >=67",
+            "M D >=30 65-66"
+          ]
+        },
+        {
+          "state": "M I >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "split",
+          "new_states": [
+            "M I >=30 >=67",
+            "M I >=30 65-66"
+          ]
+        },
+        {
+          "state": "M I <30 >=65",
+          "outcome": "Rv",
+          "source": "T0",
+          "fate": "split",
+          "new_states": [
+            "M I <30 >=67",
+            "M I <30 65-66"
+          ]
+        },
+        {
+          "state": "M D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "split",
+          "new_states": [
+            "M D <30 >=67",
+            "M D <30 65-66"
+          ]
+        },
+        {
+          "state": "F D >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "split",
+          "new_states": [
+            "F D >=30 >=67",
+            "F D >=30 65-66"
+          ]
+        },
+        {
+          "state": "F D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "split",
+          "new_states": [
+            "F D <30 >=67",
+            "F D <30 65-66"
+          ]
+        },
+        {
+          "state": "F I >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "split",
+          "new_states": [
+            "F I >=30 >=67",
+            "F I >=30 65-66"
+          ]
+        },
+        {
+          "state": "F I <30 >=65",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "split",
+          "new_states": [
+            "F I <30 >=67",
+            "F I <30 65-66"
+          ]
+        }
+      ],
+      "v2_categories": {
+        "identical": 16,
+        "contained": 16,
+        "uniform": 0,
+        "conflicting": 0,
+        "partial": 0,
+        "unapproved": 0
+      },
+      "re_review": 16,
+      "no_outcome": 0,
+      "policy_affected": 4,
+      "policy_affected_states": [
+        "M D <30 65-66",
+        "M D >=30 65-66",
+        "M I <30 65-66",
+        "M I >=30 65-66"
+      ],
+      "affected_within_re_review": true,
+      "affected_not_flagged": [],
+      "wrong_inherited_outcomes": {
+        "identical": 0,
+        "contained": 4,
+        "uniform": 0
+      },
+      "t0_only": {
+        "categories": {
+          "identical": 5,
+          "contained": 6,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 21
+        },
+        "no_approved_row": 21,
+        "partly_approved": 0
+      }
+    },
+    {
+      "version": "v2b",
+      "change": "M 65 -> 67 and F 60 -> 62",
+      "schema_v2": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=67/62-66/<62",
+      "rule_v2": {
+        "f": 62,
+        "m": 67
+      },
+      "v1_states": 24,
+      "v2_states": 24,
+      "approved_fates": {
+        "t0": {
+          "reshaped": 7,
+          "merged": 1
+        },
+        "complement": {
+          "merged": 7,
+          "reshaped": 9
+        }
+      },
+      "approved_meaning_changed": [
+        {
+          "state": "M D >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M D >=30 >=67",
+            "M D >=30 62-66"
+          ]
+        },
+        {
+          "state": "M I >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M I >=30 >=67",
+            "M I >=30 62-66"
+          ]
+        },
+        {
+          "state": "F D >=30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "F D >=30 62-66",
+            "F D >=30 <62"
+          ]
+        },
+        {
+          "state": "F I >=30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "F I >=30 62-66",
+            "F I >=30 <62"
+          ]
+        },
+        {
+          "state": "F I >=30 <60",
+          "outcome": "NO",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "F I >=30 <62"
+          ]
+        },
+        {
+          "state": "M I <30 >=65",
+          "outcome": "Rv",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M I <30 >=67",
+            "M I <30 62-66"
+          ]
+        },
+        {
+          "state": "M I <30 60-64",
+          "outcome": "NO",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M I <30 62-66",
+            "M I <30 <62"
+          ]
+        },
+        {
+          "state": "F D <30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "F D <30 62-66",
+            "F D <30 <62"
+          ]
+        },
+        {
+          "state": "M D >=30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D >=30 <62"
+          ]
+        },
+        {
+          "state": "M D >=30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M D >=30 62-66",
+            "M D >=30 <62"
+          ]
+        },
+        {
+          "state": "M D <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D <30 <62"
+          ]
+        },
+        {
+          "state": "M D <30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M D <30 62-66",
+            "M D <30 <62"
+          ]
+        },
+        {
+          "state": "M D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M D <30 >=67",
+            "M D <30 62-66"
+          ]
+        },
+        {
+          "state": "M I >=30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M I >=30 <62"
+          ]
+        },
+        {
+          "state": "M I >=30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M I >=30 62-66",
+            "M I >=30 <62"
+          ]
+        },
+        {
+          "state": "M I <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M I <30 <62"
+          ]
+        },
+        {
+          "state": "F D >=30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F D >=30 <62"
+          ]
+        },
+        {
+          "state": "F D >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F D >=30 >=67",
+            "F D >=30 62-66"
+          ]
+        },
+        {
+          "state": "F D <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F D <30 <62"
+          ]
+        },
+        {
+          "state": "F D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F D <30 >=67",
+            "F D <30 62-66"
+          ]
+        },
+        {
+          "state": "F I >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F I >=30 >=67",
+            "F I >=30 62-66"
+          ]
+        },
+        {
+          "state": "F I <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F I <30 <62"
+          ]
+        },
+        {
+          "state": "F I <30 60-64",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F I <30 62-66",
+            "F I <30 <62"
+          ]
+        },
+        {
+          "state": "F I <30 >=65",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F I <30 >=67",
+            "F I <30 62-66"
+          ]
+        }
+      ],
+      "v2_categories": {
+        "identical": 0,
+        "contained": 8,
+        "uniform": 8,
+        "conflicting": 8,
+        "partial": 0,
+        "unapproved": 0
+      },
+      "re_review": 24,
+      "no_outcome": 8,
+      "policy_affected": 8,
+      "policy_affected_states": [
+        "F D <30 <62",
+        "F D >=30 <62",
+        "F I <30 <62",
+        "F I >=30 <62",
+        "M D <30 62-66",
+        "M D >=30 62-66",
+        "M I <30 62-66",
+        "M I >=30 62-66"
+      ],
+      "affected_within_re_review": true,
+      "affected_not_flagged": [],
+      "wrong_inherited_outcomes": {
+        "identical": 0,
+        "contained": 0,
+        "uniform": 0
+      },
+      "t0_only": {
+        "categories": {
+          "identical": 0,
+          "contained": 3,
+          "uniform": 0,
+          "conflicting": 2,
+          "partial": 8,
+          "unapproved": 11
+        },
+        "no_approved_row": 11,
+        "partly_approved": 8
+      }
+    },
+    {
+      "version": "v3",
+      "change": "contribution threshold 30 -> 35",
+      "schema_v2": "Sex M/F; Activity D/I; ContributionYears >=35/<35; Age >=65/60-64/<60",
+      "rule_v2": {
+        "c": 35
+      },
+      "v1_states": 24,
+      "v2_states": 24,
+      "approved_fates": {
+        "t0": {
+          "reshaped": 5,
+          "merged": 3
+        },
+        "complement": {
+          "reshaped": 7,
+          "merged": 9
+        }
+      },
+      "approved_meaning_changed": [
+        {
+          "state": "M D >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M D >=35 >=65",
+            "M D <35 >=65"
+          ]
+        },
+        {
+          "state": "M I >=30 >=65",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "M I >=35 >=65",
+            "M I <35 >=65"
+          ]
+        },
+        {
+          "state": "F D >=30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "F D >=35 60-64",
+            "F D <35 60-64"
+          ]
+        },
+        {
+          "state": "F I >=30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "F I >=35 60-64",
+            "F I <35 60-64"
+          ]
+        },
+        {
+          "state": "F I >=30 <60",
+          "outcome": "NO",
+          "source": "T0",
+          "fate": "reshaped",
+          "new_states": [
+            "F I >=35 <60",
+            "F I <35 <60"
+          ]
+        },
+        {
+          "state": "M I <30 >=65",
+          "outcome": "Rv",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "M I <35 >=65"
+          ]
+        },
+        {
+          "state": "M I <30 60-64",
+          "outcome": "NO",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "M I <35 60-64"
+          ]
+        },
+        {
+          "state": "F D <30 60-64",
+          "outcome": "YES",
+          "source": "T0",
+          "fate": "merged",
+          "new_states": [
+            "F D <35 60-64"
+          ]
+        },
+        {
+          "state": "M D >=30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M D >=35 <60",
+            "M D <35 <60"
+          ]
+        },
+        {
+          "state": "M D >=30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M D >=35 60-64",
+            "M D <35 60-64"
+          ]
+        },
+        {
+          "state": "M D <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D <35 <60"
+          ]
+        },
+        {
+          "state": "M D <30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D <35 60-64"
+          ]
+        },
+        {
+          "state": "M D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M D <35 >=65"
+          ]
+        },
+        {
+          "state": "M I >=30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M I >=35 <60",
+            "M I <35 <60"
+          ]
+        },
+        {
+          "state": "M I >=30 60-64",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "M I >=35 60-64",
+            "M I <35 60-64"
+          ]
+        },
+        {
+          "state": "M I <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "M I <35 <60"
+          ]
+        },
+        {
+          "state": "F D >=30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F D >=35 <60",
+            "F D <35 <60"
+          ]
+        },
+        {
+          "state": "F D >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F D >=35 >=65",
+            "F D <35 >=65"
+          ]
+        },
+        {
+          "state": "F D <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F D <35 <60"
+          ]
+        },
+        {
+          "state": "F D <30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F D <35 >=65"
+          ]
+        },
+        {
+          "state": "F I >=30 >=65",
+          "outcome": "YES",
+          "source": "complement",
+          "fate": "reshaped",
+          "new_states": [
+            "F I >=35 >=65",
+            "F I <35 >=65"
+          ]
+        },
+        {
+          "state": "F I <30 <60",
+          "outcome": "NO",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F I <35 <60"
+          ]
+        },
+        {
+          "state": "F I <30 60-64",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F I <35 60-64"
+          ]
+        },
+        {
+          "state": "F I <30 >=65",
+          "outcome": "Rv",
+          "source": "complement",
+          "fate": "merged",
+          "new_states": [
+            "F I <35 >=65"
+          ]
+        }
+      ],
+      "v2_categories": {
+        "identical": 0,
+        "contained": 12,
+        "uniform": 9,
+        "conflicting": 3,
+        "partial": 0,
+        "unapproved": 0
+      },
+      "re_review": 24,
+      "no_outcome": 3,
+      "policy_affected": 3,
+      "policy_affected_states": [
+        "F I <35 60-64",
+        "F I <35 >=65",
+        "M I <35 >=65"
+      ],
+      "affected_within_re_review": true,
+      "affected_not_flagged": [],
+      "wrong_inherited_outcomes": {
+        "identical": 0,
+        "contained": 0,
+        "uniform": 0
+      },
+      "t0_only": {
+        "categories": {
+          "identical": 0,
+          "contained": 5,
+          "uniform": 1,
+          "conflicting": 1,
+          "partial": 4,
+          "unapproved": 13
+        },
+        "no_approved_row": 13,
+        "partly_approved": 4
+      }
+    },
+    {
+      "version": "v4",
+      "change": "outcome-only change: activity I with fewer than 30 years gets NO instead of Rv; no cut point moves",
+      "schema_v2": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/<60",
+      "rule_v2": {
+        "rv": "NO"
+      },
+      "v1_states": 24,
+      "v2_states": 24,
+      "approved_fates": {
+        "t0": {
+          "unchanged": 8
+        },
+        "complement": {
+          "unchanged": 16
+        }
+      },
+      "approved_meaning_changed": [],
+      "v2_categories": {
+        "identical": 24,
+        "contained": 0,
+        "uniform": 0,
+        "conflicting": 0,
+        "partial": 0,
+        "unapproved": 0
+      },
+      "re_review": 0,
+      "no_outcome": 0,
+      "policy_affected": 3,
+      "policy_affected_states": [
+        "F I <30 60-64",
+        "F I <30 >=65",
+        "M I <30 >=65"
+      ],
+      "affected_within_re_review": false,
+      "affected_not_flagged": [
+        "F I <30 60-64",
+        "F I <30 >=65",
+        "M I <30 >=65"
+      ],
+      "wrong_inherited_outcomes": {
+        "identical": 3,
+        "contained": 0,
+        "uniform": 0
+      },
+      "t0_only": {
+        "categories": {
+          "identical": 8,
+          "contained": 0,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 16
+        },
+        "no_approved_row": 16,
+        "partly_approved": 0
+      }
+    }
+  ],
+  "nursery": [
+    {
+      "version": "N1",
+      "change": "merge children 3 and more into one value '3+'",
+      "v1_states": 12960,
+      "v2_states": 9720,
+      "all_rows_approved": {
+        "old_states": 12960,
+        "new_states": 9720,
+        "approved_rows": 12960,
+        "fates": {
+          "unchanged": 6480,
+          "merged": 6480,
+          "split": 0,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 6480,
+          "contained": 0,
+          "uniform": 3240,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 0,
+        "re_review": 3240,
+        "no_outcome": 0
+      },
+      "t0_approved": {
+        "old_states": 12960,
+        "new_states": 9720,
+        "approved_rows": 6480,
+        "fates": {
+          "unchanged": 3261,
+          "merged": 3219,
+          "split": 0,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 3261,
+          "contained": 0,
+          "uniform": 804,
+          "conflicting": 0,
+          "partial": 1611,
+          "unapproved": 4044
+        },
+        "conflict_old_states": 0,
+        "re_review": 6459,
+        "no_outcome": 5655
+      }
+    },
+    {
+      "version": "N2",
+      "change": "move the boundary between 3 and more: 1, 2, 3, more becomes 1, 2, 3-4, 5+ (more = {4, 5+})",
+      "v1_states": 12960,
+      "v2_states": 12960,
+      "all_rows_approved": {
+        "old_states": 12960,
+        "new_states": 12960,
+        "approved_rows": 12960,
+        "fates": {
+          "unchanged": 6480,
+          "merged": 3240,
+          "split": 0,
+          "reshaped": 3240
+        },
+        "categories": {
+          "identical": 6480,
+          "contained": 3240,
+          "uniform": 3240,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 0,
+        "re_review": 6480,
+        "no_outcome": 0
+      },
+      "t0_approved": {
+        "old_states": 12960,
+        "new_states": 12960,
+        "approved_rows": 6480,
+        "fates": {
+          "unchanged": 3261,
+          "merged": 1632,
+          "split": 0,
+          "reshaped": 1587
+        },
+        "categories": {
+          "identical": 3261,
+          "contained": 1587,
+          "uniform": 804,
+          "conflicting": 0,
+          "partial": 1611,
+          "unapproved": 5697
+        },
+        "conflict_old_states": 0,
+        "re_review": 9699,
+        "no_outcome": 7308
+      }
+    }
+  ]
+}

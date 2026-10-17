@@ -1,0 +1,4874 @@
+{
+  "definitions": "S-2 .. S-5 in latc_check/sensitivity.py",
+  "cases": [
+    {
+      "age_cuts": [
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/<60",
+      "states": 24,
+      "t0_fates": {
+        "unchanged": 8
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "unchanged",
+        "F I >=30 60-64": "unchanged",
+        "F I >=30 <60": "unchanged",
+        "M I <30 >=65": "unchanged",
+        "M I <30 60-64": "unchanged",
+        "F D <30 60-64": "unchanged"
+      },
+      "t0_misaligned_rows": 0,
+      "t0_single_state_rows": 8,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 8,
+          "merged": 0,
+          "split": 0,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 8,
+          "contained": 0,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 16
+        },
+        "conflict_old_states": 0
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 8,
+        "missing": 16,
+        "complete_ms": 0.01880002673715353,
+        "dmn_gap_regions": 7,
+        "dmn_gap_tuples": 16,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.43219991493970156
+      },
+      "review_breakdown": {
+        "partial": 0,
+        "conflicting": 0,
+        "unapproved": 16
+      },
+      "liberal_mapping": {
+        "rows": 8,
+        "multi_hit_tuples": 0,
+        "conflicting_tuples": 0,
+        "misaligned_entries": 0,
+        "misaligned_rows": 0
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 16,
+        "partial_bins": 0
+      },
+      "raw_table1_misaligned_rules": 0,
+      "published_complement": {
+        "unchanged": 16,
+        "fates": {
+          "unchanged": 16
+        },
+        "changed": []
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 24,
+          "merged": 0,
+          "split": 0,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 24,
+          "contained": 0,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 0,
+        "re_review": 0,
+        "no_outcome": 0,
+        "conflicting_states": []
+      },
+      "age_label": "60,65 (published)",
+      "contribution_label": "30 (published)"
+    },
+    {
+      "age_cuts": [
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        25
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=25/<25; Age >=65/60-64/<60",
+      "states": 24,
+      "t0_fates": {
+        "merged": 5,
+        "reshaped": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "merged",
+        "M I >=30 >=65": "merged",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 5,
+          "split": 0,
+          "reshaped": 3
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 3,
+          "uniform": 1,
+          "conflicting": 1,
+          "partial": 4,
+          "unapproved": 15
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 4,
+        "missing": 20,
+        "complete_ms": 0.013699987903237343,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 20,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.30099996365606785
+      },
+      "review_breakdown": {
+        "partial": 4,
+        "conflicting": 1,
+        "unapproved": 15
+      },
+      "liberal_mapping": {
+        "rows": 11,
+        "multi_hit_tuples": 2,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 8,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 24,
+        "partial_bins": 6
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "merged": 7,
+          "reshaped": 9
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 <60"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 60-64"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 <60",
+              "M D <25 <60"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 60-64",
+              "M D <25 60-64"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 >=65",
+              "M D <25 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 <60"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 60-64"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 <60",
+              "M I <25 <60"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 <60"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 <60",
+              "F D <25 <60"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 >=65",
+              "F D <25 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F I >=25 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 <60",
+              "F I <25 <60"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 60-64",
+              "F I <25 60-64"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 >=65",
+              "F I <25 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 12,
+          "split": 0,
+          "reshaped": 12
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 12,
+          "uniform": 9,
+          "conflicting": 3,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 6,
+        "re_review": 24,
+        "no_outcome": 3,
+        "conflicting_states": [
+          "M I >=25 >=65",
+          "F I >=25 >=65",
+          "F I >=25 60-64"
+        ]
+      },
+      "age_label": "60,65 (published)",
+      "contribution_label": "25"
+    },
+    {
+      "age_cuts": [
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        35
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=35/<35; Age >=65/60-64/<60",
+      "states": 24,
+      "t0_fates": {
+        "reshaped": 5,
+        "merged": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "reshaped",
+        "M I <30 >=65": "merged",
+        "M I <30 60-64": "merged",
+        "F D <30 60-64": "merged"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 3,
+          "split": 0,
+          "reshaped": 5
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 5,
+          "uniform": 1,
+          "conflicting": 1,
+          "partial": 4,
+          "unapproved": 13
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 6,
+        "missing": 18,
+        "complete_ms": 0.009699957445263863,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 18,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.2906000008806586
+      },
+      "review_breakdown": {
+        "partial": 4,
+        "conflicting": 1,
+        "unapproved": 13
+      },
+      "liberal_mapping": {
+        "rows": 13,
+        "multi_hit_tuples": 2,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 8,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 22,
+        "partial_bins": 6
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "reshaped": 7,
+          "merged": 9
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 <60",
+              "M D <35 <60"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 60-64",
+              "M D <35 60-64"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 <60"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 60-64"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 <60",
+              "M I <35 <60"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 60-64",
+              "M I <35 60-64"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I <35 <60"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 <60",
+              "F D <35 <60"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 >=65",
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 <60"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=35 >=65",
+              "F I <35 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 <60"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 60-64"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 12,
+          "split": 0,
+          "reshaped": 12
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 12,
+          "uniform": 9,
+          "conflicting": 3,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 6,
+        "re_review": 24,
+        "no_outcome": 3,
+        "conflicting_states": [
+          "M I <35 >=65",
+          "F I <35 >=65",
+          "F I <35 60-64"
+        ]
+      },
+      "age_label": "60,65 (published)",
+      "contribution_label": "35"
+    },
+    {
+      "age_cuts": [
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        20,
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/20-29/<20; Age >=65/60-64/<60",
+      "states": 36,
+      "t0_fates": {
+        "unchanged": 5,
+        "split": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "unchanged",
+        "F I >=30 60-64": "unchanged",
+        "F I >=30 <60": "unchanged",
+        "M I <30 >=65": "split",
+        "M I <30 60-64": "split",
+        "F D <30 60-64": "split"
+      },
+      "t0_misaligned_rows": 0,
+      "t0_single_state_rows": 5,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 36,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 5,
+          "merged": 0,
+          "split": 3,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 5,
+          "contained": 6,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 25
+        },
+        "conflict_old_states": 0
+      },
+      "completion": {
+        "states": 36,
+        "t0_rows": 11,
+        "missing": 25,
+        "complete_ms": 0.012699980288743973,
+        "dmn_gap_regions": 7,
+        "dmn_gap_tuples": 25,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 2.7086000191047788
+      },
+      "review_breakdown": {
+        "partial": 0,
+        "conflicting": 0,
+        "unapproved": 25
+      },
+      "liberal_mapping": {
+        "rows": 11,
+        "multi_hit_tuples": 0,
+        "conflicting_tuples": 0,
+        "misaligned_entries": 0,
+        "misaligned_rows": 0
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 25,
+        "partial_bins": 0
+      },
+      "raw_table1_misaligned_rules": 0,
+      "published_complement": {
+        "unchanged": 7,
+        "fates": {
+          "unchanged": 7,
+          "split": 9
+        },
+        "changed": [
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 <60",
+              "M D <20 <60"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 60-64",
+              "M D <20 60-64"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 >=65",
+              "M D <20 >=65"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M I 20-29 <60",
+              "M I <20 <60"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 <60",
+              "F D <20 <60"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 >=65",
+              "F D <20 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 <60",
+              "F I <20 <60"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 60-64",
+              "F I <20 60-64"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 >=65",
+              "F I <20 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 36,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 12,
+          "merged": 0,
+          "split": 12,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 12,
+          "contained": 24,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 0,
+        "re_review": 24,
+        "no_outcome": 0,
+        "conflicting_states": []
+      },
+      "age_label": "60,65 (published)",
+      "contribution_label": "20,30"
+    },
+    {
+      "age_cuts": [
+        60,
+        67
+      ],
+      "contribution_cuts": [
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=67/60-66/<60",
+      "states": 24,
+      "t0_fates": {
+        "reshaped": 3,
+        "merged": 4,
+        "unchanged": 1
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "unchanged",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "merged",
+        "F D <30 60-64": "merged"
+      },
+      "t0_misaligned_rows": 7,
+      "t0_single_state_rows": 1,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 1,
+          "merged": 4,
+          "split": 0,
+          "reshaped": 3
+        },
+        "categories": {
+          "identical": 1,
+          "contained": 3,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 5,
+          "unapproved": 14
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 4,
+        "missing": 20,
+        "complete_ms": 0.0100000761449337,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 20,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.26359991170465946
+      },
+      "review_breakdown": {
+        "partial": 5,
+        "conflicting": 1,
+        "unapproved": 14
+      },
+      "liberal_mapping": {
+        "rows": 11,
+        "multi_hit_tuples": 1,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 7,
+        "misaligned_rows": 7
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 19,
+        "partial_bins": 3
+      },
+      "raw_table1_misaligned_rules": 4,
+      "published_complement": {
+        "unchanged": 7,
+        "fates": {
+          "unchanged": 7,
+          "merged": 4,
+          "reshaped": 5
+        },
+        "changed": [
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 60-66"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <30 60-66"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D <30 >=67",
+              "M D <30 60-66"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 60-66"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=30 >=67",
+              "F D >=30 60-66"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D <30 >=67",
+              "F D <30 60-66"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=30 >=67",
+              "F I >=30 60-66"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <30 60-66"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I <30 >=67",
+              "F I <30 60-66"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 8,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 8
+        },
+        "categories": {
+          "identical": 8,
+          "contained": 8,
+          "uniform": 4,
+          "conflicting": 4,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 8,
+        "re_review": 16,
+        "no_outcome": 4,
+        "conflicting_states": [
+          "M D >=30 60-66",
+          "M D <30 60-66",
+          "M I >=30 60-66",
+          "M I <30 60-66"
+        ]
+      },
+      "age_label": "60,67",
+      "contribution_label": "30 (published)"
+    },
+    {
+      "age_cuts": [
+        60,
+        67
+      ],
+      "contribution_cuts": [
+        25
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=25/<25; Age >=67/60-66/<60",
+      "states": 24,
+      "t0_fates": {
+        "reshaped": 5,
+        "merged": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 3,
+          "split": 0,
+          "reshaped": 5
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 1,
+          "uniform": 0,
+          "conflicting": 2,
+          "partial": 7,
+          "unapproved": 14
+        },
+        "conflict_old_states": 4
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 1,
+        "missing": 23,
+        "complete_ms": 0.01379998866468668,
+        "dmn_gap_regions": 4,
+        "dmn_gap_tuples": 23,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.26979995891451836
+      },
+      "review_breakdown": {
+        "partial": 7,
+        "conflicting": 2,
+        "unapproved": 14
+      },
+      "liberal_mapping": {
+        "rows": 15,
+        "multi_hit_tuples": 4,
+        "conflicting_tuples": 3,
+        "misaligned_entries": 15,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 28,
+        "partial_bins": 9
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "merged": 5,
+          "reshaped": 11
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 <60"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 60-66"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 <60",
+              "M D <25 <60"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 60-66",
+              "M D <25 60-66"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 >=67",
+              "M D >=25 60-66",
+              "M D <25 >=67",
+              "M D <25 60-66"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 <60"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 60-66"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 <60",
+              "M I <25 <60"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 <60"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 >=67",
+              "F D >=25 60-66"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 <60",
+              "F D <25 <60"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 >=67",
+              "F D >=25 60-66",
+              "F D <25 >=67",
+              "F D <25 60-66"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 >=67",
+              "F I >=25 60-66"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 <60",
+              "F I <25 <60"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 60-66",
+              "F I <25 60-66"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 >=67",
+              "F I >=25 60-66",
+              "F I <25 >=67",
+              "F I <25 60-66"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 16
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 8,
+          "uniform": 9,
+          "conflicting": 7,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 20,
+        "re_review": 24,
+        "no_outcome": 7,
+        "conflicting_states": [
+          "M D >=25 60-66",
+          "M D <25 60-66",
+          "M I >=25 >=67",
+          "M I >=25 60-66",
+          "M I <25 60-66",
+          "F I >=25 >=67",
+          "F I >=25 60-66"
+        ]
+      },
+      "age_label": "60,67",
+      "contribution_label": "25"
+    },
+    {
+      "age_cuts": [
+        60,
+        67
+      ],
+      "contribution_cuts": [
+        35
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=35/<35; Age >=67/60-66/<60",
+      "states": 24,
+      "t0_fates": {
+        "reshaped": 6,
+        "merged": 2
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "reshaped",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "merged",
+        "F D <30 60-64": "merged"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 2,
+          "split": 0,
+          "reshaped": 6
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 3,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 10,
+          "unapproved": 10
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 3,
+        "missing": 21,
+        "complete_ms": 0.01650000922381878,
+        "dmn_gap_regions": 5,
+        "dmn_gap_tuples": 21,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.31210004817694426
+      },
+      "review_breakdown": {
+        "partial": 10,
+        "conflicting": 1,
+        "unapproved": 10
+      },
+      "liberal_mapping": {
+        "rows": 18,
+        "multi_hit_tuples": 3,
+        "conflicting_tuples": 2,
+        "misaligned_entries": 15,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 27,
+        "partial_bins": 9
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "reshaped": 10,
+          "merged": 6
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 <60",
+              "M D <35 <60"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 60-66",
+              "M D <35 60-66"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 <60"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 60-66"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D <35 >=67",
+              "M D <35 60-66"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 <60",
+              "M I <35 <60"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 60-66",
+              "M I <35 60-66"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I <35 <60"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 <60",
+              "F D <35 <60"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 >=67",
+              "F D >=35 60-66",
+              "F D <35 >=67",
+              "F D <35 60-66"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 <60"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D <35 >=67",
+              "F D <35 60-66"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=35 >=67",
+              "F I >=35 60-66",
+              "F I <35 >=67",
+              "F I <35 60-66"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 <60"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 60-66"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I <35 >=67",
+              "F I <35 60-66"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 16
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 8,
+          "uniform": 9,
+          "conflicting": 7,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 20,
+        "re_review": 24,
+        "no_outcome": 7,
+        "conflicting_states": [
+          "M D >=35 60-66",
+          "M D <35 60-66",
+          "M I >=35 60-66",
+          "M I <35 >=67",
+          "M I <35 60-66",
+          "F I <35 >=67",
+          "F I <35 60-66"
+        ]
+      },
+      "age_label": "60,67",
+      "contribution_label": "35"
+    },
+    {
+      "age_cuts": [
+        60,
+        67
+      ],
+      "contribution_cuts": [
+        20,
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/20-29/<20; Age >=67/60-66/<60",
+      "states": 36,
+      "t0_fates": {
+        "reshaped": 5,
+        "merged": 2,
+        "unchanged": 1
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "unchanged",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 7,
+      "t0_single_state_rows": 1,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 36,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 1,
+          "merged": 2,
+          "split": 0,
+          "reshaped": 5
+        },
+        "categories": {
+          "identical": 1,
+          "contained": 4,
+          "uniform": 0,
+          "conflicting": 2,
+          "partial": 6,
+          "unapproved": 23
+        },
+        "conflict_old_states": 4
+      },
+      "completion": {
+        "states": 36,
+        "t0_rows": 5,
+        "missing": 31,
+        "complete_ms": 0.018000020645558834,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 31,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.5791999865323305
+      },
+      "review_breakdown": {
+        "partial": 6,
+        "conflicting": 2,
+        "unapproved": 23
+      },
+      "liberal_mapping": {
+        "rows": 15,
+        "multi_hit_tuples": 2,
+        "conflicting_tuples": 2,
+        "misaligned_entries": 7,
+        "misaligned_rows": 7
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 29,
+        "partial_bins": 3
+      },
+      "raw_table1_misaligned_rules": 4,
+      "published_complement": {
+        "unchanged": 3,
+        "fates": {
+          "unchanged": 3,
+          "merged": 2,
+          "split": 4,
+          "reshaped": 7
+        },
+        "changed": [
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 60-66"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 <60",
+              "M D <20 <60"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D 20-29 60-66",
+              "M D <20 60-66"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D 20-29 >=67",
+              "M D 20-29 60-66",
+              "M D <20 >=67",
+              "M D <20 60-66"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 60-66"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M I 20-29 <60",
+              "M I <20 <60"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=30 >=67",
+              "F D >=30 60-66"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 <60",
+              "F D <20 <60"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D 20-29 >=67",
+              "F D 20-29 60-66",
+              "F D <20 >=67",
+              "F D <20 60-66"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=30 >=67",
+              "F I >=30 60-66"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 <60",
+              "F I <20 <60"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I 20-29 60-66",
+              "F I <20 60-66"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I 20-29 >=67",
+              "F I 20-29 60-66",
+              "F I <20 >=67",
+              "F I <20 60-66"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 36,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 4,
+          "merged": 4,
+          "split": 4,
+          "reshaped": 12
+        },
+        "categories": {
+          "identical": 4,
+          "contained": 20,
+          "uniform": 6,
+          "conflicting": 6,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 12,
+        "re_review": 32,
+        "no_outcome": 6,
+        "conflicting_states": [
+          "M D >=30 60-66",
+          "M D 20-29 60-66",
+          "M D <20 60-66",
+          "M I >=30 60-66",
+          "M I 20-29 60-66",
+          "M I <20 60-66"
+        ]
+      },
+      "age_label": "60,67",
+      "contribution_label": "20,30"
+    },
+    {
+      "age_cuts": [
+        62,
+        65
+      ],
+      "contribution_cuts": [
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/62-64/<62",
+      "states": 24,
+      "t0_fates": {
+        "unchanged": 3,
+        "reshaped": 4,
+        "merged": 1
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "unchanged",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 5,
+      "t0_single_state_rows": 3,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 3,
+          "merged": 1,
+          "split": 0,
+          "reshaped": 4
+        },
+        "categories": {
+          "identical": 3,
+          "contained": 4,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 3,
+          "unapproved": 13
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 7,
+        "missing": 17,
+        "complete_ms": 0.009999959729611874,
+        "dmn_gap_regions": 8,
+        "dmn_gap_tuples": 17,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.34449994564056396
+      },
+      "review_breakdown": {
+        "partial": 3,
+        "conflicting": 1,
+        "unapproved": 13
+      },
+      "liberal_mapping": {
+        "rows": 12,
+        "multi_hit_tuples": 1,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 5,
+        "misaligned_rows": 5
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 16,
+        "partial_bins": 2
+      },
+      "raw_table1_misaligned_rules": 4,
+      "published_complement": {
+        "unchanged": 5,
+        "fates": {
+          "merged": 7,
+          "reshaped": 4,
+          "unchanged": 5
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 <62"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=30 62-64",
+              "M D >=30 <62"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <30 <62"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D <30 62-64",
+              "M D <30 <62"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 <62"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=30 62-64",
+              "M I >=30 <62"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I <30 <62"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=30 <62"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D <30 <62"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F I <30 <62"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I <30 62-64",
+              "F I <30 <62"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 8,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 8
+        },
+        "categories": {
+          "identical": 8,
+          "contained": 8,
+          "uniform": 4,
+          "conflicting": 4,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 8,
+        "re_review": 16,
+        "no_outcome": 4,
+        "conflicting_states": [
+          "F D >=30 <62",
+          "F D <30 <62",
+          "F I >=30 <62",
+          "F I <30 <62"
+        ]
+      },
+      "age_label": "62,65",
+      "contribution_label": "30 (published)"
+    },
+    {
+      "age_cuts": [
+        62,
+        65
+      ],
+      "contribution_cuts": [
+        25
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=25/<25; Age >=65/62-64/<62",
+      "states": 24,
+      "t0_fates": {
+        "merged": 3,
+        "reshaped": 5
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "merged",
+        "M I >=30 >=65": "merged",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 3,
+          "split": 0,
+          "reshaped": 5
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 3,
+          "uniform": 1,
+          "conflicting": 1,
+          "partial": 8,
+          "unapproved": 11
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 4,
+        "missing": 20,
+        "complete_ms": 0.009100069291889668,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 20,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.2668999368324876
+      },
+      "review_breakdown": {
+        "partial": 8,
+        "conflicting": 1,
+        "unapproved": 11
+      },
+      "liberal_mapping": {
+        "rows": 17,
+        "multi_hit_tuples": 4,
+        "conflicting_tuples": 2,
+        "misaligned_entries": 13,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 24,
+        "partial_bins": 8
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "merged": 5,
+          "reshaped": 11
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 <62"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 62-64",
+              "M D >=25 <62"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 <62",
+              "M D <25 <62"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 62-64",
+              "M D >=25 <62",
+              "M D <25 62-64",
+              "M D <25 <62"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 >=65",
+              "M D <25 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 <62"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 62-64",
+              "M I >=25 <62"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 <62",
+              "M I <25 <62"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 <62"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 <62",
+              "F D <25 <62"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 >=65",
+              "F D <25 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F I >=25 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 <62",
+              "F I <25 <62"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 62-64",
+              "F I >=25 <62",
+              "F I <25 62-64",
+              "F I <25 <62"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 >=65",
+              "F I <25 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 16
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 8,
+          "uniform": 9,
+          "conflicting": 7,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 18,
+        "re_review": 24,
+        "no_outcome": 7,
+        "conflicting_states": [
+          "M I >=25 >=65",
+          "F D >=25 <62",
+          "F D <25 <62",
+          "F I >=25 >=65",
+          "F I >=25 62-64",
+          "F I >=25 <62",
+          "F I <25 <62"
+        ]
+      },
+      "age_label": "62,65",
+      "contribution_label": "25"
+    },
+    {
+      "age_cuts": [
+        62,
+        65
+      ],
+      "contribution_cuts": [
+        35
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=35/<35; Age >=65/62-64/<62",
+      "states": 24,
+      "t0_fates": {
+        "reshaped": 7,
+        "merged": 1
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "reshaped",
+        "M I <30 >=65": "merged",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 1,
+          "split": 0,
+          "reshaped": 7
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 4,
+          "uniform": 1,
+          "conflicting": 2,
+          "partial": 7,
+          "unapproved": 10
+        },
+        "conflict_old_states": 4
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 5,
+        "missing": 19,
+        "complete_ms": 0.008999952115118504,
+        "dmn_gap_regions": 7,
+        "dmn_gap_tuples": 19,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.3003999590873718
+      },
+      "review_breakdown": {
+        "partial": 7,
+        "conflicting": 2,
+        "unapproved": 10
+      },
+      "liberal_mapping": {
+        "rows": 19,
+        "multi_hit_tuples": 5,
+        "conflicting_tuples": 3,
+        "misaligned_entries": 13,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 22,
+        "partial_bins": 8
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "reshaped": 9,
+          "merged": 7
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 <62",
+              "M D <35 <62"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 62-64",
+              "M D >=35 <62",
+              "M D <35 62-64",
+              "M D <35 <62"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 <62"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D <35 62-64",
+              "M D <35 <62"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 <62",
+              "M I <35 <62"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 62-64",
+              "M I >=35 <62",
+              "M I <35 62-64",
+              "M I <35 <62"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I <35 <62"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 <62",
+              "F D <35 <62"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 >=65",
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 <62"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=35 >=65",
+              "F I <35 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 <62"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I <35 62-64",
+              "F I <35 <62"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 16
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 8,
+          "uniform": 9,
+          "conflicting": 7,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 18,
+        "re_review": 24,
+        "no_outcome": 7,
+        "conflicting_states": [
+          "M I <35 >=65",
+          "F D >=35 <62",
+          "F D <35 <62",
+          "F I >=35 <62",
+          "F I <35 >=65",
+          "F I <35 62-64",
+          "F I <35 <62"
+        ]
+      },
+      "age_label": "62,65",
+      "contribution_label": "35"
+    },
+    {
+      "age_cuts": [
+        62,
+        65
+      ],
+      "contribution_cuts": [
+        20,
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/20-29/<20; Age >=65/62-64/<62",
+      "states": 36,
+      "t0_fates": {
+        "unchanged": 2,
+        "reshaped": 4,
+        "merged": 1,
+        "split": 1
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "split",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 5,
+      "t0_single_state_rows": 2,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 36,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 2,
+          "merged": 1,
+          "split": 1,
+          "reshaped": 4
+        },
+        "categories": {
+          "identical": 2,
+          "contained": 8,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 5,
+          "unapproved": 20
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 36,
+        "t0_rows": 10,
+        "missing": 26,
+        "complete_ms": 0.011299969628453255,
+        "dmn_gap_regions": 8,
+        "dmn_gap_tuples": 26,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.6052999524399638
+      },
+      "review_breakdown": {
+        "partial": 5,
+        "conflicting": 1,
+        "unapproved": 20
+      },
+      "liberal_mapping": {
+        "rows": 17,
+        "multi_hit_tuples": 1,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 5,
+        "misaligned_rows": 5
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 25,
+        "partial_bins": 2
+      },
+      "raw_table1_misaligned_rules": 4,
+      "published_complement": {
+        "unchanged": 2,
+        "fates": {
+          "merged": 3,
+          "reshaped": 8,
+          "split": 3,
+          "unchanged": 2
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 <62"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=30 62-64",
+              "M D >=30 <62"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D 20-29 <62",
+              "M D <20 <62"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D 20-29 62-64",
+              "M D 20-29 <62",
+              "M D <20 62-64",
+              "M D <20 <62"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 >=65",
+              "M D <20 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 <62"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=30 62-64",
+              "M I >=30 <62"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I 20-29 <62",
+              "M I <20 <62"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=30 <62"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D 20-29 <62",
+              "F D <20 <62"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 >=65",
+              "F D <20 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I 20-29 <62",
+              "F I <20 <62"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I 20-29 62-64",
+              "F I 20-29 <62",
+              "F I <20 62-64",
+              "F I <20 <62"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 >=65",
+              "F I <20 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 36,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 4,
+          "merged": 4,
+          "split": 4,
+          "reshaped": 12
+        },
+        "categories": {
+          "identical": 4,
+          "contained": 20,
+          "uniform": 6,
+          "conflicting": 6,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 12,
+        "re_review": 32,
+        "no_outcome": 6,
+        "conflicting_states": [
+          "F D >=30 <62",
+          "F D 20-29 <62",
+          "F D <20 <62",
+          "F I >=30 <62",
+          "F I 20-29 <62",
+          "F I <20 <62"
+        ]
+      },
+      "age_label": "62,65",
+      "contribution_label": "20,30"
+    },
+    {
+      "age_cuts": [
+        65
+      ],
+      "contribution_cuts": [
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/<65",
+      "states": 16,
+      "t0_fates": {
+        "unchanged": 3,
+        "merged": 5
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "unchanged",
+        "M I <30 60-64": "merged",
+        "F D <30 60-64": "merged"
+      },
+      "t0_misaligned_rows": 5,
+      "t0_single_state_rows": 3,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 16,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 3,
+          "merged": 5,
+          "split": 0,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 3,
+          "contained": 0,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 3,
+          "unapproved": 9
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 16,
+        "t0_rows": 3,
+        "missing": 13,
+        "complete_ms": 0.008100061677396297,
+        "dmn_gap_regions": 4,
+        "dmn_gap_tuples": 13,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.18539989832788706
+      },
+      "review_breakdown": {
+        "partial": 3,
+        "conflicting": 1,
+        "unapproved": 9
+      },
+      "liberal_mapping": {
+        "rows": 8,
+        "multi_hit_tuples": 1,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 5,
+        "misaligned_rows": 5
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 12,
+        "partial_bins": 2
+      },
+      "raw_table1_misaligned_rules": 4,
+      "published_complement": {
+        "unchanged": 5,
+        "fates": {
+          "merged": 11,
+          "unchanged": 5
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 <65"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 <65"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <30 <65"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <30 <65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 <65"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 <65"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I <30 <65"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=30 <65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D <30 <65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F I <30 <65"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <30 <65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 16,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 8,
+          "merged": 16,
+          "split": 0,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 8,
+          "contained": 0,
+          "uniform": 4,
+          "conflicting": 4,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 8,
+        "re_review": 8,
+        "no_outcome": 4,
+        "conflicting_states": [
+          "F D >=30 <65",
+          "F D <30 <65",
+          "F I >=30 <65",
+          "F I <30 <65"
+        ]
+      },
+      "age_label": "65",
+      "contribution_label": "30 (published)"
+    },
+    {
+      "age_cuts": [
+        65
+      ],
+      "contribution_cuts": [
+        25
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=25/<25; Age >=65/<65",
+      "states": 16,
+      "t0_fates": {
+        "merged": 5,
+        "reshaped": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "merged",
+        "M I >=30 >=65": "merged",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 16,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 5,
+          "split": 0,
+          "reshaped": 3
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 1,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 6,
+          "unapproved": 8
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 16,
+        "t0_rows": 1,
+        "missing": 15,
+        "complete_ms": 0.007500057108700275,
+        "dmn_gap_regions": 4,
+        "dmn_gap_tuples": 15,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.1370999962091446
+      },
+      "review_breakdown": {
+        "partial": 6,
+        "conflicting": 1,
+        "unapproved": 8
+      },
+      "liberal_mapping": {
+        "rows": 11,
+        "multi_hit_tuples": 3,
+        "conflicting_tuples": 2,
+        "misaligned_entries": 13,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 18,
+        "partial_bins": 8
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "merged": 7,
+          "reshaped": 9
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 <65"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 <65"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 <65",
+              "M D <25 <65"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 <65",
+              "M D <25 <65"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 >=65",
+              "M D <25 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 <65"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 <65"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 <65",
+              "M I <25 <65"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 <65"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 <65",
+              "F D <25 <65"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 >=65",
+              "F D <25 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F I >=25 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 <65",
+              "F I <25 <65"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 <65",
+              "F I <25 <65"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 >=65",
+              "F I <25 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 16,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 12,
+          "split": 0,
+          "reshaped": 12
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 4,
+          "uniform": 6,
+          "conflicting": 6,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 16,
+        "re_review": 16,
+        "no_outcome": 6,
+        "conflicting_states": [
+          "M I >=25 >=65",
+          "F D >=25 <65",
+          "F D <25 <65",
+          "F I >=25 >=65",
+          "F I >=25 <65",
+          "F I <25 <65"
+        ]
+      },
+      "age_label": "65",
+      "contribution_label": "25"
+    },
+    {
+      "age_cuts": [
+        65
+      ],
+      "contribution_cuts": [
+        35
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=35/<35; Age >=65/<65",
+      "states": 16,
+      "t0_fates": {
+        "reshaped": 5,
+        "merged": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "reshaped",
+        "M I <30 >=65": "merged",
+        "M I <30 60-64": "merged",
+        "F D <30 60-64": "merged"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 16,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 3,
+          "split": 0,
+          "reshaped": 5
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 2,
+          "uniform": 0,
+          "conflicting": 2,
+          "partial": 5,
+          "unapproved": 7
+        },
+        "conflict_old_states": 4
+      },
+      "completion": {
+        "states": 16,
+        "t0_rows": 2,
+        "missing": 14,
+        "complete_ms": 0.016000005416572094,
+        "dmn_gap_regions": 3,
+        "dmn_gap_tuples": 14,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.327400048263371
+      },
+      "review_breakdown": {
+        "partial": 5,
+        "conflicting": 2,
+        "unapproved": 7
+      },
+      "liberal_mapping": {
+        "rows": 13,
+        "multi_hit_tuples": 4,
+        "conflicting_tuples": 3,
+        "misaligned_entries": 13,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 16,
+        "partial_bins": 8
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "reshaped": 7,
+          "merged": 9
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 <65",
+              "M D <35 <65"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 <65",
+              "M D <35 <65"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 <65"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 <65"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 <65",
+              "M I <35 <65"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 <65",
+              "M I <35 <65"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I <35 <65"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 <65",
+              "F D <35 <65"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 >=65",
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 <65"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=35 >=65",
+              "F I <35 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 <65"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 <65"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 16,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 12,
+          "split": 0,
+          "reshaped": 12
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 4,
+          "uniform": 6,
+          "conflicting": 6,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 16,
+        "re_review": 16,
+        "no_outcome": 6,
+        "conflicting_states": [
+          "M I <35 >=65",
+          "F D >=35 <65",
+          "F D <35 <65",
+          "F I >=35 <65",
+          "F I <35 >=65",
+          "F I <35 <65"
+        ]
+      },
+      "age_label": "65",
+      "contribution_label": "35"
+    },
+    {
+      "age_cuts": [
+        65
+      ],
+      "contribution_cuts": [
+        20,
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/20-29/<20; Age >=65/<65",
+      "states": 24,
+      "t0_fates": {
+        "unchanged": 2,
+        "merged": 3,
+        "split": 1,
+        "reshaped": 2
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "merged",
+        "M I <30 >=65": "split",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 5,
+      "t0_single_state_rows": 2,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 2,
+          "merged": 3,
+          "split": 1,
+          "reshaped": 2
+        },
+        "categories": {
+          "identical": 2,
+          "contained": 2,
+          "uniform": 0,
+          "conflicting": 1,
+          "partial": 5,
+          "unapproved": 14
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 24,
+        "t0_rows": 4,
+        "missing": 20,
+        "complete_ms": 0.010599964298307896,
+        "dmn_gap_regions": 4,
+        "dmn_gap_tuples": 20,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.24049996864050627
+      },
+      "review_breakdown": {
+        "partial": 5,
+        "conflicting": 1,
+        "unapproved": 14
+      },
+      "liberal_mapping": {
+        "rows": 11,
+        "multi_hit_tuples": 1,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 5,
+        "misaligned_rows": 5
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 19,
+        "partial_bins": 2
+      },
+      "raw_table1_misaligned_rules": 4,
+      "published_complement": {
+        "unchanged": 2,
+        "fates": {
+          "merged": 5,
+          "reshaped": 6,
+          "split": 3,
+          "unchanged": 2
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 <65"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=30 <65"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D 20-29 <65",
+              "M D <20 <65"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D 20-29 <65",
+              "M D <20 <65"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 >=65",
+              "M D <20 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 <65"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=30 <65"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I 20-29 <65",
+              "M I <20 <65"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "F D >=30 <65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D 20-29 <65",
+              "F D <20 <65"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 >=65",
+              "F D <20 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I 20-29 <65",
+              "F I <20 <65"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I 20-29 <65",
+              "F I <20 <65"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 >=65",
+              "F I <20 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 24,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 4,
+          "merged": 8,
+          "split": 4,
+          "reshaped": 8
+        },
+        "categories": {
+          "identical": 4,
+          "contained": 8,
+          "uniform": 6,
+          "conflicting": 6,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 12,
+        "re_review": 20,
+        "no_outcome": 6,
+        "conflicting_states": [
+          "F D >=30 <65",
+          "F D 20-29 <65",
+          "F D <20 <65",
+          "F I >=30 <65",
+          "F I 20-29 <65",
+          "F I <20 <65"
+        ]
+      },
+      "age_label": "65",
+      "contribution_label": "20,30"
+    },
+    {
+      "age_cuts": [
+        55,
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/55-59/<55",
+      "states": 32,
+      "t0_fates": {
+        "unchanged": 7,
+        "split": 1
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "unchanged",
+        "F I >=30 60-64": "unchanged",
+        "F I >=30 <60": "split",
+        "M I <30 >=65": "unchanged",
+        "M I <30 60-64": "unchanged",
+        "F D <30 60-64": "unchanged"
+      },
+      "t0_misaligned_rows": 0,
+      "t0_single_state_rows": 7,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 32,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 7,
+          "merged": 0,
+          "split": 1,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 7,
+          "contained": 2,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 23
+        },
+        "conflict_old_states": 0
+      },
+      "completion": {
+        "states": 32,
+        "t0_rows": 9,
+        "missing": 23,
+        "complete_ms": 0.010999967344105244,
+        "dmn_gap_regions": 7,
+        "dmn_gap_tuples": 23,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.3711000317707658
+      },
+      "review_breakdown": {
+        "partial": 0,
+        "conflicting": 0,
+        "unapproved": 23
+      },
+      "liberal_mapping": {
+        "rows": 9,
+        "multi_hit_tuples": 0,
+        "conflicting_tuples": 0,
+        "misaligned_entries": 0,
+        "misaligned_rows": 0
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 23,
+        "partial_bins": 0
+      },
+      "raw_table1_misaligned_rules": 0,
+      "published_complement": {
+        "unchanged": 9,
+        "fates": {
+          "split": 7,
+          "unchanged": 9
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D >=30 55-59",
+              "M D >=30 <55"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D <30 55-59",
+              "M D <30 <55"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M I >=30 55-59",
+              "M I >=30 <55"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M I <30 55-59",
+              "M I <30 <55"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F D >=30 55-59",
+              "F D >=30 <55"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F D <30 55-59",
+              "F D <30 <55"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F I <30 55-59",
+              "F I <30 <55"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 32,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 16,
+          "merged": 0,
+          "split": 8,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 16,
+          "contained": 16,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 0,
+        "re_review": 16,
+        "no_outcome": 0,
+        "conflicting_states": []
+      },
+      "age_label": "55,60,65",
+      "contribution_label": "30 (published)"
+    },
+    {
+      "age_cuts": [
+        55,
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        25
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=25/<25; Age >=65/60-64/55-59/<55",
+      "states": 32,
+      "t0_fates": {
+        "merged": 4,
+        "reshaped": 4
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "merged",
+        "M I >=30 >=65": "merged",
+        "F D >=30 60-64": "merged",
+        "F I >=30 60-64": "merged",
+        "F I >=30 <60": "reshaped",
+        "M I <30 >=65": "reshaped",
+        "M I <30 60-64": "reshaped",
+        "F D <30 60-64": "reshaped"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 32,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 4,
+          "split": 0,
+          "reshaped": 4
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 3,
+          "uniform": 1,
+          "conflicting": 1,
+          "partial": 5,
+          "unapproved": 22
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 32,
+        "t0_rows": 4,
+        "missing": 28,
+        "complete_ms": 0.0097999582067132,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 28,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.2658000448718667
+      },
+      "review_breakdown": {
+        "partial": 5,
+        "conflicting": 1,
+        "unapproved": 22
+      },
+      "liberal_mapping": {
+        "rows": 12,
+        "multi_hit_tuples": 2,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 8,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 34,
+        "partial_bins": 6
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "reshaped": 12,
+          "merged": 4
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 55-59",
+              "M D >=25 <55"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D >=25 60-64"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 55-59",
+              "M D >=25 <55",
+              "M D <25 55-59",
+              "M D <25 <55"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 60-64",
+              "M D <25 60-64"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=25 >=65",
+              "M D <25 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 55-59",
+              "M I >=25 <55"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M I >=25 60-64"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=25 55-59",
+              "M I >=25 <55",
+              "M I <25 55-59",
+              "M I <25 <55"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 55-59",
+              "F D >=25 <55"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D >=25 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 55-59",
+              "F D >=25 <55",
+              "F D <25 55-59",
+              "F D <25 <55"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=25 >=65",
+              "F D <25 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F I >=25 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 55-59",
+              "F I >=25 <55",
+              "F I <25 55-59",
+              "F I <25 <55"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 60-64",
+              "F I <25 60-64"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=25 >=65",
+              "F I <25 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 32,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 16
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 16,
+          "uniform": 13,
+          "conflicting": 3,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 6,
+        "re_review": 32,
+        "no_outcome": 3,
+        "conflicting_states": [
+          "M I >=25 >=65",
+          "F I >=25 >=65",
+          "F I >=25 60-64"
+        ]
+      },
+      "age_label": "55,60,65",
+      "contribution_label": "25"
+    },
+    {
+      "age_cuts": [
+        55,
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        35
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=35/<35; Age >=65/60-64/55-59/<55",
+      "states": 32,
+      "t0_fates": {
+        "reshaped": 5,
+        "merged": 3
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "reshaped",
+        "M I >=30 >=65": "reshaped",
+        "F D >=30 60-64": "reshaped",
+        "F I >=30 60-64": "reshaped",
+        "F I >=30 <60": "reshaped",
+        "M I <30 >=65": "merged",
+        "M I <30 60-64": "merged",
+        "F D <30 60-64": "merged"
+      },
+      "t0_misaligned_rows": 8,
+      "t0_single_state_rows": 0,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 32,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 0,
+          "merged": 3,
+          "split": 0,
+          "reshaped": 5
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 6,
+          "uniform": 1,
+          "conflicting": 1,
+          "partial": 5,
+          "unapproved": 19
+        },
+        "conflict_old_states": 2
+      },
+      "completion": {
+        "states": 32,
+        "t0_rows": 7,
+        "missing": 25,
+        "complete_ms": 0.010199961252510548,
+        "dmn_gap_regions": 6,
+        "dmn_gap_tuples": 25,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.29420002829283476
+      },
+      "review_breakdown": {
+        "partial": 5,
+        "conflicting": 1,
+        "unapproved": 19
+      },
+      "liberal_mapping": {
+        "rows": 15,
+        "multi_hit_tuples": 2,
+        "conflicting_tuples": 1,
+        "misaligned_entries": 8,
+        "misaligned_rows": 8
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 31,
+        "partial_bins": 6
+      },
+      "raw_table1_misaligned_rules": 8,
+      "published_complement": {
+        "unchanged": 0,
+        "fates": {
+          "reshaped": 11,
+          "merged": 5
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 55-59",
+              "M D >=35 <55",
+              "M D <35 55-59",
+              "M D <35 <55"
+            ]
+          },
+          {
+            "row": 2,
+            "state": "M D >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D >=35 60-64",
+              "M D <35 60-64"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M D <35 55-59",
+              "M D <35 <55"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 60-64"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "M D <35 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 55-59",
+              "M I >=35 <55",
+              "M I <35 55-59",
+              "M I <35 <55"
+            ]
+          },
+          {
+            "row": 8,
+            "state": "M I >=30 60-64",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I >=35 60-64",
+              "M I <35 60-64"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "M I <35 55-59",
+              "M I <35 <55"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 55-59",
+              "F D >=35 <55",
+              "F D <35 55-59",
+              "F D <35 <55"
+            ]
+          },
+          {
+            "row": 15,
+            "state": "F D >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F D >=35 >=65",
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F D <35 55-59",
+              "F D <35 <55"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "merged",
+            "new_states": [
+              "F D <35 >=65"
+            ]
+          },
+          {
+            "row": 21,
+            "state": "F I >=30 >=65",
+            "outcome": "YES",
+            "fate": "reshaped",
+            "new_states": [
+              "F I >=35 >=65",
+              "F I <35 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "reshaped",
+            "new_states": [
+              "F I <35 55-59",
+              "F I <35 <55"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 60-64"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "merged",
+            "new_states": [
+              "F I <35 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 32,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 0,
+          "merged": 8,
+          "split": 0,
+          "reshaped": 16
+        },
+        "categories": {
+          "identical": 0,
+          "contained": 16,
+          "uniform": 13,
+          "conflicting": 3,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 6,
+        "re_review": 32,
+        "no_outcome": 3,
+        "conflicting_states": [
+          "M I <35 >=65",
+          "F I <35 >=65",
+          "F I <35 60-64"
+        ]
+      },
+      "age_label": "55,60,65",
+      "contribution_label": "35"
+    },
+    {
+      "age_cuts": [
+        55,
+        60,
+        65
+      ],
+      "contribution_cuts": [
+        20,
+        30
+      ],
+      "schema": "Sex M/F; Activity D/I; ContributionYears >=30/20-29/<20; Age >=65/60-64/55-59/<55",
+      "states": 48,
+      "t0_fates": {
+        "unchanged": 4,
+        "split": 4
+      },
+      "t0_fate_by_row": {
+        "M D >=30 >=65": "unchanged",
+        "M I >=30 >=65": "unchanged",
+        "F D >=30 60-64": "unchanged",
+        "F I >=30 60-64": "unchanged",
+        "F I >=30 <60": "split",
+        "M I <30 >=65": "split",
+        "M I <30 60-64": "split",
+        "F D <30 60-64": "split"
+      },
+      "t0_misaligned_rows": 0,
+      "t0_single_state_rows": 4,
+      "mapped_t0": {
+        "old_states": 24,
+        "new_states": 48,
+        "approved_rows": 8,
+        "fates": {
+          "unchanged": 4,
+          "merged": 0,
+          "split": 4,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 4,
+          "contained": 8,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 36
+        },
+        "conflict_old_states": 0
+      },
+      "completion": {
+        "states": 48,
+        "t0_rows": 12,
+        "missing": 36,
+        "complete_ms": 0.012599979527294636,
+        "dmn_gap_regions": 7,
+        "dmn_gap_tuples": 36,
+        "dmn_partial_bins": 0,
+        "dmn_gaps_equal_complete": true,
+        "dmn_ms": 0.4002999048680067
+      },
+      "review_breakdown": {
+        "partial": 0,
+        "conflicting": 0,
+        "unapproved": 36
+      },
+      "liberal_mapping": {
+        "rows": 12,
+        "multi_hit_tuples": 0,
+        "conflicting_tuples": 0,
+        "misaligned_entries": 0,
+        "misaligned_rows": 0
+      },
+      "dmn_raw_intervals": {
+        "gap_regions": 7,
+        "gap_tuples": 36,
+        "partial_bins": 0
+      },
+      "raw_table1_misaligned_rules": 0,
+      "published_complement": {
+        "unchanged": 4,
+        "fates": {
+          "split": 12,
+          "unchanged": 4
+        },
+        "changed": [
+          {
+            "row": 1,
+            "state": "M D >=30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D >=30 55-59",
+              "M D >=30 <55"
+            ]
+          },
+          {
+            "row": 4,
+            "state": "M D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 55-59",
+              "M D 20-29 <55",
+              "M D <20 55-59",
+              "M D <20 <55"
+            ]
+          },
+          {
+            "row": 5,
+            "state": "M D <30 60-64",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 60-64",
+              "M D <20 60-64"
+            ]
+          },
+          {
+            "row": 6,
+            "state": "M D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "M D 20-29 >=65",
+              "M D <20 >=65"
+            ]
+          },
+          {
+            "row": 7,
+            "state": "M I >=30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M I >=30 55-59",
+              "M I >=30 <55"
+            ]
+          },
+          {
+            "row": 11,
+            "state": "M I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "M I 20-29 55-59",
+              "M I 20-29 <55",
+              "M I <20 55-59",
+              "M I <20 <55"
+            ]
+          },
+          {
+            "row": 13,
+            "state": "F D >=30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F D >=30 55-59",
+              "F D >=30 <55"
+            ]
+          },
+          {
+            "row": 16,
+            "state": "F D <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 55-59",
+              "F D 20-29 <55",
+              "F D <20 55-59",
+              "F D <20 <55"
+            ]
+          },
+          {
+            "row": 18,
+            "state": "F D <30 >=65",
+            "outcome": "YES",
+            "fate": "split",
+            "new_states": [
+              "F D 20-29 >=65",
+              "F D <20 >=65"
+            ]
+          },
+          {
+            "row": 22,
+            "state": "F I <30 <60",
+            "outcome": "NO",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 55-59",
+              "F I 20-29 <55",
+              "F I <20 55-59",
+              "F I <20 <55"
+            ]
+          },
+          {
+            "row": 23,
+            "state": "F I <30 60-64",
+            "outcome": "Rv",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 60-64",
+              "F I <20 60-64"
+            ]
+          },
+          {
+            "row": 24,
+            "state": "F I <30 >=65",
+            "outcome": "Rv",
+            "fate": "split",
+            "new_states": [
+              "F I 20-29 >=65",
+              "F I <20 >=65"
+            ]
+          }
+        ]
+      },
+      "reuse_24_approved": {
+        "old_states": 24,
+        "new_states": 48,
+        "approved_rows": 24,
+        "fates": {
+          "unchanged": 8,
+          "merged": 0,
+          "split": 16,
+          "reshaped": 0
+        },
+        "categories": {
+          "identical": 8,
+          "contained": 40,
+          "uniform": 0,
+          "conflicting": 0,
+          "partial": 0,
+          "unapproved": 0
+        },
+        "conflict_old_states": 0,
+        "re_review": 40,
+        "no_outcome": 0,
+        "conflicting_states": []
+      },
+      "age_label": "55,60,65",
+      "contribution_label": "20,30"
+    }
+  ]
+}

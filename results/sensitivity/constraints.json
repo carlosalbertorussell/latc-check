@@ -1,0 +1,307 @@
+[
+  {
+    "case": "pension",
+    "constraint": "none",
+    "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/<60",
+    "states": 24,
+    "valid": 24,
+    "excluded": 0,
+    "t0_rows": 8,
+    "t0_rows_outside_valid": 0,
+    "missing_before": 16,
+    "missing_after": 16,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": true,
+      "missed": 0,
+      "outside_space": 0
+    },
+    "dmn_native": {
+      "gap_regions": 7,
+      "gap_tuples": 16,
+      "impossible_reported_as_gaps": 0,
+      "filtered_equals_complete": true
+    }
+  },
+  {
+    "case": "pension",
+    "constraint": "exclude the 3 states the experts marked Rv",
+    "excluded_states": [
+      "M I <30 >=65",
+      "F I <30 60-64",
+      "F I <30 >=65"
+    ],
+    "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/<60",
+    "states": 24,
+    "valid": 21,
+    "excluded": 3,
+    "t0_rows": 8,
+    "t0_rows_outside_valid": 1,
+    "missing_before": 16,
+    "missing_after": 14,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": false,
+      "missed": 0,
+      "outside_space": 2
+    },
+    "dmn_native": {
+      "gap_regions": 7,
+      "gap_tuples": 16,
+      "impossible_reported_as_gaps": 2,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 3,
+      "gap_regions": 6,
+      "gap_tuples": 14,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 1
+    }
+  },
+  {
+    "case": "pension",
+    "constraint": "contribution years <= age - 18 (integer bins)",
+    "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/<60",
+    "excluded_states": [],
+    "states": 24,
+    "valid": 24,
+    "excluded": 0,
+    "t0_rows": 8,
+    "t0_rows_outside_valid": 0,
+    "missing_before": 16,
+    "missing_after": 16,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": true,
+      "missed": 0,
+      "outside_space": 0
+    },
+    "dmn_native": {
+      "gap_regions": 7,
+      "gap_tuples": 16,
+      "impossible_reported_as_gaps": 0,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 0,
+      "gap_regions": 7,
+      "gap_tuples": 16,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 0
+    }
+  },
+  {
+    "case": "pension",
+    "constraint": "contribution years <= age - 18 (integer bins)",
+    "schema": "Sex M/F; Activity D/I; ContributionYears >=30/<30; Age >=65/60-64/45-59/<45",
+    "excluded_states": [
+      "M D >=30 <45",
+      "M I >=30 <45",
+      "F D >=30 <45",
+      "F I >=30 <45"
+    ],
+    "states": 32,
+    "valid": 28,
+    "excluded": 4,
+    "t0_rows": 9,
+    "t0_rows_outside_valid": 1,
+    "missing_before": 23,
+    "missing_after": 20,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": false,
+      "missed": 0,
+      "outside_space": 3
+    },
+    "dmn_native": {
+      "gap_regions": 7,
+      "gap_tuples": 23,
+      "impossible_reported_as_gaps": 3,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 1,
+      "gap_regions": 8,
+      "gap_tuples": 20,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 1
+    }
+  },
+  {
+    "case": "car",
+    "constraint": "none",
+    "states": 1728,
+    "valid": 1728,
+    "excluded": 0,
+    "t0_rows": 864,
+    "t0_rows_outside_valid": 0,
+    "missing_before": 864,
+    "missing_after": 864,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": true,
+      "missed": 0,
+      "outside_space": 0
+    },
+    "dmn_native": {
+      "gap_regions": 391,
+      "gap_tuples": 864,
+      "impossible_reported_as_gaps": 0,
+      "filtered_equals_complete": true
+    }
+  },
+  {
+    "case": "car",
+    "constraint": "exclude every state with doors=2 and persons=more",
+    "states": 1728,
+    "valid": 1584,
+    "excluded": 144,
+    "t0_rows": 864,
+    "t0_rows_outside_valid": 70,
+    "missing_before": 864,
+    "missing_after": 790,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": false,
+      "missed": 0,
+      "outside_space": 74
+    },
+    "dmn_native": {
+      "gap_regions": 391,
+      "gap_tuples": 864,
+      "impossible_reported_as_gaps": 74,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 1,
+      "gap_regions": 356,
+      "gap_tuples": 790,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 70
+    }
+  },
+  {
+    "case": "car",
+    "constraint": "exclude a random 10% of the states (173), seed '20210101:car:constraint'",
+    "states": 1728,
+    "valid": 1555,
+    "excluded": 173,
+    "t0_rows": 864,
+    "t0_rows_outside_valid": 92,
+    "missing_before": 864,
+    "missing_after": 783,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": false,
+      "missed": 0,
+      "outside_space": 81
+    },
+    "dmn_native": {
+      "gap_regions": 391,
+      "gap_tuples": 864,
+      "impossible_reported_as_gaps": 81,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 173,
+      "gap_regions": 374,
+      "gap_tuples": 783,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 92
+    }
+  },
+  {
+    "case": "nursery",
+    "constraint": "none",
+    "states": 12960,
+    "valid": 12960,
+    "excluded": 0,
+    "t0_rows": 6480,
+    "t0_rows_outside_valid": 0,
+    "missing_before": 6480,
+    "missing_after": 6480,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": true,
+      "missed": 0,
+      "outside_space": 0
+    },
+    "dmn_native": {
+      "gap_regions": 2751,
+      "gap_tuples": 6480,
+      "impossible_reported_as_gaps": 0,
+      "filtered_equals_complete": true
+    }
+  },
+  {
+    "case": "nursery",
+    "constraint": "exclude every state with form=foster and children=more",
+    "states": 12960,
+    "valid": 12150,
+    "excluded": 810,
+    "t0_rows": 6480,
+    "t0_rows_outside_valid": 381,
+    "missing_before": 6480,
+    "missing_after": 6051,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": false,
+      "missed": 0,
+      "outside_space": 429
+    },
+    "dmn_native": {
+      "gap_regions": 2751,
+      "gap_tuples": 6480,
+      "impossible_reported_as_gaps": 429,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 1,
+      "gap_regions": 2578,
+      "gap_tuples": 6051,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 381
+    }
+  },
+  {
+    "case": "nursery",
+    "constraint": "exclude a random 10% of the states (1296), seed '20210101:nursery:constraint'",
+    "states": 12960,
+    "valid": 11664,
+    "excluded": 1296,
+    "t0_rows": 6480,
+    "t0_rows_outside_valid": 679,
+    "missing_before": 6480,
+    "missing_after": 5863,
+    "complete_equals_filtered_unconstrained": true,
+    "deficit_check_problems": 0,
+    "reading_b": {
+      "exact": false,
+      "missed": 0,
+      "outside_space": 617
+    },
+    "dmn_native": {
+      "gap_regions": 2751,
+      "gap_tuples": 6480,
+      "impossible_reported_as_gaps": 617,
+      "filtered_equals_complete": true
+    },
+    "dmn_explicit_impossible_rules": {
+      "extra_rules": 1296,
+      "gap_regions": 2651,
+      "gap_tuples": 5863,
+      "gaps_equal_complete": true,
+      "overlap_pairs": 679
+    }
+  }
+]
