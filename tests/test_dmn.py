@@ -6,9 +6,10 @@ from latc_check import dmn_compare as dc
 from latc_check import examples as ex
 from latc_check import randomized
 from latc_check.compare import compare
-from latc_check.dmn import (ANY, DMN14_NS, DMNTable, Input, Interval, OneOf, Point, Rule,
-                            analyse, at_least, below, closed, expand, from_exact, half_open,
-                            merge_regions, to_dmn_xml, to_exact, violations)
+from latc_check import dmn_oracle
+from latc_check.dmn import (ANY, DMN14_NS, DMNTable, Input, Interval, Not, OneOf, Point, Rule,
+                            analyse, at_least, below, closed, entry_set, expand, from_exact,
+                            half_open, merge_regions, to_dmn_xml, to_exact, violations)
 from latc_check.reference import exact_complement
 
 
@@ -47,8 +48,48 @@ class Sweep(unittest.TestCase):
         t.hit_policy = "ANY"
         self.assertEqual(violations(t, a)["violating_pairs"], [(0, 2), (1, 2)])
         t.hit_policy = "FIRST"
-        v = violations(t, a)
-        self.assertEqual((v["violating_pairs"], len(v["masked_pairs"])), ([], 3))
+        v = violations(t, analyse(t))
+        # rule 2 [5, 10] lies inside rule 1 [4, 10], which comes first: masked
+        self.assertEqual((v["violating_pairs"], v["masked_pairs"], v["never_fire"]),
+                         ([(2, 1)], [(2, 1)], [2]))
+        self.assertEqual(v["maximal_overlap_sets"], [(0, 1, 2)])
+
+    def test_priority_follows_output_order(self):
+        inp = (Input("x", domain=closed(0, 10)),)
+        rules = [Rule((closed(0, 10),), "low"), Rule((closed(3, 4),), "high")]
+        t = DMNTable(inp, rules, "PRIORITY", output_values=("high", "low"))
+        v = violations(t, analyse(t))
+        self.assertEqual((v["masked_pairs"], v["never_fire"]), ([], []))
+        t.output_values = ("low", "high")
+        v = violations(t, analyse(t))
+        self.assertEqual((v["masked_pairs"], v["never_fire"]), ([(1, 0)], [1]))
+        exact, _ = to_exact(DMNTable((Input("x", domain=closed(0, 10),
+                                            bins=(("a", half_open(0, 3)), ("b", closed(3, 4)),
+                                                  ("c", Interval(4, 10, False, True)))),),
+                                     rules, "PRIORITY", output_values=("high", "low")))
+        self.assertEqual([(r.condition, r.outcome) for r in exact.rows],
+                         [(("b",), "high"), (("a",), "low"), (("c",), "low")])
+
+    def test_masking_by_a_union_is_never_fire_only(self):
+        inp = (Input("x", domain=closed(0, 10)),)
+        t = DMNTable(inp, [Rule((closed(0, 5),), "a"), Rule((closed(5, 10),), "b"),
+                           Rule((closed(2, 8),), "c")], "FIRST")
+        v = violations(t, analyse(t))
+        self.assertEqual((v["masked_pairs"], v["never_fire"]), ([], [2]))
+
+    def test_negation(self):
+        num = Input("x", domain=closed(0, 10))
+        enum = Input("e", values=("a", "b", "c"))
+        self.assertEqual(entry_set(enum, Not(OneOf(frozenset("ab")))), frozenset("c"))
+        u = entry_set(num, Not(half_open(3, 5)))
+        self.assertTrue(u.contains(2.9) and u.contains(5) and not u.contains(3))
+        t = DMNTable((num,), [Rule((Not(half_open(3, 5)),), "out"), Rule((closed(4, 6),), "in")])
+        a = analyse(t)
+        self.assertEqual(a.gaps, [(half_open(3, 4),)])
+        self.assertEqual(a.overlap_pairs, [(0, 1)])
+        self.assertIn("not([3..5))", to_dmn_xml(t))
+        with self.assertRaises(TypeError):
+            entry_set(num, Not(ANY))
 
     def test_merge(self):
         inp = (Input("e", values=("a", "b", "c")), Input("x", domain=closed(0, 10)))
@@ -152,6 +193,29 @@ class Agreement(unittest.TestCase):
     def test_bench(self):
         rows = dc.bench(grid=[(3, 3)])
         self.assertEqual(rows[0]["space"], 27)
+
+
+class Differential(unittest.TestCase):
+    """analyse + violations against the exhaustive oracle on small random tables."""
+
+    def test_matches_oracle_on_random_tables(self):
+        rng = random.Random(11)
+        for policy in ("UNIQUE", "ANY", "FIRST", "PRIORITY"):
+            for trial in range(150):
+                t = dmn_oracle.random_table(rng, policy)
+                res = dmn_oracle.differential(t)
+                self.assertTrue(all(res.values()), (policy, trial, res, t))
+
+    def test_oracle_grid_hits_open_cells(self):
+        inp = (Input("x", domain=closed(0, 2)),)
+        t = DMNTable(inp, [Rule((Interval(0, 1, True, False),), "a"),
+                           Rule((Interval(1, 2, False, True),), "b")])
+        self.assertEqual(dmn_oracle.oracle(t)["uncovered"], [(1.0,)])
+
+    def test_summary_run(self):
+        s = dmn_oracle.run(trials=200, seed=5)
+        self.assertEqual(s["failures"], [])
+        self.assertEqual(s["agree"]["gaps"], 200)
 
 
 class Xml(unittest.TestCase):

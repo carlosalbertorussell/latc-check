@@ -272,7 +272,21 @@ def dmn_baseline(trials: int, seed: int, max_space: int, out_dir: str) -> dict:
         with open(os.path.join(xml_dir, name + ".dmn"), "w", encoding="utf-8") as f:
             f.write(to_dmn_xml(t, name))
     print(f"DMN 1.4 XML: {xml_dir} (pension_t0, pension_compact, pension_raw_table1)")
-    return {"t0": a, "compact": b, "raw_table1": c, "counterexample": d_ce, "random": d, "timing": e}
+    f = differential(trials, seed)
+    return {"t0": a, "compact": b, "raw_table1": c, "counterexample": d_ce, "random": d, "timing": e,
+            "differential": f}
+
+
+def differential(trials: int, seed: int) -> dict:
+    from . import dmn_oracle
+    s = dmn_oracle.run(trials, seed)
+    h(f"B4.6  Differential test against an exhaustive oracle ({trials} random tables)")
+    print("Tables of 1-3 inputs and 1-6 rules, every entry kind (points, lists, open/closed intervals,")
+    print("negation), all four hit policies; the oracle evaluates every grid point directly.")
+    for k in s["total"]:
+        print(f"    {k:<14} agree {s['agree'][k]:>6} / {s['total'][k]}")
+    print(f"Failures: {s['failures'] or 'none'}")
+    return s
 
 
 def _ns(lat: dict, key: str) -> str:

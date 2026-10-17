@@ -158,7 +158,7 @@ def pension_compact() -> dict:
 
 def raw_table1() -> dict:
     out = {}
-    for hp in ("UNIQUE", "ANY", "FIRST"):
+    for hp in ("UNIQUE", "ANY", "FIRST", "PRIORITY"):
         dmn = raw_table1_dmn(hp)
         a = analyse(dmn)
         out[hp] = violations(dmn, a)

@@ -59,7 +59,8 @@ holds the output of the reference run.
 | `keying.py` | JCS-style canonical bytes, prime-product keys with overflow report, SHA-512 index with full-tuple verification |
 | `bench.py` | scaling benchmark |
 | `examples.py` | pension rule (Table 1a, published complement), two-attribute counterexample |
-| `dmn.py` | DMN tables (point, list, interval and `-` entries; UNIQUE / ANY / FIRST), sweep-line gap and overlap analysis, converters both ways, DMN 1.4 XML export |
+| `dmn.py` | DMN tables (point, list, interval, `not(...)` and `-` entries; UNIQUE / ANY / FIRST / PRIORITY), sweep-line gap and overlap analysis with maximal overlap sets and masking, converters both ways, DMN 1.4 XML export |
+| `dmn_oracle.py` | exhaustive grid oracle for the DMN analysis, and the differential test |
 | `rank.py` | mixed-radix rank index: a complete table as a flat bytearray of outcome codes |
 | `large.py` | large-scale test (millions of rows), behind `--large` |
 | `dmn_compare.py` | baseline B4: COMPLETE against DMN analysis on the pension tables, the counterexample, random scenarios, timing |
@@ -148,13 +149,21 @@ scenario.
 
 ## Baseline B4: DMN gap and overlap analysis
 
-`dmn.py` follows the geometric reading of Calvanese et al. (BPM 2016; Information Systems
-2018). Rules are hyper-rectangles. The analysis sweeps one dimension at a time and keeps
-the set of rules active in each slab. An empty slab is a missing-rule region. Two or more
-rules active in a last-dimension segment form overlapping pairs. Adjacent gap regions are
-then merged.
+`dmn.py` is an independent implementation of the geometric approach of Calvanese et al.
+(BPM 2016, LNCS 9850, 217–233; Information Systems 2018). Rules are hyper-rectangles. The
+analysis sweeps one dimension at a time and keeps the set of rules active in each slab. An
+empty slab is a missing-rule region. Two or more rules active in a last-dimension segment
+form an overlapping set; the maximal such sets are what Calvanese et al.'s overlap
+algorithm reports, and the pairs inside them are kept too. Adjacent gap regions are then
+merged.
 
-The implementation works from the published description, not from the authors' tool.
+Entries can be `-`, points, lists, open or closed intervals, and `not(...)` of a point,
+list or interval; a negated numeric entry becomes a union of up to two intervals. Hit
+policies are UNIQUE, ANY, FIRST and PRIORITY (priority from the order of the declared
+output values, as in the DMN standard). COLLECT is out of scope, as in Calvanese et al.
+
+It was written from the published description, not from the authors' dmn-js tool, and
+is checked by a differential test against an exhaustive oracle (`dmn_oracle.py`, below).
 Its interpretive choices, D-1 to D-7, are listed in the module docstring:
 
 * **D-1** Numeric inputs are real intervals with exact open and closed bounds. Integer
@@ -166,10 +175,21 @@ Its interpretive choices, D-1 to D-7, are listed in the module docstring:
   (list entries) if chosen.
 * **D-4** Gap merging is greedy and runs to a fixed point. The result is not guaranteed
   minimal.
-* **D-5** The overlap set does not depend on the hit policy:
+* **D-5** The overlaps do not depend on the hit policy; the policy decides what counts
+  as a violation:
   * UNIQUE flags every overlapping pair;
   * ANY flags pairs with different outputs;
-  * FIRST only reports pairs as masked.
+  * FIRST and PRIORITY flag *masked* rules, as in Calvanese et al.: a rule covered by a
+    single rule of higher priority. `never_fire` also lists rules covered only by the
+    union of higher-priority rules.
+
+**Differential test.** `dmn_oracle.py` shares no code with `dmn.py`. It evaluates every
+rule directly on every point of a grid (integers and half-integers of small integer
+domains, which hit every elementary cell) and derives gaps, overlapping pairs, maximal
+overlap sets, masking and never-firing rules by brute force. On 1,000 random tables (seed
+20210101; 1–3 inputs, 1–6 rules, every entry kind and hit policy) the sweep agreed with
+the oracle on every property in every table; a 5,000-table run also agreed everywhere.
+Results: `results/dmn_differential.json`.
 * **D-6** DMN has no valid-state constraint.
 * **D-7** Entries are clipped to the declared domains.
 

@@ -2,10 +2,12 @@
 
 Model
 -----
-A DMN table has input columns, one output column, a hit policy (UNIQUE, ANY
-or FIRST) and rules.  An input entry is ``ANY`` ("-"), a ``Point``, a
-``OneOf`` list of points, or a numeric ``Interval`` with open or closed
-bounds.  An input is either *enumerated* (declared allowed values) or
+A DMN table has input columns, one output column, a hit policy (UNIQUE, ANY,
+FIRST or PRIORITY) and rules.  An input entry is ``ANY`` ("-"), a ``Point``, a
+``OneOf`` list of points, a numeric ``Interval`` with open or closed bounds, or
+``Not`` of a point, list or interval (S-FEEL not(...)).  A negated numeric
+entry becomes a ``Union`` of up to two intervals, so a rule can be more than
+one hyper-rectangle, as for multi-valued entries in Calvanese et al.  An input is either *enumerated* (declared allowed values) or
 *numeric* (a declared range, optionally with declared bins used only to
 convert to and from the exact-tuple model).
 
@@ -20,7 +22,8 @@ current slab:
 * a slab where no rule is active is a *missing rule* (gap), a hyper-rectangle
   that spans the full domain in every later dimension;
 * in the last dimension, a segment where two or more rules are active gives
-  *overlapping rule* pairs;
+  an overlapping rule set; the maximal such sets are the output of Calvanese
+  et al.'s overlap algorithm, and the pairs inside them are also kept;
 * adjacent gap rectangles are then merged.
 
 The choices made where the description leaves room (D-1 .. D-7):
@@ -47,10 +50,13 @@ D-4  Gap merging is greedy: for each dimension in turn, gaps that agree on
      point.  The result is a cover of the gap space by disjoint rectangles,
      not necessarily a minimal one (minimal rectangle cover is NP-hard in
      general); the region count depends on dimension order.
-D-5  Overlaps are reported as rule pairs with one witness region each.  The
-     overlap set does not depend on the hit policy; ``violations`` applies
-     it: UNIQUE flags every overlapping pair, ANY flags pairs with different
-     outputs, FIRST flags none and reports the pairs as masked instead.
+D-5  Overlaps are reported as maximal rule sets (as in Calvanese et al.) and
+     as rule pairs, each with one witness region.  The overlaps do not depend
+     on the hit policy; ``violations`` applies it: UNIQUE flags every
+     overlapping pair, ANY flags pairs with different outputs, FIRST and
+     PRIORITY flag masked rules (a rule covered by one rule of higher
+     priority).  PRIORITY takes priorities from the order of the declared
+     output values, as the DMN standard does.
 D-6  DMN has no valid-state constraint.  States that are impossible in the
      domain are gaps to DMN.  ``compare`` reports them natively and also
      after filtering expanded gaps with the exact model's constraint, which
@@ -73,7 +79,7 @@ from typing import Sequence
 from .model import Attribute, DecisionTable, Row
 
 INF = math.inf
-HIT_POLICIES = ("UNIQUE", "ANY", "FIRST")
+HIT_POLICIES = ("UNIQUE", "ANY", "FIRST", "PRIORITY")
 
 
 # -- entries -------------------------------------------------------------------
@@ -146,6 +152,52 @@ class Interval:
         return f"{'[' if self.lo_closed else '('}{f(self.lo)}..{f(self.hi)}{']' if self.hi_closed else ')'}"
 
 
+@dataclass(frozen=True)
+class Union:
+    """A finite union of disjoint, non-touching intervals (from negation)."""
+    parts: tuple
+
+    def contains(self, x: float) -> bool:
+        return any(p.contains(x) for p in self.parts)
+
+    def is_empty(self) -> bool:
+        return all(p.is_empty() for p in self.parts)
+
+
+@dataclass(frozen=True)
+class Not:
+    """S-FEEL negation not(Term): every declared value the inner entry excludes."""
+    entry: object
+
+
+def _complement(e: Interval, d: Interval):
+    """d minus e, as an Interval or a Union of the remaining parts."""
+    e = e.intersect(d)
+    if e.is_empty():
+        return d
+    left = Interval(d.lo, e.lo, d.lo_closed, not e.lo_closed).intersect(d)
+    right = Interval(e.hi, d.hi, not e.hi_closed, d.hi_closed).intersect(d)
+    parts = tuple(x for x in (left, right) if not x.is_empty())
+    return parts[0] if len(parts) == 1 else Union(parts)
+
+
+def _parts(s) -> tuple:
+    return s.parts if isinstance(s, Union) else (s,)
+
+
+def _bounds(s) -> list:
+    return [b for p in _parts(s) for b in (p.lo, p.hi)]
+
+
+def _meets(b: Interval, s) -> bool:
+    return any(b.intersects(p) for p in _parts(s))
+
+
+def _within(b: Interval, s) -> bool:
+    """b is a subset of s (the parts of a Union never touch, so one part must hold b)."""
+    return any(b.issubset(p) for p in _parts(s))
+
+
 def _num(x: float) -> str:
     return str(int(x)) if float(x).is_integer() else repr(x)
 
@@ -216,6 +268,13 @@ class DMNTable:
 
 def entry_set(inp: Input, entry):
     """Normalise an entry to a frozenset (enumerated) or Interval (numeric)."""
+    if isinstance(entry, Not):
+        if entry.entry is ANY or isinstance(entry.entry, Not):
+            raise TypeError(f"{inp.name}: not() takes a value, list or interval")
+        inner = entry_set(inp, entry.entry)
+        if not inp.numeric:
+            return frozenset(inp.values) - inner
+        return _complement(inner, inp.domain)
     if inp.numeric:
         if entry is ANY:
             return inp.domain
@@ -250,10 +309,19 @@ class Analysis:
     raw_gaps: int           # gap regions before merging
     overlaps: dict          # (i, j) -> witness region
     undeclared: list = field(default_factory=list)  # (rule, input, value)
+    overlap_sets: dict = field(default_factory=dict)  # frozenset of rules -> witness region
+    fires: frozenset = frozenset()  # FIRST/PRIORITY: rules that win somewhere
 
     @property
     def overlap_pairs(self) -> list:
         return sorted(self.overlaps)
+
+    @property
+    def maximal_overlap_sets(self) -> list:
+        """Maximal sets of rules with a non-empty common intersection, as in
+        Calvanese et al.: every such set is the active set of some leaf cell."""
+        sets = list(self.overlap_sets)
+        return sorted(tuple(sorted(x)) for x in sets if not any(x < o for o in sets))
 
 
 def _cells(inp: Input, sets: list):
@@ -263,7 +331,7 @@ def _cells(inp: Input, sets: list):
         covers = [frozenset(i for i, s in enumerate(sets) if v in s) for v in cells]
         return cells, covers
     d = inp.domain
-    pts = {d.lo, d.hi} | {b for s in sets for b in (s.lo, s.hi)}
+    pts = {d.lo, d.hi} | {b for s in sets for b in _bounds(s)}
     pts = sorted(p for p in pts if math.isfinite(p) and d.lo <= p <= d.hi)
     cells = []
     if d.lo == -INF:
@@ -314,7 +382,8 @@ def analyse(table: DMNTable, enum_grouping: str = "contiguous", merge: bool = Tr
     sets = [[entry_set(inp, r.entries[d]) for r in table.rules] for d, inp in enumerate(inputs)]
     dims = [_cells(inp, sets[d]) for d, inp in enumerate(inputs)]
     full = tuple(inp.full() for inp in inputs)
-    gaps, overlaps = [], {}
+    gaps, overlaps, osets, fires = [], {}, {}, set()
+    prio = rule_priorities(table)
 
     def sweep(d: int, active: frozenset, prefix: tuple) -> None:
         cells, covers = dims[d]
@@ -323,8 +392,13 @@ def analyse(table: DMNTable, enum_grouping: str = "contiguous", merge: bool = Tr
             if not act:
                 gaps.append(prefix + (seg,) + full[d + 1:])
             elif d == n - 1:
+                region = prefix + (seg,)
+                if prio is not None:
+                    fires.add(max(act, key=lambda i: prio[i]))
+                if len(act) > 1:
+                    osets.setdefault(act, region)
                 for pair in combinations(sorted(act), 2):
-                    overlaps.setdefault(pair, prefix + (seg,))
+                    overlaps.setdefault(pair, region)
             else:
                 sweep(d + 1, act, prefix + (seg,))
 
@@ -333,7 +407,7 @@ def analyse(table: DMNTable, enum_grouping: str = "contiguous", merge: bool = Tr
                   for i, r in enumerate(table.rules)
                   for v in _mentioned(inp, r.entries[d]) if v not in inp.values]
     merged = merge_regions(gaps, inputs, enum_grouping) if merge else gaps
-    return Analysis(merged, len(gaps), overlaps, undeclared)
+    return Analysis(merged, len(gaps), overlaps, undeclared, osets, frozenset(fires))
 
 
 def _merge_segments(inp: Input, segs: list, enum_grouping: str) -> list:
@@ -382,18 +456,72 @@ def merge_regions(regions: Sequence[tuple], inputs: Sequence[Input],
     return regions
 
 
+def rule_priorities(table: DMNTable):
+    """Priority key per rule (higher wins), or None for UNIQUE / ANY.
+
+    FIRST: the order of the rules.  PRIORITY: the order of the declared output
+    values, as in the DMN standard (first value = highest priority); rules with
+    the same output share a priority.  Calvanese et al. model both as a
+    priority function over rules, FIRST being the case where it follows the
+    table order.
+    """
+    if table.hit_policy == "FIRST":
+        return [-i for i in range(len(table.rules))]
+    if table.hit_policy == "PRIORITY":
+        if not table.output_values:
+            raise ValueError("PRIORITY needs the output values in priority order")
+        rank = {v: -k for k, v in enumerate(table.output_values)}
+        return [rank[r.output] for r in table.rules]
+    return None
+
+
+def _rule_sets(table: DMNTable, i: int) -> list:
+    return [entry_set(inp, table.rules[i].entries[d]) for d, inp in enumerate(table.inputs)]
+
+
+def _rule_empty(table: DMNTable, i: int) -> bool:
+    return any((not x) if isinstance(x, frozenset) else x.is_empty() for x in _rule_sets(table, i))
+
+
+def _rule_within(table: DMNTable, a: int, b: int) -> bool:
+    """Every input that triggers rule a also triggers rule b."""
+    for inp, sa, sb in zip(table.inputs, _rule_sets(table, a), _rule_sets(table, b)):
+        if not inp.numeric:
+            if not sa <= sb:
+                return False
+        elif not all(p.is_empty() or _within(p, sb) for p in _parts(sa)):
+            return False
+    return True
+
+
 def violations(table: DMNTable, analysis: Analysis) -> dict:
-    """D-5: apply the hit policy to the overlapping pairs."""
+    """D-5: apply the hit policy to the geometric overlaps.
+
+    An overlap is any non-empty intersection.  It violates UNIQUE always and
+    ANY only when outputs differ.  Under FIRST and PRIORITY it is resolved by
+    precedence; the correctness condition of Calvanese et al. is then that no
+    rule is *masked*, i.e. covered by a single rule of higher priority
+    (``masked_pairs``: (masked rule, masking rule)).  ``never_fire`` also lists
+    rules that never win because the union of higher-priority rules covers them.
+    """
     pairs = analysis.overlap_pairs
     differ = [p for p in pairs if table.rules[p[0]].output != table.rules[p[1]].output]
+    prio = rule_priorities(table)
+    masked, never = [], []
+    if prio is not None:
+        live = [i for i in range(len(table.rules)) if not _rule_empty(table, i)]
+        masked = [(x, y) for x in live for y in live
+                  if prio[y] > prio[x] and _rule_within(table, x, y)]
+        never = [x for x in live if x not in analysis.fires]
     if table.hit_policy == "UNIQUE":
         bad = pairs
     elif table.hit_policy == "ANY":
         bad = differ
     else:
-        bad = []
+        bad = masked
     return {"overlapping_pairs": len(pairs), "pairs_with_different_outputs": len(differ),
-            "violating_pairs": bad, "masked_pairs": pairs if table.hit_policy == "FIRST" else []}
+            "maximal_overlap_sets": analysis.maximal_overlap_sets,
+            "violating_pairs": bad, "masked_pairs": masked, "never_fire": never}
 
 
 # -- conversion to and from the exact-tuple model --------------------------------------
@@ -404,8 +532,8 @@ def _labels(inp: Input, seg) -> tuple[list, bool]:
         return [v for v in inp.values if v in seg], False
     if not inp.bins:
         raise ValueError(f"numeric input {inp.name!r} has no declared bins")
-    hit = [(lab, b) for lab, b in inp.bins if b.intersects(seg)]
-    return [lab for lab, _ in hit], any(not b.issubset(seg) for _, b in hit)
+    hit = [(lab, b) for lab, b in inp.bins if _meets(b, seg)]
+    return [lab for lab, _ in hit], any(not _within(b, seg) for _, b in hit)
 
 
 def expand(regions: Sequence[tuple], inputs: Sequence[Input]) -> tuple[list, int]:
@@ -430,10 +558,15 @@ def to_exact(table: DMNTable, constraint=None) -> tuple[DecisionTable, dict]:
     """Discretise a DMN table into exact tuples using the declared bins.
 
     UNIQUE/ANY keep every tuple a rule produces (overlaps become duplicate
-    rows the structural checks will flag); FIRST keeps the first rule's tuple.
+    rows the structural checks will flag); FIRST and PRIORITY keep the tuple of
+    the highest-priority rule.
     """
     rows, seen, misaligned = [], set(), []
-    for i, r in enumerate(table.rules):
+    prio = rule_priorities(table)
+    order = (sorted(range(len(table.rules)), key=lambda k: -prio[k]) if prio is not None
+             else range(len(table.rules)))
+    for i in order:
+        r = table.rules[i]
         per_dim = []
         for inp, e in zip(table.inputs, r.entries):
             labs, part = _labels(inp, entry_set(inp, e))
@@ -441,7 +574,7 @@ def to_exact(table: DMNTable, constraint=None) -> tuple[DecisionTable, dict]:
                 misaligned.append((i, inp.name))
             per_dim.append(labs)
         for cond in product(*per_dim):
-            if table.hit_policy == "FIRST" and cond in seen:
+            if prio is not None and cond in seen:
                 continue
             seen.add(cond)
             rows.append(Row(cond, r.output))
@@ -494,6 +627,8 @@ def _feel_entry(inp: Input, e) -> str:
         return _num(e.value) if inp.numeric else _feel_str(e.value)
     if isinstance(e, OneOf):
         return ",".join(_feel_str(v) for v in sorted(e.values, key=str))
+    if isinstance(e, Not):
+        return f"not({_feel_entry(inp, e.entry)})"
     return e.feel()
 
 

@@ -1,0 +1,41 @@
+{
+  "differential": {
+    "trials": 1000,
+    "seed": 20210101,
+    "agree": {
+      "gaps": 1000,
+      "gaps_disjoint": 1000,
+      "pairs": 1000,
+      "maximal_sets": 1000,
+      "violations": 1000,
+      "never_fire": 500
+    },
+    "total": {
+      "gaps": 1000,
+      "gaps_disjoint": 1000,
+      "pairs": 1000,
+      "maximal_sets": 1000,
+      "violations": 1000,
+      "never_fire": 500
+    },
+    "failures": []
+  },
+  "raw_table1_by_policy": {
+    "UNIQUE": {
+      "pairs": 0,
+      "violating": []
+    },
+    "ANY": {
+      "pairs": 0,
+      "violating": []
+    },
+    "FIRST": {
+      "pairs": 0,
+      "violating": []
+    },
+    "PRIORITY": {
+      "pairs": 0,
+      "violating": []
+    }
+  }
+}
