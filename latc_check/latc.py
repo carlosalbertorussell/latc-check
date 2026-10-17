@@ -1,9 +1,9 @@
 """LATC as specified in Raggio & Russell, IJSER 12(1), 2021.
 
 The source's formulas are Word equation objects, which plain-text extraction
-drops; each step below records the formula used.  The appendix of both the
-English and the Spanish edition specifies Reading B; Reading A is a shortcut
-the main text admits, kept to show why it fails.
+drops; each step below records the formula used.  The appendix of the IJSER
+article (and of the authors' unpublished Spanish draft) specifies Reading B;
+Reading A is a shortcut the main text admits, kept to show why it fails.
 
 Steps common to both readings
 -----------------------------
