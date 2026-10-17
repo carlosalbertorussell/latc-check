@@ -1,0 +1,22 @@
+{
+ "car_t0_50": {
+  "rules": 864,
+  "missing": 864,
+  "drools_gap_regions": 566,
+  "drools_gaps_cover_missing": 864,
+  "drools_extra": 0,
+  "drools_overlaps": 0,
+  "errors": [],
+  "seconds": 15.0
+ },
+ "car_no_buying_vhigh": {
+  "rules": 1296,
+  "missing": 432,
+  "drools_gap_regions": 1,
+  "drools_gaps_cover_missing": 432,
+  "drools_extra": 0,
+  "drools_overlaps": 0,
+  "errors": [],
+  "seconds": 32.5
+ }
+}

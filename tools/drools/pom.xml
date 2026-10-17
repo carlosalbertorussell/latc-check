@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>local.latc</groupId>
+  <artifactId>drools-check</artifactId>
+  <version>0.1</version>
+  <properties>
+    <drools.version>7.74.1.Final</drools.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  <dependencies>
+    <dependency><groupId>org.kie</groupId><artifactId>kie-dmn-validation</artifactId><version>${drools.version}</version></dependency>
+    <dependency><groupId>org.kie</groupId><artifactId>kie-dmn-core</artifactId><version>${drools.version}</version></dependency>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-simple</artifactId><version>1.7.36</version></dependency>
+  </dependencies>
+</project>

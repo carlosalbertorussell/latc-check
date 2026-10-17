@@ -1,0 +1,234 @@
+{
+ "tables": 1000,
+ "seed": 20210101,
+ "agree_of_total": {
+  "without negation": {
+   "tables": 428,
+   "gaps": [
+    410,
+    428
+   ],
+   "overlap_pairs": [
+    102,
+    102
+   ],
+   "masked": [
+    94,
+    94
+   ]
+  },
+  "with negation": {
+   "tables": 572,
+   "gaps": [
+    448,
+    572
+   ],
+   "masked": [
+    84,
+    84
+   ],
+   "overlap_pairs": [
+    142,
+    142
+   ]
+  }
+ },
+ "drools_skipped_priority_analysis": 85,
+ "tables_with_errors": 0,
+ "disagreements": [
+  {
+   "table": 3,
+   "policy": "ANY",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 5,
+   "policy": "PRIORITY",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [],
+   "drools_masked": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "ours_masked": [
+    [
+     2,
+     0
+    ]
+   ]
+  },
+  {
+   "table": 6,
+   "policy": "FIRST",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [],
+   "drools_masked": [],
+   "ours_masked": [
+    [
+     1,
+     0
+    ]
+   ]
+  },
+  {
+   "table": 7,
+   "policy": "ANY",
+   "negation": false,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [
+    [
+     1,
+     2
+    ]
+   ],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 16,
+   "policy": "UNIQUE",
+   "negation": false,
+   "result": {
+    "gaps": false,
+    "overlap_pairs": true
+   },
+   "drools_overlaps": [],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 21,
+   "policy": "UNIQUE",
+   "negation": true,
+   "result": {
+    "gaps": false,
+    "overlap_pairs": true
+   },
+   "drools_overlaps": [
+    [
+     3,
+     5
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     1,
+     2,
+     3,
+     5
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     4
+    ]
+   ],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 31,
+   "policy": "FIRST",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 37,
+   "policy": "PRIORITY",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 50,
+   "policy": "ANY",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [
+    [
+     1,
+     2,
+     3
+    ]
+   ],
+   "drools_masked": [],
+   "ours_masked": []
+  },
+  {
+   "table": 51,
+   "policy": "FIRST",
+   "negation": true,
+   "result": {
+    "gaps": false
+   },
+   "drools_overlaps": [],
+   "drools_masked": [],
+   "ours_masked": []
+  }
+ ]
+}

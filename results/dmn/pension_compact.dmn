@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20211108/MODEL/" id="pension_compact_defs" name="pension_compact" namespace="https://example.org/latc_check">
   <decision id="pension_compact_decision" name="pension_compact">
+    <variable id="pension_compact_variable" name="pension_compact" typeRef="string" />
+    <informationRequirement id="pension_compact_req_0">
+      <requiredInput href="#input_data_0" />
+    </informationRequirement>
+    <informationRequirement id="pension_compact_req_1">
+      <requiredInput href="#input_data_1" />
+    </informationRequirement>
+    <informationRequirement id="pension_compact_req_2">
+      <requiredInput href="#input_data_2" />
+    </informationRequirement>
+    <informationRequirement id="pension_compact_req_3">
+      <requiredInput href="#input_data_3" />
+    </informationRequirement>
     <decisionTable id="pension_compact_table" hitPolicy="UNIQUE">
       <input id="input_0" label="Sex">
         <inputExpression id="input_expr_0" typeRef="string">
@@ -34,7 +47,7 @@
           <text>[18..120]</text>
         </inputValues>
       </input>
-      <output id="output_0" name="Result" typeRef="string">
+      <output id="output_0" label="Result">
         <outputValues id="output_values_0">
           <text>"YES","NO","Rv"</text>
         </outputValues>
@@ -177,4 +190,16 @@
       </rule>
     </decisionTable>
   </decision>
+  <inputData id="input_data_0" name="Sex">
+    <variable id="input_data_0_variable" name="Sex" typeRef="string" />
+  </inputData>
+  <inputData id="input_data_1" name="Activity">
+    <variable id="input_data_1_variable" name="Activity" typeRef="string" />
+  </inputData>
+  <inputData id="input_data_2" name="ContributionYears">
+    <variable id="input_data_2_variable" name="ContributionYears" typeRef="number" />
+  </inputData>
+  <inputData id="input_data_3" name="Age">
+    <variable id="input_data_3_variable" name="Age" typeRef="number" />
+  </inputData>
 </definitions>

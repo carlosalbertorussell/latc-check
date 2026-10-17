@@ -492,6 +492,34 @@ On Nursery, moving the boundary between `children` 3 and more (3-4 / 5+) means 6
 re-review with the full table approved. With T0 approved, 9,699 states need re-review and 7,308
 have no outcome.
 
+## External check with Drools (`drools_compare.py`, `tools/drools/`)
+
+The Drools DMN validator (7.74.1, on Java 8) runs schema and model validation and its own
+decision-table analysis on the exported DMN files; `drools_compare.py` parses its gap,
+overlap and masking messages and compares them with the exhaustive oracle. Setup and build
+steps are in `tools/drools/README.md`; the JDK and the 39 library jars are not in the repo.
+
+Its first run found two conformance problems in `to_dmn_xml` (no `variable` on the
+decision, and a named output on a single-output table); the exporter now writes
+`variable`, `inputData` and `informationRequirement` elements, and Drools reports no
+errors on the exported files.
+
+| tables | gaps agree with the oracle | overlapping pairs (UNIQUE) | masked rules (PRIORITY) |
+|---|---|---|---|
+| 428 random, no negation | 410 / 428 | 102 / 102 | 94 / 94 |
+| 572 random, with negation | 448 / 572 | 142 / 142 | 84 / 84 |
+| pension T0, compact, raw Table 1 | 3 / 3 | no overlaps | – |
+| Car, half the rows (864 rules) | all 864 missing states, 0 false gaps | no overlaps | – |
+| Car, buying=vhigh removed | all 432 missing states, one region | no overlaps | – |
+
+Interpretive choices X-1 to X-4 are in the module docstring. Where Drools and the sweep
+differ, the oracle agrees with the sweep. Without negation, Drools reports no false gap; it
+misses 196 grid points in 18 tables, and in 12 of them every missed point lies on an
+interval bound. With negation the differences come from `not(...)` entries (for example
+`not("a","b")` over {a, b}, empty under S-FEEL). Drools skipped its PRIORITY masking
+analysis in 85 tables (rules with multi-valued entries) and does not report masking for
+FIRST. Results: `results/drools/` (`pension.txt`, `random_tables.json`, `car.json`).
+
 ## What the evidence supports, and what it does not
 
 * LATC under Reading A **does not** return the complement. Under Reading B it does, but

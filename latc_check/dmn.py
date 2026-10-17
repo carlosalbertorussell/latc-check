@@ -639,6 +639,14 @@ def to_dmn_xml(table: DMNTable, name: str = "decision") -> str:
     defs = ET.Element(q("definitions"), id=f"{name}_defs", name=name,
                       namespace="https://example.org/latc_check")
     dec = ET.SubElement(defs, q("decision"), id=f"{name}_decision", name=name)
+    ET.SubElement(dec, q("variable"), id=f"{name}_variable", name=name, typeRef="string")
+    for k, inp in enumerate(table.inputs):
+        req = ET.SubElement(dec, q("informationRequirement"), id=f"{name}_req_{k}")
+        ET.SubElement(req, q("requiredInput"), href=f"#input_data_{k}")
+    for k, inp in enumerate(table.inputs):
+        data = ET.SubElement(defs, q("inputData"), id=f"input_data_{k}", name=inp.name)
+        ET.SubElement(data, q("variable"), id=f"input_data_{k}_variable", name=inp.name,
+                      typeRef="number" if inp.numeric else "string")
     dt = ET.SubElement(dec, q("decisionTable"), id=f"{name}_table", hitPolicy=table.hit_policy)
     for k, inp in enumerate(table.inputs):
         el = ET.SubElement(dt, q("input"), id=f"input_{k}", label=inp.name)
@@ -648,7 +656,8 @@ def to_dmn_xml(table: DMNTable, name: str = "decision") -> str:
         iv = ET.SubElement(el, q("inputValues"), id=f"input_values_{k}")
         ET.SubElement(iv, q("text")).text = (inp.domain.feel() if inp.numeric
                                              else ",".join(_feel_str(v) for v in inp.values))
-    out = ET.SubElement(dt, q("output"), id="output_0", name=table.output_name, typeRef="string")
+    # A single-output table takes its name and type from the decision's variable.
+    out = ET.SubElement(dt, q("output"), id="output_0", label=table.output_name)
     if table.output_values:
         ov = ET.SubElement(out, q("outputValues"), id="output_values_0")
         ET.SubElement(ov, q("text")).text = ",".join(_feel_str(v) for v in table.output_values)

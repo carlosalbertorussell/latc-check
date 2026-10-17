@@ -1,0 +1,28 @@
+=== ../LATC/results/dmn/pension_t0.dmn : 14 messages
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", <30, <60 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", <30, >=65 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", >=30, <60 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", >=30, >=65 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "I", <30, - ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "I", >=30, >=65 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "D", <30, - ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "D", >=30, <65 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "I", <30, <60 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "I", >=30, <65 ]  
+WARNING	DECISION_TABLE_CONTRACTION_RULE	DMN: Table is not fully contracted. Combine rules [1, 2, 3, 4] by joining input 2.  
+WARNING	DECISION_TABLE_CONTRACTION_RULE	DMN: Table is not fully contracted. Combine rules [3, 8] by joining input 3.  
+WARNING	DECISION_TABLE_2NDNFVIOLATION	DMN: Second Normal Form Violation: Input 2 is irrelevant for rules [1, 2, 3, 4]. Consider combining these rules over the irrelevant input  
+WARNING	DECISION_TABLE_2NDNFVIOLATION	DMN: Second Normal Form Violation: Input 3 is irrelevant for rules [3, 8]. Consider combining these rules over the irrelevant input  
+=== ../LATC/results/dmn/pension_compact.dmn : 1 messages
+INFO	DECISION_TABLE_ANALYSIS_EMPTY	DMN: Decision Table Analysis of table 'pension_compact' finished with no messages to be reported.  
+=== ../LATC/results/dmn/pension_raw_table1.dmn : 10 messages
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", <30, <60 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", >=30, <60 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "I", <30, - ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "D", <30, - ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "D", >=30, <65 ]  
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "I", >=30, <65 ]  
+WARNING	DECISION_TABLE_CONTRACTION_RULE	DMN: Table is not fully contracted. Combine rules [1, 2, 3, 4] by joining input 2.  
+WARNING	DECISION_TABLE_CONTRACTION_RULE	DMN: Table is not fully contracted. Combine rules [2, 6] by joining input 3.  
+WARNING	DECISION_TABLE_2NDNFVIOLATION	DMN: Second Normal Form Violation: Input 2 is irrelevant for rules [1, 2, 3, 4]. Consider combining these rules over the irrelevant input  
+WARNING	DECISION_TABLE_2NDNFVIOLATION	DMN: Second Normal Form Violation: Input 3 is irrelevant for rules [2, 6]. Consider combining these rules over the irrelevant input  
