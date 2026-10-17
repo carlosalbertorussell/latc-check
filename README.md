@@ -85,8 +85,8 @@ plain-text extraction drops them. Every step below is documented in `latc.py`:
 * **I-4** Corollary 4 [12]: k(Ax = v) = ∏ Card / Card(Ax) − freq(Ax = v).
 * **I-5** The source has no valid-state constraint.
 
-The appendix of the IJSER article specifies Reading B, as do the authors' 2020 English
-edition and their unpublished Spanish draft. Reading A is a
+The appendix of the IJSER article specifies Reading B, as does the authors' 2020 English
+edition. Reading A is a
 shortcut the main text's description of Corollary 4 admits, and is kept to show why it
 fails:
 
