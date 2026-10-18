@@ -222,6 +222,69 @@
       }
     }
   },
+  "randomised_structured": {
+    "reference": {
+      "trials": 1000,
+      "exact_rate": 1.0,
+      "mean_missed": 0,
+      "max_missed": 0,
+      "mean_duplicates": 0,
+      "mean_regenerated_t0": 0,
+      "mean_outside_space": 0,
+      "any_error_rate": 0.0
+    },
+    "latc_A_deficit_fill": {
+      "trials": 1000,
+      "exact_rate": 0.027,
+      "mean_missed": 4.681,
+      "max_missed": 28,
+      "mean_duplicates": 9.04,
+      "mean_regenerated_t0": 6.878,
+      "mean_outside_space": 4.439,
+      "any_error_rate": 0.973
+    },
+    "latc_A_best_order": {
+      "trials": 927,
+      "exact_rate": 0.045307443365695796,
+      "mean_missed": 2.533980582524272,
+      "max_missed": 25,
+      "mean_duplicates": 7.626752966558792,
+      "mean_regenerated_t0": 2.2297734627831716,
+      "mean_outside_space": 4.197411003236246,
+      "any_error_rate": 0.9546925566343042
+    },
+    "latc_B_odometer": {
+      "trials": 1000,
+      "exact_rate": 0.05,
+      "mean_missed": 0,
+      "max_missed": 0,
+      "mean_duplicates": 0,
+      "mean_regenerated_t0": 0,
+      "mean_outside_space": 8.466,
+      "any_error_rate": 0.95
+    },
+    "count_checks": {
+      "corollary3_count_equals_true_missing": 0.05,
+      "complement_passes_[12]_deficit_check": 0.05,
+      "complement_passes_valid_space_deficit_check": 1.0,
+      "latc_B_passes_valid_space_deficit_check": 0.05,
+      "latc_A_deficit_fill_passes_valid_space_deficit_check": 0.05
+    },
+    "constraints": {
+      "excluded_share_mean": 0.3422384259259259,
+      "excluded_share_min": 0.0625,
+      "excluded_share_max": 0.8333333333333334,
+      "mean_constraints_per_table": 1.867,
+      "constraint_kind_counts": {
+        "implication": 479,
+        "exclusion": 503,
+        "ordinal": 523,
+        "undefined_when": 362
+      },
+      "tables_with_a_declared_value_absent_from_valid_space": 0.1,
+      "valid_space_is_product_of_its_values": 0.05
+    }
+  },
   "operations": {
     "structural": {
       "rows": 24,

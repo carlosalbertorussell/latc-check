@@ -112,6 +112,29 @@ def randomised(trials: int, seed: int) -> dict:
     return out
 
 
+def randomised_structured(trials: int, seed: int) -> dict:
+    out = randomized.run_structured(trials=trials, seed=seed)
+    h(f"RQ2.3b Structured valid-state constraints ({trials} tables, seed {seed})")
+    cols = ("trials", "exact_rate", "mean_missed", "mean_duplicates", "mean_regenerated_t0",
+            "mean_outside_space")
+    print(f"{'method':<22} " + " ".join(f"{c:>19}" for c in cols))
+    for m in randomized.METHODS:
+        s = out[m]
+        print(f"{m:<22} " + " ".join(
+            f"{s.get(c, 0):>19.3f}" if isinstance(s.get(c), float) else f"{s.get(c, 0):>19}"
+            for c in cols))
+    for k, v in out["count_checks"].items():
+        print(f"  {k}: {v:.3f}")
+    c = out["constraints"]
+    print(f"  excluded share of the product space: mean {c['excluded_share_mean']:.3f}, "
+          f"min {c['excluded_share_min']:.3f}, max {c['excluded_share_max']:.3f}")
+    print(f"  constraints per table {c['mean_constraints_per_table']:.2f}; kinds {c['constraint_kind_counts']}")
+    print(f"  tables where a declared value is absent from V: "
+          f"{c['tables_with_a_declared_value_absent_from_valid_space']:.3f}; "
+          f"V a product of its values: {c['valid_space_is_product_of_its_values']:.3f}")
+    return out
+
+
 def operations() -> dict:
     t = ex.pension_completed()
     rep = structural_report(t)
@@ -396,13 +419,24 @@ def main(argv=None) -> int:
         print(f"\nJSON: {json_path}")
         return 0
     results = {"worked_example": worked_example(), "counterexample": counterexample(),
-               "randomised": randomised(args.trials, args.seed), "operations": operations()}
+               "randomised": randomised(args.trials, args.seed),
+               "randomised_structured": randomised_structured(args.trials, args.seed),
+               "operations": operations()}
     if not args.skip_bench:
         results["benchmark"] = benchmark(args.max_rows, os.path.join(args.out, "benchmark.csv"))
     results["dmn_baseline"] = dmn_baseline(args.trials, args.seed,
                                            args.dmn_max_space if not args.skip_bench else 4096, args.out)
     if args.large:
         results["large"] = large_scale(args)
+    elif os.path.exists(json_path):
+        # keep a large-scale section from an earlier --large / --large-only run
+        try:
+            with open(json_path, encoding="utf-8") as f:
+                previous = json.load(f)
+        except (OSError, ValueError):
+            previous = {}
+        if "large" in previous:
+            results["large"] = previous["large"]
     with open(os.path.join(args.out, "results.json"), "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, default=str)
     print(f"\nJSON: {os.path.join(args.out, 'results.json')}")
