@@ -1,0 +1,2 @@
+=== /home/user/latc-check/results/tools/inputs/pension_Age_60-64_V2.dmn : 1 messages
+WARNING	DECISION_TABLE_GAP	DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped. (DMN id: pension_Age_60-64_V2_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
