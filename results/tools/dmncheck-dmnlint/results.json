@@ -1,0 +1,2429 @@
+{
+ "generated": "2026-10-18T23:05:52.121Z",
+ "inputs": "results/tools/inputs (39 DMN 1.4 files, manifest.json)",
+ "tools": {
+  "dmn-check": {
+   "version_run": "1.1.6 (de.redsix:dmn-check-validators 1.1.6, camunda-dmn-model 7.14.0) on Temurin JDK 8u504",
+   "latest_version": "1.4.0 (requires Java 21; not run, no JDK >= 11 available and none downloaded)",
+   "how_run": "scripts/RunDmnCheck.java: loads every validator via de.redsix.dmncheck.util.ValidatorLoader.getValidators() (same default set as the maven plugin/CLI) and applies each to every file",
+   "validators_installed_1_1_6": [
+    "AggregationOutputTypeValidator",
+    "AggregationValidator",
+    "ConflictingRuleValidator",
+    "ConnectedRequirementGraphValidator",
+    "DecisionIdAndNameValidator",
+    "DefinitionsIdAndNameValidator",
+    "DuplicateColumnLabelValidator",
+    "DuplicateRuleValidator",
+    "InputDataValidator",
+    "InputEntryTypeValidator",
+    "InputTypeDeclarationValidator",
+    "InputValuesTypeValidator",
+    "ItemDefinitionAllowedValuesTypeValidator",
+    "ItemDefinitionIdAndNameValidator",
+    "KnowledgeSourceIdAndNameValidator",
+    "NoDecisionPresentValidator",
+    "OutputEntryTypeValidator",
+    "OutputTypeDeclarationValidator",
+    "OutputValuesTypeValidator",
+    "RequirementGraphLeafValidator",
+    "ShadowedRuleValidator"
+   ],
+   "validators_1_4_0_sources": [
+    "AggregationOutputTypeValidator",
+    "AggregationValidator",
+    "ConflictingRuleValidator",
+    "ConnectedRequirementGraphValidator",
+    "DecisionIdAndNameValidator",
+    "DefinitionsIdAndNameValidator",
+    "DuplicateColumnLabelValidator",
+    "DuplicateRuleValidator",
+    "InputDataIdAndNameValidator",
+    "InputEntryTypeValidator",
+    "InputTypeDeclarationValidator",
+    "InputValuesTypeValidator",
+    "ItemDefinitionAllowedValuesTypeValidator",
+    "ItemDefinitionIdAndNameValidator",
+    "KnowledgeSourceIdAndNameValidator",
+    "NoDecisionPresentValidator",
+    "OutputEntryTypeValidator",
+    "OutputTypeDeclarationValidator",
+    "OutputValuesTypeValidator",
+    "RequirementGraphLeafValidator",
+    "ShadowedRuleValidator"
+   ],
+   "validators_github_master_2026_09_14": "same 21 concrete validators as 1.4.0",
+   "has_missing_rule_check": false,
+   "results_original_dmn14": [
+    {
+     "file": "pension_Age_60-64_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V1",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 1268
+    },
+    {
+     "file": "pension_Age_60-64_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V2",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 52
+    },
+    {
+     "file": "pension_Age_60-64_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V3b",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 82
+    },
+    {
+     "file": "pension_Age_60-64_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V4",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 134
+    },
+    {
+     "file": "pension_Age_gt65_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V1",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 43
+    },
+    {
+     "file": "pension_Age_gt65_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V2",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 36
+    },
+    {
+     "file": "pension_Age_gt65_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V3b",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 70
+    },
+    {
+     "file": "pension_Age_gt65_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V4",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 40
+    },
+    {
+     "file": "pension_Age_lt60_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V1",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 41
+    },
+    {
+     "file": "pension_Age_lt60_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V2",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 48
+    },
+    {
+     "file": "pension_Age_lt60_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V3b",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 45
+    },
+    {
+     "file": "pension_Age_lt60_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V4",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 48
+    },
+    {
+     "file": "car_buying_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 54
+    },
+    {
+     "file": "car_buying_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 103
+    },
+    {
+     "file": "car_buying_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 36
+    },
+    {
+     "file": "car_buying_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 82
+    },
+    {
+     "file": "car_doors_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 42
+    },
+    {
+     "file": "car_doors_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 38
+    },
+    {
+     "file": "car_doors_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 38
+    },
+    {
+     "file": "car_doors_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 47
+    },
+    {
+     "file": "car_lug_boot_small_V1.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 36
+    },
+    {
+     "file": "car_lug_boot_small_V2.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 49
+    },
+    {
+     "file": "car_lug_boot_small_V3b.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 30
+    },
+    {
+     "file": "car_lug_boot_small_V4.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 32
+    },
+    {
+     "file": "car_maint_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 44
+    },
+    {
+     "file": "car_maint_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 29
+    },
+    {
+     "file": "car_maint_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 25
+    },
+    {
+     "file": "car_maint_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 63
+    },
+    {
+     "file": "car_persons_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 22
+    },
+    {
+     "file": "car_persons_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 34
+    },
+    {
+     "file": "car_persons_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 23
+    },
+    {
+     "file": "car_persons_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 32
+    },
+    {
+     "file": "car_safety_low_V1.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 16
+    },
+    {
+     "file": "car_safety_low_V2.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 15
+    },
+    {
+     "file": "car_safety_low_V3b.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 24
+    },
+    {
+     "file": "car_safety_low_V4.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "org.camunda.bpm.model.dmn.DmnModelException: Unable to parse model | cause: org.camunda.bpm.model.xml.ModelParseException: SAXException while parsing input stream | cause: org.xml.sax.SAXException: Error: URI=null Line=2: cvc-elt.1: No se ha encontrado la declaraci�n del elemento 'definitions'.",
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 30
+    }
+   ],
+   "results_converted_dmn13": [
+    {
+     "file": "pension_Age_60-64_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V1",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 1697
+    },
+    {
+     "file": "pension_Age_60-64_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V2",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 177
+    },
+    {
+     "file": "pension_Age_60-64_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V3b",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 16,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 147
+    },
+    {
+     "file": "pension_Age_60-64_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V4",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 65
+    },
+    {
+     "file": "pension_Age_gt65_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V1",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 86
+    },
+    {
+     "file": "pension_Age_gt65_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V2",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 100
+    },
+    {
+     "file": "pension_Age_gt65_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V3b",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 20,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 78
+    },
+    {
+     "file": "pension_Age_gt65_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V4",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 82
+    },
+    {
+     "file": "pension_Age_lt60_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V1",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 69
+    },
+    {
+     "file": "pension_Age_lt60_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V2",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 68
+    },
+    {
+     "file": "pension_Age_lt60_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V3b",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 28,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 58
+    },
+    {
+     "file": "pension_Age_lt60_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V4",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 56
+    },
+    {
+     "file": "car_buying_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 129541
+    },
+    {
+     "file": "car_buying_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 108486
+    },
+    {
+     "file": "car_buying_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 7776,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 115940
+    },
+    {
+     "file": "car_buying_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 126746
+    },
+    {
+     "file": "car_doors_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 131319
+    },
+    {
+     "file": "car_doors_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 132437
+    },
+    {
+     "file": "car_doors_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 7776,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 132819
+    },
+    {
+     "file": "car_doors_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 124579
+    },
+    {
+     "file": "car_lug_boot_small_V1.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 109906
+    },
+    {
+     "file": "car_lug_boot_small_V2.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 100489
+    },
+    {
+     "file": "car_lug_boot_small_V3b.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 6912,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 91501
+    },
+    {
+     "file": "car_lug_boot_small_V4.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 94171
+    },
+    {
+     "file": "car_maint_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 133439
+    },
+    {
+     "file": "car_maint_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 112437
+    },
+    {
+     "file": "car_maint_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 7776,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 118792
+    },
+    {
+     "file": "car_maint_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 100442
+    },
+    {
+     "file": "car_persons_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 95542
+    },
+    {
+     "file": "car_persons_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 97397
+    },
+    {
+     "file": "car_persons_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 6912,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 102125
+    },
+    {
+     "file": "car_persons_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 99745
+    },
+    {
+     "file": "car_safety_low_V1.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 90056
+    },
+    {
+     "file": "car_safety_low_V2.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 76683
+    },
+    {
+     "file": "car_safety_low_V3b.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "InputEntryTypeValidator | ERROR | Type of input entry does not match type of input expression": 6912,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 60796
+    },
+    {
+     "file": "car_safety_low_V4.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 56220
+    }
+   ],
+   "positive_controls": [
+    {
+     "file": "ctrl_conflicting_rule.dmn",
+     "parsed": true,
+     "finding_counts": {
+      "ConflictingRuleValidator | ERROR | Rule is conflicting with rules [rule_0]": 1,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1,
+      "ShadowedRuleValidator | ERROR | Rule is shadowed by rule rule_0": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 2,
+     "runtime_ms": 1877
+    },
+    {
+     "file": "ctrl_dmnlint.dmn",
+     "parsed": true,
+     "finding_counts": {
+      "DecisionIdAndNameValidator | WARNING | A decision has no name.": 1,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 0,
+     "runtime_ms": 219
+    },
+    {
+     "file": "ctrl_duplicate_rule.dmn",
+     "parsed": true,
+     "finding_counts": {
+      "DuplicateRuleValidator | ERROR | Rule is defined more than once": 1,
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1,
+      "ShadowedRuleValidator | ERROR | Rule is shadowed by rule rule_0": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 2,
+     "runtime_ms": 167
+    },
+    {
+     "file": "ctrl_shadowed_rule.dmn",
+     "parsed": true,
+     "finding_counts": {
+      "OutputTypeDeclarationValidator | WARNING | Output has no type": 1,
+      "ShadowedRuleValidator | ERROR | Rule is shadowed by rule rule_any": 7
+     },
+     "gap_or_domain_related_findings": 0,
+     "duplicate_conflict_shadow_findings": 7,
+     "runtime_ms": 127
+    }
+   ]
+  },
+  "dmnlint": {
+   "version_run": "2.0.0 (npm, released 2026-10-16; dmn-moddle 12.2.1, @bpmn-io/lint-core) on Node v24.19.0",
+   "how_run": "scripts/run_dmnlint.js: same steps as the dmnlint CLI (dmn-moddle fromXML + import warnings + Linter with extends \"dmnlint:all\"); CLI also spot-checked",
+   "rules_installed_2_0_0": [
+    "label-required",
+    "no-duplicate-requirements"
+   ],
+   "rules_0_2_0_and_1_0_0": [
+    "label-required",
+    "no-duplicate-requirements"
+   ],
+   "has_missing_rule_check": false,
+   "results_original_dmn14": [
+    {
+     "file": "car_buying_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 123
+    },
+    {
+     "file": "car_buying_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 118
+    },
+    {
+     "file": "car_buying_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 125
+    },
+    {
+     "file": "car_buying_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 102
+    },
+    {
+     "file": "car_doors_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 89
+    },
+    {
+     "file": "car_doors_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 105
+    },
+    {
+     "file": "car_doors_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 124
+    },
+    {
+     "file": "car_doors_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 163
+    },
+    {
+     "file": "car_lug_boot_small_V1.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 77
+    },
+    {
+     "file": "car_lug_boot_small_V2.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 99
+    },
+    {
+     "file": "car_lug_boot_small_V3b.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 61
+    },
+    {
+     "file": "car_lug_boot_small_V4.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 61
+    },
+    {
+     "file": "car_maint_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 80
+    },
+    {
+     "file": "car_maint_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 74
+    },
+    {
+     "file": "car_maint_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 85
+    },
+    {
+     "file": "car_maint_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 78
+    },
+    {
+     "file": "car_persons_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 62
+    },
+    {
+     "file": "car_persons_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 81
+    },
+    {
+     "file": "car_persons_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 77
+    },
+    {
+     "file": "car_persons_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 77
+    },
+    {
+     "file": "car_safety_low_V1.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 71
+    },
+    {
+     "file": "car_safety_low_V2.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 89
+    },
+    {
+     "file": "car_safety_low_V3b.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 51
+    },
+    {
+     "file": "car_safety_low_V4.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 145
+    },
+    {
+     "file": "nursery_finance_convenient_V1.dmn",
+     "dataset": "nursery",
+     "attribute": "finance",
+     "removed_value": "convenient",
+     "variant": "V1",
+     "rules": 6480,
+     "missing_states": 6480,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 525
+    },
+    {
+     "file": "nursery_finance_convenient_V2.dmn",
+     "dataset": "nursery",
+     "attribute": "finance",
+     "removed_value": "convenient",
+     "variant": "V2",
+     "rules": 6480,
+     "missing_states": 6480,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 454
+    },
+    {
+     "file": "nursery_finance_convenient_V4.dmn",
+     "dataset": "nursery",
+     "attribute": "finance",
+     "removed_value": "convenient",
+     "variant": "V4",
+     "rules": 6480,
+     "missing_states": 6480,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 378
+    },
+    {
+     "file": "pension_Age_60-64_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V1",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3
+    },
+    {
+     "file": "pension_Age_60-64_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V2",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3
+    },
+    {
+     "file": "pension_Age_60-64_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V3b",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 4
+    },
+    {
+     "file": "pension_Age_60-64_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V4",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3
+    },
+    {
+     "file": "pension_Age_gt65_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V1",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3
+    },
+    {
+     "file": "pension_Age_gt65_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V2",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 2
+    },
+    {
+     "file": "pension_Age_gt65_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V3b",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 2
+    },
+    {
+     "file": "pension_Age_gt65_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V4",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 4
+    },
+    {
+     "file": "pension_Age_lt60_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V1",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 2
+    },
+    {
+     "file": "pension_Age_lt60_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V2",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3
+    },
+    {
+     "file": "pension_Age_lt60_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V3b",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3
+    },
+    {
+     "file": "pension_Age_lt60_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V4",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": false,
+     "error": "failed to parse document as <dmn:Definitions>",
+     "finding_counts": {
+      " | error | Parse error: failed to parse document as <dmn:Definitions>": 1
+     },
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 4
+    }
+   ],
+   "results_converted_dmn13": [
+    {
+     "file": "car_buying_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 474
+    },
+    {
+     "file": "car_buying_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 481
+    },
+    {
+     "file": "car_buying_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 442
+    },
+    {
+     "file": "car_buying_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "buying",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 531
+    },
+    {
+     "file": "car_doors_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 1191
+    },
+    {
+     "file": "car_doors_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 517
+    },
+    {
+     "file": "car_doors_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 553
+    },
+    {
+     "file": "car_doors_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "doors",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 466
+    },
+    {
+     "file": "car_lug_boot_small_V1.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 556
+    },
+    {
+     "file": "car_lug_boot_small_V2.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 371
+    },
+    {
+     "file": "car_lug_boot_small_V3b.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 503
+    },
+    {
+     "file": "car_lug_boot_small_V4.dmn",
+     "dataset": "car",
+     "attribute": "lug_boot",
+     "removed_value": "small",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 482
+    },
+    {
+     "file": "car_maint_vhigh_V1.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V1",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 427
+    },
+    {
+     "file": "car_maint_vhigh_V2.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V2",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 633
+    },
+    {
+     "file": "car_maint_vhigh_V3b.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V3b",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 879
+    },
+    {
+     "file": "car_maint_vhigh_V4.dmn",
+     "dataset": "car",
+     "attribute": "maint",
+     "removed_value": "vhigh",
+     "variant": "V4",
+     "rules": 1296,
+     "missing_states": 432,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 510
+    },
+    {
+     "file": "car_persons_2_V1.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 445
+    },
+    {
+     "file": "car_persons_2_V2.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 493
+    },
+    {
+     "file": "car_persons_2_V3b.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 504
+    },
+    {
+     "file": "car_persons_2_V4.dmn",
+     "dataset": "car",
+     "attribute": "persons",
+     "removed_value": "2",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 430
+    },
+    {
+     "file": "car_safety_low_V1.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V1",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 975
+    },
+    {
+     "file": "car_safety_low_V2.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V2",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 861
+    },
+    {
+     "file": "car_safety_low_V3b.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V3b",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 982
+    },
+    {
+     "file": "car_safety_low_V4.dmn",
+     "dataset": "car",
+     "attribute": "safety",
+     "removed_value": "low",
+     "variant": "V4",
+     "rules": 1152,
+     "missing_states": 576,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 1027
+    },
+    {
+     "file": "nursery_finance_convenient_V1.dmn",
+     "dataset": "nursery",
+     "attribute": "finance",
+     "removed_value": "convenient",
+     "variant": "V1",
+     "rules": 6480,
+     "missing_states": 6480,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 4676
+    },
+    {
+     "file": "nursery_finance_convenient_V2.dmn",
+     "dataset": "nursery",
+     "attribute": "finance",
+     "removed_value": "convenient",
+     "variant": "V2",
+     "rules": 6480,
+     "missing_states": 6480,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 3737
+    },
+    {
+     "file": "nursery_finance_convenient_V4.dmn",
+     "dataset": "nursery",
+     "attribute": "finance",
+     "removed_value": "convenient",
+     "variant": "V4",
+     "rules": 6480,
+     "missing_states": 6480,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 5900
+    },
+    {
+     "file": "pension_Age_60-64_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V1",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 16
+    },
+    {
+     "file": "pension_Age_60-64_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V2",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 47
+    },
+    {
+     "file": "pension_Age_60-64_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V3b",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 11
+    },
+    {
+     "file": "pension_Age_60-64_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "60-64",
+     "variant": "V4",
+     "rules": 4,
+     "missing_states": 20,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 11
+    },
+    {
+     "file": "pension_Age_gt65_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V1",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 108
+    },
+    {
+     "file": "pension_Age_gt65_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V2",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 11
+    },
+    {
+     "file": "pension_Age_gt65_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V3b",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 15
+    },
+    {
+     "file": "pension_Age_gt65_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": ">=65",
+     "variant": "V4",
+     "rules": 5,
+     "missing_states": 19,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 50
+    },
+    {
+     "file": "pension_Age_lt60_V1.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V1",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 14
+    },
+    {
+     "file": "pension_Age_lt60_V2.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V2",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 59
+    },
+    {
+     "file": "pension_Age_lt60_V3b.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V3b",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 16
+    },
+    {
+     "file": "pension_Age_lt60_V4.dmn",
+     "dataset": "pension",
+     "attribute": "Age",
+     "removed_value": "<60",
+     "variant": "V4",
+     "rules": 7,
+     "missing_states": 17,
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 12
+    }
+   ],
+   "positive_controls": [
+    {
+     "file": "ctrl_conflicting_rule.dmn",
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 68
+    },
+    {
+     "file": "ctrl_dmnlint.dmn",
+     "parsed": true,
+     "finding_counts": {
+      "label-required | error | Element is missing label/name": 1,
+      "no-duplicate-requirements | error | Duplicate outgoing requirements": 1,
+      "no-duplicate-requirements | error | Duplicate incoming requirements": 1
+     },
+     "gap_or_domain_related_findings": 1,
+     "runtime_ms": 18
+    },
+    {
+     "file": "ctrl_duplicate_rule.dmn",
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 21
+    },
+    {
+     "file": "ctrl_shadowed_rule.dmn",
+     "parsed": true,
+     "finding_counts": {},
+     "gap_or_domain_related_findings": 0,
+     "runtime_ms": 20
+    }
+   ]
+  }
+ },
+ "summary": {
+  "claim_checked": "Neither red6 dmn-check nor bpmn.io dmnlint has a missing-rule (gap) check",
+  "verdict": "CONFIRMED by execution and by reading the installed code: no gap/missing-rule/unused-value/undeclared-value report on any file, although every file has 17-6480 missing states; no such rule/validator exists in dmn-check 1.1.6, 1.4.0 or master, or in dmnlint 0.2.0/1.0.0/2.0.0",
+  "dmn14_namespace": "Both tools (dmn-check 1.1.6 via camunda-dmn-model 7.14; dmnlint 2.0.0 via dmn-moddle 12) reject the DMN 1.4 namespace on all files; results on files are from copies whose only change is the namespace set to DMN 1.3 (converted_dmn13/)",
+  "dmncheck_findings": "V1/V2/V4: 1 WARNING OutputTypeDeclarationValidator \"Output has no type\" per file. V3b: the same plus one ERROR InputEntryTypeValidator per input entry (false positive: itemDefinition type is not unwrapped to its base type string). 0 duplicate/conflict/shadow findings (correct).",
+  "dmnlint_findings": "0 findings on all 39 DMN1.3 copies (incl. Nursery); 1 parse error on every DMN 1.4 original",
+  "controls": "Both tools fire on positive controls (duplicate/conflicting/shadowed rule; empty name/duplicate requirement)",
+  "not_run": "dmn-check 1.2+ (needs Java 11/17/21; latest 1.4.0 needs 21); dmn-check on Nursery (6480 rules, est. ~50 min/file)",
+  "runtime": "dmn-check: pension 0.06-1.7 s/file, Car 56-133 s/file; dmnlint: pension <0.11 s, Car 0.4-1.2 s, Nursery 3.7-5.9 s",
+  "note": "SUMMARY.md could not be written by this agent (file-writing of report .md files is blocked for subagents); its content was handed back to the lead"
+ }
+}

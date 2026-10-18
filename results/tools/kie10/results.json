@@ -1,0 +1,1821 @@
+{
+ "tool": "Apache KIE (Drools) DMN validator 10.2.0 (org.kie:kie-dmn-validation, kie-dmn-core), Eclipse Temurin 17.0.20.1+1, -Xmx1200m; driver DroolsCheck.java (VALIDATE_SCHEMA, VALIDATE_MODEL, ANALYZE_DECISION_TABLE)",
+ "compared_with": "Drools 7.74.1.Final on Java 8, results/drools/domains/results.json",
+ "variants": {
+  "V1": "inputValues = full declared values (all inputs)",
+  "V2": "no allowed values declared (typeRef string only)",
+  "V3b": "itemDefinition allowedValues (full) on inputData variable and inputExpression typeRef",
+  "V4": "inputValues = values observed in T0"
+ },
+ "runs": {
+  "pension_Age_gt65_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 19,
+   "missing_covered": 19,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 19,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", -, -"
+   ],
+   "removed_value_states_found": 8,
+   "seconds": 7.5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 19,
+    "missing_covered": 19,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.7
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V1",
+   "rules": 5
+  },
+  "pension_Age_gt65_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 6.7,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 5.6
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V2",
+   "rules": 5
+  },
+  "pension_Age_gt65_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 19,
+   "missing_covered": 19,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 19,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", -, -"
+   ],
+   "removed_value_states_found": 8,
+   "seconds": 7.3,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 19,
+    "missing_covered": 19,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 3.8
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V3b",
+   "rules": 5
+  },
+  "pension_Age_gt65_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 6,
+   "states_covered_by_gaps": 11,
+   "missing_covered": 11,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 15,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", \"<60\"",
+    "\"F\", \"D\", \">=30\", \"<60\"",
+    "\"F\", \"I\", \"<30\", -",
+    "\"M\", \"D\", -, -",
+    "\"M\", \"I\", \"<30\", \"<60\""
+   ],
+   "removed_value_states_found": 0,
+   "seconds": 12.8,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 6,
+    "states_covered_by_gaps": 11,
+    "missing_covered": 11,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.9
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V4",
+   "rules": 5
+  },
+  "pension_Age_60-64_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 20,
+   "missing_covered": 20,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 20,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \"60-64\"",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "seconds": 9.7,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 20,
+    "missing_covered": 20,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.4
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V1",
+   "rules": 4
+  },
+  "pension_Age_60-64_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 7.6,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.0
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V2",
+   "rules": 4
+  },
+  "pension_Age_60-64_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 20,
+   "missing_covered": 20,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 20,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \"60-64\"",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "seconds": 6.7,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 20,
+    "missing_covered": 20,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.6
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V3b",
+   "rules": 4
+  },
+  "pension_Age_60-64_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 12,
+   "missing_covered": 12,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 16,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 9,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -",
+    "\"M\", \"D\", \">=30\", \"<60\""
+   ],
+   "removed_value_states_found": 0,
+   "seconds": 8.7,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 12,
+    "missing_covered": 12,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.3
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V4",
+   "rules": 4
+  },
+  "pension_Age_lt60_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 17,
+   "missing_covered": 17,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 17,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 12,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "seconds": 13.2,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 17,
+    "missing_covered": 17,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.2
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V1",
+   "rules": 7
+  },
+  "pension_Age_lt60_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 10.3,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 3.9
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V2",
+   "rules": 7
+  },
+  "pension_Age_lt60_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 17,
+   "missing_covered": 17,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 17,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 12,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "seconds": 10.4,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 17,
+    "missing_covered": 17,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 3.6
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V3b",
+   "rules": 7
+  },
+  "pension_Age_lt60_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 9,
+   "missing_covered": 9,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 11,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", \">=65\"",
+    "\"F\", \"D\", \">=30\", \">=65\"",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 0,
+   "seconds": 7.2,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 9,
+    "missing_covered": 9,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.4
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V4",
+   "rules": 7
+  },
+  "car_buying_vhigh_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 1,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"vhigh\", -, -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "seconds": 67.5,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 1,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 34.9
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V1",
+   "rules": 1296
+  },
+  "car_buying_vhigh_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 14.2,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 9.7
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V2",
+   "rules": 1296
+  },
+  "car_buying_vhigh_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 1,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"vhigh\", -, -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "seconds": 54.9,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 1,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 42.3
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V3b",
+   "rules": 1296
+  },
+  "car_buying_vhigh_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 60.8,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 41.4
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V4",
+   "rules": 1296
+  },
+  "car_maint_vhigh_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 4,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 17,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"vhigh\", -, -, -, -",
+    "\"low\", \"vhigh\", -, -, -, -",
+    "\"med\", \"vhigh\", -, -, -, -",
+    "\"vhigh\", \"vhigh\", -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "seconds": 63.9,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 4,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 37.8
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V1",
+   "rules": 1296
+  },
+  "car_maint_vhigh_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 12.5,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 9.3
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V2",
+   "rules": 1296
+  },
+  "car_maint_vhigh_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 4,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 17,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"vhigh\", -, -, -, -",
+    "\"low\", \"vhigh\", -, -, -, -",
+    "\"med\", \"vhigh\", -, -, -, -",
+    "\"vhigh\", \"vhigh\", -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "seconds": 63.2,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 4,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 29.6
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V3b",
+   "rules": 1296
+  },
+  "car_maint_vhigh_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 80.9,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 50.8
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V4",
+   "rules": 1296
+  },
+  "car_doors_2_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 16,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 29,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", -, -, -",
+    "\"high\", \"low\", \"2\", -, -, -",
+    "\"high\", \"med\", \"2\", -, -, -",
+    "\"high\", \"vhigh\", \"2\", -, -, -",
+    "\"low\", \"high\", \"2\", -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "seconds": 71.9,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 16,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 65.9
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V1",
+   "rules": 1296
+  },
+  "car_doors_2_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 14.6,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 22.4
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V2",
+   "rules": 1296
+  },
+  "car_doors_2_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 16,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 29,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", -, -, -",
+    "\"high\", \"low\", \"2\", -, -, -",
+    "\"high\", \"med\", \"2\", -, -, -",
+    "\"high\", \"vhigh\", \"2\", -, -, -",
+    "\"low\", \"high\", \"2\", -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "seconds": 76.0,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 16,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 80.9
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V3b",
+   "rules": 1296
+  },
+  "car_doors_2_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 72.5,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "drools_7_74_1": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 62.0
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V4",
+   "rules": 1296
+  },
+  "car_persons_2_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 64,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 78,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", -, -",
+    "\"high\", \"high\", \"3\", \"2\", -, -",
+    "\"high\", \"high\", \"4\", \"2\", -, -",
+    "\"high\", \"high\", \"5more\", \"2\", -, -",
+    "\"high\", \"low\", \"2\", \"2\", -, -"
+   ],
+   "removed_value_states_found": 576,
+   "seconds": 48.6,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 64,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 25.8
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V1",
+   "rules": 1152
+  },
+  "car_persons_2_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 18.5,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 22.9
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V2",
+   "rules": 1152
+  },
+  "car_persons_2_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 64,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 78,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", -, -",
+    "\"high\", \"high\", \"3\", \"2\", -, -",
+    "\"high\", \"high\", \"4\", \"2\", -, -",
+    "\"high\", \"high\", \"5more\", \"2\", -, -",
+    "\"high\", \"low\", \"2\", \"2\", -, -"
+   ],
+   "removed_value_states_found": 576,
+   "seconds": 64.1,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 64,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 26.7
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V3b",
+   "rules": 1152
+  },
+  "car_persons_2_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 39.9,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 30.7
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V4",
+   "rules": 1152
+  },
+  "car_lug_boot_small_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 192,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 206,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"4\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"more\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"4\", \"small\", -"
+   ],
+   "removed_value_states_found": 576,
+   "seconds": 50.9,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 192,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 47.0
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V1",
+   "rules": 1152
+  },
+  "car_lug_boot_small_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 22.1,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 12.3
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V2",
+   "rules": 1152
+  },
+  "car_lug_boot_small_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 192,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 206,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"4\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"more\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"4\", \"small\", -"
+   ],
+   "removed_value_states_found": 576,
+   "seconds": 53.4,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 192,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 33.1
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V3b",
+   "rules": 1152
+  },
+  "car_lug_boot_small_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 49.1,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 27.4
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V4",
+   "rules": 1152
+  },
+  "car_safety_low_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 576,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 589,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"med\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"small\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"med\", \"low\""
+   ],
+   "removed_value_states_found": 576,
+   "seconds": 37.8,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 576,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 20.7
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V1",
+   "rules": 1152
+  },
+  "car_safety_low_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 16.7,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 8.5
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V2",
+   "rules": 1152
+  },
+  "car_safety_low_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 576,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 589,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"med\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"small\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"med\", \"low\""
+   ],
+   "removed_value_states_found": 576,
+   "seconds": 39.9,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "gaps reported",
+    "gap_messages": 576,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 19.0
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V3b",
+   "rules": 1152
+  },
+  "car_safety_low_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 35.3,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "drools_7_74_1": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 24.2
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V4",
+   "rules": 1152
+  },
+  "nursery_finance_convenient_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "parents",
+    "has_nurs",
+    "form",
+    "children",
+    "housing",
+    "finance",
+    "social",
+    "health"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [parents, has_nurs, form, children, housing, finance, social, health] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "seconds": 102.5,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "drools_7_74_1": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 104.3
+   },
+   "vs_7_74_1": {
+    "same": true,
+    "differences": {}
+   },
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V2",
+   "rules": 6480
+  },
+  "nursery_finance_convenient_V1.dmn": {
+   "outcome": "not finished (timeout)",
+   "detail": "timeout after 900.0 s (killed)",
+   "seconds": 901.2,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "drools_7_74_1": null,
+   "vs_7_74_1": null,
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V1",
+   "rules": 6480
+  }
+ }
+}

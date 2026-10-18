@@ -1,0 +1,7732 @@
+{
+ "tool": "Laurson & Maggi DMN verifier (ulaurson/dmn-js fork), lib/features/verifier/Verifier.js",
+ "repo": "https://github.com/ulaurson/dmn-js",
+ "commit": "e0b6417a95ea2685e2cd8b46421634afd08b23ec",
+ "node": "v24.19.0",
+ "harness": "results/tools/dmn-js/harness.js",
+ "runs": [
+  {
+   "file": "pension_Age_gt65_V1.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": "\"M\",\"F\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": "\"D\",\"I\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": "\">=30\",\"<30\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": "\">=65\",\"60-64\",\"<60\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0195325,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     "<60"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\"<60\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\">=30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 11,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 19,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 11,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 15,
+    "true_missing_found": 15,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=>=65",
+   "variant": "V1",
+   "rules": 5,
+   "manifest_missing_states": 19,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.647
+  },
+  {
+   "file": "pension_Age_gt65_V2.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0117267,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     "<60"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\"<60\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\">=30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 11,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 19,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 11,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 15,
+    "true_missing_found": 15,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=>=65",
+   "variant": "V2",
+   "rules": 5,
+   "manifest_missing_states": 19,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.636
+  },
+  {
+   "file": "pension_Age_gt65_V3b.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"M\",\"F\""
+    },
+    {
+     "label": "Activity",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"D\",\"I\""
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=30\",\"<30\""
+    },
+    {
+     "label": "Age",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=65\",\"60-64\",\"<60\""
+    }
+   ],
+   "runtime_s": 0.0106912,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full"
+   ],
+   "tool_domains": {
+    "Sex": null,
+    "Activity": null,
+    "ContributionYears": null,
+    "Age": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     ">= NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "> NaN"
+    ]
+   ],
+   "n_gap_regions": 30,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "pension",
+   "case": "Age=>=65",
+   "variant": "V3b",
+   "rules": 5,
+   "manifest_missing_states": 19,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.65
+  },
+  {
+   "file": "pension_Age_gt65_V3b.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"M\",\"F\""
+    },
+    {
+     "label": "Activity",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"D\",\"I\""
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=30\",\"<30\""
+    },
+    {
+     "label": "Age",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=65\",\"60-64\",\"<60\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.0089138,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     "<60"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\"<60\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\">=30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 11,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 19,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 11,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 15,
+    "true_missing_found": 15,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=>=65",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 5,
+   "manifest_missing_states": 19,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 1.812
+  },
+  {
+   "file": "pension_Age_gt65_V4.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": "\"M\",\"F\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": "\"D\",\"I\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": "\">=30\",\"<30\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": "\"60-64\",\"<60\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0214094,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     "<60"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\"<60\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\">=30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 11,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 19,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 11,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 15,
+    "true_missing_found": 15,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=>=65",
+   "variant": "V4",
+   "rules": 5,
+   "manifest_missing_states": 19,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 1.434
+  },
+  {
+   "file": "pension_Age_60-64_V1.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": "\"M\",\"F\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": "\"D\",\"I\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": "\">=30\",\"<30\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": "\">=65\",\"60-64\",\"<60\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0073873,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "<60",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"F\"",
+     "\"D\"",
+     "any",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ]
+   ],
+   "n_gap_regions": 6,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 12,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 20,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 12,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 16,
+    "true_missing_found": 16,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=60-64",
+   "variant": "V1",
+   "rules": 4,
+   "manifest_missing_states": 20,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.791
+  },
+  {
+   "file": "pension_Age_60-64_V2.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0190662,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "<60",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"F\"",
+     "\"D\"",
+     "any",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ]
+   ],
+   "n_gap_regions": 6,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 12,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 20,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 12,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 16,
+    "true_missing_found": 16,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=60-64",
+   "variant": "V2",
+   "rules": 4,
+   "manifest_missing_states": 20,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 1.251
+  },
+  {
+   "file": "pension_Age_60-64_V3b.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"M\",\"F\""
+    },
+    {
+     "label": "Activity",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"D\",\"I\""
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=30\",\"<30\""
+    },
+    {
+     "label": "Age",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=65\",\"60-64\",\"<60\""
+    }
+   ],
+   "runtime_s": 0.0141079,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full"
+   ],
+   "tool_domains": {
+    "Sex": null,
+    "Activity": null,
+    "ContributionYears": null,
+    "Age": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "< NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     ">= NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ]
+   ],
+   "n_gap_regions": 21,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "pension",
+   "case": "Age=60-64",
+   "variant": "V3b",
+   "rules": 4,
+   "manifest_missing_states": 20,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 1.165
+  },
+  {
+   "file": "pension_Age_60-64_V3b.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"M\",\"F\""
+    },
+    {
+     "label": "Activity",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"D\",\"I\""
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=30\",\"<30\""
+    },
+    {
+     "label": "Age",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=65\",\"60-64\",\"<60\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.0085225,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "<60",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"F\"",
+     "\"D\"",
+     "any",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ]
+   ],
+   "n_gap_regions": 6,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 12,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 20,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 12,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 16,
+    "true_missing_found": 16,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=60-64",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 4,
+   "manifest_missing_states": 20,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 1.239
+  },
+  {
+   "file": "pension_Age_60-64_V4.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": "\"M\",\"F\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": "\"D\",\"I\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": "\">=30\",\"<30\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": "\">=65\",\"<60\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0077729,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "<60",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"F\"",
+     "\"D\"",
+     "any",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"<60\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "\"I\"",
+     "\"<30\"",
+     "\"<60\""
+    ]
+   ],
+   "n_gap_regions": 6,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 12,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 20,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 12,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 16,
+    "true_missing_found": 16,
+    "removed_value_states_found": 4
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=60-64",
+   "variant": "V4",
+   "rules": 4,
+   "manifest_missing_states": 20,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.797
+  },
+  {
+   "file": "pension_Age_lt60_V1.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": "\"M\",\"F\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": "\"D\",\"I\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": "\">=30\",\"<30\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": "\">=65\",\"60-64\",\"<60\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0090889,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"60-64\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 9,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 17,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 9,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 11,
+    "true_missing_found": 11,
+    "removed_value_states_found": 2
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=<60",
+   "variant": "V1",
+   "rules": 7,
+   "manifest_missing_states": 17,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.946
+  },
+  {
+   "file": "pension_Age_lt60_V2.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.0357971,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"60-64\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 9,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 17,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 9,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 11,
+    "true_missing_found": 11,
+    "removed_value_states_found": 2
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=<60",
+   "variant": "V2",
+   "rules": 7,
+   "manifest_missing_states": 17,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 1.025
+  },
+  {
+   "file": "pension_Age_lt60_V3b.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"M\",\"F\""
+    },
+    {
+     "label": "Activity",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"D\",\"I\""
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=30\",\"<30\""
+    },
+    {
+     "label": "Age",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=65\",\"60-64\",\"<60\""
+    }
+   ],
+   "runtime_s": 0.0166949,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full"
+   ],
+   "tool_domains": {
+    "Sex": null,
+    "Activity": null,
+    "ContributionYears": null,
+    "Age": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "< NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     ">= NaN",
+     "< NaN"
+    ]
+   ],
+   "n_gap_regions": 40,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "pension",
+   "case": "Age=<60",
+   "variant": "V3b",
+   "rules": 7,
+   "manifest_missing_states": 17,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.899
+  },
+  {
+   "file": "pension_Age_lt60_V3b.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"M\",\"F\""
+    },
+    {
+     "label": "Activity",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"D\",\"I\""
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=30\",\"<30\""
+    },
+    {
+     "label": "Age",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\">=65\",\"60-64\",\"<60\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.0081773,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"60-64\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 9,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 17,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 9,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 11,
+    "true_missing_found": 11,
+    "removed_value_states_found": 2
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=<60",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 7,
+   "manifest_missing_states": 17,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.814
+  },
+  {
+   "file": "pension_Age_lt60_V4.dmn",
+   "parse_warnings": 9,
+   "model_exposes": [
+    {
+     "label": "Sex",
+     "typeRef": "string",
+     "inputValues": "\"M\",\"F\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Activity",
+     "typeRef": "string",
+     "inputValues": "\"D\",\"I\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "ContributionYears",
+     "typeRef": "string",
+     "inputValues": "\">=30\",\"<30\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "Age",
+     "typeRef": "string",
+     "inputValues": "\">=65\",\"60-64\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.013462,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "Sex": [
+     "F",
+     "M"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     "<30",
+     ">=30"
+    ],
+    "Age": [
+     "60-64",
+     ">=65"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "\"F\"",
+     "\"D\"",
+     "[\"<30\", \">=30\"]",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\">=30\"",
+     "\">=65\""
+    ],
+    [
+     "\"F\"",
+     "\"I\"",
+     "\"<30\"",
+     "any"
+    ],
+    [
+     "\"M\"",
+     "[\"D\", \"I\"]",
+     "\">=30\"",
+     "\"60-64\""
+    ],
+    [
+     "\"M\"",
+     "\"D\"",
+     "\"<30\"",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 5,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 9,
+   "covered_states_that_match_a_rule": 0,
+   "true_missing_states": 17,
+   "true_missing_with_removed_value": 8,
+   "true_missing_found": 9,
+   "removed_value_states_found": 0,
+   "alt_any_over_declared": {
+    "states_covered": 11,
+    "true_missing_found": 11,
+    "removed_value_states_found": 2
+   },
+   "tool_domain_contains_removed_value": false,
+   "dataset": "pension",
+   "case": "Age=<60",
+   "variant": "V4",
+   "rules": 7,
+   "manifest_missing_states": 17,
+   "manifest_missing_with_removed_value": 8,
+   "wall_s": 0.633
+  },
+  {
+   "file": "car_buying_vhigh_V1.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.7505294,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "buying=vhigh",
+   "variant": "V1",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 3.151
+  },
+  {
+   "file": "car_buying_vhigh_V2.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.825128,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "buying=vhigh",
+   "variant": "V2",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 3.319
+  },
+  {
+   "file": "car_buying_vhigh_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "runtime_s": 32.3059068,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full",
+    "t_input_4_full",
+    "t_input_5_full"
+   ],
+   "tool_domains": {
+    "buying": null,
+    "maint": null,
+    "doors": null,
+    "persons": null,
+    "lug_boot": null,
+    "safety": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 14257,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "car",
+   "case": "buying=vhigh",
+   "variant": "V3b",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 34.687,
+   "gap_regions_truncated_to_first": 50
+  },
+  {
+   "file": "car_buying_vhigh_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.9748339,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "buying=vhigh",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 6.127
+  },
+  {
+   "file": "car_buying_vhigh_V4.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.8201888,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "buying=vhigh",
+   "variant": "V4",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 4.343
+  },
+  {
+   "file": "car_maint_vhigh_V1.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.665578,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "maint=vhigh",
+   "variant": "V1",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 1.999
+  },
+  {
+   "file": "car_maint_vhigh_V2.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.5155487,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "maint=vhigh",
+   "variant": "V2",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 2.058
+  },
+  {
+   "file": "car_maint_vhigh_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "runtime_s": 34.4692959,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full",
+    "t_input_4_full",
+    "t_input_5_full"
+   ],
+   "tool_domains": {
+    "buying": null,
+    "maint": null,
+    "doors": null,
+    "persons": null,
+    "lug_boot": null,
+    "safety": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 14257,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "car",
+   "case": "maint=vhigh",
+   "variant": "V3b",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 35.789,
+   "gap_regions_truncated_to_first": 50
+  },
+  {
+   "file": "car_maint_vhigh_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 1.6799951,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "maint=vhigh",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 4.773
+  },
+  {
+   "file": "car_maint_vhigh_V4.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.649264,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "maint=vhigh",
+   "variant": "V4",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 7.187
+  },
+  {
+   "file": "car_doors_2_V1.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 1.2083951,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "doors=2",
+   "variant": "V1",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 4.871
+  },
+  {
+   "file": "car_doors_2_V2.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.781437,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "doors=2",
+   "variant": "V2",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 3.595
+  },
+  {
+   "file": "car_doors_2_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "runtime_s": 32.2238602,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full",
+    "t_input_4_full",
+    "t_input_5_full"
+   ],
+   "tool_domains": {
+    "buying": null,
+    "maint": null,
+    "doors": null,
+    "persons": null,
+    "lug_boot": null,
+    "safety": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 14257,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "car",
+   "case": "doors=2",
+   "variant": "V3b",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 33.851,
+   "gap_regions_truncated_to_first": 50
+  },
+  {
+   "file": "car_doors_2_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.4696091,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "doors=2",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 6.774
+  },
+  {
+   "file": "car_doors_2_V4.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.5382925,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "doors=2",
+   "variant": "V4",
+   "rules": 1296,
+   "manifest_missing_states": 432,
+   "manifest_missing_with_removed_value": 432,
+   "wall_s": 1.474
+  },
+  {
+   "file": "car_persons_2_V1.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.7201941,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "persons=2",
+   "variant": "V1",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 3.01
+  },
+  {
+   "file": "car_persons_2_V2.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.5068862,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "persons=2",
+   "variant": "V2",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 8.281
+  },
+  {
+   "file": "car_persons_2_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "runtime_s": 25.2073083,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full",
+    "t_input_4_full",
+    "t_input_5_full"
+   ],
+   "tool_domains": {
+    "buying": null,
+    "maint": null,
+    "doors": null,
+    "persons": null,
+    "lug_boot": null,
+    "safety": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 12673,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "car",
+   "case": "persons=2",
+   "variant": "V3b",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 29.898,
+   "gap_regions_truncated_to_first": 50
+  },
+  {
+   "file": "car_persons_2_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.5210943,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "persons=2",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 3.849
+  },
+  {
+   "file": "car_persons_2_V4.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.6366151,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "persons=2",
+   "variant": "V4",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 2.935
+  },
+  {
+   "file": "car_lug_boot_small_V1.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.6582661,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "lug_boot=small",
+   "variant": "V1",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 2.247
+  },
+  {
+   "file": "car_lug_boot_small_V2.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.4888142,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "lug_boot=small",
+   "variant": "V2",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 2.104
+  },
+  {
+   "file": "car_lug_boot_small_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "runtime_s": 31.9753484,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full",
+    "t_input_4_full",
+    "t_input_5_full"
+   ],
+   "tool_domains": {
+    "buying": null,
+    "maint": null,
+    "doors": null,
+    "persons": null,
+    "lug_boot": null,
+    "safety": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 12673,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "car",
+   "case": "lug_boot=small",
+   "variant": "V3b",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 34.18,
+   "gap_regions_truncated_to_first": 50
+  },
+  {
+   "file": "car_lug_boot_small_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 1.3375692,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "lug_boot=small",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 4.471
+  },
+  {
+   "file": "car_lug_boot_small_V4.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.5485743,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med"
+    ],
+    "safety": [
+     "high",
+     "low",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "lug_boot=small",
+   "variant": "V4",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 6.228
+  },
+  {
+   "file": "car_safety_low_V1.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"low\",\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.6842365,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "safety=low",
+   "variant": "V1",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 2.24
+  },
+  {
+   "file": "car_safety_low_V2.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.6255759,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "safety=low",
+   "variant": "V2",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 2.294
+  },
+  {
+   "file": "car_safety_low_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "runtime_s": 24.8152257,
+   "input_types_seen_by_tool": [
+    "t_input_0_full",
+    "t_input_1_full",
+    "t_input_2_full",
+    "t_input_3_full",
+    "t_input_4_full",
+    "t_input_5_full"
+   ],
+   "tool_domains": {
+    "buying": null,
+    "maint": null,
+    "doors": null,
+    "persons": null,
+    "lug_boot": null,
+    "safety": null
+   },
+   "overlap_rows": 0,
+   "gap_regions": [
+    [
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN"
+    ],
+    [
+     "(NaN, NaN)",
+     "any",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "> NaN",
+     "any",
+     "any",
+     "any"
+    ],
+    [
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "[NaN, NaN]",
+     "< NaN",
+     "any",
+     "any"
+    ]
+   ],
+   "n_gap_regions": 12673,
+   "outcome": "gaps reported",
+   "all_inputs_typed_string_for_tool": false,
+   "note": "gap regions not interpretable as string states (tool did not treat all inputs as string)",
+   "tool_domain_contains_removed_value": null,
+   "dataset": "car",
+   "case": "safety=low",
+   "variant": "V3b",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 27.341,
+   "gap_regions_truncated_to_first": 50
+  },
+  {
+   "file": "car_safety_low_V3b.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "t_input_0_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "maint",
+     "typeRef": "t_input_1_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"vhigh\",\"high\",\"med\",\"low\""
+    },
+    {
+     "label": "doors",
+     "typeRef": "t_input_2_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"3\",\"4\",\"5more\""
+    },
+    {
+     "label": "persons",
+     "typeRef": "t_input_3_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"2\",\"4\",\"more\""
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "t_input_4_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"small\",\"med\",\"big\""
+    },
+    {
+     "label": "safety",
+     "typeRef": "t_input_5_full",
+     "inputValues": null,
+     "itemDefinition_allowedValues": "\"low\",\"med\",\"high\""
+    }
+   ],
+   "typeRef_resolved_by_harness": true,
+   "runtime_s": 0.5423051,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "safety=low",
+   "variant": "V3b+resolvedTypeRef",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 2.789
+  },
+  {
+   "file": "car_safety_low_V4.dmn",
+   "parse_warnings": 13,
+   "model_exposes": [
+    {
+     "label": "buying",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "maint",
+     "typeRef": "string",
+     "inputValues": "\"vhigh\",\"high\",\"med\",\"low\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "doors",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"3\",\"4\",\"5more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "persons",
+     "typeRef": "string",
+     "inputValues": "\"2\",\"4\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "lug_boot",
+     "typeRef": "string",
+     "inputValues": "\"small\",\"med\",\"big\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "safety",
+     "typeRef": "string",
+     "inputValues": "\"med\",\"high\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 0.4462278,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "buying": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "maint": [
+     "high",
+     "low",
+     "med",
+     "vhigh"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "big",
+     "med",
+     "small"
+    ],
+    "safety": [
+     "high",
+     "med"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "car",
+   "case": "safety=low",
+   "variant": "V4",
+   "rules": 1152,
+   "manifest_missing_states": 576,
+   "manifest_missing_with_removed_value": 576,
+   "wall_s": 1.502
+  },
+  {
+   "file": "nursery_finance_convenient_V1.dmn",
+   "parse_warnings": 17,
+   "model_exposes": [
+    {
+     "label": "parents",
+     "typeRef": "string",
+     "inputValues": "\"usual\",\"pretentious\",\"great_pret\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "has_nurs",
+     "typeRef": "string",
+     "inputValues": "\"proper\",\"less_proper\",\"improper\",\"critical\",\"very_crit\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "form",
+     "typeRef": "string",
+     "inputValues": "\"complete\",\"completed\",\"incomplete\",\"foster\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "children",
+     "typeRef": "string",
+     "inputValues": "\"1\",\"2\",\"3\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "housing",
+     "typeRef": "string",
+     "inputValues": "\"convenient\",\"less_conv\",\"critical\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "finance",
+     "typeRef": "string",
+     "inputValues": "\"convenient\",\"inconv\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "social",
+     "typeRef": "string",
+     "inputValues": "\"nonprob\",\"slightly_prob\",\"problematic\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "health",
+     "typeRef": "string",
+     "inputValues": "\"recommended\",\"priority\",\"not_recom\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 19.6741781,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "parents": [
+     "great_pret",
+     "pretentious",
+     "usual"
+    ],
+    "has_nurs": [
+     "critical",
+     "improper",
+     "less_proper",
+     "proper",
+     "very_crit"
+    ],
+    "form": [
+     "complete",
+     "completed",
+     "foster",
+     "incomplete"
+    ],
+    "children": [
+     "1",
+     "2",
+     "3",
+     "more"
+    ],
+    "housing": [
+     "convenient",
+     "critical",
+     "less_conv"
+    ],
+    "finance": [
+     "inconv"
+    ],
+    "social": [
+     "nonprob",
+     "problematic",
+     "slightly_prob"
+    ],
+    "health": [
+     "not_recom",
+     "priority",
+     "recommended"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "nursery",
+   "case": "finance=convenient",
+   "variant": "V1",
+   "rules": 6480,
+   "manifest_missing_states": 6480,
+   "manifest_missing_with_removed_value": 6480,
+   "wall_s": 23.89
+  },
+  {
+   "file": "nursery_finance_convenient_V2.dmn",
+   "parse_warnings": 17,
+   "model_exposes": [
+    {
+     "label": "parents",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "has_nurs",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "form",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "children",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "housing",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "finance",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "social",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "health",
+     "typeRef": "string",
+     "inputValues": null,
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 19.3787952,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "parents": [
+     "great_pret",
+     "pretentious",
+     "usual"
+    ],
+    "has_nurs": [
+     "critical",
+     "improper",
+     "less_proper",
+     "proper",
+     "very_crit"
+    ],
+    "form": [
+     "complete",
+     "completed",
+     "foster",
+     "incomplete"
+    ],
+    "children": [
+     "1",
+     "2",
+     "3",
+     "more"
+    ],
+    "housing": [
+     "convenient",
+     "critical",
+     "less_conv"
+    ],
+    "finance": [
+     "inconv"
+    ],
+    "social": [
+     "nonprob",
+     "problematic",
+     "slightly_prob"
+    ],
+    "health": [
+     "not_recom",
+     "priority",
+     "recommended"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "nursery",
+   "case": "finance=convenient",
+   "variant": "V2",
+   "rules": 6480,
+   "manifest_missing_states": 6480,
+   "manifest_missing_with_removed_value": 6480,
+   "wall_s": 28.731
+  },
+  {
+   "file": "nursery_finance_convenient_V4.dmn",
+   "parse_warnings": 17,
+   "model_exposes": [
+    {
+     "label": "parents",
+     "typeRef": "string",
+     "inputValues": "\"usual\",\"pretentious\",\"great_pret\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "has_nurs",
+     "typeRef": "string",
+     "inputValues": "\"proper\",\"less_proper\",\"improper\",\"critical\",\"very_crit\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "form",
+     "typeRef": "string",
+     "inputValues": "\"complete\",\"completed\",\"incomplete\",\"foster\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "children",
+     "typeRef": "string",
+     "inputValues": "\"1\",\"2\",\"3\",\"more\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "housing",
+     "typeRef": "string",
+     "inputValues": "\"convenient\",\"less_conv\",\"critical\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "finance",
+     "typeRef": "string",
+     "inputValues": "\"inconv\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "social",
+     "typeRef": "string",
+     "inputValues": "\"nonprob\",\"slightly_prob\",\"problematic\"",
+     "itemDefinition_allowedValues": null
+    },
+    {
+     "label": "health",
+     "typeRef": "string",
+     "inputValues": "\"recommended\",\"priority\",\"not_recom\"",
+     "itemDefinition_allowedValues": null
+    }
+   ],
+   "runtime_s": 17.1273887,
+   "input_types_seen_by_tool": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+   ],
+   "tool_domains": {
+    "parents": [
+     "great_pret",
+     "pretentious",
+     "usual"
+    ],
+    "has_nurs": [
+     "critical",
+     "improper",
+     "less_proper",
+     "proper",
+     "very_crit"
+    ],
+    "form": [
+     "complete",
+     "completed",
+     "foster",
+     "incomplete"
+    ],
+    "children": [
+     "1",
+     "2",
+     "3",
+     "more"
+    ],
+    "housing": [
+     "convenient",
+     "critical",
+     "less_conv"
+    ],
+    "finance": [
+     "inconv"
+    ],
+    "social": [
+     "nonprob",
+     "problematic",
+     "slightly_prob"
+    ],
+    "health": [
+     "not_recom",
+     "priority",
+     "recommended"
+    ]
+   },
+   "overlap_rows": 0,
+   "gap_regions": [],
+   "n_gap_regions": 0,
+   "outcome": "no gaps",
+   "all_inputs_typed_string_for_tool": true,
+   "states_covered_by_gaps": 0,
+   "true_missing_found": 0,
+   "removed_value_states_found": 0,
+   "tool_domain_contains_removed_value": false,
+   "dataset": "nursery",
+   "case": "finance=convenient",
+   "variant": "V4",
+   "rules": 6480,
+   "manifest_missing_states": 6480,
+   "manifest_missing_with_removed_value": 6480,
+   "wall_s": 25.481
+  }
+ ],
+ "note_V3b": "gap_regions of raw V3b runs are truncated to the first 50 (all are NaN numeric intervals); n_gap_regions holds the full count."
+}

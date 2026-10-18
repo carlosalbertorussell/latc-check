@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>local.latc</groupId>
+  <artifactId>drools-check-kie10</artifactId>
+  <version>0.1</version>
+  <!-- Apache KIE (Drools) DMN validator, current 10.x release; run with JDK 17.
+       Libraries: mvn -f pom.xml dependency:copy-dependencies -DoutputDirectory=<tools/kie10/lib> -->
+  <properties>
+    <kie.version>10.2.0</kie.version>
+    <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+  <dependencies>
+    <dependency><groupId>org.kie</groupId><artifactId>kie-dmn-validation</artifactId><version>${kie.version}</version></dependency>
+    <dependency><groupId>org.kie</groupId><artifactId>kie-dmn-core</artifactId><version>${kie.version}</version></dependency>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-simple</artifactId><version>2.0.16</version></dependency>
+  </dependencies>
+</project>

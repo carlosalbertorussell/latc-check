@@ -1,0 +1,537 @@
+{
+ "variants": {
+  "V1": "inputValues = full declared values (all inputs)",
+  "V2": "no allowed values declared (typeRef string only)",
+  "V3b": "itemDefinition allowedValues (full) on inputData variable and inputExpression typeRef",
+  "V4": "inputValues = values observed in T0"
+ },
+ "cases": [
+  {
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "rules": 5,
+   "attributes": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "declared_domains": {
+    "Sex": [
+     "M",
+     "F"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     ">=30",
+     "<30"
+    ],
+    "Age": [
+     ">=65",
+     "60-64",
+     "<60"
+    ]
+   },
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "files": {
+    "V1": "results/tools/inputs/pension_Age_gt65_V1.dmn",
+    "V2": "results/tools/inputs/pension_Age_gt65_V2.dmn",
+    "V3b": "results/tools/inputs/pension_Age_gt65_V3b.dmn",
+    "V4": "results/tools/inputs/pension_Age_gt65_V4.dmn"
+   }
+  },
+  {
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "rules": 4,
+   "attributes": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "declared_domains": {
+    "Sex": [
+     "M",
+     "F"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     ">=30",
+     "<30"
+    ],
+    "Age": [
+     ">=65",
+     "60-64",
+     "<60"
+    ]
+   },
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "files": {
+    "V1": "results/tools/inputs/pension_Age_60-64_V1.dmn",
+    "V2": "results/tools/inputs/pension_Age_60-64_V2.dmn",
+    "V3b": "results/tools/inputs/pension_Age_60-64_V3b.dmn",
+    "V4": "results/tools/inputs/pension_Age_60-64_V4.dmn"
+   }
+  },
+  {
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "rules": 7,
+   "attributes": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "declared_domains": {
+    "Sex": [
+     "M",
+     "F"
+    ],
+    "Activity": [
+     "D",
+     "I"
+    ],
+    "ContributionYears": [
+     ">=30",
+     "<30"
+    ],
+    "Age": [
+     ">=65",
+     "60-64",
+     "<60"
+    ]
+   },
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "files": {
+    "V1": "results/tools/inputs/pension_Age_lt60_V1.dmn",
+    "V2": "results/tools/inputs/pension_Age_lt60_V2.dmn",
+    "V3b": "results/tools/inputs/pension_Age_lt60_V3b.dmn",
+    "V4": "results/tools/inputs/pension_Age_lt60_V4.dmn"
+   }
+  },
+  {
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "rules": 1296,
+   "attributes": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "declared_domains": {
+    "buying": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "maint": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "small",
+     "med",
+     "big"
+    ],
+    "safety": [
+     "low",
+     "med",
+     "high"
+    ]
+   },
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "files": {
+    "V1": "results/tools/inputs/car_buying_vhigh_V1.dmn",
+    "V2": "results/tools/inputs/car_buying_vhigh_V2.dmn",
+    "V3b": "results/tools/inputs/car_buying_vhigh_V3b.dmn",
+    "V4": "results/tools/inputs/car_buying_vhigh_V4.dmn"
+   }
+  },
+  {
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "rules": 1296,
+   "attributes": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "declared_domains": {
+    "buying": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "maint": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "small",
+     "med",
+     "big"
+    ],
+    "safety": [
+     "low",
+     "med",
+     "high"
+    ]
+   },
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "files": {
+    "V1": "results/tools/inputs/car_maint_vhigh_V1.dmn",
+    "V2": "results/tools/inputs/car_maint_vhigh_V2.dmn",
+    "V3b": "results/tools/inputs/car_maint_vhigh_V3b.dmn",
+    "V4": "results/tools/inputs/car_maint_vhigh_V4.dmn"
+   }
+  },
+  {
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "rules": 1296,
+   "attributes": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "declared_domains": {
+    "buying": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "maint": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "small",
+     "med",
+     "big"
+    ],
+    "safety": [
+     "low",
+     "med",
+     "high"
+    ]
+   },
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "files": {
+    "V1": "results/tools/inputs/car_doors_2_V1.dmn",
+    "V2": "results/tools/inputs/car_doors_2_V2.dmn",
+    "V3b": "results/tools/inputs/car_doors_2_V3b.dmn",
+    "V4": "results/tools/inputs/car_doors_2_V4.dmn"
+   }
+  },
+  {
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "rules": 1152,
+   "attributes": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "declared_domains": {
+    "buying": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "maint": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "small",
+     "med",
+     "big"
+    ],
+    "safety": [
+     "low",
+     "med",
+     "high"
+    ]
+   },
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "files": {
+    "V1": "results/tools/inputs/car_persons_2_V1.dmn",
+    "V2": "results/tools/inputs/car_persons_2_V2.dmn",
+    "V3b": "results/tools/inputs/car_persons_2_V3b.dmn",
+    "V4": "results/tools/inputs/car_persons_2_V4.dmn"
+   }
+  },
+  {
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "rules": 1152,
+   "attributes": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "declared_domains": {
+    "buying": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "maint": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "small",
+     "med",
+     "big"
+    ],
+    "safety": [
+     "low",
+     "med",
+     "high"
+    ]
+   },
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "files": {
+    "V1": "results/tools/inputs/car_lug_boot_small_V1.dmn",
+    "V2": "results/tools/inputs/car_lug_boot_small_V2.dmn",
+    "V3b": "results/tools/inputs/car_lug_boot_small_V3b.dmn",
+    "V4": "results/tools/inputs/car_lug_boot_small_V4.dmn"
+   }
+  },
+  {
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "rules": 1152,
+   "attributes": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "declared_domains": {
+    "buying": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "maint": [
+     "vhigh",
+     "high",
+     "med",
+     "low"
+    ],
+    "doors": [
+     "2",
+     "3",
+     "4",
+     "5more"
+    ],
+    "persons": [
+     "2",
+     "4",
+     "more"
+    ],
+    "lug_boot": [
+     "small",
+     "med",
+     "big"
+    ],
+    "safety": [
+     "low",
+     "med",
+     "high"
+    ]
+   },
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "files": {
+    "V1": "results/tools/inputs/car_safety_low_V1.dmn",
+    "V2": "results/tools/inputs/car_safety_low_V2.dmn",
+    "V3b": "results/tools/inputs/car_safety_low_V3b.dmn",
+    "V4": "results/tools/inputs/car_safety_low_V4.dmn"
+   }
+  },
+  {
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "rules": 6480,
+   "attributes": [
+    "parents",
+    "has_nurs",
+    "form",
+    "children",
+    "housing",
+    "finance",
+    "social",
+    "health"
+   ],
+   "declared_domains": {
+    "parents": [
+     "usual",
+     "pretentious",
+     "great_pret"
+    ],
+    "has_nurs": [
+     "proper",
+     "less_proper",
+     "improper",
+     "critical",
+     "very_crit"
+    ],
+    "form": [
+     "complete",
+     "completed",
+     "incomplete",
+     "foster"
+    ],
+    "children": [
+     "1",
+     "2",
+     "3",
+     "more"
+    ],
+    "housing": [
+     "convenient",
+     "less_conv",
+     "critical"
+    ],
+    "finance": [
+     "convenient",
+     "inconv"
+    ],
+    "social": [
+     "nonprob",
+     "slightly_prob",
+     "problematic"
+    ],
+    "health": [
+     "recommended",
+     "priority",
+     "not_recom"
+    ]
+   },
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "files": {
+    "V1": "results/tools/inputs/nursery_finance_convenient_V1.dmn",
+    "V2": "results/tools/inputs/nursery_finance_convenient_V2.dmn",
+    "V4": "results/tools/inputs/nursery_finance_convenient_V4.dmn"
+   }
+  }
+ ]
+}

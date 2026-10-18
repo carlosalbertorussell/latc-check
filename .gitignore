@@ -6,3 +6,9 @@ venv/
 .DS_Store
 Thumbs.db
 data/raw/**/*.zip
+# Regenerable cross-tool audit artefacts (run_tool_inputs.py, convert_to_dmn13.sh)
+results/tools/inputs/*.dmn
+results/tools/dmncheck-dmnlint/converted_dmn13/
+results/tools/dmncheck-dmnlint/raw/
+results/tools/kie10/raw/
+results/tools/corea/
