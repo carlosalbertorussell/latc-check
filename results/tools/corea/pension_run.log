@@ -1,0 +1,24 @@
+pension_Age_gt65_V1.dmn [original] ... error 95ms  
+pension_Age_gt65_V1.dmn [adapted] ... missing rules reported 24ms 9 
+pension_Age_gt65_V2.dmn [original] ... error 23ms  
+pension_Age_gt65_V2.dmn [adapted] ... missing rules reported 30ms 9 
+pension_Age_gt65_V3b.dmn [original] ... error 27ms  
+pension_Age_gt65_V3b.dmn [adapted] ... error 23ms  
+pension_Age_gt65_V4.dmn [original] ... error 29ms  
+pension_Age_gt65_V4.dmn [adapted] ... missing rules reported 39ms 9 
+pension_Age_60-64_V1.dmn [original] ... error 39ms  
+pension_Age_60-64_V1.dmn [adapted] ... missing rules reported 29ms 8 
+pension_Age_60-64_V2.dmn [original] ... error 20ms  
+pension_Age_60-64_V2.dmn [adapted] ... missing rules reported 28ms 8 
+pension_Age_60-64_V3b.dmn [original] ... error 30ms  
+pension_Age_60-64_V3b.dmn [adapted] ... error 32ms  
+pension_Age_60-64_V4.dmn [original] ... error 19ms  
+pension_Age_60-64_V4.dmn [adapted] ... missing rules reported 38ms 8 
+pension_Age_lt60_V1.dmn [original] ... error 22ms  
+pension_Age_lt60_V1.dmn [adapted] ... missing rules reported 22ms 10 
+pension_Age_lt60_V2.dmn [original] ... error 18ms  
+pension_Age_lt60_V2.dmn [adapted] ... missing rules reported 35ms 10 
+pension_Age_lt60_V3b.dmn [original] ... error 24ms  
+pension_Age_lt60_V3b.dmn [adapted] ... error 29ms  
+pension_Age_lt60_V4.dmn [original] ... error 25ms  
+pension_Age_lt60_V4.dmn [adapted] ... missing rules reported 29ms 10 

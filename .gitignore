@@ -11,4 +11,4 @@ results/tools/inputs/*.dmn
 results/tools/dmncheck-dmnlint/converted_dmn13/
 results/tools/dmncheck-dmnlint/raw/
 results/tools/kie10/raw/
-results/tools/corea/
+results/tools/corea/adapted/

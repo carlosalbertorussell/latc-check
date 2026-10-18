@@ -1,0 +1,48 @@
+car_buying_vhigh_V1.dmn [original] ... error 98ms  
+car_buying_vhigh_V1.dmn [adapted] ... missing rules reported 5456ms 6 
+car_buying_vhigh_V2.dmn [original] ... error 62ms  
+car_buying_vhigh_V2.dmn [adapted] ... missing rules reported 7887ms 6 
+car_buying_vhigh_V3b.dmn [original] ... error 68ms  
+car_buying_vhigh_V3b.dmn [adapted] ... error 203ms  
+car_buying_vhigh_V4.dmn [original] ... error 87ms  
+car_buying_vhigh_V4.dmn [adapted] ... missing rules reported 7121ms 6 
+car_maint_vhigh_V1.dmn [original] ... error 66ms  
+car_maint_vhigh_V1.dmn [adapted] ... missing rules reported 4334ms 6 
+car_maint_vhigh_V2.dmn [original] ... error 48ms  
+car_maint_vhigh_V2.dmn [adapted] ... missing rules reported 4330ms 6 
+car_maint_vhigh_V3b.dmn [original] ... error 43ms  
+car_maint_vhigh_V3b.dmn [adapted] ... error 124ms  
+car_maint_vhigh_V4.dmn [original] ... error 63ms  
+car_maint_vhigh_V4.dmn [adapted] ... missing rules reported 3880ms 6 
+car_doors_2_V1.dmn [original] ... error 44ms  
+car_doors_2_V1.dmn [adapted] ... missing rules reported 4298ms 6 
+car_doors_2_V2.dmn [original] ... error 39ms  
+car_doors_2_V2.dmn [adapted] ... missing rules reported 3969ms 6 
+car_doors_2_V3b.dmn [original] ... error 36ms  
+car_doors_2_V3b.dmn [adapted] ... error 148ms  
+car_doors_2_V4.dmn [original] ... error 44ms  
+car_doors_2_V4.dmn [adapted] ... missing rules reported 4572ms 6 
+car_persons_2_V1.dmn [original] ... error 38ms  
+car_persons_2_V1.dmn [adapted] ... missing rules reported 7138ms 6 
+car_persons_2_V2.dmn [original] ... error 56ms  
+car_persons_2_V2.dmn [adapted] ... missing rules reported 5662ms 6 
+car_persons_2_V3b.dmn [original] ... error 37ms  
+car_persons_2_V3b.dmn [adapted] ... error 166ms  
+car_persons_2_V4.dmn [original] ... error 48ms  
+car_persons_2_V4.dmn [adapted] ... missing rules reported 4589ms 6 
+car_lug_boot_small_V1.dmn [original] ... error 39ms  
+car_lug_boot_small_V1.dmn [adapted] ... missing rules reported 5737ms 6 
+car_lug_boot_small_V2.dmn [original] ... error 28ms  
+car_lug_boot_small_V2.dmn [adapted] ... missing rules reported 4081ms 6 
+car_lug_boot_small_V3b.dmn [original] ... error 35ms  
+car_lug_boot_small_V3b.dmn [adapted] ... error 115ms  
+car_lug_boot_small_V4.dmn [original] ... error 38ms  
+car_lug_boot_small_V4.dmn [adapted] ... missing rules reported 3355ms 6 
+car_safety_low_V1.dmn [original] ... error 26ms  
+car_safety_low_V1.dmn [adapted] ... missing rules reported 8282ms 6 
+car_safety_low_V2.dmn [original] ... error 44ms  
+car_safety_low_V2.dmn [adapted] ... missing rules reported 8748ms 6 
+car_safety_low_V3b.dmn [original] ... error 25ms  
+car_safety_low_V3b.dmn [adapted] ... error 79ms  
+car_safety_low_V4.dmn [original] ... error 29ms  
+car_safety_low_V4.dmn [adapted] ... missing rules reported 5625ms 6 

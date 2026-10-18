@@ -1,0 +1,6 @@
+nursery_finance_convenient_V1.dmn [original] ... error 470ms  
+nursery_finance_convenient_V1.dmn [adapted] ... missing rules reported 286512ms 8 
+nursery_finance_convenient_V2.dmn [original] ... error 102ms  
+nursery_finance_convenient_V2.dmn [adapted] ... missing rules reported 204389ms 8 
+nursery_finance_convenient_V4.dmn [original] ... error 139ms  
+nursery_finance_convenient_V4.dmn [adapted] ... missing rules reported 193638ms 8 
