@@ -6,3 +6,4 @@
 2026-10-18 23:31 UTC — 40% — Drools 7.74.1 on OpenJDK 21: pension 12/12 + Car 5/24 done, all identical to laptop so far — next: remaining Drools 7.74.1 Car, then Nursery V1 on KIE 10.2.0 (2 h cap) — ETA ~23:37 UTC Car done, Nursery V1 ends by ~01:40 UTC
 2026-10-18 23:34 UTC — 45% — Drools 7.74.1 Car 24/24 done; all 36 Drools 7.74.1 and 36 KIE 10.2.0 pension/Car runs identical to laptop; KIE 10.2.0 Nursery V1 started (-Xmx12g, 2 h cap) — next: poll Nursery V1 (auto-progress every ~9 min) — ETA Nursery V1 finished or killed by 01:34 UTC
 2026-10-18 23:35 UTC — 47% — summary generator written; KIE 10.2.0 Nursery V1 running (1 min in, JVM RSS 2049 MB) — next: poll Nursery V1 (auto-progress every ~9 min) — ETA cap at 01:34 UTC
+2026-10-18 23:42 UTC — 47% — kie10_nursery_V1 still running, 8 min in, JVM RSS 2220 MB — next: result of KIE 10.2.0 Nursery V1; then Drools 7.74.1 Nursery V1 only if it finished; then Nursery V2 on both — ETA cap at 01:34 UTC
