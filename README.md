@@ -54,7 +54,7 @@ holds the output of the reference run.
 | `reference.py` | exact complement: brute-force enumeration of the valid space minus T0 |
 | `latc.py` | LATC reconstruction: observed cardinalities, frequency table, Corollary 3 and 4, Reading A and Reading B (see below), counts-as-check |
 | `compare.py` | missed / duplicate / regenerated-T0 / out-of-space / exact metrics; best-block-order oracle; count of row sets consistent with a deficit table |
-| `randomized.py` | seeded property tests in three scenarios |
+| `randomized.py` | seeded property tests in three scenarios, plus a structured-constraint scenario |
 | `checks.py` | structural report, the source's summed-frequency check, rule evaluator with three key back ends and referral routing |
 | `keying.py` | JCS-style canonical bytes, prime-product keys with overflow report, SHA-512 index with full-tuple verification |
 | `bench.py` | scaling benchmark |
@@ -69,6 +69,7 @@ holds the output of the reference run.
 | `dmn_import.py` | decision tables from DMN 1.1–1.5 XML, for the FEEL subset `dmn.py` models; everything else is skipped with a reason |
 | `datasets_report.py` | public-dataset experiments (`run_datasets.py`), written to `results/datasets/` |
 | `sensitivity.py` | schema migration (cut points, merged / split values, constraints, policy change) by box relations over the rank index (`run_sensitivity.py`), written to `results/sensitivity/` |
+| `drools_domains.py` | how Drools takes input domains for gap analysis: seven declaration variants (`run_drools_domains.py`), written to `results/drools/domains/` |
 
 ## Source and interpretive choices
 
@@ -137,6 +138,20 @@ The figures are exact-equality rates. When a value is unobserved or a constraint
 applies, Corollary 3's count is wrong in 100 % of cases. The generalised check in
 `valid_space_deficits` (marginals of the declared valid space minus T0) holds in every
 scenario.
+
+**Structured constraints** (`randomised_structured` in `results.json`; 1000 tables, its own
+generator with the same seed, so the three scenarios above are unchanged). Each table gets
+1–3 constraints drawn from four forms: implication (if A_i = v then A_j ∉ W), excluded
+value pair, ordinal compatibility, and an "n/a" dependency (A_j takes its last value iff
+A_i = v). They exclude 34 % of the product space on average (6–83 %).
+
+| reference | Reading A | Reading A, best order | Reading B |
+|---|---|---|---|
+| 100 % | 2.7 % | 4.5 % | 5.0 % (8.5 invalid rows on average, none missed) |
+
+Reading B is exact in exactly the tables whose valid space is again a full product
+(Proposition 2), and Corollary 3's count is right in the same 5.0 %. The generalised check
+holds for the true complement in every table.
 
 **Operations.**
 
@@ -519,6 +534,19 @@ interval bound. With negation the differences come from `not(...)` entries (for 
 `not("a","b")` over {a, b}, empty under S-FEEL). Drools skipped its PRIORITY masking
 analysis in 85 tables (rules with multi-valued entries) and does not report masking for
 FIRST. Results: `results/drools/` (`pension.txt`, `random_tables.json`, `car.json`).
+
+**Where Drools takes its domains from** (`drools_domains.py`, `run_drools_domains.py`,
+results in `results/drools/domains/`). Tables with one value of one attribute removed (Car:
+11 cases; pension: 3; Nursery: 8, undeclared variant only) were exported in seven ways that
+differ only in how input domains are declared. Drools never builds a string domain from
+the rules: with no usable declaration it skips gap analysis for the whole table ("Gap
+analysis skipped"). Full values as `inputValues`, or as `allowedValues` of an
+`itemDefinition` named by the `inputExpression` typeRef, give exactly the missing states.
+An `itemDefinition` named only by the `inputData` variable is ignored. `inputValues`
+listing only the observed values give "no gaps" on every Car case, a false "complete"
+verdict, and they take precedence over an `itemDefinition` with the full values. See
+`results/drools/domains/SUMMARY.md` for the table and the runs not completed (Nursery
+full-analysis variants exceeded an hour per file and were not run).
 
 ## What the evidence supports, and what it does not
 

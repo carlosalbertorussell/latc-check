@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20211108/MODEL/" id="pension_Age_gte65_V5_defs" name="pension_Age_gte65_V5" namespace="https://example.org/latc_check">
+  <decision id="pension_Age_gte65_V5_decision" name="pension_Age_gte65_V5">
+    <variable id="pension_Age_gte65_V5_variable" name="pension_Age_gte65_V5" typeRef="string" />
+    <informationRequirement id="pension_Age_gte65_V5_req_0">
+      <requiredInput href="#input_data_0" />
+    </informationRequirement>
+    <informationRequirement id="pension_Age_gte65_V5_req_1">
+      <requiredInput href="#input_data_1" />
+    </informationRequirement>
+    <informationRequirement id="pension_Age_gte65_V5_req_2">
+      <requiredInput href="#input_data_2" />
+    </informationRequirement>
+    <informationRequirement id="pension_Age_gte65_V5_req_3">
+      <requiredInput href="#input_data_3" />
+    </informationRequirement>
+    <decisionTable id="pension_Age_gte65_V5_table" hitPolicy="UNIQUE">
+      <input id="input_0" label="Sex">
+        <inputExpression id="input_expr_0" typeRef="string">
+          <text>Sex</text>
+        </inputExpression>
+        <inputValues id="input_values_0">
+          <text>"M","F"</text>
+        </inputValues>
+      </input>
+      <input id="input_1" label="Activity">
+        <inputExpression id="input_expr_1" typeRef="string">
+          <text>Activity</text>
+        </inputExpression>
+        <inputValues id="input_values_1">
+          <text>"D","I"</text>
+        </inputValues>
+      </input>
+      <input id="input_2" label="ContributionYears">
+        <inputExpression id="input_expr_2" typeRef="string">
+          <text>ContributionYears</text>
+        </inputExpression>
+        <inputValues id="input_values_2">
+          <text>"&gt;=30","&lt;30"</text>
+        </inputValues>
+      </input>
+      <input id="input_3" label="Age">
+        <inputExpression id="input_expr_3" typeRef="string">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <output id="output_0" label="Result">
+        <outputValues id="output_values_0">
+          <text>"YES","NO","Rv"</text>
+        </outputValues>
+      </output>
+      <rule id="rule_0">
+        <inputEntry id="rule_0_in_0">
+          <text>"F"</text>
+        </inputEntry>
+        <inputEntry id="rule_0_in_1">
+          <text>"D"</text>
+        </inputEntry>
+        <inputEntry id="rule_0_in_2">
+          <text>"&gt;=30"</text>
+        </inputEntry>
+        <inputEntry id="rule_0_in_3">
+          <text>"60-64"</text>
+        </inputEntry>
+        <outputEntry id="rule_0_out">
+          <text>"YES"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_1">
+        <inputEntry id="rule_1_in_0">
+          <text>"F"</text>
+        </inputEntry>
+        <inputEntry id="rule_1_in_1">
+          <text>"I"</text>
+        </inputEntry>
+        <inputEntry id="rule_1_in_2">
+          <text>"&gt;=30"</text>
+        </inputEntry>
+        <inputEntry id="rule_1_in_3">
+          <text>"60-64"</text>
+        </inputEntry>
+        <outputEntry id="rule_1_out">
+          <text>"YES"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_2">
+        <inputEntry id="rule_2_in_0">
+          <text>"F"</text>
+        </inputEntry>
+        <inputEntry id="rule_2_in_1">
+          <text>"I"</text>
+        </inputEntry>
+        <inputEntry id="rule_2_in_2">
+          <text>"&gt;=30"</text>
+        </inputEntry>
+        <inputEntry id="rule_2_in_3">
+          <text>"&lt;60"</text>
+        </inputEntry>
+        <outputEntry id="rule_2_out">
+          <text>"NO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_3">
+        <inputEntry id="rule_3_in_0">
+          <text>"M"</text>
+        </inputEntry>
+        <inputEntry id="rule_3_in_1">
+          <text>"I"</text>
+        </inputEntry>
+        <inputEntry id="rule_3_in_2">
+          <text>"&lt;30"</text>
+        </inputEntry>
+        <inputEntry id="rule_3_in_3">
+          <text>"60-64"</text>
+        </inputEntry>
+        <outputEntry id="rule_3_out">
+          <text>"NO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_4">
+        <inputEntry id="rule_4_in_0">
+          <text>"F"</text>
+        </inputEntry>
+        <inputEntry id="rule_4_in_1">
+          <text>"D"</text>
+        </inputEntry>
+        <inputEntry id="rule_4_in_2">
+          <text>"&lt;30"</text>
+        </inputEntry>
+        <inputEntry id="rule_4_in_3">
+          <text>"60-64"</text>
+        </inputEntry>
+        <outputEntry id="rule_4_out">
+          <text>"YES"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="input_data_0" name="Sex">
+    <variable id="input_data_0_variable" name="Sex" typeRef="string" />
+  </inputData>
+  <inputData id="input_data_1" name="Activity">
+    <variable id="input_data_1_variable" name="Activity" typeRef="string" />
+  </inputData>
+  <inputData id="input_data_2" name="ContributionYears">
+    <variable id="input_data_2_variable" name="ContributionYears" typeRef="string" />
+  </inputData>
+  <inputData id="input_data_3" name="Age">
+    <variable id="input_data_3_variable" name="Age" typeRef="string" />
+  </inputData>
+</definitions>
