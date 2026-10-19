@@ -1,0 +1,7 @@
+Dataset: UCI MONK's Problems
+Source: https://archive.ics.uci.edu/dataset/70/monk+s+problems
+DOI: 10.24432/C5R30R (repository citation: Wnek, J. (1993). MONK's Problems [Dataset]. UCI Machine Learning Repository.)
+Downloaded: 2026-10-18 from https://archive.ics.uci.edu/static/public/70/monk+s+problems.zip
+Licence: Creative Commons Attribution 4.0 International (CC BY 4.0), as stated on the dataset page
+Files kept unchanged from the archive: monks-1.train, monks-1.test, monks-2.train, monks-2.test, monks-3.train, monks-3.test, monks.names
+Not kept from the archive: Index (directory listing), update (a 1991 announcement e-mail), thrun.comparison.dat and thrun.comparison.ps.Z (the comparison report and its data).

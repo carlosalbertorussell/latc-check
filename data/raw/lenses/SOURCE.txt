@@ -1,0 +1,7 @@
+Dataset: UCI Lenses
+Source: https://archive.ics.uci.edu/dataset/58/lenses
+DOI: 10.24432/C5K88Z (repository citation: Cendrowska, J. (1987). Lenses [Dataset]. UCI Machine Learning Repository.)
+Downloaded: 2026-10-18 from https://archive.ics.uci.edu/static/public/58/lenses.zip
+Licence: Creative Commons Attribution 4.0 International (CC BY 4.0), as stated on the dataset page
+Files kept unchanged from the archive: lenses.data, lenses.names
+Not kept from the archive: Index (directory listing).

@@ -1,0 +1,7 @@
+Dataset: UCI Balance Scale
+Source: https://archive.ics.uci.edu/dataset/12/balance+scale
+DOI: 10.24432/C5488X (repository citation: Siegler, R. (1976). Balance Scale [Dataset]. UCI Machine Learning Repository.)
+Downloaded: 2026-10-18 from https://archive.ics.uci.edu/static/public/12/balance+scale.zip
+Licence: Creative Commons Attribution 4.0 International (CC BY 4.0), as stated on the dataset page
+Files kept unchanged from the archive: balance-scale.data, balance-scale.names
+Not kept from the archive: Index (directory listing).
