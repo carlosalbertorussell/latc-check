@@ -64,12 +64,14 @@ This is an estimate from one rater, reading each model without its authors' cont
 
 A second coder classified the same tables blind, from a sheet without the first coder's labels (`exposed_sample_rater2.json`), with the same class definitions. Both coders are instances of the Claude language model (Anthropic) reading the model files, so their errors may be correlated; the agreement below measures the consistency of the coding and is no substitute for a check by an independent human expert.
 
-| judgement | tables | observed agreement | Cohen's kappa |
-|---|---:|---:|---:|
-| class | 50 | 84% | 0.42 |
-| class: OPEN against the rest | 50 | 98% | 0.66 |
-| domain | 50 | 70% | 0.60 |
-| domain: OPEN against the rest | 50 | 78% | 0.45 |
+Kappa is low when one class dominates (the prevalence effect), so the table also gives the prevalence-adjusted bias-adjusted kappa (PABAK) and Gwet's AC1.
+
+| judgement | tables | observed agreement | Cohen's kappa | PABAK | Gwet's AC1 |
+|---|---:|---:|---:|---:|---:|
+| class | 50 | 84% | 0.42 | 0.79 | 0.82 |
+| class: OPEN against the rest | 50 | 98% | 0.66 | 0.96 | 0.98 |
+| domain | 50 | 70% | 0.60 | 0.62 | 0.63 |
+| domain: OPEN against the rest | 50 | 78% | 0.45 | 0.56 | 0.65 |
 
 Classes, first coder (rows) against second coder (columns):
 

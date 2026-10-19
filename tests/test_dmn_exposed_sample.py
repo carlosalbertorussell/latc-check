@@ -86,6 +86,16 @@ class KappaTest(unittest.TestCase):
             des.cohen_kappa(["a"], [])
 
 
+class PrevalenceIndexTest(unittest.TestCase):
+    def test_pabak_and_ac1(self):
+        a = ["y"] * 5 + ["n"] * 5
+        b = ["y", "y", "y", "y", "n", "y", "y", "n", "n", "n"]
+        self.assertAlmostEqual(des.pabak(a, b, 2), 0.4)          # 2 * 0.7 - 1
+        # pi = (0.55, 0.45): pe = 2 * 0.2475 = 0.495, AC1 = (0.7 - 0.495) / 0.505
+        self.assertAlmostEqual(des.gwet_ac1(a, b, ["y", "n"]), 0.205 / 0.505)
+        self.assertAlmostEqual(des.pabak(["a"] * 4, ["a"] * 4, 4), 1.0)
+
+
 class OutputTest(unittest.TestCase):
     def test_agreement_section(self):
         res = _res()
@@ -101,7 +111,7 @@ class OutputTest(unittest.TestCase):
             with open(os.path.join(d, "EXPOSED_SAMPLE.md"), encoding="utf-8") as fh:
                 md = fh.read()
             self.assertIn("## Agreement with a second coder", md)
-            self.assertIn("| class | 2 | 100% | 1.00 |", md)
+            self.assertIn("| class | 2 | 100% | 1.00 | 1.00 |", md)
             # domain: po = 0.5, pe = 0.5 * 0.5 (SYNTHETIC only) = 0.25, kappa = 0.25 / 0.75
             self.assertIn("| domain | 2 | 50% | 0.33 |", md)
             self.assertIn("| domain: OPEN against the rest | 2 | 50% | 0.00 |", md)

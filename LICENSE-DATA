@@ -1,5 +1,5 @@
-The data files in this repository (results/, results_report.txt, and the tables
-transcribed in latc_check/examples.py) are licensed under the Creative Commons
+The data files in this repository (the result files under results/, results_report.txt,
+and the tables transcribed in latc_check/examples.py) are licensed under the Creative Commons
 Attribution 4.0 International License (CC BY 4.0).
 
 Copyright (c) 2026 Carlos A. Russell
@@ -16,6 +16,11 @@ for functional integration", International Journal of Scientific & Engineering
 Research, 12(1). Cite that work when reusing them.
 
 The files under data/raw/ are third-party data from the UCI Machine Learning
-Repository (Car Evaluation and Nursery, CC BY 4.0, by their creators); the
+Repository (Car Evaluation, Nursery, Lenses, Balance Scale and MONK's Problems,
+CC BY 4.0, by their creators); the
 copyright notice above does not apply to them. See data/README.md for their
 sources and citations.
+
+Source code kept under results/ (the harnesses and scripts of the analyser audit, such as
+*.py, *.js, *.mjs, *.java and *.sh files) is part of the software and is licensed under the
+MIT License in LICENSE, as is the rest of the code in this repository.

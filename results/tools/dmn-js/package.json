@@ -1,0 +1,8 @@
+{
+  "name": "dmn-js-verifier-harness",
+  "private": true,
+  "description": "Dependencies of harness.js (run with Node v24.19.0); install into the <harness-deps-dir> passed to run_all.js",
+  "dependencies": {
+    "dmn-moddle": "0.2.3"
+  }
+}

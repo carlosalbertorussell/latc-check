@@ -131,6 +131,43 @@ def run(trials: int = 1000, seed: int = 20210101, order_limit: int = 2000) -> di
     return out
 
 
+def generator_profile(trials: int = 1000, seed: int = 20210101, baseline_draws: int = 100_000) -> dict:
+    """What the redraw in ``generate_case`` does to the cases of ``run``.
+
+    Replays exactly the draws of ``run`` (same seed, same order) and reports, per scenario,
+    the mean share of the valid space that T0 covers and the mean sizes of the product and
+    valid spaces.  ``without_redraw`` gives the same means for the generator's distribution
+    before the coverage condition: T0's share is then 1/2 by construction (a size drawn
+    uniformly from 1 to |V| - 1), and the product size comes from ``baseline_draws`` draws
+    of ``_domains`` with seed 1."""
+    rng = random.Random(seed)
+    out = {}
+    for scenario in SCENARIOS:
+        share, dsize, vsize = [], [], []
+        for _ in range(trials):
+            t = generate_case(rng, scenario)
+            n = 1
+            for a in t.attributes:
+                n *= len(a.domain)
+            v = n if t.constraint is None else sum(
+                1 for c in product(*(a.domain for a in t.attributes)) if t.constraint(c))
+            share.append(len(t.rows) / v)
+            dsize.append(n)
+            vsize.append(v)
+        out[scenario] = {"trials": trials, "mean_t0_share_of_valid_space": mean(share),
+                         "mean_product_size": mean(dsize), "mean_valid_space_size": mean(vsize)}
+    r = random.Random(1)
+    sizes = []
+    for _ in range(baseline_draws):
+        n = 1
+        for a in _domains(r, 48):
+            n *= len(a.domain)
+        sizes.append(n)
+    out["without_redraw"] = {"mean_t0_share_of_valid_space": 0.5, "mean_product_size": mean(sizes),
+                             "draws": baseline_draws}
+    return out
+
+
 # -- structured valid-state constraints ----------------------------------------
 #
 # The "constrained" scenario above forbids a random quarter of the product

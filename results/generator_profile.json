@@ -1,0 +1,25 @@
+{
+ "observed": {
+  "trials": 1000,
+  "mean_t0_share_of_valid_space": 0.6444606481481482,
+  "mean_product_size": 23.126,
+  "mean_valid_space_size": 23.126
+ },
+ "unobserved": {
+  "trials": 1000,
+  "mean_t0_share_of_valid_space": 0.43566782407407406,
+  "mean_product_size": 26.227,
+  "mean_valid_space_size": 26.227
+ },
+ "constrained": {
+  "trials": 1000,
+  "mean_t0_share_of_valid_space": 0.6713208994708995,
+  "mean_product_size": 25.361,
+  "mean_valid_space_size": 19.109
+ },
+ "without_redraw": {
+  "mean_t0_share_of_valid_space": 0.5,
+  "mean_product_size": 20.19024,
+  "draws": 100000
+ }
+}

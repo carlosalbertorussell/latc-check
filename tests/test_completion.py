@@ -137,6 +137,18 @@ class RandomisedProperties(unittest.TestCase):
                 self.assertEqual(latc.deficit_check(exact_complement(t), t,
                                                     latc.valid_space_deficits(t)), [])
 
+    def test_generator_profile_replays_run(self):
+        p = randomized.generator_profile(trials=30, seed=3, baseline_draws=200)
+        rng = random.Random(3)
+        shares = []
+        for _ in range(30):
+            t = randomized.generate_case(rng, "observed")
+            shares.append(len(t.rows) / t.valid_space_size())
+        self.assertAlmostEqual(p["observed"]["mean_t0_share_of_valid_space"], sum(shares) / 30)
+        c = p["constrained"]
+        self.assertLess(c["mean_valid_space_size"], c["mean_product_size"])
+        self.assertEqual(p["without_redraw"]["mean_t0_share_of_valid_space"], 0.5)
+
     def test_run_summary_shape(self):
         out = randomized.run(trials=20, seed=1)
         self.assertEqual(out["observed"]["reference"]["exact_rate"], 1.0)

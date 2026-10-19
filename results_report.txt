@@ -63,6 +63,22 @@ constrained  latc_B_odometer                       1000               0.000     
              complement_passes_valid_space_deficit_check: 1.000
 latc_A_best_order only covers tables with <= 2000 block orders.
 
+RQ2.3b Structured valid-state constraints (1000 tables, seed 20210101)
+----------------------------------------------------------------------
+method                              trials          exact_rate         mean_missed     mean_duplicates mean_regenerated_t0  mean_outside_space
+reference                             1000               1.000                   0                   0                   0                   0
+latc_A_deficit_fill                   1000               0.027               4.681               9.040               6.878               4.439
+latc_A_best_order                      927               0.045               2.534               7.627               2.230               4.197
+latc_B_odometer                       1000               0.050                   0                   0                   0               8.466
+  corollary3_count_equals_true_missing: 0.050
+  complement_passes_[12]_deficit_check: 0.050
+  complement_passes_valid_space_deficit_check: 1.000
+  latc_B_passes_valid_space_deficit_check: 0.050
+  latc_A_deficit_fill_passes_valid_space_deficit_check: 0.050
+  excluded share of the product space: mean 0.342, min 0.062, max 0.833
+  constraints per table 1.87; kinds {'implication': 479, 'exclusion': 503, 'ordinal': 523, 'undefined_when': 362}
+  tables where a declared value is absent from V: 0.100; V a product of its values: 0.050
+
 RQ4.1  Structural checks on the completed pension table (T0 + published Table 2 bis)
 ------------------------------------------------------------------------------------
 rows 24, valid_space 24, coverage 1.0, uncovered 0, multi_hit_tuples 0, single_hit True, conflicting_tuples 0, rows_outside_valid_space 0, unknown_outcomes 0, undeclared_outcomes 0 -> sound: True

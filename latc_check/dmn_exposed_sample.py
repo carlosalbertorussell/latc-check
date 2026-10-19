@@ -110,6 +110,21 @@ def cohen_kappa(a, b):
     return po, (1.0 if pe == 1 else (po - pe) / (1 - pe))
 
 
+def pabak(a, b, k):
+    """Prevalence-adjusted bias-adjusted kappa over ``k`` categories: (k·po − 1) / (k − 1)."""
+    po = sum(x == y for x, y in zip(a, b)) / len(a)
+    return (k * po - 1) / (k - 1)
+
+
+def gwet_ac1(a, b, cats):
+    """Gwet's AC1 for two coders over the category list ``cats``."""
+    n, q = len(a), len(cats)
+    po = sum(x == y for x, y in zip(a, b)) / n
+    pi = [(a.count(c) + b.count(c)) / (2 * n) for c in cats]
+    pe = sum(p * (1 - p) for p in pi) / (q - 1)
+    return (po - pe) / (1 - pe)
+
+
 LIST_COLS = ["sample_no", "fingerprint", "source", "kind", "path", "table", "table_index",
              "hit_policy", "n_rules", "copies", "exposed_inputs", "mentioned_literals",
              "dash_in_column"]
@@ -246,16 +261,22 @@ def agreement_md(sample, classes, rater2):
          "the Claude language model (Anthropic) reading the model files, so their errors may be "
          "correlated; the agreement below measures the consistency of the coding and is no substitute "
          "for a check by an independent human expert.", "",
-         "| judgement | tables | observed agreement | Cohen's kappa |", "|---|---:|---:|---:|"]
+         "Kappa is low when one class dominates (the prevalence effect), so the table also gives the "
+         "prevalence-adjusted bias-adjusted kappa (PABAK) and Gwet's AC1.", "",
+         "| judgement | tables | observed agreement | Cohen's kappa | PABAK | Gwet's AC1 |",
+         "|---|---:|---:|---:|---:|---:|"]
     pairs = {}
-    for field in ("class", "domain"):
+    for field, cats in (("class", CLASSES), ("domain", DOMAINS)):
         a = [classes[e["fingerprint"]][field] for e in both]
         b = [rater2[e["fingerprint"]][field] for e in both]
         pairs[field] = (a, b)
         po, k = cohen_kappa(a, b)
-        L.append(f"| {field} | {n} | {100 * po:.0f}% | {k:.2f} |")
-        po, k = cohen_kappa([x == "OPEN" for x in a], [y == "OPEN" for y in b])
-        L.append(f"| {field}: OPEN against the rest | {n} | {100 * po:.0f}% | {k:.2f} |")
+        L.append(f"| {field} | {n} | {100 * po:.0f}% | {k:.2f} | {pabak(a, b, len(cats)):.2f} | "
+                 f"{gwet_ac1(a, b, list(cats)):.2f} |")
+        ao, bo = [x == "OPEN" for x in a], [y == "OPEN" for y in b]
+        po, k = cohen_kappa(ao, bo)
+        L.append(f"| {field}: OPEN against the rest | {n} | {100 * po:.0f}% | {k:.2f} | "
+                 f"{pabak(ao, bo, 2):.2f} | {gwet_ac1(ao, bo, [True, False]):.2f} |")
     a, b = pairs["class"]
     L += ["", "Classes, first coder (rows) against second coder (columns):", "",
           "| | " + " | ".join(CLASSES) + " |", "|---|" + "---:|" * len(CLASSES)]

@@ -42,7 +42,14 @@ existing `results.json`. The size of the test is set with `--large-max-rows` (de
 70M), `--large-heavy-max-rows` (default 4.2M), `--large-probes` (default 100 000) and
 `--large-t0` (default 1000).
 All results except the timings are fully determined by the seed. `results_report.txt`
-holds the output of the reference run.
+holds the output of the reference run with `--large`; its RQ2.3b block (structured
+constraints, added to the code after that run) comes from a later default run of the same
+seeded code, whose other non-timing lines were identical. A default run takes about
+8 minutes on the reference machine.
+
+`python -I run_generator_profile.py` replays the draws of the three randomized scenarios and
+writes `results/generator_profile.json`: the mean share of the valid space that T0 covers
+and the mean space sizes per scenario, against the generator without its coverage redraw.
 
 ## Layout
 
@@ -457,7 +464,11 @@ python -I run_dmn_corpus.py --corpus ../corpus --tck ../dmn-tck
 
 The corpus is 50 public sources, shallow sparse clones (`.dmn` files only) made outside
 this repository; `SOURCES` in `run_dmn_corpus.py` lists them and
-`results/corpus/sources.json` records the commit of each. Every file is parsed as data,
+`results/corpus/sources.json` records the commit of each. `python -I fetch_corpus.py`
+fetches every source at its recorded commit into the layout the script expects, next to
+this repository: `../corpus/<owner>__<repo>/`, `../dmn-tck/`, `../tools/dmn-js-verifier/`
+and `../tools/corea-verifier/src/` (`--dry-run` prints the git commands; it needs git 2.25
+or later and network access). Every file is parsed as data,
 nothing in it is executed. Outputs: `results/corpus/results.json`, `inputs.csv` (one row
 per decision-table input) and `SUMMARY.md`.
 
@@ -601,6 +612,35 @@ How to read the table:
 On Nursery, moving the boundary between `children` 3 and more (3-4 / 5+) means 6,480 states to
 re-review with the full table approved. With T0 approved, 9,699 states need re-review and 7,308
 have no outcome.
+
+## Analyser audit and trap frequency (`run_tool_inputs.py`, `run_trap_frequency.py`)
+
+```
+python -I run_tool_inputs.py
+python -I run_drools_domains.py
+python -I run_trap_frequency.py
+```
+
+`run_tool_inputs.py` writes the 39 shared DMN files of the analyser audit to
+`results/tools/inputs/` with a manifest of the true missing states; the
+files are gitignored because they regenerate byte for byte. `run_drools_domains.py` runs the
+Drools 7.74.1 declaration variants (see "External check with Drools" for the build; Car and
+pension take minutes, while the full-domain Nursery case took 35 to 40 minutes on a cloud machine). `run_trap_frequency.py`
+computes the Section 9.1 probabilities and the Zipf simulations (about 3 minutes) into
+`results/trap_frequency/`. The other analysers run outside Python, each with the harness
+and notes in its folder under `results/tools/`:
+
+| analyser | version | runtime | folder |
+|---|---|---|---|
+| dmn-js verifier (ulaurson/dmn-js, commit e0b6417) | 2016 fork | Node v24.19.0; `npm install` the `package.json` there into the deps folder, then `node run_all.js <clone> <deps-dir>` | `results/tools/dmn-js/` |
+| Corea, Blatt and Delfmann verifier (GitLab commit 5b307e8) | thesis prototype | Java 17, Maven 3.9.9, Quarkus 3.1.2; built from source, called over REST | `results/tools/corea/` |
+| red6 dmn-check | 1.1.6 | Java 8 | `results/tools/dmncheck-dmnlint/` |
+| bpmn.io dmnlint | 2.0.0 | Node | `results/tools/dmncheck-dmnlint/` |
+| Apache KIE (kie-dmn-validation) | 10.2.0 | Java 17; the driver of `tools/drools/`, libraries from `results/tools/kie10/pom.xml` | `results/tools/kie10/`, `results/tools/cloud-drools/` |
+
+Each folder's `SUMMARY.md` gives the commands, the downloads and the measured runtimes.
+`results/drools/domains/typeref_check/` holds the Drools run showing that inputValues
+without an inputExpression typeRef make Drools skip a table's analysis.
 
 ## External check with Drools (`drools_compare.py`, `tools/drools/`)
 

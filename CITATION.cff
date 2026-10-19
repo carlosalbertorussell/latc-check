@@ -9,6 +9,7 @@ authors:
     orcid: "https://orcid.org/0009-0003-3741-0230"
     affiliation: "Independent Researcher, Buenos Aires, Argentina"
 date-released: 2026-10-17
+repository-code: "https://github.com/carlosalbertorussell/latc-check"
 references:
   - type: article
     title: "Business Rules (BR); Expert Systems (KBS); LATC Algorithm. A proposal for functional integration"
