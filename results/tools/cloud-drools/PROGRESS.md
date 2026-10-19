@@ -17,3 +17,4 @@
 2026-10-19 00:31 UTC — 63% — d7_nursery_V1 still running, 17 min in, JVM RSS 1123 MB — next: result of Drools 7.74.1 Nursery V1; then Nursery V2 on both — ETA cap at 02:14 UTC
 2026-10-19 00:40 UTC — 65% — d7_nursery_V1 still running, 26 min in, JVM RSS 1187 MB — next: result of Drools 7.74.1 Nursery V1; then Nursery V2 on both — ETA cap at 02:14 UTC
 2026-10-19 00:49 UTC — 75% — Drools 7.74.1 Nursery V1 FINISHED in 2076.2 s (34.6 min), peak RSS 1303 MB: 720 gaps, 6480/6480 missing covered, 6480 removed-value states; message set identical to KIE 10.2.0 (laptop run killed at ~61 min with 1.2 GB heap) — next: Nursery V2 on KIE 10.2.0 then Drools 7.74.1 — ETA ~01:00 UTC
+2026-10-19 00:50 UTC — 85% — Nursery V2 done on both (gap analysis skipped; KIE 10.2.0 30.3 s / 2719 MB, Drools 7.74.1 23.7 s / 2062 MB; identical to laptop) — next: write results.json fields check, SUMMARY.md — ETA ~01:10 UTC

@@ -4431,6 +4431,144 @@
    "exit_status": 0,
    "laptop": null,
    "vs_laptop": null
+  },
+  "kie10/nursery_finance_convenient_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "parents",
+    "has_nurs",
+    "form",
+    "children",
+    "housing",
+    "finance",
+    "social",
+    "health"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [parents, has_nurs, form, children, housing, finance, social, health] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V2.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V2",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 30.25,
+   "peak_rss_mb": 2718.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "parents",
+     "has_nurs",
+     "form",
+     "children",
+     "housing",
+     "finance",
+     "social",
+     "health"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 102.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/nursery_finance_convenient_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "parents",
+    "has_nurs",
+    "form",
+    "children",
+    "housing",
+    "finance",
+    "social",
+    "health"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [parents, has_nurs, form, children, housing, finance, social, health] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V2.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V2",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 23.74,
+   "peak_rss_mb": 2061.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "parents",
+     "has_nurs",
+     "form",
+     "children",
+     "housing",
+     "finance",
+     "social",
+     "health"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 104.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
   }
  }
 }
