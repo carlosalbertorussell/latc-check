@@ -15,3 +15,4 @@
 2026-10-19 00:14 UTC — 60% — KIE 10.2.0 Nursery V1 FINISHED in 2400.5 s (40.0 min), peak RSS 2265 MB, -Xmx12g: gaps reported, 720 gap messages, all 6480 missing states covered, 0 non-missing, all 6480 removed-value states found (laptop run killed at 15 min); Drools 7.74.1 Nursery V1 started (-Xmx12g, 2 h cap) — next: poll Drools 7.74.1 Nursery V1 (auto-progress every ~9 min) — ETA finished or killed by 02:14 UTC
 2026-10-19 00:22 UTC — 61% — d7_nursery_V1 still running, 8 min in, JVM RSS 1104 MB — next: result of Drools 7.74.1 Nursery V1; then Nursery V2 on both — ETA cap at 02:14 UTC
 2026-10-19 00:31 UTC — 63% — d7_nursery_V1 still running, 17 min in, JVM RSS 1123 MB — next: result of Drools 7.74.1 Nursery V1; then Nursery V2 on both — ETA cap at 02:14 UTC
+2026-10-19 00:40 UTC — 65% — d7_nursery_V1 still running, 26 min in, JVM RSS 1187 MB — next: result of Drools 7.74.1 Nursery V1; then Nursery V2 on both — ETA cap at 02:14 UTC
