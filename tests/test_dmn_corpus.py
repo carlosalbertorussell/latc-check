@@ -280,6 +280,32 @@ class CopiedDeclarationTest(unittest.TestCase):
         self.assertEqual(summary_of(d)["copied_declaration"], 0)
 
 
+class SensitivityTest(unittest.TestCase):
+    def test_default_output_counted_among_exposed(self):
+        d = model(table([("c", "string", None)], [['"a"']]))
+        self.assertEqual(summary_of(d)["exposed_tables_with_default_output"], 0)
+        d2 = d.replace(b'typeRef="string"/>',
+                       b'typeRef="string"><defaultOutputEntry><text>"z"</text></defaultOutputEntry></output>')
+        self.assertTrue(rows_of(d2)[1][0]["has_default_output"])
+        s = summary_of(d2)
+        self.assertEqual((s["exposed_tables"], s["exposed_tables_with_default_output"]), (1, 1))
+
+    def test_drools_declared_without_typeref(self):
+        d = model(table([("c", None, '"a","b"')], [['"a"'], ['"b"']]))
+        s = summary_of(d)
+        self.assertEqual((s["string"]["drools_usable"], s["string_drools_declared_no_typeref"],
+                          s["string_drools_with_typeref"]), (1, 1, 0))
+
+    def test_test_path(self):
+        self.assertTrue(dc.is_test_path("lib/test/src/main/resources/dmn/a.dmn"))
+        self.assertTrue(dc.is_test_path("x/src/test/resources/a.dmn"))
+        self.assertFalse(dc.is_test_path("examples/loan/a.dmn"))
+        self.assertFalse(dc.is_test_path("test.dmn"))
+        s = summary_of(model(table([("c", "string", None)], [['"a"']])), "lib/test/a.dmn")
+        self.assertEqual((s["tables_under_test_path"], s["exposed_tables_under_test_path"],
+                          s["string_inputs_outside_test_path"]), (1, 1, 0))
+
+
 class FixturePathTest(unittest.TestCase):
     def test_fixture_path(self):
         self.assertTrue(dc.is_fixture_path("kie-dmn-validation/dtanalysis/DTusingNOT.dmn"))

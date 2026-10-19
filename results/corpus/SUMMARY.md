@@ -93,6 +93,12 @@ A table is *exposed* when its hit policy is single-hit (UNIQUE, ANY, FIRST, PRIO
 | contents | analyser fixtures | 36 | 32/36 (88.9%) | 7 | 9/36 (25.0%) | 7/36 (19.4%) | 4/36 (11.1%) |
 | contents | product, non-test | 10 | 8/10 (80.0%) | 3 | 3/10 (30.0%) | 3/10 (30.0%) | 2/10 (20.0%) |
 
+### Sensitivity of the measures
+
+* Default output: 31 of the 369 exposed tables (distinct contents: 23 of 190) have a defaultOutputEntry, so a value no rule mentions still gets a defined result; the exposure count does not read default outputs.
+* Drools and typeRef: 15 of the 913 string inputs counted as usable by Drools have no inputExpression typeRef; Drools 7.74.1 then skips the table's gap analysis even with inputValues. Requiring a typeRef gives 898/2092 (42.9%) usable by Drools.
+* Examples under test folders: files of example repositories keep the example kind even under a test folder. 30 of the 190 example tables sit under one (6 of the 34 exposed ones); without them, the 131 example string inputs declare a domain in 43.5% and in a form Drools uses in 36.6%.
+
 ### Hit policies of tables with string inputs
 
 | count by | kind | tables with string inputs | UNIQUE | ANY | FIRST | PRIORITY | COLLECT | RULE ORDER | OUTPUT ORDER | other |

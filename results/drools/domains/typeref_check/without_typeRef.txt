@@ -1,0 +1,2 @@
+=== C:/Users/crussell/Downloads/repos/LATC/results/drools/domains/typeref_check/pension_Age_60-64_V1_without_typeRef.dmn : 1 messages
+WARNING	DECISION_TABLE_ANALYSIS_ERROR	DMN: Skipped Decision Table Analysis of table 'pension_Age_60_64_V1' because: null (DMN id: pension_Age_60_64_V1_table, DMN Validation, Decision Table Analysis) 

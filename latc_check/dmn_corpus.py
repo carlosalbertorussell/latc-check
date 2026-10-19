@@ -336,6 +336,9 @@ def analyse_bytes(data: bytes, rel: str = "?"):
         # a catch-all rule: "-" (or empty) on every input; a missing inputEntry counts as empty
         any_txt = ("", "-")
         trec["single_hit"] = trec["hit_policy"].strip().upper() in SINGLE_HIT
+        # a default output answers a no-match, so an unmentioned value still gets a defined result
+        trec["has_default_output"] = any(_child(o, "defaultOutputEntry") is not None
+                                         for o in _children(dt, "output"))
         trec["has_catch_all"] = any(
             all(("".join(t.itertext()) if (t := _child(ie, "text")) is not None else "").strip() in any_txt
                 for ie in _children(r, "inputEntry")[:len(inputs)])
@@ -570,6 +573,12 @@ def summarise(files, tables, rows):
     return out
 
 
+def is_test_path(path):
+    """True when some folder of the path is a test folder (the rule ``classify`` applies inside
+    product repositories; files of example repositories keep the example kind)."""
+    return any(_TEST_SEG.match(seg) for seg in (path or "").split("/")[:-1])
+
+
 def is_fixture_path(path):
     """True when a file path suggests a deliberately incomplete fixture."""
     return bool(FIXTURE_PATH_RE.search(path or ""))
@@ -613,6 +622,27 @@ def _extra_measures(fr, tr, rr, by_table):
     s["exposed_tables_strict"] = exposed_strict
     s["exposed_tables_strict_pct"] = _pct(exposed_strict, nt)
     s["exposed_tables_pct"] = _pct(exposed, nt)
+    # sensitivity of the measures (the headline definitions above are unchanged):
+    # exposed tables whose no-match returns a declared default output
+    s["exposed_tables_with_default_output"] = sum(
+        1 for key, v in by_table.items()
+        if tkey[key].get("has_default_output") and any(exposed_column(r, tkey[key]) for r in v))
+    # Drools-usable string declarations on an input expression without a typeRef (Drools 7.74.1
+    # skips the table's analysis then, even with inputValues)
+    sr = [r for r in rr if r["base"] == "string"]
+    s["string_drools_declared_no_typeref"] = sum(1 for r in sr if r["drools_declared"] and not r["type_ref"])
+    s["string_drools_with_typeref"] = sum(1 for r in sr if r["drools_declared"] and r["type_ref"])
+    s["string_drools_with_typeref_pct"] = _pct(s["string_drools_with_typeref"], len(sr))
+    # files of the example kind that sit under a test folder of their example repository
+    s["tables_under_test_path"] = sum(1 for t in tr if is_test_path(t["path"]))
+    s["string_tables_under_test_path"] = sum(1 for key in by_table if is_test_path(key[1]))
+    s["exposed_tables_under_test_path"] = sum(
+        1 for key, v in by_table.items()
+        if is_test_path(key[1]) and any(exposed_column(r, tkey[key]) for r in v))
+    nt_rows = [r for r in sr if not is_test_path(r["path"])]
+    s["string_inputs_outside_test_path"] = len(nt_rows)
+    s["string_declared_outside_test_path_pct"] = _pct(sum(r["declared"] for r in nt_rows), len(nt_rows))
+    s["string_drools_outside_test_path_pct"] = _pct(sum(r["drools_declared"] for r in nt_rows), len(nt_rows))
     s["exposed_tables_no_dash"] = exposed_dash
     s["exposed_tables_no_dash_pct"] = _pct(exposed_dash, nt)
     s["string_tables_hit_policy"] = dict(hp)
@@ -831,6 +861,24 @@ def _referee_sections(res):
                                  v["exposed_tables_no_dash_pct"]),
                              _np(v["exposed_tables_strict"], v["tables_with_string_inputs"],
                                  v["exposed_tables_strict_pct"])])
+    e = res["summary"].get("example", {})
+    L += ["", "### Sensitivity of the measures", "",
+          f"* Default output: {a['exposed_tables_with_default_output']} of the {a['exposed_tables']} exposed "
+          f"tables (distinct contents: {au['exposed_tables_with_default_output']} of {au['exposed_tables']}) "
+          "have a defaultOutputEntry, so a value no rule mentions still gets a defined result; the exposure "
+          "count does not read default outputs.",
+          f"* Drools and typeRef: {a['string_drools_declared_no_typeref']} of the "
+          f"{a['string']['drools_usable']} string inputs counted as usable by Drools have no inputExpression "
+          "typeRef; Drools 7.74.1 then skips the table's gap analysis even with inputValues. Requiring a "
+          f"typeRef gives {_np(a['string_drools_with_typeref'], a['string']['inputs'], a['string_drools_with_typeref_pct'])} "
+          "usable by Drools.",
+          f"* Examples under test folders: files of example repositories keep the example kind even under "
+          f"a test folder. {e.get('tables_under_test_path', 0)} of the {e.get('decision_tables', 0)} example "
+          f"tables sit under one ({e.get('exposed_tables_under_test_path', 0)} of the "
+          f"{e.get('exposed_tables', 0)} exposed ones); without them, the "
+          f"{e.get('string_inputs_outside_test_path', 0)} example string inputs declare a domain in "
+          f"{e.get('string_declared_outside_test_path_pct')}% and in a form Drools uses in "
+          f"{e.get('string_drools_outside_test_path_pct')}%."]
     L += ["", "### Hit policies of tables with string inputs", ""]
     pols = ["UNIQUE", "ANY", "FIRST", "PRIORITY", "COLLECT", "RULE ORDER", "OUTPUT ORDER", "other"]
     L += _by_both(res, ["tables with string inputs"] + pols,
