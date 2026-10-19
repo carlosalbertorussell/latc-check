@@ -144,5 +144,81 @@ class Stats(unittest.TestCase):
         self.assertEqual(tf.clopper_pearson(0, 20)[0], 0.0)
 
 
+class ZipfValueOrder(unittest.TestCase):
+    def test_orders_assign_zipf_weights_by_rank(self):
+        d = [2, 3]
+        rev = [[1, 0], [2, 1, 0]]
+        decl, r = tf.zipf_probs(d), tf.zipf_probs(d, orders=rev)
+        self.assertEqual(tf.zipf_probs(d, orders=[[0, 1], [0, 1, 2]]), decl)
+        self.assertEqual(r, [p[::-1] for p in decl])
+        self.assertEqual(tf.zipf_probs(d, orders=[[0, 1], [2, 0, 1]])[1], [Fraction(3, 11), Fraction(2, 11), Fraction(6, 11)])
+        for bad in ([[0, 1]], [[0, 0], [0, 1, 2]], [[0, 1], [0, 1, 3]]):
+            with self.assertRaises(ValueError):
+                tf.zipf_probs(d, orders=bad)
+
+    def test_reversed_order_on_symmetric_space_same_result(self):
+        d = [2, 2]
+        rev = [[1, 0], [1, 0]]
+        for k in (1, 2, 3, 4):
+            self.assertEqual(tf.p_trap_with_replacement(tf.zipf_probs(d), k),
+                             tf.p_trap_with_replacement(tf.zipf_probs(d, orders=rev), k))
+
+    def test_trap_probability_order_invariant_on_asymmetric_space(self):
+        # the order only relabels values inside an attribute: P(trap) and E[missing] are unchanged
+        # (checked against full enumeration), while which value tends to be missed does change
+        d = [2, 3]
+        orders = [[[0, 1], [0, 1, 2]], [[1, 0], [2, 1, 0]], [[0, 1], [1, 2, 0]], [[1, 0], [0, 2, 1]]]
+        for k in (1, 2, 3, 4):
+            ref = brute_with_replacement(tf.zipf_probs(d), k)
+            for o in orders:
+                probs = tf.zipf_probs(d, orders=o)
+                self.assertEqual(brute_with_replacement(probs, k), ref, (o, k))
+                self.assertEqual(tf.p_trap_with_replacement(probs, k), ref[0])
+        miss_v0 = lambda probs, k: (1 - probs[1][0]) ** k          # P(value 0 of attribute 2 never drawn)
+        self.assertNotEqual(miss_v0(tf.zipf_probs(d), 4), miss_v0(tf.zipf_probs(d, orders=orders[1]), 4))
+
+    def test_sampler_with_order_relabels_draw_for_draw(self):
+        d, ks = [4, 3, 3], [5, 10, 20]
+        rev = [[3, 2, 1, 0], [2, 1, 0], [2, 1, 0]]
+        a = tf.ZipfSampler(d, random.Random(7))
+        b = tf.ZipfSampler(d, random.Random(7), orders=rev)
+        a.reset(); b.reset()
+        for _ in range(30):
+            x, y = a.next(), b.next()
+            self.assertEqual(y, tuple(o[v] for o, v in zip(rev, x)))
+        ma = tf.monte_carlo(tf.ZipfSampler(d, random.Random(8)), d, ks, 300)
+        mb = tf.monte_carlo(tf.ZipfSampler(d, random.Random(8), orders=rev), d, ks, 300)
+        self.assertEqual(ma, mb)
+        with self.assertRaises(ValueError):
+            tf.ZipfSampler(d, random.Random(1), orders=[[0, 1, 2, 3]])
+
+    def test_value_orders_seeded_permutations(self):
+        d = [4, 3, 5]
+        vo = tf.value_orders(d, 5)
+        self.assertEqual([l for l, _ in vo], ["declared", "reversed"] + [f"random_{i}" for i in range(5)])
+        self.assertEqual(vo[0][1], [[0, 1, 2, 3], [0, 1, 2], [0, 1, 2, 3, 4]])
+        self.assertEqual(vo[1][1], [[3, 2, 1, 0], [2, 1, 0], [4, 3, 2, 1, 0]])
+        for _, o in vo:
+            self.assertEqual([sorted(x) for x in o], vo[0][1])
+        self.assertEqual(vo, tf.value_orders(d, 5))
+        self.assertGreater(len({str(o) for _, o in vo}), 2)
+
+    def test_sensitivity_sweep(self):
+        d = [3, 2, 2]
+        s = tf.zipf_order_sensitivity(d, ks=(4, 8), n_random=4, mc_draws=500, key="toy")
+        self.assertTrue(s["exact_values_identical_across_orders"])
+        self.assertEqual(set(s["per_order"]), {"declared", "reversed", "random_0", "random_1", "random_2", "random_3"})
+        decl = s["per_order"]["declared"]
+        self.assertEqual(decl["p_trap"]["8"], float(tf.p_trap_with_replacement(tf.zipf_probs(d), 8)))
+        for stat in ("mean", "min", "max"):
+            self.assertAlmostEqual(s["random_summary"]["p_trap"]["4"][stat], decl["p_trap"]["4"])
+            self.assertEqual(s["random_summary"]["thresholds"]["0.01"][stat], decl["thresholds"]["0.01"])
+        t = decl["thresholds"]["0.05"]
+        probs = tf.zipf_probs(d)
+        self.assertLessEqual(tf.p_trap_with_replacement(probs, t), Fraction(5, 100))
+        self.assertGreater(tf.p_trap_with_replacement(probs, t - 1), Fraction(5, 100))
+        self.assertEqual(s["mc_reversed"]["draws"], 500)
+
+
 if __name__ == "__main__":
     unittest.main()

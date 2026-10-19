@@ -74,6 +74,139 @@ With inputValues: 844; allowedValues reachable but no inputValues: 209; declared
 | product-test | powerflows/powerflows-dmn | `dmn-io-xml/src/test/resources/org/powerflows/dmn/io/xml/camunda-dmn-1.1-example-empty-input-variable.dmn` | Some Table Name | InputClause_03bkdz8 | blue, purple | 5 (inputValues) | - |
 | analyser | apache/incubator-kie-drools | `kie-dmn/kie-dmn-validation/src/test/resources/org/kie/dmn/validation/dtanalysis/DTusingNOT.dmn` | my vowel decision | my vowel | i | 5 (inputValues) | - |
 
+## Exposure: single-hit tables an observed-domain tool cannot complete
+
+A table is *exposed* when its hit policy is single-hit (UNIQUE, ANY, FIRST, PRIORITY; a missing hitPolicy is UNIQUE), it has a string input with no declaration (as above) whose entries mention at least one string literal, and no catch-all rule covers that column: no rule has `-` (or an empty entry) in that column and in every other input. A value no rule mentions then reaches no rule, and an observed-domain tool cannot report it. *Variant*: no rule has `-` in that column at all (a subset of the exposed tables). Multi-hit tables (COLLECT, RULE ORDER, OUTPUT ORDER) are never exposed: an empty result is a legitimate answer for them. Denominator: tables with at least one string input.
+
+| count by | kind | tables with string inputs | single-hit | with a catch-all rule | exposed | variant: no `-` in the column |
+|---|---|---|---|---|---|---|
+| files | all | 1559 | 1298/1559 (83.3%) | 329 | 369/1559 (23.7%) | 338/1559 (21.7%) |
+| files | examples / tutorials | 112 | 90/112 (80.4%) | 22 | 34/112 (30.4%) | 31/112 (27.7%) |
+| files | product test resources | 1105 | 940/1105 (85.1%) | 238 | 315/1105 (28.5%) | 289/1105 (26.2%) |
+| files | conformance (TCK) | 232 | 174/232 (75.0%) | 53 | 1/232 (0.4%) | 1/232 (0.4%) |
+| files | analyser fixtures | 74 | 66/74 (89.2%) | 13 | 12/74 (16.2%) | 10/74 (13.5%) |
+| files | product, non-test | 36 | 28/36 (77.8%) | 3 | 7/36 (19.4%) | 7/36 (19.4%) |
+| contents | all | 675 | 555/675 (82.2%) | 154 | 190/675 (28.1%) | 168/675 (24.9%) |
+| contents | examples / tutorials | 85 | 66/85 (77.6%) | 21 | 26/85 (30.6%) | 23/85 (27.1%) |
+| contents | product test resources | 480 | 401/480 (83.5%) | 109 | 151/480 (31.5%) | 134/480 (27.9%) |
+| contents | conformance (TCK) | 64 | 48/64 (75.0%) | 14 | 1/64 (1.6%) | 1/64 (1.6%) |
+| contents | analyser fixtures | 36 | 32/36 (88.9%) | 7 | 9/36 (25.0%) | 7/36 (19.4%) |
+| contents | product, non-test | 10 | 8/10 (80.0%) | 3 | 3/10 (30.0%) | 3/10 (30.0%) |
+
+### Hit policies of tables with string inputs
+
+| count by | kind | tables with string inputs | UNIQUE | ANY | FIRST | PRIORITY | COLLECT | RULE ORDER | OUTPUT ORDER | other |
+|---|---|---|---|---|---|---|---|---|---|---|
+| files | all | 1559 | 918 | 39 | 166 | 175 | 194 | 43 | 24 | 0 |
+| files | examples / tutorials | 112 | 67 | 0 | 23 | 0 | 21 | 1 | 0 | 0 |
+| files | product test resources | 1105 | 679 | 25 | 129 | 107 | 113 | 35 | 17 | 0 |
+| files | conformance (TCK) | 232 | 100 | 14 | 7 | 53 | 44 | 7 | 7 | 0 |
+| files | analyser fixtures | 74 | 49 | 0 | 2 | 15 | 8 | 0 | 0 | 0 |
+| files | product, non-test | 36 | 23 | 0 | 5 | 0 | 8 | 0 | 0 | 0 |
+| contents | all | 675 | 376 | 25 | 99 | 55 | 80 | 25 | 15 | 0 |
+| contents | examples / tutorials | 85 | 45 | 0 | 21 | 0 | 18 | 1 | 0 | 0 |
+| contents | product test resources | 480 | 275 | 21 | 71 | 34 | 44 | 22 | 13 | 0 |
+| contents | conformance (TCK) | 64 | 28 | 4 | 2 | 14 | 12 | 2 | 2 | 0 |
+| contents | analyser fixtures | 36 | 23 | 0 | 2 | 7 | 4 | 0 | 0 | 0 |
+| contents | product, non-test | 10 | 5 | 0 | 3 | 0 | 2 | 0 | 0 | 0 |
+
+*other* = values outside the DMN hit policies (e.g. `LAST`, misspelt values).
+
+### Declarations in single-hit tables
+
+The declared share of string inputs, restricted to single-hit tables (multi-hit tables excluded).
+
+| count by | kind | single-hit tables with string inputs | their string inputs | any declaration | usable by Drools | tables: every string input declared |
+|---|---|---|---|---|---|---|
+| files | all | 1298 | 1718 | 850/1718 (49.5%) | 718/1718 (41.8%) | 638/1298 (49.2%) |
+| files | examples / tutorials | 90 | 113 | 51/113 (45.1%) | 43/113 (38.1%) | 42/90 (46.7%) |
+| files | product test resources | 940 | 1260 | 550/1260 (43.7%) | 466/1260 (37.0%) | 399/940 (42.4%) |
+| files | conformance (TCK) | 174 | 216 | 182/216 (84.3%) | 152/216 (70.4%) | 148/174 (85.1%) |
+| files | analyser fixtures | 66 | 86 | 47/86 (54.7%) | 41/86 (47.7%) | 36/66 (54.5%) |
+| files | product, non-test | 28 | 43 | 20/43 (46.5%) | 16/43 (37.2%) | 13/28 (46.4%) |
+| contents | all | 555 | 771 | 317/771 (41.1%) | 268/771 (34.8%) | 218/555 (39.3%) |
+| contents | examples / tutorials | 66 | 84 | 30/84 (35.7%) | 29/84 (34.5%) | 26/66 (39.4%) |
+| contents | product test resources | 401 | 575 | 213/575 (37.0%) | 173/575 (30.1%) | 134/401 (33.4%) |
+| contents | conformance (TCK) | 48 | 63 | 47/63 (74.6%) | 40/63 (63.5%) | 36/48 (75.0%) |
+| contents | analyser fixtures | 32 | 37 | 24/37 (64.9%) | 24/37 (64.9%) | 20/32 (62.5%) |
+| contents | product, non-test | 8 | 12 | 3/12 (25.0%) | 2/12 (16.7%) | 2/8 (25.0%) |
+
+## Declared values that no rule mentions
+
+**308 of 1045 string inputs whose declaration is a list of string literals (29.5%) declare a value that no input entry of the column mentions** (distinct files); by distinct table contents 152 of 371 (41.0%). These are values an observed-domain tool cannot know. Declared values in total: 5569, of which 2603 are mentioned by no rule (distinct contents: 3189 and 2151).
+
+| count by | kind | declared enumerable string inputs | with a declared value no rule mentions |
+|---|---|---|---|
+| files | all | 1045 | 308/1045 (29.5%) |
+| files | examples / tutorials | 58 | 10/58 (17.2%) |
+| files | product test resources | 671 | 226/671 (33.7%) |
+| files | conformance (TCK) | 235 | 52/235 (22.1%) |
+| files | analyser fixtures | 55 | 18/55 (32.7%) |
+| files | product, non-test | 26 | 2/26 (7.7%) |
+| contents | all | 371 | 152/371 (41.0%) |
+| contents | examples / tutorials | 36 | 8/36 (22.2%) |
+| contents | product test resources | 243 | 120/243 (49.4%) |
+| contents | conformance (TCK) | 61 | 12/61 (19.7%) |
+| contents | analyser fixtures | 26 | 12/26 (46.2%) |
+| contents | product, non-test | 5 | 0/5 (0.0%) |
+
+## Copied declarations
+
+Among string inputs whose declaration is a list of string literals, the share whose declared set **equals** the set of string literals the column's entries mention (`not(...)` and literals inside expressions included): a declaration that adds nothing beyond the rules, as if copied from them. Overall 724/1045 (69.3%) (distinct files), 213/371 (57.4%) (distinct contents).
+
+| count by | kind | declared enumerable string inputs | declared set = mentioned set |
+|---|---|---|---|
+| files | all | 1045 | 724/1045 (69.3%) |
+| files | examples / tutorials | 58 | 46/58 (79.3%) |
+| files | product test resources | 671 | 435/671 (64.8%) |
+| files | conformance (TCK) | 235 | 183/235 (77.9%) |
+| files | analyser fixtures | 55 | 37/55 (67.3%) |
+| files | product, non-test | 26 | 23/26 (88.5%) |
+| contents | all | 371 | 213/371 (57.4%) |
+| contents | examples / tutorials | 36 | 27/36 (75.0%) |
+| contents | product test resources | 243 | 119/243 (49.0%) |
+| contents | conformance (TCK) | 61 | 49/61 (80.3%) |
+| contents | analyser fixtures | 26 | 14/26 (53.8%) |
+| contents | product, non-test | 5 | 4/5 (80.0%) |
+
+## No entry can match: distinct combinations and fixture-like paths
+
+Inputs (distinct files): 68/974 (7.0%); distinct table contents: 41/315 (13.0%). Distinct (input, declaration, unmatched values) combinations, over all string inputs whose unmatched set is known: 10/160 (6.2%). *Fixture-like path*: the file path or name contains `gap`, `missing`, `incomplete`, `dtanalysis`, `notcomplete` or `analysis` (case-insensitive), suggesting a deliberately incomplete test model. 2 of the 10 combinations occur in such a file; with those files excluded: 8/140 (5.7%) combinations.
+
+| count by | kind | inputs with a declared value no entry can match (n/known) | ... of them in fixture-like paths | fixture-like paths excluded (n/known) |
+|---|---|---|---|---|
+| files | all | 68/974 (7.0%) | 3 | 65/926 (7.0%) |
+| files | examples / tutorials | 5/53 (9.4%) | 0 | 5/53 (9.4%) |
+| files | product test resources | 43/610 (7.0%) | 1 | 42/581 (7.2%) |
+| files | conformance (TCK) | 14/234 (6.0%) | 0 | 14/234 (6.0%) |
+| files | analyser fixtures | 4/51 (7.8%) | 2 | 2/32 (6.2%) |
+| files | product, non-test | 2/26 (7.7%) | 0 | 2/26 (7.7%) |
+| contents | all | 41/315 (13.0%) | 3 | 38/277 (13.7%) |
+| contents | examples / tutorials | 3/32 (9.4%) | 0 | 3/32 (9.4%) |
+| contents | product test resources | 30/195 (15.4%) | 1 | 29/174 (16.7%) |
+| contents | conformance (TCK) | 4/61 (6.6%) | 0 | 4/61 (6.6%) |
+| contents | analyser fixtures | 4/22 (18.2%) | 2 | 2/5 (40.0%) |
+| contents | product, non-test | 0/5 (0.0%) | 0 | 0/5 (0.0%) |
+
+## Source repositories per kind
+
+Distinct sources (repositories, plus the two local analyser fixture sets) contributing to each kind. A file found in several sources is credited to the one it was kept in. Forks count separately (Camunda 7 / Operaton, dmn-js / its verifier fork).
+
+| count by | kind | sources with files | with decision tables | with string inputs |
+|---|---|---|---|---|
+| files | all | 44 | 43 | 40 |
+| files | examples / tutorials | 29 | 28 | 24 |
+| files | product test resources | 16 | 16 | 16 |
+| files | conformance (TCK) | 3 | 3 | 3 |
+| files | analyser fixtures | 9 | 8 | 4 |
+| files | product, non-test | 9 | 9 | 9 |
+| contents | all | 37 | 37 | 34 |
+| contents | examples / tutorials | 24 | 24 | 20 |
+| contents | product test resources | 14 | 14 | 14 |
+| contents | conformance (TCK) | 3 | 3 | 3 |
+| contents | analyser fixtures | 5 | 5 | 3 |
+| contents | product, non-test | 6 | 6 | 5 |
+
 ## Hit policies (distinct files)
 
 {"UNIQUE": 1721, "ANY": 94, "PRIORITY": 223, "FIRST": 297, "RULE ORDER": 80, "OUTPUT ORDER": 51, "COLLECT": 437, "LAST": 1, "aaa": 2}

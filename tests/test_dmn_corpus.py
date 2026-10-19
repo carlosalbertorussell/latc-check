@@ -201,6 +201,95 @@ class CorpusTest(unittest.TestCase):
         self.assertEqual(s["boolean"]["inputs"], 1)
         self.assertEqual(s["tables_all_string_declared"], 1)
         self.assertEqual(s["tables_with_string_inputs"], 2)
+        self.assertEqual(s["sources_files"], 1)          # the duplicate is kept in s1 (example)
+        self.assertEqual(res["unmatched_combinations"]["combinations_unmatched"], 1)
+
+
+def summary_of(data, path="m.dmn"):
+    f, t, r = dc.analyse_bytes(data, path)
+    for x in [f] + t + r:
+        x["source"], x["kind"] = "s", "example"
+    return dc.summarise([f], t, r)["all"]
+
+
+class ExposureTest(unittest.TestCase):
+    INPUTS = [("c", "string", None), ("n", "number", None)]
+
+    def test_exposed_without_catch_all(self):
+        d = model(table(self.INPUTS, [['"a"', "&lt; 3"], ['"b"', "-"]]))
+        t = rows_of(d)[1][0]
+        self.assertTrue(t["single_hit"])
+        self.assertFalse(t["has_catch_all"])
+        s = summary_of(d)
+        self.assertEqual((s["tables_with_string_inputs"], s["exposed_tables"], s["exposed_tables_no_dash"]),
+                         (1, 1, 1))
+        self.assertEqual(s["string_tables_hit_policy"], {"UNIQUE": 1})
+
+    def test_catch_all_rule_covers_column(self):
+        d = model(table(self.INPUTS, [['"a"', "&lt; 3"], ["-", ""]], hp="FIRST"))
+        self.assertTrue(rows_of(d)[1][0]["has_catch_all"])
+        s = summary_of(d)
+        self.assertEqual((s["exposed_tables"], s["exposed_tables_no_dash"]), (0, 0))
+
+    def test_dash_without_catch_all_is_exposed_but_not_in_variant(self):
+        d = model(table(self.INPUTS, [['"a"', "&lt; 3"], ["-", "&gt;= 3"]]))
+        self.assertFalse(rows_of(d)[1][0]["has_catch_all"])
+        s = summary_of(d)
+        self.assertEqual((s["exposed_tables"], s["exposed_tables_no_dash"]), (1, 0))
+
+    def test_collect_never_exposed(self):
+        d = model(table(self.INPUTS, [['"a"', "&lt; 3"]], hp="COLLECT"))
+        self.assertFalse(rows_of(d)[1][0]["single_hit"])
+        s = summary_of(d)
+        self.assertEqual(s["exposed_tables"], 0)
+        self.assertEqual(s["string_tables_hit_policy"], {"COLLECT": 1})
+        self.assertEqual(s["string_tables_single_hit"], 0)
+        self.assertEqual(s["single_hit_string_inputs"], 0)
+
+    def test_declared_input_not_exposed(self):
+        d = model(table([("c", "string", '"a","b"')], [['"a"']]))
+        s = summary_of(d)
+        self.assertEqual(s["exposed_tables"], 0)
+        self.assertEqual((s["single_hit_string_declared"], s["single_hit_string_inputs"]), (1, 1))
+
+    def test_undeclared_column_without_literals_not_exposed(self):
+        d = model(table([("c", "string", None)], [["starts with(c, x)"]]))
+        self.assertEqual(summary_of(d)["exposed_tables"], 0)
+
+
+class CopiedDeclarationTest(unittest.TestCase):
+    def test_equal_sets_including_not(self):
+        d = model(table([("c", "string", '"a","b","c"')], [['"a"'], ['not("b","c")']]))
+        s = summary_of(d)
+        self.assertEqual((s["copied_declaration"], s["copied_declaration_of"]), (1, 1))
+
+    def test_declaration_adds_a_value(self):
+        d = model(table([("c", "string", '"a","b","c"')], [['"a"'], ['"b"']]))
+        self.assertEqual(summary_of(d)["copied_declaration"], 0)
+
+    def test_rules_outside_declaration_not_equal(self):
+        d = model(table([("c", "string", '"a"')], [['"a"'], ['"z"']]))
+        self.assertEqual(summary_of(d)["copied_declaration"], 0)
+
+
+class FixturePathTest(unittest.TestCase):
+    def test_fixture_path(self):
+        self.assertTrue(dc.is_fixture_path("kie-dmn-validation/dtanalysis/DTusingNOT.dmn"))
+        self.assertTrue(dc.is_fixture_path("x/loan-with-enumeration-MISSING.dmn"))
+        self.assertTrue(dc.is_fixture_path("gaps/a.dmn"))
+        self.assertFalse(dc.is_fixture_path("examples/loan/a.dmn"))
+
+    def test_unmatched_excluded_in_fixture_path(self):
+        d = model(table([("c", "string", '"a","b"')], [['"a"']]))
+        s = summary_of(d, "tests/incomplete/a.dmn")
+        self.assertEqual((s["string"]["with_unmatched_value"], s["unmatched_fixture_path"]), (1, 1))
+        self.assertEqual((s["with_unmatched_value_nonfixture"], s["unmatched_known_nonfixture"]), (0, 0))
+        f, t, r = dc.analyse_bytes(d, "tests/incomplete/a.dmn")
+        g, u, q = dc.analyse_bytes(d, "examples/a.dmn")
+        c = dc.unmatched_combinations(r + q)
+        self.assertEqual((c["combinations_known"], c["combinations_unmatched"]), (1, 1))
+        self.assertEqual(c["combinations_with_fixture_path"], 1)
+        self.assertEqual(c["combinations_unmatched_nonfixture"], 1)   # still present outside fixtures
 
 
 if __name__ == "__main__":

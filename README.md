@@ -186,6 +186,10 @@ output values, as in the DMN standard). COLLECT is out of scope, as in Calvanese
 
 It was written from the published description, not from the authors' dmn-js tool, and
 is checked by a differential test against an exhaustive oracle (`dmn_oracle.py`, below).
+The 2016 dmn-js verifier was also run on 1,000 random all-values-observed tables and on the
+138 enumerated, negation-free tables of the differential test
+(`results/tools/dmn-js/compare_random.py`): its missing states and overlaps equal the sweep's
+and the oracle's wherever its rules mention every declared value (`results/tools/dmn-js/SUMMARY.md`).
 Its interpretive choices, D-1 to D-7, are listed in the module docstring:
 
 * **D-1** Numeric inputs are real intervals with exact open and closed bounds. Integer
@@ -462,7 +466,16 @@ per decision-table input) and `SUMMARY.md`.
   a form Drools uses for gap analysis; in examples and tutorials, 40.0% and 33.8%.
 * 724 of 1,559 tables with string inputs declare no string domain at all.
 * In 7.0% of declared literal lists some declared value can be matched by no rule entry,
-  including spelling slips ("US" declared, "USA" in the rules).
+  including spelling slips ("US" declared, "USA" in the rules). Counting each distinct
+  (input, declaration, unmatched values) combination once: 10 of 160 (6.2%), 8 of 140 with
+  fixture-like paths (gap, missing, incomplete, dtanalysis, ...) excluded.
+* Exposure: 369 of 1,559 tables with string inputs (23.7%; 30.4% in examples) are single-hit,
+  have an undeclared string input and no catch-all rule, so a value no rule mentions reaches
+  no rule. In single-hit tables, 49.5% of string inputs declare a domain, 41.8% usable by Drools.
+* In 308 of 1,045 declared literal lists (29.5%) some declared value appears in no rule; in
+  724 (69.3%) the declared set equals the set the rules mention (a copied declaration looks
+  exactly like a correct one).
+* Each figure is also given by distinct table contents in `SUMMARY.md`.
 
 The sample leans towards test and conformance models; production models are rarely public.
 

@@ -58,6 +58,11 @@ from a Zipf(s=1) law over the declared value order, duplicate states rejected
 Monte Carlo draw samples sequentially until every declared value has been seen
 (the cover time T); a prefix of a sequential sample is a sample of that size,
 so trap(k) = [T > k] for every k from one draw.
+
+Value-order sensitivity (``zipf_order_sensitivity``) repeats the Zipf model with the
+reversed and with seeded random value orders.  An order only relabels values within
+an attribute, and the trap event is invariant under relabelling, so P(trap) is the
+same for every order; the sweep confirms this with the exact with-replacement formula.
 """
 
 from __future__ import annotations
@@ -170,13 +175,34 @@ def uniform_probs(domains) -> list[list[Fraction]]:
     return [[Fraction(1, d)] * d for d in domains]
 
 
-def zipf_probs(domains, s: int = 1) -> list[list[Fraction]]:
-    """Zipf(s) over the declared value order: p_j proportional to 1/j^s (exact rationals)."""
+def _check_orders(domains, orders) -> None:
+    if len(orders) != len(domains):
+        raise ValueError("one value order per attribute")
+    for d, o in zip(domains, orders):
+        if sorted(o) != list(range(d)):
+            raise ValueError(f"{o!r} is not an order of the {d} values")
+
+
+def zipf_probs(domains, s: int = 1, orders=None) -> list[list[Fraction]]:
+    """Zipf(s) over a value order: the r-th value of the order gets p proportional to 1/r^s (exact rationals).
+
+    ``orders[i]`` lists the value indices of attribute i from most to least frequent; the default (None)
+    is the declared order, p_j proportional to 1/j^s for the j-th declared value.
+    """
+    if orders is not None:
+        _check_orders(domains, orders)
     out = []
-    for d in domains:
+    for i, d in enumerate(domains):
         w = [Fraction(1, j ** s) for j in range(1, d + 1)]
         tot = sum(w)
-        out.append([x / tot for x in w])
+        ranked = [x / tot for x in w]
+        if orders is None:
+            out.append(ranked)
+        else:
+            p = [Fraction(0)] * d
+            for rank, v in enumerate(orders[i]):
+                p[v] = ranked[rank]
+            out.append(p)
     return out
 
 
@@ -280,12 +306,19 @@ class UniformSampler:
 
 
 class ZipfSampler(UniformSampler):
-    """Per-attribute Zipf(s) values over the declared order; distinct states unless with_replacement."""
+    """Per-attribute Zipf(s) values over a value order (default: declared); distinct states unless with_replacement.
 
-    def __init__(self, domains, rng, s=1, with_replacement=False):
+    ``orders[i]`` lists attribute i's value indices from most to least frequent (see ``zipf_probs``).
+    """
+
+    def __init__(self, domains, rng, s=1, with_replacement=False, orders=None):
         super().__init__(domains, rng, with_replacement)
         self.cum = [list(itertools.accumulate(1 / j ** s for j in range(1, d + 1))) for d in domains]
-        self.pops = [list(range(d)) for d in domains]
+        if orders is None:
+            self.pops = [list(range(d)) for d in domains]
+        else:
+            _check_orders(domains, orders)
+            self.pops = [list(o) for o in orders]
 
     def next(self):
         ch = self.rng.choices
@@ -422,6 +455,65 @@ VALIDATION = [  # (domains, ks) for exact vs Monte Carlo on small spaces
 ]
 
 
+ORDER_SPACES = ("car", "nursery", "4^12")
+ORDER_KS = (17, 20, 30)
+ORDER_RANDOM = 20
+
+
+def value_orders(domains, n_random: int = ORDER_RANDOM, seed: int = SEED) -> list[tuple[str, list[list[int]]]]:
+    """[(label, orders)]: declared, reversed, and n_random seeded random orders (one permutation per attribute)."""
+    out = [("declared", [list(range(d)) for d in domains]),
+           ("reversed", [list(range(d))[::-1] for d in domains])]
+    for i in range(n_random):
+        rng = random.Random(f"{seed}:zipf-order:{i}")
+        out.append((f"random_{i}", [rng.sample(range(d), d) for d in domains]))
+    return out
+
+
+def zipf_order_sensitivity(domains, ks=ORDER_KS, alphas=ALPHAS, n_random: int = ORDER_RANDOM,
+                           seed: int = SEED, key: str = "", mc_draws: int = 0) -> dict:
+    """Zipf(s=1) P(trap) and thresholds under declared, reversed and random value orders.
+
+    Uses the exact with-replacement product formula for every order.  Optionally (mc_draws > 0) also runs
+    the without-replacement Monte Carlo for the reversed order.  Note: a value order only relabels the
+    values *within* an attribute, and the trap event (some declared value unseen) and the number of
+    missing states are invariant under such relabelling, so every order gives the same distribution;
+    the sweep checks this numerically (as exact fractions).
+    """
+    hi = 100 * rule_of_thumb_k(domains, min(alphas))
+    per_order, exact_vals = {}, {}
+    for label, orders in value_orders(domains, n_random, seed):
+        probs = zipf_probs(domains, 1, orders)
+        ps = {k: p_trap_with_replacement(probs, k) for k in ks}
+        exact_vals[label] = tuple(ps[k] for k in ks)
+        per_order[label] = {
+            "orders": orders,
+            "p_trap": {str(k): float(ps[k]) for k in ks},
+            "thresholds": {str(a): smallest_k(lambda k: p_trap_with_replacement(probs, k) <= a, 1, hi)
+                           for a in alphas},
+        }
+    rand = [l for l in per_order if l.startswith("random_")]
+
+    def agg(get):
+        xs = [get(per_order[l]) for l in rand]
+        return {"mean": mean(xs), "min": min(xs), "max": max(xs)}
+    out = {"method": "exact_with_replacement", "ks": list(ks), "n_random": n_random,
+           "per_order": per_order,
+           "random_summary": {"p_trap": {str(k): agg(lambda e, k=k: e["p_trap"][str(k)]) for k in ks},
+                              "thresholds": {str(a): agg(lambda e, a=a: e["thresholds"][str(a)]) for a in alphas}},
+           "exact_values_identical_across_orders": len(set(exact_vals.values())) == 1}
+    if mc_draws:
+        t0 = time.perf_counter()
+        rev = dict(value_orders(domains, 0, seed))["reversed"]
+        mc = monte_carlo(ZipfSampler(domains, random.Random(f"{seed}:{key}:zipf_s1:reversed"), s=1, orders=rev),
+                         domains, ks, mc_draws)
+        covers = mc.pop("cover_times")
+        mc["thresholds"] = mc_thresholds(covers, alphas)
+        mc["seconds"] = round(time.perf_counter() - t0, 2)
+        out["mc_reversed"] = mc
+    return out
+
+
 def _f(x: Fraction | None) -> float | None:
     return None if x is None else float(x)
 
@@ -514,6 +606,15 @@ def run(draws: int = 20000, seed: int = SEED, validation_draws: int = 20000) -> 
                                      "trap": math.prod(obs) < n_states}
         out[key] = entry
     res["spaces"] = out
+
+    # value-order sensitivity of the Zipf model (exact with replacement; MC check for the reversed order)
+    sens = {}
+    for key in ORDER_SPACES:
+        t0 = time.perf_counter()
+        sens[key] = zipf_order_sensitivity(out[key]["domains"], seed=seed, key=key, mc_draws=draws)
+        sens[key]["seconds"] = round(time.perf_counter() - t0, 2)
+        print(f"  {key} zipf order sensitivity: {sens[key]['seconds']}s", flush=True)
+    res["zipf_order_sensitivity"] = sens
 
     # consistency with results/datasets (20 uniform 1% samples per dataset)
     cons = {}
@@ -674,7 +775,63 @@ def summary_md(res: dict) -> str:
           f"{c['expected_traps']:.2f} | {c['binomial_p_of_observed_count']:.3f} | "
           f"[{c['clopper_pearson_95'][0]:.4f}, {c['clopper_pearson_95'][1]:.4f}] | {c['exact_inside_ci']} |")
     w("")
+    if res.get("zipf_order_sensitivity"):
+        w(zipf_order_md(res))
     return "\n".join(L) + "\n"
+
+
+def zipf_order_md(res: dict) -> str:
+    """SUMMARY.md section: the Zipf(s=1) model under declared, reversed and random value orders."""
+    L = []
+    w = L.append
+    sens = res["zipf_order_sensitivity"]
+    first = next(iter(sens.values()))
+    ks, n_rand = first["ks"], first["n_random"]
+    w("## Zipf(s=1) model: sensitivity to the value order\n")
+    w(f"The Zipf model ranks each attribute's values by an order. Rows below: the declared order (as above), the "
+      f"reversed order, and {n_rand} random orders (one permutation per attribute, "
+      f"`random.Random(\"{res['meta']['seed']}:zipf-order:<i>\")`, i = 0..{n_rand - 1}; mean, min and max over "
+      "them). P(trap) and the smallest k with P(trap) ≤ α are computed for every order with the **exact "
+      "with-replacement product formula** (k i.i.d. rows), not by Monte Carlo. The last two rows per space are the "
+      f"without-replacement Monte Carlo ({res['meta']['draws']} draws): the declared-order figures from the "
+      "tables above and a new, independently seeded run with the reversed order.\n")
+    w("| space | value order | method | P(trap) " + " | P(trap) ".join(f"k={k}" for k in ks)
+      + " | rows for 5% | rows for 1% |")
+    w("|---|---|---|" + "---|" * len(ks) + "---|---|")
+
+    def num(x):
+        return "–" if x is None else (f"{x:g}" if isinstance(x, int) or float(x).is_integer() else f"{x:.1f}")
+    for key, s in sens.items():
+        sp = res["spaces"][key]
+        name = f"{key} ({'x'.join(map(str, sp['domains']))})"
+        for label in ("declared", "reversed"):
+            e = s["per_order"][label]
+            w(f"| {name} | {label} | exact w/ repl | " + " | ".join(_fmt_p(e["p_trap"][str(k)]) for k in ks)
+              + f" | {num(e['thresholds']['0.05'])} | {num(e['thresholds']['0.01'])} |")
+        rs = s["random_summary"]
+        for stat in ("mean", "min", "max"):
+            w(f"| {name} | random ({stat} of {n_rand}) | exact w/ repl | "
+              + " | ".join(_fmt_p(rs["p_trap"][str(k)][stat]) for k in ks)
+              + f" | {num(rs['thresholds']['0.05'][stat])} | {num(rs['thresholds']['0.01'][stat])} |")
+        mcd = sp["monte_carlo"]["zipf_s1"]
+        w(f"| {name} | declared | MC w/o repl | " + " | ".join(_fmt_p(mcd["per_k"][str(k)]["p_trap"]) for k in ks)
+          + f" | {num(mcd['thresholds']['0.05'])} | {num(mcd['thresholds']['0.01'])} |")
+        if "mc_reversed" in s:
+            mr = s["mc_reversed"]
+            w(f"| {name} | reversed | MC w/o repl | " + " | ".join(_fmt_p(mr["per_k"][str(k)]["p_trap"]) for k in ks)
+              + f" | {num(mr['thresholds']['0.05'])} | {num(mr['thresholds']['0.01'])} |")
+    same = all(s["exact_values_identical_across_orders"] for s in sens.values())
+    w("")
+    w(f"Exact P(trap) at k = {', '.join(map(str, ks))} identical (as fractions) across all {n_rand + 2} orders in "
+      f"every space: **{same}**. This is expected rather than a coincidence: changing the order only relabels the "
+      "values within each attribute, and both the trap event (some declared value unseen) and the number of missing "
+      "states are invariant under such relabelling, so the trap probability depends on each attribute's multiset "
+      "of Zipf weights, not on which value receives which weight. The same holds without replacement, so the "
+      "declared- and reversed-order Monte Carlo rows differ only by sampling noise (SE about "
+      "√(p(1−p)/draws) ≤ 0.0035). What the order does change is *which* values tend to be missing (the "
+      "last-ranked ones), not how often a trap occurs. The exact with-replacement figures differ from the "
+      "without-replacement Monte Carlo ones by the with/without-replacement gap plus Monte Carlo noise.\n")
+    return "\n".join(L)
 
 
 def main(argv=None) -> int:

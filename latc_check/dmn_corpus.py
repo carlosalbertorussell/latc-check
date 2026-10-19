@@ -42,6 +42,17 @@ clause one row is recorded:
   with that value is a gap that an observed-domain tool misses;
 * ``outside_declared``: mentioned values that are not declared.
 
+Per table, ``single_hit`` (UNIQUE, ANY, FIRST, PRIORITY; a missing hitPolicy is
+UNIQUE) and ``has_catch_all`` (some rule has ``-`` or an empty entry on every
+input).  Summary measures added for referees: *exposed* tables (single-hit, no
+catch-all rule, and an undeclared string input whose entries mention a string
+literal; variant: that column has no ``-`` at all), the hit policies of tables
+with string inputs, the declared share within single-hit tables, *copied
+declarations* (declared set equal to the set of literals the column
+mentions), the no-entry-can-match share with fixture-like paths
+(``FIXTURE_PATH_RE``) excluded and on distinct (input, declaration, unmatched
+values) combinations, and the number of sources contributing to each kind.
+
 Kinds: ``tck`` (conformance tests), ``analyser`` (fixtures of verifiers /
 linters), ``product-test`` (test resources of engines and editors),
 ``example`` (examples, tutorials, demos), ``other`` (non-test files of
@@ -72,6 +83,12 @@ _NUM = re.compile(r"^-?(?:\d+(?:\.\d*)?|\.\d+)$")
 _NUMTEST = re.compile(r"^(?:(?:<=|>=|<|>|=)\s*-?[\d.]+|[\[\(\]]\s*-?[\d.]+\s*\.\.\s*-?[\d.]+\s*[\]\)\[]|-?[\d.]+)$")
 
 KINDS = ("example", "product-test", "tck", "analyser", "other")
+
+# single-hit policies (a missing hitPolicy is UNIQUE); every other value is multi-hit or invalid
+SINGLE_HIT = {"UNIQUE", "ANY", "FIRST", "PRIORITY"}
+MULTI_HIT = ("COLLECT", "RULE ORDER", "OUTPUT ORDER")
+# file paths that suggest a deliberately incomplete fixture (gap-analysis tests and the like)
+FIXTURE_PATH_RE = re.compile(r"gap|missing|incomplete|dtanalysis|notcomplete|analysis", re.I)
 
 
 _EXTRA_NS = {"http://www.omg.org/spec/DMN/20151101": "1.1",
@@ -316,6 +333,13 @@ def analyse_bytes(data: bytes, rel: str = "?"):
                 if k < len(cols):
                     t = _child(ie, "text")
                     cols[k].append("".join(t.itertext()) if t is not None else "")
+        # a catch-all rule: "-" (or empty) on every input; a missing inputEntry counts as empty
+        any_txt = ("", "-")
+        trec["single_hit"] = trec["hit_policy"].strip().upper() in SINGLE_HIT
+        trec["has_catch_all"] = any(
+            all(("".join(t.itertext()) if (t := _child(ie, "text")) is not None else "").strip() in any_txt
+                for ie in _children(r, "inputEntry")[:len(inputs)])
+            for r in rules)
         trows = [_input_row(inp, k, cols[k], items, variables, trec) for k, inp in enumerate(inputs)]
         outs = [["".join(t.itertext()) if (t := _child(oe, "text")) is not None else ""
                  for oe in _children(r, "outputEntry")] for r in rules]
@@ -541,8 +565,95 @@ def summarise(files, tables, rows):
         for key in ("tables_all_string_declared", "tables_all_string_drools", "tables_no_string_declared"):
             s[key + "_pct"] = _pct(s[key], nt)
         s["hit_policies"] = dict(Counter(t["hit_policy"] for t in tr))
+        s.update(_extra_measures(fr, tr, rr, by_table))
         out[g] = s
     return out
+
+
+def is_fixture_path(path):
+    """True when a file path suggests a deliberately incomplete fixture."""
+    return bool(FIXTURE_PATH_RE.search(path or ""))
+
+
+def exposed_column(r, table):
+    """String column an observed-domain tool cannot complete, in a single-hit table without a catch-all:
+    undeclared, its entries mention a string literal, and no all-'-' rule covers it."""
+    return (r["base"] == "string" and not r["declared"] and bool(r["mentioned"])
+            and table["single_hit"] and not table["has_catch_all"])
+
+
+def _extra_measures(fr, tr, rr, by_table):
+    """Exposure, hit policies, copied declarations, fixture-excluded unmatched share, sources."""
+    s = {}
+    tkey = {(t["source"], t["path"], t["table_index"]): t for t in tr}
+    nt = len(by_table)
+    exposed = exposed_dash = 0
+    hp = Counter()
+    single = []
+    for key, v in by_table.items():
+        t = tkey[key]
+        p = t["hit_policy"].strip().upper()
+        hp[p if t["single_hit"] or p in MULTI_HIT else "other"] += 1
+        if t["single_hit"]:
+            single.append(v)
+        if any(exposed_column(r, t) for r in v):
+            exposed += 1
+        if any(exposed_column(r, t) and r["n_any"] == 0 for r in v):
+            exposed_dash += 1
+    s["exposed_tables"] = exposed
+    s["exposed_tables_pct"] = _pct(exposed, nt)
+    s["exposed_tables_no_dash"] = exposed_dash
+    s["exposed_tables_no_dash_pct"] = _pct(exposed_dash, nt)
+    s["string_tables_hit_policy"] = dict(hp)
+    s["string_tables_single_hit"] = len(single)
+    s["string_tables_single_hit_pct"] = _pct(len(single), nt)
+    s["string_tables_with_catch_all"] = sum(1 for k in by_table if tkey[k]["has_catch_all"])
+    s["single_hit_tables_with_catch_all"] = sum(1 for k in by_table
+                                                if tkey[k]["single_hit"] and tkey[k]["has_catch_all"])
+    srows = [r for v in single for r in v]
+    s["single_hit_string_inputs"] = len(srows)
+    s["single_hit_string_declared"] = sum(r["declared"] for r in srows)
+    s["single_hit_string_declared_pct"] = _pct(s["single_hit_string_declared"], len(srows))
+    s["single_hit_string_drools"] = sum(r["drools_declared"] for r in srows)
+    s["single_hit_string_drools_pct"] = _pct(s["single_hit_string_drools"], len(srows))
+    s["single_hit_tables_all_declared"] = sum(1 for v in single if all(r["declared"] for r in v))
+    s["single_hit_tables_all_declared_pct"] = _pct(s["single_hit_tables_all_declared"], len(single))
+    # copied declarations: the declared set equals the set of literals the column mentions
+    enum = [r for r in rr if r["base"] == "string" and r["declared_values"] is not None]
+    s["copied_declaration"] = sum(1 for r in enum if set(r["declared_values"]) == set(r["mentioned"]))
+    s["copied_declaration_pct"] = _pct(s["copied_declaration"], len(enum))
+    s["copied_declaration_of"] = len(enum)
+    # no entry can match, with fixture-like paths excluded
+    known = [r for r in enum if r["unmatched_declared"] is not None]
+    kn = [r for r in known if not is_fixture_path(r["path"])]
+    s["unmatched_fixture_path"] = sum(1 for r in known if r["unmatched_declared"] and is_fixture_path(r["path"]))
+    s["unmatched_known_nonfixture"] = len(kn)
+    s["with_unmatched_value_nonfixture"] = sum(1 for r in kn if r["unmatched_declared"])
+    s["with_unmatched_value_nonfixture_pct"] = _pct(s["with_unmatched_value_nonfixture"], len(kn))
+    # source repositories
+    s["sources_files"] = len({f["source"] for f in fr})
+    s["sources_tables"] = len({t["source"] for t in tr})
+    s["sources_string_inputs"] = len({r["source"] for r in rr if r["base"] == "string"})
+    return s
+
+
+def unmatched_combinations(rows):
+    """Distinct (input, declaration, unmatched values) combinations over string inputs whose
+    unmatched set is known: (all, with an unmatched value), also with fixture-like paths excluded."""
+    def combos(rs):
+        known = {(r["label"], tuple(r["declared_values"]), tuple(r["unmatched_declared"]))
+                 for r in rs if r["base"] == "string" and r.get("unmatched_declared") is not None}
+        return len(known), sum(1 for k in known if k[2])
+    n, m = combos(rows)
+    nf, mf = combos([r for r in rows if not is_fixture_path(r["path"])])
+    flagged = {(r["label"], tuple(r["declared_values"]), tuple(r["unmatched_declared"]))
+               for r in rows if r["base"] == "string" and r.get("unmatched_declared")
+               and is_fixture_path(r["path"])}
+    return {"combinations_known": n, "combinations_unmatched": m,
+            "combinations_unmatched_pct": _pct(m, n),
+            "combinations_with_fixture_path": len(flagged),
+            "combinations_known_nonfixture": nf, "combinations_unmatched_nonfixture": mf,
+            "combinations_unmatched_nonfixture_pct": _pct(mf, nf)}
 
 
 def run(sources, out_dir):
@@ -578,6 +689,7 @@ def run(sources, out_dir):
                                  "kinds": dict(Counter(f["kind"] for f in fr))}
     os.makedirs(out_dir, exist_ok=True)
     res = {"summary": summary, "summary_unique_tables": summary_unique,
+           "unmatched_combinations": unmatched_combinations(rows),
            "duplicates_dropped_by_kind": dict(dups),
            "per_source": per_source, "files": files, "tables": tables, "inputs": rows}
     with open(os.path.join(out_dir, "results.json"), "w", encoding="utf-8") as fh:
@@ -671,6 +783,107 @@ def notable(res, limit=25):
     return out[:limit], len(fps), len(seen)
 
 
+def _by_both(res, header, cells):
+    """Rows per kind, first counted by distinct files, then by distinct table contents."""
+    lines = ["| count by | kind | " + " | ".join(header) + " |", "|---|---|" + "---|" * len(header)]
+    for label, summ in (("files", res["summary"]), ("contents", res["summary_unique_tables"])):
+        for g, v in summ.items():
+            lines.append(f"| {label} | {KIND_LABEL[g]} | " + " | ".join(cells(v)) + " |")
+    return lines
+
+
+def _np(n, d, pct):
+    return f"{n}/{d} ({_f(pct)}%)"
+
+
+def _referee_sections(res):
+    a, au = res["summary"]["all"], res["summary_unique_tables"]["all"]
+    st, stu = a["string"], au["string"]
+    C = res["unmatched_combinations"]
+    L = ["## Exposure: single-hit tables an observed-domain tool cannot complete", "",
+         "A table is *exposed* when its hit policy is single-hit (UNIQUE, ANY, FIRST, PRIORITY; a missing "
+         "hitPolicy is UNIQUE), it has a string input with no declaration (as above) whose entries mention at "
+         "least one string literal, and no catch-all rule covers that column: no rule has `-` (or an empty "
+         "entry) in that column and in every other input. A value no rule mentions then reaches no rule, and "
+         "an observed-domain tool cannot report it. *Variant*: no rule has `-` in that column at all (a subset "
+         "of the exposed tables). Multi-hit tables (COLLECT, RULE ORDER, OUTPUT ORDER) are never exposed: an "
+         "empty result is a legitimate answer for them. Denominator: tables with at least one string input.", ""]
+    L += _by_both(res, ["tables with string inputs", "single-hit", "with a catch-all rule",
+                        "exposed", "variant: no `-` in the column"],
+                  lambda v: [str(v["tables_with_string_inputs"]),
+                             _np(v["string_tables_single_hit"], v["tables_with_string_inputs"],
+                                 v["string_tables_single_hit_pct"]),
+                             str(v["string_tables_with_catch_all"]),
+                             _np(v["exposed_tables"], v["tables_with_string_inputs"], v["exposed_tables_pct"]),
+                             _np(v["exposed_tables_no_dash"], v["tables_with_string_inputs"],
+                                 v["exposed_tables_no_dash_pct"])])
+    L += ["", "### Hit policies of tables with string inputs", ""]
+    pols = ["UNIQUE", "ANY", "FIRST", "PRIORITY", "COLLECT", "RULE ORDER", "OUTPUT ORDER", "other"]
+    L += _by_both(res, ["tables with string inputs"] + pols,
+                  lambda v: [str(v["tables_with_string_inputs"])]
+                  + [str(v["string_tables_hit_policy"].get(p, 0)) for p in pols])
+    L += ["", "*other* = values outside the DMN hit policies (e.g. `LAST`, misspelt values).", "",
+          "### Declarations in single-hit tables", "",
+          "The declared share of string inputs, restricted to single-hit tables (multi-hit tables excluded).", ""]
+    L += _by_both(res, ["single-hit tables with string inputs", "their string inputs", "any declaration",
+                        "usable by Drools", "tables: every string input declared"],
+                  lambda v: [str(v["string_tables_single_hit"]), str(v["single_hit_string_inputs"]),
+                             _np(v["single_hit_string_declared"], v["single_hit_string_inputs"],
+                                 v["single_hit_string_declared_pct"]),
+                             _np(v["single_hit_string_drools"], v["single_hit_string_inputs"],
+                                 v["single_hit_string_drools_pct"]),
+                             _np(v["single_hit_tables_all_declared"], v["string_tables_single_hit"],
+                                 v["single_hit_tables_all_declared_pct"])])
+    L += ["", "## Declared values that no rule mentions", "",
+          f"**{st['with_unused_value']} of {st['declared_enumerable']} string inputs whose declaration is a "
+          f"list of string literals ({_f(st['with_unused_value_pct'])}%) declare a value that no input entry of "
+          f"the column mentions** (distinct files); by distinct table contents {stu['with_unused_value']} of "
+          f"{stu['declared_enumerable']} ({_f(stu['with_unused_value_pct'])}%). These are values an "
+          f"observed-domain tool cannot know. Declared values in total: {st['declared_values_total']}, of which "
+          f"{st['unused_values_total']} are mentioned by no rule (distinct contents: {stu['declared_values_total']}"
+          f" and {stu['unused_values_total']}).", ""]
+    L += _by_both(res, ["declared enumerable string inputs", "with a declared value no rule mentions"],
+                  lambda v: [str(v["string"]["declared_enumerable"]),
+                             _np(v["string"]["with_unused_value"], v["string"]["declared_enumerable"],
+                                 v["string"]["with_unused_value_pct"])])
+    L += ["", "## Copied declarations", "",
+          "Among string inputs whose declaration is a list of string literals, the share whose declared set "
+          "**equals** the set of string literals the column's entries mention (`not(...)` and literals inside "
+          "expressions included): a declaration that adds nothing beyond the rules, as if copied from them. "
+          f"Overall {_np(a['copied_declaration'], a['copied_declaration_of'], a['copied_declaration_pct'])} "
+          f"(distinct files), {_np(au['copied_declaration'], au['copied_declaration_of'], au['copied_declaration_pct'])}"
+          " (distinct contents).", ""]
+    L += _by_both(res, ["declared enumerable string inputs", "declared set = mentioned set"],
+                  lambda v: [str(v["copied_declaration_of"]),
+                             _np(v["copied_declaration"], v["copied_declaration_of"], v["copied_declaration_pct"])])
+    L += ["", "## No entry can match: distinct combinations and fixture-like paths", "",
+          f"Inputs (distinct files): {_np(st['with_unmatched_value'], st['unmatched_known'], st['with_unmatched_value_pct'])}"
+          f"; distinct table contents: {_np(stu['with_unmatched_value'], stu['unmatched_known'], stu['with_unmatched_value_pct'])}. "
+          f"Distinct (input, declaration, unmatched values) combinations, over all string inputs whose unmatched "
+          f"set is known: {_np(C['combinations_unmatched'], C['combinations_known'], C['combinations_unmatched_pct'])}"
+          f". *Fixture-like path*: the file path or name contains `gap`, `missing`, `incomplete`, `dtanalysis`, "
+          f"`notcomplete` or `analysis` (case-insensitive), suggesting a deliberately incomplete test model. "
+          f"{C['combinations_with_fixture_path']} of the {C['combinations_unmatched']} combinations occur in such "
+          f"a file; with those files excluded: "
+          f"{_np(C['combinations_unmatched_nonfixture'], C['combinations_known_nonfixture'], C['combinations_unmatched_nonfixture_pct'])}"
+          " combinations.", ""]
+    L += _by_both(res, ["inputs with a declared value no entry can match (n/known)", "... of them in fixture-like paths",
+                        "fixture-like paths excluded (n/known)"],
+                  lambda v: [_np(v["string"]["with_unmatched_value"], v["string"]["unmatched_known"],
+                                 v["string"]["with_unmatched_value_pct"]),
+                             str(v["unmatched_fixture_path"]),
+                             _np(v["with_unmatched_value_nonfixture"], v["unmatched_known_nonfixture"],
+                                 v["with_unmatched_value_nonfixture_pct"])])
+    L += ["", "## Source repositories per kind", "",
+          "Distinct sources (repositories, plus the two local analyser fixture sets) contributing to each kind. "
+          "A file found in several sources is credited to the one it was kept in. Forks count separately "
+          "(Camunda 7 / Operaton, dmn-js / its verifier fork).", ""]
+    L += _by_both(res, ["sources with files", "with decision tables", "with string inputs"],
+                  lambda v: [str(v["sources_files"]), str(v["sources_tables"]), str(v["sources_string_inputs"])])
+    L += [""]
+    return L
+
+
 def summary_md(res, sources, missing):
     S, U = res["summary"], res["summary_unique_tables"]
     a, au = S["all"], U["all"]
@@ -748,7 +961,8 @@ def summary_md(res, sources, missing):
         L.append(f"| {r['kind']} | {r['source']} | `{r['path']}` | {r['table']} | {r['label']} "
                  f"| {', '.join(r['unmatched_declared'])} | {len(r['declared_values'])} ({r['declared_source']}) "
                  f"| {', '.join(r['outside_declared']) or '-'} |")
-    L += ["", "## Hit policies (distinct files)", "", json.dumps(a["hit_policies"]), "",
+    L += [""] + _referee_sections(res)
+    L += ["## Hit policies (distinct files)", "", json.dumps(a["hit_policies"]), "",
           "## Sources", "", "| source | role | commit | .dmn files in checkout | distinct files kept | tables |",
           "|---|---|---|---|---|---|"]
     for s in sources:
