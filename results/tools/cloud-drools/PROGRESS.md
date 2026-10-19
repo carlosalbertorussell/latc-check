@@ -11,3 +11,4 @@
 2026-10-19 00:00 UTC — 51% — kie10_nursery_V1 still running, 26 min in, JVM RSS 2226 MB — next: result of KIE 10.2.0 Nursery V1; then Drools 7.74.1 Nursery V1 only if it finished; then Nursery V2 on both — ETA cap at 01:34 UTC
 2026-10-19 00:02 UTC — 52% — KIE 10.2.0 Nursery V1 at 28 min: thread dump shows main thread in DTAnalysis.computeContractions (gap analysis findGaps already passed; it runs first); RSS 2.2 GB, 1 core busy — next: keep polling Nursery V1 — ETA cap at 01:34 UTC
 2026-10-19 00:09 UTC — 53% — kie10_nursery_V1 still running, 35 min in, JVM RSS 2226 MB — next: result of KIE 10.2.0 Nursery V1; then Drools 7.74.1 Nursery V1 only if it finished; then Nursery V2 on both — ETA cap at 01:34 UTC
+2026-10-19 00:12 UTC — 54% — RSS sampler moved to a live file outside the repo (copied in at each push); Nursery V1 still running, -1401 min in — next: keep polling Nursery V1 — ETA cap at 01:34 UTC

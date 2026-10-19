@@ -1,9 +1,9 @@
 #!/bin/sh
 # watch_long.sh PID LABEL PCT_START PCT_END NEXT CAP_S: sample the JVM RSS every 60 s into
-# raw/<label>.rss.tsv and push a PROGRESS.md line every ~9 min until PID exits.
+# $LIVE/<label>.rss.tsv (default /home/user/work; progress.sh copies it into raw/) and push a PROGRESS.md line every ~9 min until PID exits.
 PID=$1; LABEL=$2; P0=$3; P1=$4; NEXT=$5; CAP=$6
-HERE=$(cd "$(dirname "$0")" && pwd); OUT=$HERE/raw/$LABEL.rss.tsv; START=$(date +%s); n=0
-mkdir -p "$HERE/raw"; printf 'utc\telapsed_s\tjava_rss_mb\tjava_cpu_pct\n' > "$OUT"
+HERE=$(cd "$(dirname "$0")" && pwd); OUT=${LIVE:-/home/user/work}/$LABEL.rss.tsv; START=${START:-$(date +%s)}; n=0
+[ -f "$OUT" ] || printf 'utc\telapsed_s\tjava_rss_mb\tjava_cpu_pct\n' > "$OUT"
 while kill -0 "$PID" 2>/dev/null; do
   J=$(pgrep -n -x java); E=$(( $(date +%s) - START ))
   if [ -n "$J" ]; then ps -o rss=,pcpu= -p "$J" | awk -v t="$(date -u +%H:%M:%S)" -v e="$E" '{printf "%s\t%d\t%.0f\t%s\n", t, e, $1/1024, $2}' >> "$OUT"; fi

@@ -4,6 +4,7 @@ cd "$(dirname "$0")/../../.." || exit 1
 F=results/tools/cloud-drools/PROGRESS.md
 [ -f "$F" ] || printf '# Cloud Drools/KIE re-run progress\n\n' > "$F"
 echo "$(date -u '+%Y-%m-%d %H:%M UTC') — $1% — $2 — next: $3 — ETA $4" >> "$F"
+cp "${LIVE:-/home/user/work}"/*.rss.tsv results/tools/cloud-drools/raw/ 2>/dev/null
 git add results/tools/cloud-drools
 git commit -q -m "cloud-drools: progress $1%" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01VuRqbbJaACiHsRRWtQTsTc"
