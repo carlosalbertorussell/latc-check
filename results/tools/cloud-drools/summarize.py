@@ -57,11 +57,11 @@ print("| Tool | runs compared | identical | different | no laptop result / not f
 print("|---|---:|---:|---:|---:|")
 for tool in ("d7", "kie10"):
     rs = [r for k, r in runs.items() if k.startswith(tool + "/")]
-    cmp_ = [r["vs_laptop"] for r in rs if r.get("vs_laptop")]
+    cmp_ = [r["vs_laptop"] for r in rs if r.get("vs_laptop") and r["vs_laptop"]["same"] is not None]
     same = sum(1 for c in cmp_ if c["same"])
     print(f"| {'Drools 7.74.1' if tool == 'd7' else 'KIE 10.2.0'} | {len(cmp_)} | {same} | {len(cmp_) - same} "
           f"| {len(rs) - len(cmp_)} |")
-diffs = [(k, r["vs_laptop"]["differences"]) for k, r in runs.items() if r.get("vs_laptop") and not r["vs_laptop"]["same"]]
+diffs = [(k, r["vs_laptop"]["differences"]) for k, r in runs.items() if r.get("vs_laptop") and r["vs_laptop"]["same"] is False]
 if diffs:
     print("\nDifferences:\n")
     for k, d in diffs:

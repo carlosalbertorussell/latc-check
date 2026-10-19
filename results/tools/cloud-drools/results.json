@@ -4429,8 +4429,13 @@
    "wall_s": 2076.21,
    "peak_rss_mb": 1302.7,
    "exit_status": 0,
-   "laptop": null,
-   "vs_laptop": null
+   "laptop": {
+    "outcome": "not finished (killed after about 61 min with a 1.2 GB heap; probe only, recorded in results/drools/domains/SUMMARY.md, not in its results.json)"
+   },
+   "vs_laptop": {
+    "same": null,
+    "note": "laptop run did not finish; nothing to compare"
+   }
   },
   "kie10/nursery_finance_convenient_V2.dmn": {
    "outcome": "gap analysis skipped",
