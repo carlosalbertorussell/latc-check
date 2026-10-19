@@ -164,18 +164,18 @@ Baseline: 12960 states, T0 6480 rows, missing 6480, DMN regions 2751.
 
 *Before* / *after* = missing states without / with the constraint. *COMPLETE exact* = COMPLETE equals the unconstrained complement filtered by the constraint, and the generalised deficit check (`valid_space_deficits`) passes. *DMN native* has no constraint: impossible states come back as gaps and must be filtered outside DMN. *Explicit rules* = the impossible states added to the DMN table as rules with output IMPOSSIBLE.
 
-| case | constraint | states | valid | excluded | T0 rows (outside valid) | missing before | missing after | COMPLETE exact | Reading B exact (outside space) | DMN native gap tuples (impossible) | DMN filtered = COMPLETE | explicit rules: rules / gaps = COMPLETE / overlaps |
+| case | constraint | states | valid | excluded | T0 rows given (dropped as impossible) | missing before | missing after | COMPLETE exact | Reading B exact (outside space) | DMN native gap tuples (impossible) | DMN filtered = COMPLETE | explicit rules: rules / gaps = COMPLETE / overlaps |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | pension | none | 24 | 24 | 0 | 8 (0) | 16 | 16 | yes | yes (0) | 16 (0) | yes | – |
-| pension | exclude the 3 states the experts marked Rv | 24 | 21 | 3 | 8 (1) | 16 | 14 | yes | NO (2) | 16 (2) | yes | 3 / yes / 1 |
+| pension | exclude the 3 states the experts marked Rv | 24 | 21 | 3 | 8 (1) | 17 | 14 | yes | NO (3) | 17 (3) | yes | 3 / yes / 0 |
 | pension | contribution years <= age - 18 (integer bins) | 24 | 24 | 0 | 8 (0) | 16 | 16 | yes | yes (0) | 16 (0) | yes | 0 / yes / 0 |
-| pension | contribution years <= age - 18 (integer bins) | 32 | 28 | 4 | 9 (1) | 23 | 20 | yes | NO (3) | 23 (3) | yes | 1 / yes / 1 |
+| pension | contribution years <= age - 18 (integer bins) | 32 | 28 | 4 | 9 (1) | 24 | 20 | yes | NO (0) | 24 (4) | yes | 1 / yes / 0 |
 | car | none | 1728 | 1728 | 0 | 864 (0) | 864 | 864 | yes | yes (0) | 864 (0) | yes | – |
-| car | exclude every state with doors=2 and persons=more | 1728 | 1584 | 144 | 864 (70) | 864 | 790 | yes | NO (74) | 864 (74) | yes | 1 / yes / 70 |
-| car | exclude a random 10% of the states (173), seed '20210101:car:constraint' | 1728 | 1555 | 173 | 864 (92) | 864 | 783 | yes | NO (81) | 864 (81) | yes | 173 / yes / 92 |
+| car | exclude every state with doors=2 and persons=more | 1728 | 1584 | 144 | 864 (70) | 934 | 790 | yes | NO (144) | 934 (144) | yes | 1 / yes / 0 |
+| car | exclude a random 10% of the states (173), seed '20210101:car:constraint' | 1728 | 1555 | 173 | 864 (92) | 956 | 783 | yes | NO (173) | 956 (173) | yes | 173 / yes / 0 |
 | nursery | none | 12960 | 12960 | 0 | 6480 (0) | 6480 | 6480 | yes | yes (0) | 6480 (0) | yes | – |
-| nursery | exclude every state with form=foster and children=more | 12960 | 12150 | 810 | 6480 (381) | 6480 | 6051 | yes | NO (429) | 6480 (429) | yes | 1 / yes / 381 |
-| nursery | exclude a random 10% of the states (1296), seed '20210101:nursery:constraint' | 12960 | 11664 | 1296 | 6480 (679) | 6480 | 5863 | yes | NO (617) | 6480 (617) | yes | 1296 / yes / 679 |
+| nursery | exclude every state with form=foster and children=more | 12960 | 12150 | 810 | 6480 (381) | 6861 | 6051 | yes | NO (810) | 6861 (810) | yes | 1 / yes / 0 |
+| nursery | exclude a random 10% of the states (1296), seed '20210101:nursery:constraint' | 12960 | 11664 | 1296 | 6480 (679) | 7159 | 5863 | yes | NO (1296) | 7159 (1296) | yes | 1296 / yes / 0 |
 
 ## D. Policy change
 

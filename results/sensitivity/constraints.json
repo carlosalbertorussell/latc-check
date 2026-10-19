@@ -6,8 +6,9 @@
     "states": 24,
     "valid": 24,
     "excluded": 0,
+    "t0_rows_given": 8,
+    "t0_rows_dropped": 0,
     "t0_rows": 8,
-    "t0_rows_outside_valid": 0,
     "missing_before": 16,
     "missing_after": 16,
     "complete_equals_filtered_unconstrained": true,
@@ -36,21 +37,22 @@
     "states": 24,
     "valid": 21,
     "excluded": 3,
-    "t0_rows": 8,
-    "t0_rows_outside_valid": 1,
-    "missing_before": 16,
+    "t0_rows_given": 8,
+    "t0_rows_dropped": 1,
+    "t0_rows": 7,
+    "missing_before": 17,
     "missing_after": 14,
     "complete_equals_filtered_unconstrained": true,
     "deficit_check_problems": 0,
     "reading_b": {
       "exact": false,
       "missed": 0,
-      "outside_space": 2
+      "outside_space": 3
     },
     "dmn_native": {
-      "gap_regions": 7,
-      "gap_tuples": 16,
-      "impossible_reported_as_gaps": 2,
+      "gap_regions": 8,
+      "gap_tuples": 17,
+      "impossible_reported_as_gaps": 3,
       "filtered_equals_complete": true
     },
     "dmn_explicit_impossible_rules": {
@@ -58,7 +60,7 @@
       "gap_regions": 6,
       "gap_tuples": 14,
       "gaps_equal_complete": true,
-      "overlap_pairs": 1
+      "overlap_pairs": 0
     }
   },
   {
@@ -69,8 +71,9 @@
     "states": 24,
     "valid": 24,
     "excluded": 0,
+    "t0_rows_given": 8,
+    "t0_rows_dropped": 0,
     "t0_rows": 8,
-    "t0_rows_outside_valid": 0,
     "missing_before": 16,
     "missing_after": 16,
     "complete_equals_filtered_unconstrained": true,
@@ -107,21 +110,22 @@
     "states": 32,
     "valid": 28,
     "excluded": 4,
-    "t0_rows": 9,
-    "t0_rows_outside_valid": 1,
-    "missing_before": 23,
+    "t0_rows_given": 9,
+    "t0_rows_dropped": 1,
+    "t0_rows": 8,
+    "missing_before": 24,
     "missing_after": 20,
     "complete_equals_filtered_unconstrained": true,
     "deficit_check_problems": 0,
     "reading_b": {
       "exact": false,
-      "missed": 0,
-      "outside_space": 3
+      "missed": 4,
+      "outside_space": 0
     },
     "dmn_native": {
-      "gap_regions": 7,
-      "gap_tuples": 23,
-      "impossible_reported_as_gaps": 3,
+      "gap_regions": 8,
+      "gap_tuples": 24,
+      "impossible_reported_as_gaps": 4,
       "filtered_equals_complete": true
     },
     "dmn_explicit_impossible_rules": {
@@ -129,7 +133,7 @@
       "gap_regions": 8,
       "gap_tuples": 20,
       "gaps_equal_complete": true,
-      "overlap_pairs": 1
+      "overlap_pairs": 0
     }
   },
   {
@@ -138,8 +142,9 @@
     "states": 1728,
     "valid": 1728,
     "excluded": 0,
+    "t0_rows_given": 864,
+    "t0_rows_dropped": 0,
     "t0_rows": 864,
-    "t0_rows_outside_valid": 0,
     "missing_before": 864,
     "missing_after": 864,
     "complete_equals_filtered_unconstrained": true,
@@ -162,21 +167,22 @@
     "states": 1728,
     "valid": 1584,
     "excluded": 144,
-    "t0_rows": 864,
-    "t0_rows_outside_valid": 70,
-    "missing_before": 864,
+    "t0_rows_given": 864,
+    "t0_rows_dropped": 70,
+    "t0_rows": 794,
+    "missing_before": 934,
     "missing_after": 790,
     "complete_equals_filtered_unconstrained": true,
     "deficit_check_problems": 0,
     "reading_b": {
       "exact": false,
       "missed": 0,
-      "outside_space": 74
+      "outside_space": 144
     },
     "dmn_native": {
-      "gap_regions": 391,
-      "gap_tuples": 864,
-      "impossible_reported_as_gaps": 74,
+      "gap_regions": 357,
+      "gap_tuples": 934,
+      "impossible_reported_as_gaps": 144,
       "filtered_equals_complete": true
     },
     "dmn_explicit_impossible_rules": {
@@ -184,7 +190,7 @@
       "gap_regions": 356,
       "gap_tuples": 790,
       "gaps_equal_complete": true,
-      "overlap_pairs": 70
+      "overlap_pairs": 0
     }
   },
   {
@@ -193,21 +199,22 @@
     "states": 1728,
     "valid": 1555,
     "excluded": 173,
-    "t0_rows": 864,
-    "t0_rows_outside_valid": 92,
-    "missing_before": 864,
+    "t0_rows_given": 864,
+    "t0_rows_dropped": 92,
+    "t0_rows": 772,
+    "missing_before": 956,
     "missing_after": 783,
     "complete_equals_filtered_unconstrained": true,
     "deficit_check_problems": 0,
     "reading_b": {
       "exact": false,
       "missed": 0,
-      "outside_space": 81
+      "outside_space": 173
     },
     "dmn_native": {
-      "gap_regions": 391,
-      "gap_tuples": 864,
-      "impossible_reported_as_gaps": 81,
+      "gap_regions": 410,
+      "gap_tuples": 956,
+      "impossible_reported_as_gaps": 173,
       "filtered_equals_complete": true
     },
     "dmn_explicit_impossible_rules": {
@@ -215,7 +222,7 @@
       "gap_regions": 374,
       "gap_tuples": 783,
       "gaps_equal_complete": true,
-      "overlap_pairs": 92
+      "overlap_pairs": 0
     }
   },
   {
@@ -224,8 +231,9 @@
     "states": 12960,
     "valid": 12960,
     "excluded": 0,
+    "t0_rows_given": 6480,
+    "t0_rows_dropped": 0,
     "t0_rows": 6480,
-    "t0_rows_outside_valid": 0,
     "missing_before": 6480,
     "missing_after": 6480,
     "complete_equals_filtered_unconstrained": true,
@@ -248,21 +256,22 @@
     "states": 12960,
     "valid": 12150,
     "excluded": 810,
-    "t0_rows": 6480,
-    "t0_rows_outside_valid": 381,
-    "missing_before": 6480,
+    "t0_rows_given": 6480,
+    "t0_rows_dropped": 381,
+    "t0_rows": 6099,
+    "missing_before": 6861,
     "missing_after": 6051,
     "complete_equals_filtered_unconstrained": true,
     "deficit_check_problems": 0,
     "reading_b": {
       "exact": false,
       "missed": 0,
-      "outside_space": 429
+      "outside_space": 810
     },
     "dmn_native": {
-      "gap_regions": 2751,
-      "gap_tuples": 6480,
-      "impossible_reported_as_gaps": 429,
+      "gap_regions": 2579,
+      "gap_tuples": 6861,
+      "impossible_reported_as_gaps": 810,
       "filtered_equals_complete": true
     },
     "dmn_explicit_impossible_rules": {
@@ -270,7 +279,7 @@
       "gap_regions": 2578,
       "gap_tuples": 6051,
       "gaps_equal_complete": true,
-      "overlap_pairs": 381
+      "overlap_pairs": 0
     }
   },
   {
@@ -279,21 +288,22 @@
     "states": 12960,
     "valid": 11664,
     "excluded": 1296,
-    "t0_rows": 6480,
-    "t0_rows_outside_valid": 679,
-    "missing_before": 6480,
+    "t0_rows_given": 6480,
+    "t0_rows_dropped": 679,
+    "t0_rows": 5801,
+    "missing_before": 7159,
     "missing_after": 5863,
     "complete_equals_filtered_unconstrained": true,
     "deficit_check_problems": 0,
     "reading_b": {
       "exact": false,
       "missed": 0,
-      "outside_space": 617
+      "outside_space": 1296
     },
     "dmn_native": {
-      "gap_regions": 2751,
-      "gap_tuples": 6480,
-      "impossible_reported_as_gaps": 617,
+      "gap_regions": 2880,
+      "gap_tuples": 7159,
+      "impossible_reported_as_gaps": 1296,
       "filtered_equals_complete": true
     },
     "dmn_explicit_impossible_rules": {
@@ -301,7 +311,7 @@
       "gap_regions": 2651,
       "gap_tuples": 5863,
       "gaps_equal_complete": true,
-      "overlap_pairs": 679
+      "overlap_pairs": 0
     }
   }
 ]

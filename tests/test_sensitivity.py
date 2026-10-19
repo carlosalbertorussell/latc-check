@@ -79,9 +79,12 @@ class Constraints(unittest.TestCase):
     def test_pension(self):
         cases = s.pension_constraints()
         rv = cases[1]
-        self.assertEqual((rv["valid"], rv["missing_before"], rv["missing_after"]), (21, 16, 14))
-        self.assertEqual(rv["t0_rows_outside_valid"], 1)
-        self.assertEqual(rv["dmn_native"]["impossible_reported_as_gaps"], 2)
+        self.assertEqual((rv["valid"], rv["missing_before"], rv["missing_after"]), (21, 17, 14))
+        self.assertEqual(rv["t0_rows_dropped"], 1)       # T0 row 6 lies in an excluded Rv state
+        for c in cases:
+            self.assertTrue(c.get("dmn_explicit_impossible_rules") is None
+                            or c["dmn_explicit_impossible_rules"]["overlap_pairs"] == 0)
+        self.assertEqual(rv["dmn_native"]["impossible_reported_as_gaps"], 3)
         for c in cases:
             self.assertTrue(c["complete_equals_filtered_unconstrained"])
             self.assertEqual(c["deficit_check_problems"], 0)

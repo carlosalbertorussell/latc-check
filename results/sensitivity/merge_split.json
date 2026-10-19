@@ -6,12 +6,12 @@
       "states": 1728,
       "t0_rows": 864,
       "missing": 864,
-      "complete_ms": 0.44440000783652067,
+      "complete_ms": 0.5558999255299568,
       "dmn_gap_regions": 391,
       "dmn_gap_tuples": 864,
       "dmn_partial_bins": 0,
       "dmn_gaps_equal_complete": true,
-      "dmn_ms": 16.784399980679154
+      "dmn_ms": 15.654399991035461
     },
     "merges": [
       {
@@ -68,12 +68,12 @@
           "states": 1296,
           "t0_rows": 525,
           "missing": 771,
-          "complete_ms": 0.256099971011281,
+          "complete_ms": 0.2772000152617693,
           "dmn_gap_regions": 290,
           "dmn_gap_tuples": 771,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 9.68799996189773
+          "dmn_ms": 11.272399919107556
         },
         "review_breakdown": {
           "partial": 225,
@@ -135,12 +135,12 @@
           "states": 1296,
           "t0_rows": 508,
           "missing": 788,
-          "complete_ms": 0.42970001231878996,
+          "complete_ms": 0.42639998719096184,
           "dmn_gap_regions": 294,
           "dmn_gap_tuples": 788,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 12.174499919638038
+          "dmn_ms": 10.088399983942509
         },
         "review_breakdown": {
           "partial": 215,
@@ -202,12 +202,12 @@
           "states": 1296,
           "t0_rows": 527,
           "missing": 769,
-          "complete_ms": 0.4461000207811594,
+          "complete_ms": 0.41040009818971157,
           "dmn_gap_regions": 307,
           "dmn_gap_tuples": 769,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 9.180600056424737
+          "dmn_ms": 10.179099859669805
         },
         "review_breakdown": {
           "partial": 205,
@@ -269,12 +269,12 @@
           "states": 1296,
           "t0_rows": 523,
           "missing": 773,
-          "complete_ms": 0.4520000657066703,
+          "complete_ms": 0.46580005437135696,
           "dmn_gap_regions": 295,
           "dmn_gap_tuples": 773,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 11.588699999265373
+          "dmn_ms": 9.648500010371208
         },
         "review_breakdown": {
           "partial": 221,
@@ -336,12 +336,12 @@
           "states": 1296,
           "t0_rows": 507,
           "missing": 789,
-          "complete_ms": 0.44980004895478487,
+          "complete_ms": 0.645000021904707,
           "dmn_gap_regions": 287,
           "dmn_gap_tuples": 789,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 11.200900073163211
+          "dmn_ms": 9.922700002789497
         },
         "review_breakdown": {
           "partial": 221,
@@ -403,12 +403,12 @@
           "states": 1296,
           "t0_rows": 541,
           "missing": 755,
-          "complete_ms": 0.430900021456182,
+          "complete_ms": 0.42399996891617775,
           "dmn_gap_regions": 301,
           "dmn_gap_tuples": 755,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 10.553100029937923
+          "dmn_ms": 10.722300037741661
         },
         "review_breakdown": {
           "partial": 209,
@@ -470,12 +470,12 @@
           "states": 1296,
           "t0_rows": 540,
           "missing": 756,
-          "complete_ms": 0.471399980597198,
+          "complete_ms": 0.4496998153626919,
           "dmn_gap_regions": 291,
           "dmn_gap_tuples": 756,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 10.222599958069623
+          "dmn_ms": 9.487899951636791
         },
         "review_breakdown": {
           "partial": 213,
@@ -537,12 +537,12 @@
           "states": 1296,
           "t0_rows": 541,
           "missing": 755,
-          "complete_ms": 0.4206000594422221,
+          "complete_ms": 0.6925000343471766,
           "dmn_gap_regions": 307,
           "dmn_gap_tuples": 755,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 10.243199998512864
+          "dmn_ms": 16.596800182014704
         },
         "review_breakdown": {
           "partial": 202,
@@ -604,12 +604,12 @@
           "states": 1296,
           "t0_rows": 532,
           "missing": 764,
-          "complete_ms": 0.430600019171834,
+          "complete_ms": 0.7972999010235071,
           "dmn_gap_regions": 299,
           "dmn_gap_tuples": 764,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 10.724400053732097
+          "dmn_ms": 12.964800000190735
         },
         "review_breakdown": {
           "partial": 219,
@@ -671,12 +671,12 @@
           "states": 1152,
           "t0_rows": 362,
           "missing": 790,
-          "complete_ms": 0.3331999760121107,
+          "complete_ms": 0.3541000187397003,
           "dmn_gap_regions": 228,
           "dmn_gap_tuples": 790,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 7.561199949122965
+          "dmn_ms": 12.614100007340312
         },
         "review_breakdown": {
           "partial": 293,
@@ -738,12 +738,12 @@
           "states": 1152,
           "t0_rows": 431,
           "missing": 721,
-          "complete_ms": 0.2609000075608492,
+          "complete_ms": 0.2590999938547611,
           "dmn_gap_regions": 278,
           "dmn_gap_tuples": 721,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 9.063499979674816
+          "dmn_ms": 16.53790008276701
         },
         "review_breakdown": {
           "partial": 268,
@@ -805,12 +805,12 @@
           "states": 1152,
           "t0_rows": 409,
           "missing": 743,
-          "complete_ms": 0.2536999527364969,
+          "complete_ms": 0.23909984156489372,
           "dmn_gap_regions": 263,
           "dmn_gap_tuples": 743,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 10.356300044804811
+          "dmn_ms": 11.514199897646904
         },
         "review_breakdown": {
           "partial": 292,
@@ -872,12 +872,12 @@
           "states": 1152,
           "t0_rows": 413,
           "missing": 739,
-          "complete_ms": 0.26540004182606936,
+          "complete_ms": 0.46570017002522945,
           "dmn_gap_regions": 268,
           "dmn_gap_tuples": 739,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 7.55630002822727
+          "dmn_ms": 13.425300130620599
         },
         "review_breakdown": {
           "partial": 308,
@@ -939,12 +939,12 @@
           "states": 1152,
           "t0_rows": 385,
           "missing": 767,
-          "complete_ms": 0.23280002642422915,
+          "complete_ms": 0.4259999841451645,
           "dmn_gap_regions": 277,
           "dmn_gap_tuples": 767,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 9.549799957312644
+          "dmn_ms": 14.857899863272905
         },
         "review_breakdown": {
           "partial": 285,
@@ -1006,12 +1006,12 @@
           "states": 1152,
           "t0_rows": 379,
           "missing": 773,
-          "complete_ms": 0.24209998082369566,
+          "complete_ms": 0.2367000561207533,
           "dmn_gap_regions": 284,
           "dmn_gap_tuples": 773,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 10.502499993890524
+          "dmn_ms": 12.430100003257394
         },
         "review_breakdown": {
           "partial": 293,
@@ -1072,12 +1072,12 @@
           "states": 2160,
           "t0_rows": 1071,
           "missing": 1089,
-          "complete_ms": 0.8967999601736665,
+          "complete_ms": 1.0141001548618078,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1089,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 17.50690001063049
+          "dmn_ms": 16.24610018916428
         },
         "review_breakdown": {
           "partial": 0,
@@ -1136,12 +1136,12 @@
           "states": 2160,
           "t0_rows": 1082,
           "missing": 1078,
-          "complete_ms": 0.47200010158121586,
+          "complete_ms": 0.7736999541521072,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1078,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 17.597900005057454
+          "dmn_ms": 15.113400062546134
         },
         "review_breakdown": {
           "partial": 0,
@@ -1200,12 +1200,12 @@
           "states": 2160,
           "t0_rows": 1081,
           "missing": 1079,
-          "complete_ms": 0.7317999843508005,
+          "complete_ms": 0.5536999087780714,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1079,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.021199968643486
+          "dmn_ms": 18.23569997213781
         },
         "review_breakdown": {
           "partial": 0,
@@ -1264,12 +1264,12 @@
           "states": 2160,
           "t0_rows": 1086,
           "missing": 1074,
-          "complete_ms": 0.443900004029274,
+          "complete_ms": 0.4735998809337616,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1074,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 20.39900003001094
+          "dmn_ms": 17.88459997624159
         },
         "review_breakdown": {
           "partial": 0,
@@ -1328,12 +1328,12 @@
           "states": 2160,
           "t0_rows": 1085,
           "missing": 1075,
-          "complete_ms": 0.5271000554785132,
+          "complete_ms": 0.5431999452412128,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1075,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 17.119099968113005
+          "dmn_ms": 17.21620000898838
         },
         "review_breakdown": {
           "partial": 0,
@@ -1392,12 +1392,12 @@
           "states": 2160,
           "t0_rows": 1078,
           "missing": 1082,
-          "complete_ms": 1.5529000665992498,
+          "complete_ms": 0.6127001252025366,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1082,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 16.7424000101164
+          "dmn_ms": 17.424799967557192
         },
         "review_breakdown": {
           "partial": 0,
@@ -1456,12 +1456,12 @@
           "states": 2160,
           "t0_rows": 1085,
           "missing": 1075,
-          "complete_ms": 0.5539000267162919,
+          "complete_ms": 0.59710000641644,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1075,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.510499969124794
+          "dmn_ms": 17.771000042557716
         },
         "review_breakdown": {
           "partial": 0,
@@ -1520,12 +1520,12 @@
           "states": 2160,
           "t0_rows": 1072,
           "missing": 1088,
-          "complete_ms": 0.4696999676525593,
+          "complete_ms": 0.44199987314641476,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1088,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 17.111599911004305
+          "dmn_ms": 17.764899879693985
         },
         "review_breakdown": {
           "partial": 0,
@@ -1584,12 +1584,12 @@
           "states": 2160,
           "t0_rows": 1068,
           "missing": 1092,
-          "complete_ms": 0.4275999963283539,
+          "complete_ms": 0.906399916857481,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1092,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 17.97639997676015
+          "dmn_ms": 25.521599920466542
         },
         "review_breakdown": {
           "partial": 0,
@@ -1648,12 +1648,12 @@
           "states": 2160,
           "t0_rows": 1079,
           "missing": 1081,
-          "complete_ms": 0.564300105907023,
+          "complete_ms": 1.004599966108799,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1081,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.281099968589842
+          "dmn_ms": 36.51969996280968
         },
         "review_breakdown": {
           "partial": 0,
@@ -1712,12 +1712,12 @@
           "states": 2160,
           "t0_rows": 1085,
           "missing": 1075,
-          "complete_ms": 0.475799897685647,
+          "complete_ms": 0.56050019338727,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1075,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.470000009983778
+          "dmn_ms": 37.70660003647208
         },
         "review_breakdown": {
           "partial": 0,
@@ -1776,12 +1776,12 @@
           "states": 2160,
           "t0_rows": 1088,
           "missing": 1072,
-          "complete_ms": 0.42619998566806316,
+          "complete_ms": 0.8765000384300947,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1072,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 20.467500085942447
+          "dmn_ms": 35.38609994575381
         },
         "review_breakdown": {
           "partial": 0,
@@ -1840,12 +1840,12 @@
           "states": 2304,
           "t0_rows": 1140,
           "missing": 1164,
-          "complete_ms": 0.5283999489620328,
+          "complete_ms": 0.5725000519305468,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1164,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 29.76840001065284
+          "dmn_ms": 34.09059997648001
         },
         "review_breakdown": {
           "partial": 0,
@@ -1904,12 +1904,12 @@
           "states": 2304,
           "t0_rows": 1157,
           "missing": 1147,
-          "complete_ms": 0.5071000196039677,
+          "complete_ms": 0.5224000196903944,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1147,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 19.60340002551675
+          "dmn_ms": 31.608899822458625
         },
         "review_breakdown": {
           "partial": 0,
@@ -1968,12 +1968,12 @@
           "states": 2304,
           "t0_rows": 1159,
           "missing": 1145,
-          "complete_ms": 0.5246000364422798,
+          "complete_ms": 0.8046000730246305,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1145,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 19.442099961452186
+          "dmn_ms": 22.078200010582805
         },
         "review_breakdown": {
           "partial": 0,
@@ -2032,12 +2032,12 @@
           "states": 2304,
           "t0_rows": 1156,
           "missing": 1148,
-          "complete_ms": 0.5801999941468239,
+          "complete_ms": 0.6025999318808317,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1148,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 19.611400086432695
+          "dmn_ms": 21.336300065740943
         },
         "review_breakdown": {
           "partial": 0,
@@ -2096,12 +2096,12 @@
           "states": 2304,
           "t0_rows": 1140,
           "missing": 1164,
-          "complete_ms": 0.5528000183403492,
+          "complete_ms": 0.8177999407052994,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1164,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 17.562200082466006
+          "dmn_ms": 24.609100073575974
         },
         "review_breakdown": {
           "partial": 0,
@@ -2160,12 +2160,12 @@
           "states": 2304,
           "t0_rows": 1160,
           "missing": 1144,
-          "complete_ms": 0.5566999316215515,
+          "complete_ms": 1.5203999355435371,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1144,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.158100079745054
+          "dmn_ms": 41.11579991877079
         },
         "review_breakdown": {
           "partial": 0,
@@ -2224,12 +2224,12 @@
           "states": 2304,
           "t0_rows": 1143,
           "missing": 1161,
-          "complete_ms": 0.5532000213861465,
+          "complete_ms": 1.0151001624763012,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1161,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.517800024710596
+          "dmn_ms": 18.760999897494912
         },
         "review_breakdown": {
           "partial": 0,
@@ -2288,12 +2288,12 @@
           "states": 2304,
           "t0_rows": 1152,
           "missing": 1152,
-          "complete_ms": 1.0619999375194311,
+          "complete_ms": 1.1289999820291996,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1152,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 18.70550005696714
+          "dmn_ms": 17.99300010316074
         },
         "review_breakdown": {
           "partial": 0,
@@ -2352,12 +2352,12 @@
           "states": 2304,
           "t0_rows": 1161,
           "missing": 1143,
-          "complete_ms": 0.5686000222340226,
+          "complete_ms": 0.5316999740898609,
           "dmn_gap_regions": 391,
           "dmn_gap_tuples": 1143,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 20.67310002166778
+          "dmn_ms": 18.41909997165203
         },
         "review_breakdown": {
           "partial": 0,
@@ -2374,12 +2374,12 @@
       "states": 12960,
       "t0_rows": 6480,
       "missing": 6480,
-      "complete_ms": 6.3229999504983425,
+      "complete_ms": 5.167500115931034,
       "dmn_gap_regions": 2751,
       "dmn_gap_tuples": 6480,
       "dmn_partial_bins": 0,
       "dmn_gaps_equal_complete": true,
-      "dmn_ms": 266.63760002702475
+      "dmn_ms": 221.3055999018252
     },
     "merges": [
       {
@@ -2436,12 +2436,12 @@
           "states": 8640,
           "t0_rows": 3066,
           "missing": 5574,
-          "complete_ms": 3.899000003002584,
+          "complete_ms": 3.7773000076413155,
           "dmn_gap_regions": 1851,
           "dmn_gap_tuples": 5574,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 172.7997000562027
+          "dmn_ms": 128.41470004059374
         },
         "review_breakdown": {
           "partial": 2189,
@@ -2503,12 +2503,12 @@
           "states": 8640,
           "t0_rows": 3032,
           "missing": 5608,
-          "complete_ms": 3.3672000281512737,
+          "complete_ms": 2.890199888497591,
           "dmn_gap_regions": 1839,
           "dmn_gap_tuples": 5608,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 145.89079993311316
+          "dmn_ms": 125.70929992944002
         },
         "review_breakdown": {
           "partial": 2158,
@@ -2570,12 +2570,12 @@
           "states": 10368,
           "t0_rows": 4509,
           "missing": 5859,
-          "complete_ms": 4.335399949923158,
+          "complete_ms": 3.329999977722764,
           "dmn_gap_regions": 2285,
           "dmn_gap_tuples": 5859,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 190.60309999622405
+          "dmn_ms": 214.1704000532627
         },
         "review_breakdown": {
           "partial": 1308,
@@ -2637,12 +2637,12 @@
           "states": 10368,
           "t0_rows": 4387,
           "missing": 5981,
-          "complete_ms": 3.318500006571412,
+          "complete_ms": 3.2321999315172434,
           "dmn_gap_regions": 2190,
           "dmn_gap_tuples": 5981,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 169.1813999786973
+          "dmn_ms": 153.46179995685816
         },
         "review_breakdown": {
           "partial": 1300,
@@ -2704,12 +2704,12 @@
           "states": 10368,
           "t0_rows": 4382,
           "missing": 5986,
-          "complete_ms": 3.4742000279948115,
+          "complete_ms": 4.8548998311161995,
           "dmn_gap_regions": 2172,
           "dmn_gap_tuples": 5986,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 149.70770000945777
+          "dmn_ms": 179.58520003594458
         },
         "review_breakdown": {
           "partial": 1309,
@@ -2771,12 +2771,12 @@
           "states": 10368,
           "t0_rows": 4485,
           "missing": 5883,
-          "complete_ms": 4.352100077085197,
+          "complete_ms": 3.6473998334258795,
           "dmn_gap_regions": 2184,
           "dmn_gap_tuples": 5883,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 194.12919995374978
+          "dmn_ms": 209.04280012473464
         },
         "review_breakdown": {
           "partial": 1302,
@@ -2838,12 +2838,12 @@
           "states": 9720,
           "t0_rows": 4039,
           "missing": 5681,
-          "complete_ms": 5.699199973605573,
+          "complete_ms": 4.431799985468388,
           "dmn_gap_regions": 2103,
           "dmn_gap_tuples": 5681,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 205.5813999613747
+          "dmn_ms": 168.14960003830492
         },
         "review_breakdown": {
           "partial": 1628,
@@ -2905,12 +2905,12 @@
           "states": 9720,
           "t0_rows": 4028,
           "missing": 5692,
-          "complete_ms": 3.535900032147765,
+          "complete_ms": 3.8042000960558653,
           "dmn_gap_regions": 2117,
           "dmn_gap_tuples": 5692,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 180.8374000247568
+          "dmn_ms": 139.78530000895262
         },
         "review_breakdown": {
           "partial": 1584,
@@ -2972,12 +2972,12 @@
           "states": 9720,
           "t0_rows": 4019,
           "missing": 5701,
-          "complete_ms": 4.19000000692904,
+          "complete_ms": 2.7956999838352203,
           "dmn_gap_regions": 2116,
           "dmn_gap_tuples": 5701,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 204.28519998677075
+          "dmn_ms": 136.15080015733838
         },
         "review_breakdown": {
           "partial": 1576,
@@ -3039,12 +3039,12 @@
           "states": 9720,
           "t0_rows": 3989,
           "missing": 5731,
-          "complete_ms": 2.9647001065313816,
+          "complete_ms": 3.863200079649687,
           "dmn_gap_regions": 2099,
           "dmn_gap_tuples": 5731,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 132.6260999776423
+          "dmn_ms": 138.09000002220273
         },
         "review_breakdown": {
           "partial": 1617,
@@ -3106,12 +3106,12 @@
           "states": 9720,
           "t0_rows": 3981,
           "missing": 5739,
-          "complete_ms": 2.794400090351701,
+          "complete_ms": 2.658999990671873,
           "dmn_gap_regions": 2085,
           "dmn_gap_tuples": 5739,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 180.07729994133115
+          "dmn_ms": 147.55509980022907
         },
         "review_breakdown": {
           "partial": 1603,
@@ -3173,12 +3173,12 @@
           "states": 9720,
           "t0_rows": 4065,
           "missing": 5655,
-          "complete_ms": 3.1633999897167087,
+          "complete_ms": 2.8741999994963408,
           "dmn_gap_regions": 2119,
           "dmn_gap_tuples": 5655,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 129.3876999989152
+          "dmn_ms": 145.20250004716218
         },
         "review_breakdown": {
           "partial": 1611,
@@ -3240,12 +3240,12 @@
           "states": 8640,
           "t0_rows": 3111,
           "missing": 5529,
-          "complete_ms": 2.4109999649226665,
+          "complete_ms": 2.8074001893401146,
           "dmn_gap_regions": 1880,
           "dmn_gap_tuples": 5529,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 117.03339999075979
+          "dmn_ms": 135.57930011302233
         },
         "review_breakdown": {
           "partial": 2189,
@@ -3307,12 +3307,12 @@
           "states": 8640,
           "t0_rows": 3141,
           "missing": 5499,
-          "complete_ms": 2.556400024332106,
+          "complete_ms": 2.9678998980671167,
           "dmn_gap_regions": 1908,
           "dmn_gap_tuples": 5499,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 134.92159999441355
+          "dmn_ms": 141.22140011750162
         },
         "review_breakdown": {
           "partial": 2159,
@@ -3374,12 +3374,12 @@
           "states": 6480,
           "t0_rows": 1534,
           "missing": 4946,
-          "complete_ms": 1.596700050868094,
+          "complete_ms": 3.465499961748719,
           "dmn_gap_regions": 1457,
           "dmn_gap_tuples": 4946,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 75.61409997288138
+          "dmn_ms": 82.92039996013045
         },
         "review_breakdown": {
           "partial": 3160,
@@ -3441,12 +3441,12 @@
           "states": 8640,
           "t0_rows": 3261,
           "missing": 5379,
-          "complete_ms": 4.292699974030256,
+          "complete_ms": 5.329200066626072,
           "dmn_gap_regions": 1951,
           "dmn_gap_tuples": 5379,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 130.3577000508085
+          "dmn_ms": 140.99569991230965
         },
         "review_breakdown": {
           "partial": 2086,
@@ -3508,12 +3508,12 @@
           "states": 8640,
           "t0_rows": 3103,
           "missing": 5537,
-          "complete_ms": 2.6225000619888306,
+          "complete_ms": 2.763899974524975,
           "dmn_gap_regions": 1902,
           "dmn_gap_tuples": 5537,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 121.65039998944849
+          "dmn_ms": 129.17819991707802
         },
         "review_breakdown": {
           "partial": 2143,
@@ -3575,12 +3575,12 @@
           "states": 8640,
           "t0_rows": 2906,
           "missing": 5734,
-          "complete_ms": 2.5378999998793006,
+          "complete_ms": 4.25520003773272,
           "dmn_gap_regions": 1963,
           "dmn_gap_tuples": 5734,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 115.39649998303503
+          "dmn_ms": 165.60399997979403
         },
         "review_breakdown": {
           "partial": 2147,
@@ -3642,12 +3642,12 @@
           "states": 8640,
           "t0_rows": 2147,
           "missing": 6493,
-          "complete_ms": 2.3086000001057982,
+          "complete_ms": 2.4208000395447016,
           "dmn_gap_regions": 1865,
           "dmn_gap_tuples": 6493,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 120.06610003300011
+          "dmn_ms": 133.05939990095794
         },
         "review_breakdown": {
           "partial": 2225,
@@ -3708,12 +3708,12 @@
           "states": 17280,
           "t0_rows": 8654,
           "missing": 8626,
-          "complete_ms": 6.339399958960712,
+          "complete_ms": 14.638599939644337,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8626,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 302.33899992890656
+          "dmn_ms": 344.34919990599155
         },
         "review_breakdown": {
           "partial": 0,
@@ -3772,12 +3772,12 @@
           "states": 17280,
           "t0_rows": 8665,
           "missing": 8615,
-          "complete_ms": 8.475199923850596,
+          "complete_ms": 6.616299971938133,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8615,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 300.1054000342265
+          "dmn_ms": 270.5831998027861
         },
         "review_breakdown": {
           "partial": 0,
@@ -3836,12 +3836,12 @@
           "states": 17280,
           "t0_rows": 8601,
           "missing": 8679,
-          "complete_ms": 5.558999953791499,
+          "complete_ms": 5.952199921011925,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8679,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 292.47829993255436
+          "dmn_ms": 320.803799899295
         },
         "review_breakdown": {
           "partial": 0,
@@ -3900,12 +3900,12 @@
           "states": 15552,
           "t0_rows": 7780,
           "missing": 7772,
-          "complete_ms": 7.136699976399541,
+          "complete_ms": 7.311600027605891,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 7772,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 317.02019996009767
+          "dmn_ms": 272.7603998500854
         },
         "review_breakdown": {
           "partial": 0,
@@ -3964,12 +3964,12 @@
           "states": 15552,
           "t0_rows": 7812,
           "missing": 7740,
-          "complete_ms": 12.610599980689585,
+          "complete_ms": 5.316199967637658,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 7740,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 548.018499976024
+          "dmn_ms": 262.9772999789566
         },
         "review_breakdown": {
           "partial": 0,
@@ -4028,12 +4028,12 @@
           "states": 15552,
           "t0_rows": 7766,
           "missing": 7786,
-          "complete_ms": 13.240500004030764,
+          "complete_ms": 20.941799972206354,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 7786,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 662.2086999705061
+          "dmn_ms": 296.7150998301804
         },
         "review_breakdown": {
           "partial": 0,
@@ -4092,12 +4092,12 @@
           "states": 15552,
           "t0_rows": 7793,
           "missing": 7759,
-          "complete_ms": 11.01719995494932,
+          "complete_ms": 6.811199942603707,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 7759,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 335.5138999177143
+          "dmn_ms": 295.60260009020567
         },
         "review_breakdown": {
           "partial": 0,
@@ -4156,12 +4156,12 @@
           "states": 15552,
           "t0_rows": 7729,
           "missing": 7823,
-          "complete_ms": 7.77839997317642,
+          "complete_ms": 6.367299938574433,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 7823,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 382.1491999551654
+          "dmn_ms": 318.66400013677776
         },
         "review_breakdown": {
           "partial": 0,
@@ -4220,12 +4220,12 @@
           "states": 16200,
           "t0_rows": 8066,
           "missing": 8134,
-          "complete_ms": 6.220800103619695,
+          "complete_ms": 6.111799972131848,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8134,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 273.6249000299722
+          "dmn_ms": 268.6484002042562
         },
         "review_breakdown": {
           "partial": 0,
@@ -4284,12 +4284,12 @@
           "states": 16200,
           "t0_rows": 8104,
           "missing": 8096,
-          "complete_ms": 7.458599982783198,
+          "complete_ms": 7.357199909165502,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8096,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 285.11739999521524
+          "dmn_ms": 276.86119987629354
         },
         "review_breakdown": {
           "partial": 0,
@@ -4348,12 +4348,12 @@
           "states": 16200,
           "t0_rows": 8110,
           "missing": 8090,
-          "complete_ms": 6.297299987636507,
+          "complete_ms": 5.901700118556619,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8090,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 279.63809994980693
+          "dmn_ms": 285.575499990955
         },
         "review_breakdown": {
           "partial": 0,
@@ -4412,12 +4412,12 @@
           "states": 16200,
           "t0_rows": 8120,
           "missing": 8080,
-          "complete_ms": 5.391899961978197,
+          "complete_ms": 4.855500068515539,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8080,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 283.7181000504643
+          "dmn_ms": 215.0739999487996
         },
         "review_breakdown": {
           "partial": 0,
@@ -4476,12 +4476,12 @@
           "states": 16200,
           "t0_rows": 8094,
           "missing": 8106,
-          "complete_ms": 4.862000001594424,
+          "complete_ms": 5.884600104764104,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8106,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 256.3015000196174
+          "dmn_ms": 531.1417998746037
         },
         "review_breakdown": {
           "partial": 0,
@@ -4540,12 +4540,12 @@
           "states": 16200,
           "t0_rows": 8127,
           "missing": 8073,
-          "complete_ms": 7.034900016151369,
+          "complete_ms": 11.622099904343486,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8073,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 331.5617999760434
+          "dmn_ms": 358.6514999624342
         },
         "review_breakdown": {
           "partial": 0,
@@ -4604,12 +4604,12 @@
           "states": 16200,
           "t0_rows": 8112,
           "missing": 8088,
-          "complete_ms": 6.747799925506115,
+          "complete_ms": 9.288199944421649,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8088,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 247.1486000576988
+          "dmn_ms": 346.4355000760406
         },
         "review_breakdown": {
           "partial": 0,
@@ -4668,12 +4668,12 @@
           "states": 16200,
           "t0_rows": 8067,
           "missing": 8133,
-          "complete_ms": 5.32039999961853,
+          "complete_ms": 7.26559991016984,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8133,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 263.92409997060895
+          "dmn_ms": 303.3332999330014
         },
         "review_breakdown": {
           "partial": 0,
@@ -4732,12 +4732,12 @@
           "states": 17280,
           "t0_rows": 8617,
           "missing": 8663,
-          "complete_ms": 5.609199986793101,
+          "complete_ms": 6.697000004351139,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8663,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 286.10899997875094
+          "dmn_ms": 319.2002000287175
         },
         "review_breakdown": {
           "partial": 0,
@@ -4796,12 +4796,12 @@
           "states": 17280,
           "t0_rows": 8666,
           "missing": 8614,
-          "complete_ms": 7.558000041171908,
+          "complete_ms": 8.401799947023392,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8614,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 239.68360002618283
+          "dmn_ms": 306.4822999294847
         },
         "review_breakdown": {
           "partial": 0,
@@ -4860,12 +4860,12 @@
           "states": 17280,
           "t0_rows": 8637,
           "missing": 8643,
-          "complete_ms": 7.657899986952543,
+          "complete_ms": 6.796400062739849,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8643,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 301.79029994178563
+          "dmn_ms": 299.6069001965225
         },
         "review_breakdown": {
           "partial": 0,
@@ -4924,12 +4924,12 @@
           "states": 19440,
           "t0_rows": 9726,
           "missing": 9714,
-          "complete_ms": 7.619500043801963,
+          "complete_ms": 7.281100144609809,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 9714,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 300.95830000936985
+          "dmn_ms": 347.2382000181824
         },
         "review_breakdown": {
           "partial": 0,
@@ -4988,12 +4988,12 @@
           "states": 19440,
           "t0_rows": 9714,
           "missing": 9726,
-          "complete_ms": 6.402099970728159,
+          "complete_ms": 7.076800102367997,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 9726,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 297.508200048469
+          "dmn_ms": 341.4737998973578
         },
         "review_breakdown": {
           "partial": 0,
@@ -5052,12 +5052,12 @@
           "states": 17280,
           "t0_rows": 8653,
           "missing": 8627,
-          "complete_ms": 6.051199976354837,
+          "complete_ms": 5.495500052347779,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8627,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 394.69330001156777
+          "dmn_ms": 370.66729995422065
         },
         "review_breakdown": {
           "partial": 0,
@@ -5116,12 +5116,12 @@
           "states": 17280,
           "t0_rows": 8659,
           "missing": 8621,
-          "complete_ms": 6.018200074322522,
+          "complete_ms": 12.487600091844797,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8621,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 328.3508999738842
+          "dmn_ms": 535.9444001223892
         },
         "review_breakdown": {
           "partial": 0,
@@ -5180,12 +5180,12 @@
           "states": 17280,
           "t0_rows": 8608,
           "missing": 8672,
-          "complete_ms": 5.197699996642768,
+          "complete_ms": 7.251499919220805,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8672,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 300.558999995701
+          "dmn_ms": 359.4146000687033
         },
         "review_breakdown": {
           "partial": 0,
@@ -5244,12 +5244,12 @@
           "states": 17280,
           "t0_rows": 8627,
           "missing": 8653,
-          "complete_ms": 5.459100008010864,
+          "complete_ms": 6.35599996894598,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8653,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 260.4913000250235
+          "dmn_ms": 289.8742000106722
         },
         "review_breakdown": {
           "partial": 0,
@@ -5308,12 +5308,12 @@
           "states": 17280,
           "t0_rows": 8686,
           "missing": 8594,
-          "complete_ms": 5.881699966266751,
+          "complete_ms": 5.771800177171826,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8594,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 282.00360003393143
+          "dmn_ms": 287.6029000617564
         },
         "review_breakdown": {
           "partial": 0,
@@ -5372,12 +5372,12 @@
           "states": 17280,
           "t0_rows": 8607,
           "missing": 8673,
-          "complete_ms": 6.755999987944961,
+          "complete_ms": 7.927900180220604,
           "dmn_gap_regions": 2751,
           "dmn_gap_tuples": 8673,
           "dmn_partial_bins": 0,
           "dmn_gaps_equal_complete": true,
-          "dmn_ms": 238.98030002601445
+          "dmn_ms": 245.4065999481827
         },
         "review_breakdown": {
           "partial": 0,

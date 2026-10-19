@@ -50,12 +50,12 @@
         "states": 24,
         "t0_rows": 8,
         "missing": 16,
-        "complete_ms": 0.01880002673715353,
+        "complete_ms": 0.01750001683831215,
         "dmn_gap_regions": 7,
         "dmn_gap_tuples": 16,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.43219991493970156
+        "dmn_ms": 0.708600040525198
       },
       "review_breakdown": {
         "partial": 0,
@@ -158,12 +158,12 @@
         "states": 24,
         "t0_rows": 4,
         "missing": 20,
-        "complete_ms": 0.013699987903237343,
+        "complete_ms": 0.01500011421740055,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 20,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.30099996365606785
+        "dmn_ms": 0.32609980553388596
       },
       "review_breakdown": {
         "partial": 4,
@@ -425,12 +425,12 @@
         "states": 24,
         "t0_rows": 6,
         "missing": 18,
-        "complete_ms": 0.009699957445263863,
+        "complete_ms": 0.009899958968162537,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 18,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.2906000008806586
+        "dmn_ms": 0.3005999606102705
       },
       "review_breakdown": {
         "partial": 4,
@@ -691,12 +691,12 @@
         "states": 36,
         "t0_rows": 11,
         "missing": 25,
-        "complete_ms": 0.012699980288743973,
+        "complete_ms": 0.011800089851021767,
         "dmn_gap_regions": 7,
         "dmn_gap_tuples": 25,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 2.7086000191047788
+        "dmn_ms": 2.9921000823378563
       },
       "review_breakdown": {
         "partial": 0,
@@ -892,12 +892,12 @@
         "states": 24,
         "t0_rows": 4,
         "missing": 20,
-        "complete_ms": 0.0100000761449337,
+        "complete_ms": 0.008800067007541656,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 20,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.26359991170465946
+        "dmn_ms": 0.2346998080611229
       },
       "review_breakdown": {
         "partial": 5,
@@ -1094,12 +1094,12 @@
         "states": 24,
         "t0_rows": 1,
         "missing": 23,
-        "complete_ms": 0.01379998866468668,
+        "complete_ms": 0.008800067007541656,
         "dmn_gap_regions": 4,
         "dmn_gap_tuples": 23,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.26979995891451836
+        "dmn_ms": 0.17579994164407253
       },
       "review_breakdown": {
         "partial": 7,
@@ -1373,12 +1373,12 @@
         "states": 24,
         "t0_rows": 3,
         "missing": 21,
-        "complete_ms": 0.01650000922381878,
+        "complete_ms": 0.008899951353669167,
         "dmn_gap_regions": 5,
         "dmn_gap_tuples": 21,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.31210004817694426
+        "dmn_ms": 0.21569989621639252
       },
       "review_breakdown": {
         "partial": 10,
@@ -1651,12 +1651,12 @@
         "states": 36,
         "t0_rows": 5,
         "missing": 31,
-        "complete_ms": 0.018000020645558834,
+        "complete_ms": 0.009600073099136353,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 31,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.5791999865323305
+        "dmn_ms": 0.2687000669538975
       },
       "review_breakdown": {
         "partial": 6,
@@ -1905,12 +1905,12 @@
         "states": 24,
         "t0_rows": 7,
         "missing": 17,
-        "complete_ms": 0.009999959729611874,
+        "complete_ms": 0.010499963536858559,
         "dmn_gap_regions": 8,
         "dmn_gap_tuples": 17,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.34449994564056396
+        "dmn_ms": 0.6724998820573092
       },
       "review_breakdown": {
         "partial": 3,
@@ -2124,12 +2124,12 @@
         "states": 24,
         "t0_rows": 4,
         "missing": 20,
-        "complete_ms": 0.009100069291889668,
+        "complete_ms": 0.00909995287656784,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 20,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.2668999368324876
+        "dmn_ms": 0.27730013243854046
       },
       "review_breakdown": {
         "partial": 8,
@@ -2401,12 +2401,12 @@
         "states": 24,
         "t0_rows": 5,
         "missing": 19,
-        "complete_ms": 0.008999952115118504,
+        "complete_ms": 0.009600073099136353,
         "dmn_gap_regions": 7,
         "dmn_gap_tuples": 19,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.3003999590873718
+        "dmn_ms": 0.30800001695752144
       },
       "review_breakdown": {
         "partial": 7,
@@ -2679,12 +2679,12 @@
         "states": 36,
         "t0_rows": 10,
         "missing": 26,
-        "complete_ms": 0.011299969628453255,
+        "complete_ms": 0.011899974197149277,
         "dmn_gap_regions": 8,
         "dmn_gap_tuples": 26,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.6052999524399638
+        "dmn_ms": 0.6188999395817518
       },
       "review_breakdown": {
         "partial": 5,
@@ -2938,12 +2938,12 @@
         "states": 16,
         "t0_rows": 3,
         "missing": 13,
-        "complete_ms": 0.008100061677396297,
+        "complete_ms": 0.008499948307871819,
         "dmn_gap_regions": 4,
         "dmn_gap_tuples": 13,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.18539989832788706
+        "dmn_ms": 0.1938999630510807
       },
       "review_breakdown": {
         "partial": 3,
@@ -3151,12 +3151,12 @@
         "states": 16,
         "t0_rows": 1,
         "missing": 15,
-        "complete_ms": 0.007500057108700275,
+        "complete_ms": 0.0074999406933784485,
         "dmn_gap_regions": 4,
         "dmn_gap_tuples": 15,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.1370999962091446
+        "dmn_ms": 0.1362001057714224
       },
       "review_breakdown": {
         "partial": 6,
@@ -3420,12 +3420,12 @@
         "states": 16,
         "t0_rows": 2,
         "missing": 14,
-        "complete_ms": 0.016000005416572094,
+        "complete_ms": 0.011499971151351929,
         "dmn_gap_regions": 3,
         "dmn_gap_tuples": 14,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.327400048263371
+        "dmn_ms": 0.18990016542375088
       },
       "review_breakdown": {
         "partial": 5,
@@ -3690,12 +3690,12 @@
         "states": 24,
         "t0_rows": 4,
         "missing": 20,
-        "complete_ms": 0.010599964298307896,
+        "complete_ms": 0.008699949830770493,
         "dmn_gap_regions": 4,
         "dmn_gap_tuples": 20,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.24049996864050627
+        "dmn_ms": 0.21460000425577164
       },
       "review_breakdown": {
         "partial": 5,
@@ -3945,12 +3945,12 @@
         "states": 32,
         "t0_rows": 9,
         "missing": 23,
-        "complete_ms": 0.010999967344105244,
+        "complete_ms": 0.010299962013959885,
         "dmn_gap_regions": 7,
         "dmn_gap_tuples": 23,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.3711000317707658
+        "dmn_ms": 0.32739993184804916
       },
       "review_breakdown": {
         "partial": 0,
@@ -4126,12 +4126,12 @@
         "states": 32,
         "t0_rows": 4,
         "missing": 28,
-        "complete_ms": 0.0097999582067132,
+        "complete_ms": 0.012500211596488953,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 28,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.2658000448718667
+        "dmn_ms": 0.417300034314394
       },
       "review_breakdown": {
         "partial": 5,
@@ -4405,12 +4405,12 @@
         "states": 32,
         "t0_rows": 7,
         "missing": 25,
-        "complete_ms": 0.010199961252510548,
+        "complete_ms": 0.01200009137392044,
         "dmn_gap_regions": 6,
         "dmn_gap_tuples": 25,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.29420002829283476
+        "dmn_ms": 0.3378000110387802
       },
       "review_breakdown": {
         "partial": 5,
@@ -4682,12 +4682,12 @@
         "states": 48,
         "t0_rows": 12,
         "missing": 36,
-        "complete_ms": 0.012599979527294636,
+        "complete_ms": 0.013699987903237343,
         "dmn_gap_regions": 7,
         "dmn_gap_tuples": 36,
         "dmn_partial_bins": 0,
         "dmn_gaps_equal_complete": true,
-        "dmn_ms": 0.4002999048680067
+        "dmn_ms": 0.4204998258501291
       },
       "review_breakdown": {
         "partial": 0,

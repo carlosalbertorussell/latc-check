@@ -483,7 +483,17 @@ def contribution_age_constraint(dims, min_age: int = 18):
 
 
 def constraint_case(dims, table: DecisionTable, explicit_rules=None) -> dict:
-    """Valid space, review load before / after, exactness checks, DMN native and explicit."""
+    """Valid space, review load before / after, exactness checks, DMN native and explicit.
+
+    Example rows of T0 that fall in an excluded state are dropped before completion, as an
+    expert would withdraw an example the constraint declares impossible; their number is
+    reported as ``t0_rows_dropped``.  The completion and DMN checks then run on a T0 inside
+    the valid space, which Propositions 2 and 3 assume, and the explicit IMPOSSIBLE rules
+    overlap no example row.
+    """
+    given = len(table.rows)
+    table = DecisionTable(table.attributes, [r for r in table.rows if table.is_valid(r.condition)],
+                          table.outcomes, constraint=table.constraint)
     free = DecisionTable(table.attributes, list(table.rows), table.outcomes)
     before = exact_complement(free)
     after = exact_complement(table)
@@ -500,8 +510,8 @@ def constraint_case(dims, table: DecisionTable, explicit_rules=None) -> dict:
     impossible = sum(1 for c in native if not table.is_valid(c))
     kept = [c for c in native if table.is_valid(c)]
     out = {"states": full, "valid": valid, "excluded": full - valid,
+           "t0_rows_given": given, "t0_rows_dropped": given - len(table.rows),
            "t0_rows": len(table.rows),
-           "t0_rows_outside_valid": sum(1 for r in table.rows if not table.is_valid(r.condition)),
            "missing_before": len(before), "missing_after": len(after),
            "complete_equals_filtered_unconstrained": filtered == after,
            "deficit_check_problems": len(deficit_problems),
@@ -786,7 +796,7 @@ def write_summary(res: dict, path: str) -> None:
       "(`valid_space_deficits`) passes. *DMN native* has no constraint: impossible states come back as gaps "
       "and must be filtered outside DMN. *Explicit rules* = the impossible states added to the DMN table "
       "as rules with output IMPOSSIBLE.\n")
-    w("| case | constraint | states | valid | excluded | T0 rows (outside valid) | missing before | missing after | "
+    w("| case | constraint | states | valid | excluded | T0 rows given (dropped as impossible) | missing before | missing after | "
       "COMPLETE exact | Reading B exact (outside space) | DMN native gap tuples (impossible) | DMN filtered = COMPLETE | "
       "explicit rules: rules / gaps = COMPLETE / overlaps |")
     w("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
@@ -795,7 +805,7 @@ def write_summary(res: dict, path: str) -> None:
         ex_s = (f"{e['extra_rules']} / {_yn(e['gaps_equal_complete'])} / {e['overlap_pairs']}" if e else "–")
         dn = c["dmn_native"]
         w(f"| {c['case']} | {c['constraint']} | {c['states']} | {c['valid']} | {c['excluded']} | "
-          f"{c['t0_rows']} ({c['t0_rows_outside_valid']}) | {c['missing_before']} | {c['missing_after']} | "
+          f"{c['t0_rows_given']} ({c['t0_rows_dropped']}) | {c['missing_before']} | {c['missing_after']} | "
           f"{_yn(c['complete_equals_filtered_unconstrained'] and c['deficit_check_problems'] == 0)} | "
           f"{_yn(c['reading_b']['exact'])} ({c['reading_b']['outside_space']}) | "
           f"{dn['gap_tuples']} ({dn['impossible_reported_as_gaps']}) | {_yn(dn['filtered_equals_complete'])} | {ex_s} |")
