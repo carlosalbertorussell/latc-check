@@ -4387,6 +4387,50 @@
     "same": null,
     "note": "laptop run did not finish (not finished (timeout)); nothing to compare"
    }
+  },
+  "d7/nursery_finance_convenient_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 720,
+   "states_covered_by_gaps": 6480,
+   "missing_covered": 6480,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 6480,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 736,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"convenient\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"critical\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"less_conv\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"2\", \"convenient\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"2\", \"critical\", \"convenient\", -, -"
+   ],
+   "removed_value_states_found": 6480,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V1.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V1",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2076.21,
+   "peak_rss_mb": 1302.7,
+   "exit_status": 0,
+   "laptop": null,
+   "vs_laptop": null
   }
  }
 }
