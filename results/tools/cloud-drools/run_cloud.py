@@ -103,6 +103,8 @@ def laptop(tool: str, case: dict, variant: str, name: str, d7: dict, kie10: dict
 def compare(new: dict, prev: dict | None):
     if prev is None:
         return None
+    if str(prev.get("outcome", "")).startswith("not finished"):
+        return {"same": None, "note": f"laptop run did not finish ({prev.get('outcome')}); nothing to compare"}
     diffs = {k: [prev.get(k), new.get(k)] for k in CMP_KEYS if prev.get(k) != new.get(k)}
     if prev.get("gaps_first") is not None and prev.get("gaps_first") != new.get("gaps_first"):
         diffs["gaps_first"] = "differs"
