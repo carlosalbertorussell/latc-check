@@ -256,6 +256,14 @@ class ExposureTest(unittest.TestCase):
         d = model(table([("c", "string", None)], [["starts with(c, x)"]]))
         self.assertEqual(summary_of(d)["exposed_tables"], 0)
 
+    def test_strict_exposure_needs_literal_entries_only(self):
+        lits = summary_of(model(table(self.INPUTS, [['"a"', "&lt; 3"], ['"b"', "-"]])))
+        self.assertEqual((lits["exposed_tables"], lits["exposed_tables_strict"]), (1, 1))
+        neg = summary_of(model(table(self.INPUTS, [['"LOW"', "&lt; 3"], ['not("LOW")', "&gt;= 3"]])))
+        self.assertEqual((neg["exposed_tables"], neg["exposed_tables_strict"]), (1, 0))
+        dash = summary_of(model(table(self.INPUTS, [['"a"', "&lt; 3"], ["-", "&gt;= 3"]])))
+        self.assertEqual(dash["exposed_tables_strict"], 0)
+
 
 class CopiedDeclarationTest(unittest.TestCase):
     def test_equal_sets_including_not(self):

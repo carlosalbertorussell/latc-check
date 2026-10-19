@@ -104,6 +104,8 @@
     "aaa": 2
    },
    "exposed_tables": 369,
+   "exposed_tables_strict": 258,
+   "exposed_tables_strict_pct": 16.5,
    "exposed_tables_pct": 23.7,
    "exposed_tables_no_dash": 338,
    "exposed_tables_no_dash_pct": 21.7,
@@ -236,6 +238,8 @@
     "RULE ORDER": 1
    },
    "exposed_tables": 34,
+   "exposed_tables_strict": 29,
+   "exposed_tables_strict_pct": 25.9,
    "exposed_tables_pct": 30.4,
    "exposed_tables_no_dash": 31,
    "exposed_tables_no_dash_pct": 27.7,
@@ -371,6 +375,8 @@
     "aaa": 2
    },
    "exposed_tables": 315,
+   "exposed_tables_strict": 217,
+   "exposed_tables_strict_pct": 19.6,
    "exposed_tables_pct": 28.5,
    "exposed_tables_no_dash": 289,
    "exposed_tables_no_dash_pct": 26.2,
@@ -504,6 +510,8 @@
     "COLLECT": 84
    },
    "exposed_tables": 1,
+   "exposed_tables_strict": 1,
+   "exposed_tables_strict_pct": 0.4,
    "exposed_tables_pct": 0.4,
    "exposed_tables_no_dash": 1,
    "exposed_tables_no_dash_pct": 0.4,
@@ -639,6 +647,8 @@
     "RULE ORDER": 7
    },
    "exposed_tables": 12,
+   "exposed_tables_strict": 6,
+   "exposed_tables_strict_pct": 8.1,
    "exposed_tables_pct": 16.2,
    "exposed_tables_no_dash": 10,
    "exposed_tables_no_dash_pct": 13.5,
@@ -766,6 +776,8 @@
     "PRIORITY": 1
    },
    "exposed_tables": 7,
+   "exposed_tables_strict": 5,
+   "exposed_tables_strict_pct": 13.9,
    "exposed_tables_pct": 19.4,
    "exposed_tables_no_dash": 7,
    "exposed_tables_no_dash_pct": 19.4,
@@ -902,6 +914,8 @@
     "aaa": 1
    },
    "exposed_tables": 190,
+   "exposed_tables_strict": 114,
+   "exposed_tables_strict_pct": 16.9,
    "exposed_tables_pct": 28.1,
    "exposed_tables_no_dash": 168,
    "exposed_tables_no_dash_pct": 24.9,
@@ -1034,6 +1048,8 @@
     "RULE ORDER": 1
    },
    "exposed_tables": 26,
+   "exposed_tables_strict": 21,
+   "exposed_tables_strict_pct": 24.7,
    "exposed_tables_pct": 30.6,
    "exposed_tables_no_dash": 23,
    "exposed_tables_no_dash_pct": 27.1,
@@ -1169,6 +1185,8 @@
     "aaa": 1
    },
    "exposed_tables": 151,
+   "exposed_tables_strict": 86,
+   "exposed_tables_strict_pct": 17.9,
    "exposed_tables_pct": 31.5,
    "exposed_tables_no_dash": 134,
    "exposed_tables_no_dash_pct": 27.9,
@@ -1302,6 +1320,8 @@
     "COLLECT": 23
    },
    "exposed_tables": 1,
+   "exposed_tables_strict": 1,
+   "exposed_tables_strict_pct": 1.6,
    "exposed_tables_pct": 1.6,
    "exposed_tables_no_dash": 1,
    "exposed_tables_no_dash_pct": 1.6,
@@ -1437,6 +1457,8 @@
     "RULE ORDER": 4
    },
    "exposed_tables": 9,
+   "exposed_tables_strict": 4,
+   "exposed_tables_strict_pct": 11.1,
    "exposed_tables_pct": 25.0,
    "exposed_tables_no_dash": 7,
    "exposed_tables_no_dash_pct": 19.4,
@@ -1564,6 +1586,8 @@
     "FIRST": 4
    },
    "exposed_tables": 3,
+   "exposed_tables_strict": 2,
+   "exposed_tables_strict_pct": 20.0,
    "exposed_tables_pct": 30.0,
    "exposed_tables_no_dash": 3,
    "exposed_tables_no_dash_pct": 30.0,

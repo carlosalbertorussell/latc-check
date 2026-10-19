@@ -582,12 +582,19 @@ def exposed_column(r, table):
             and table["single_hit"] and not table["has_catch_all"])
 
 
+def exposed_strict_column(r, table):
+    """Exposed column whose entries are all string literals: no '-', no not(...) and no other FEEL
+    expression, any of which can match a value the rules never name."""
+    return (exposed_column(r, table) and r["n_any"] == 0 and r["n_not"] == 0
+            and r["n_nonliteral"] == 0)
+
+
 def _extra_measures(fr, tr, rr, by_table):
     """Exposure, hit policies, copied declarations, fixture-excluded unmatched share, sources."""
     s = {}
     tkey = {(t["source"], t["path"], t["table_index"]): t for t in tr}
     nt = len(by_table)
-    exposed = exposed_dash = 0
+    exposed = exposed_dash = exposed_strict = 0
     hp = Counter()
     single = []
     for key, v in by_table.items():
@@ -600,7 +607,11 @@ def _extra_measures(fr, tr, rr, by_table):
             exposed += 1
         if any(exposed_column(r, t) and r["n_any"] == 0 for r in v):
             exposed_dash += 1
+        if any(exposed_strict_column(r, t) for r in v):
+            exposed_strict += 1
     s["exposed_tables"] = exposed
+    s["exposed_tables_strict"] = exposed_strict
+    s["exposed_tables_strict_pct"] = _pct(exposed_strict, nt)
     s["exposed_tables_pct"] = _pct(exposed, nt)
     s["exposed_tables_no_dash"] = exposed_dash
     s["exposed_tables_no_dash_pct"] = _pct(exposed_dash, nt)
@@ -806,17 +817,20 @@ def _referee_sections(res):
          "least one string literal, and no catch-all rule covers that column: no rule has `-` (or an empty "
          "entry) in that column and in every other input. A value no rule mentions then reaches no rule, and "
          "an observed-domain tool cannot report it. *Variant*: no rule has `-` in that column at all (a subset "
-         "of the exposed tables). Multi-hit tables (COLLECT, RULE ORDER, OUTPUT ORDER) are never exposed: an "
+         "of the exposed tables). *Strict*: the exposed column's entries are all string literals, with no `-`, "
+         "`not(...)` or other FEEL expression that could match a value the rules never name. Multi-hit tables (COLLECT, RULE ORDER, OUTPUT ORDER) are never exposed: an "
          "empty result is a legitimate answer for them. Denominator: tables with at least one string input.", ""]
     L += _by_both(res, ["tables with string inputs", "single-hit", "with a catch-all rule",
-                        "exposed", "variant: no `-` in the column"],
+                        "exposed", "variant: no `-` in the column", "strict: literal entries only"],
                   lambda v: [str(v["tables_with_string_inputs"]),
                              _np(v["string_tables_single_hit"], v["tables_with_string_inputs"],
                                  v["string_tables_single_hit_pct"]),
                              str(v["string_tables_with_catch_all"]),
                              _np(v["exposed_tables"], v["tables_with_string_inputs"], v["exposed_tables_pct"]),
                              _np(v["exposed_tables_no_dash"], v["tables_with_string_inputs"],
-                                 v["exposed_tables_no_dash_pct"])])
+                                 v["exposed_tables_no_dash_pct"]),
+                             _np(v["exposed_tables_strict"], v["tables_with_string_inputs"],
+                                 v["exposed_tables_strict_pct"])])
     L += ["", "### Hit policies of tables with string inputs", ""]
     pols = ["UNIQUE", "ANY", "FIRST", "PRIORITY", "COLLECT", "RULE ORDER", "OUTPUT ORDER", "other"]
     L += _by_both(res, ["tables with string inputs"] + pols,

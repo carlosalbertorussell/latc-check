@@ -1,0 +1,352 @@
+{
+ "06994da30a2016a4": {
+  "sample_no": 1,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "Drools engine test: the 'noinputvalues' variant of TCK 0004 drops the declared domain on purpose; Low/Medium/High is a closed risk scale."
+ },
+ "1e5c1e5b0da7f89e": {
+  "sample_no": 2,
+  "class": "PARTIAL",
+  "domain": "COVERED",
+  "partial_protection": false,
+  "justification": "Drools test of not(); \"Student\" and not(\"Student\") together match every string, so no value is missed (the literal count flags it anyway)."
+ },
+ "20db2a6e38a9100e": {
+  "sample_no": 3,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Engine S-FEEL syntax test; the strings a, b, ... v only label which unary test fired."
+ },
+ "239c044cb5fab3ce": {
+  "sample_no": 4,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "Test resource of a library (lib/test); upstream Decision 1 yields SILVER/BRONZE/GOLD/DEFAULT and the single rule tests the misspelt \"BRONCE\", so the fixture never matches."
+ },
+ "2a05677c8cab7f81": {
+  "sample_no": 5,
+  "class": "PARTIAL",
+  "domain": "COVERED",
+  "partial_protection": false,
+  "justification": "Drools test of not(); \"Student\" and not(\"Student\") together match every string."
+ },
+ "2b8534d472ae5868": {
+  "sample_no": 6,
+  "class": "PARTIAL",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "Drools regression test (DROOLS-2125) of a list unary test; person names form an open domain, in a fixture whose one rule answers only \"yes\"."
+ },
+ "34e6d58ff9a94201": {
+  "sample_no": 7,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' in unary tests; \"M\" is the argument of starts with(), and the one-rule table exists to test the syntax."
+ },
+ "38ed827d15e1c123": {
+  "sample_no": 8,
+  "class": "PARTIAL",
+  "domain": "UNCLEAR",
+  "partial_protection": true,
+  "justification": "dmn-scala engine test copying the Camunda special-discount example (FIRST); order channel Web/Phone may admit others, location US/Non-US is a complement pair; blank entries give partial protection."
+ },
+ "4c4660fcb906156d": {
+  "sample_no": 9,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Camunda engine test of shared decisions; placeholder input dd matched by \"dd\"."
+ },
+ "4d9bf97df41654fb": {
+  "sample_no": 10,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "dmn-scala engine test of the PRIORITY hit policy; medical history good/bad is a two-valued convention."
+ },
+ "4ff2f85e57447389": {
+  "sample_no": 11,
+  "class": "PARTIAL",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "Drools gap-analysis fixture (dtanalysis/simpleStringNoGap); relationship to primary (Self, Step Child) is open in reality (spouse, child), and the fixture tests the analyser."
+ },
+ "50a1911f80b5143a": {
+  "sample_no": 12,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' in unary tests with a function definition; \"M\" is a starts with() argument."
+ },
+ "59318ea3042b8675": {
+  "sample_no": 13,
+  "class": "CLOSED",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "Operaton example: Risk Level is the output of Risk Level Assessment in the same model, whose three rules cover every integer score with exactly HIGH, MEDIUM and LOW."
+ },
+ "5ec85036e4d4b5fc": {
+  "sample_no": 14,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools alpha-network indexing test; Existing Customer carries \"true\", \"false\" and A..Z, generated to stress the index."
+ },
+ "64205200216e44fc": {
+  "sample_no": 15,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": true,
+  "justification": "Jackson serialisation test resource; placeholder Foo = \"A\"; rule 2 has '-' for Foo (with Baz < 20)."
+ },
+ "67a9afbdb08facdb": {
+  "sample_no": 16,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Flowable deployment test; test1/test2 placeholders."
+ },
+ "69407543073a685e": {
+  "sample_no": 17,
+  "class": "PARTIAL",
+  "domain": "COVERED",
+  "partial_protection": false,
+  "justification": "Simulation test resource (lib/test) of the dinner example; the annotated default rule not(\"Fall\",\"Winter\",\"Spring\",\"Summer\") catches every other season value."
+ },
+ "75d4c9a4533c37b3": {
+  "sample_no": 18,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Operaton FEEL test; one rule testing stringInput = \"operaton\"."
+ },
+ "7ed81f8d6fbc7964": {
+  "sample_no": 19,
+  "class": "CLOSED",
+  "domain": "COVERED",
+  "partial_protection": true,
+  "justification": "Operaton bank-account-opening example; \"LOW\" and not(\"LOW\") cover every background-risk value, and identity verified/score cover the rest."
+ },
+ "87ded15d45c63805": {
+  "sample_no": 20,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' in unary tests; \"M\" is a starts with() argument."
+ },
+ "8a58c338a00bb359": {
+  "sample_no": 21,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "Scenario-simulation test of imported models; the imported decision yields only \"Yes\" or \"No\" (if Total Points >= 20)."
+ },
+ "9c16cf593ecaf3be": {
+  "sample_no": 22,
+  "class": "PARTIAL",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "camunda-process-test fixture; language german/english is open in reality (any other language reaches no rule), in a test of the test library."
+ },
+ "a6acb44e4d8fe887": {
+  "sample_no": 23,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Camunda engine test of shared decisions; placeholder ee."
+ },
+ "ada983b9249fe825": {
+  "sample_no": 24,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Verifier parsing fixture (Corea, Blatt, Delfmann); placeholders x/y."
+ },
+ "af130e7c9b76dc64": {
+  "sample_no": 25,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Cockpit UI test resource; label hfgh with value \"a\"."
+ },
+ "b12db33efa99ffc7": {
+  "sample_no": 26,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Camunda engine test of multi-level decisions; placeholder xx."
+ },
+ "b1923b9dd878169d": {
+  "sample_no": 27,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "Operate data generator: the chain is built to fail (DecisionC asserts) to produce an incident; DecisionB only yields \"passed\"."
+ },
+ "b1e927ad93085091": {
+  "sample_no": 28,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "TrustyAI explanation integration test; Eligibility is an upstream decision with allowed answers Yes/No, God is a yes/no input."
+ },
+ "b3e2e4b0c2a38bcf": {
+  "sample_no": 29,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "End-to-end test of an incident chain (Decision C asserts false); Decision B only yields \"B processed successfully\"."
+ },
+ "b8135eab8b222134": {
+  "sample_no": 30,
+  "class": "PARTIAL",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "camunda-process-test fixture; colour red/green/blue is open in reality."
+ },
+ "bd91f8e0f9f02d8f": {
+  "sample_no": 31,
+  "class": "OPEN",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "Kogito payroll example: employee.address.country with rules for US and IT only; an employee in any other country reaches no rule."
+ },
+ "bdfd259f4eaf7e1f": {
+  "sample_no": 32,
+  "class": "PARTIAL",
+  "domain": "UNCLEAR",
+  "partial_protection": false,
+  "justification": "dmn-js editor spec fixture named one-rule-one-input-one-output; one rule for \"bronze\"."
+ },
+ "cb0c75dd631d0099": {
+  "sample_no": 33,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Camunda engine typed-value test; typed/untyped is a test switch."
+ },
+ "d0292449256911e2": {
+  "sample_no": 34,
+  "class": "UNCLEAR",
+  "domain": "UNCLEAR",
+  "partial_protection": false,
+  "justification": "Camunda 8 tutorial solution: department sales/marketing/finance/it; a process form may fix the list, which the model does not show, and organisations often have more departments."
+ },
+ "d52aaeb5fb3070c1": {
+  "sample_no": 35,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": true,
+  "justification": "Drools gap-analysis null-handling fixture (dtanalysis/nulltestdt); placeholders stringinput1..7."
+ },
+ "d8438b4a0b82555b": {
+  "sample_no": 36,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' in unary tests with and; \"M\" is a starts with() argument."
+ },
+ "da24c6f0e77befc3": {
+  "sample_no": 37,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": true,
+  "justification": "jDMN Signavio-conversion expected output; textInput is tested with contains/startsWith/endsWith and isDefined, one rule per syntax form."
+ },
+ "e19f7673d86f8853": {
+  "sample_no": 38,
+  "class": "PARTIAL",
+  "domain": "UNCLEAR",
+  "partial_protection": false,
+  "justification": "dmn-js DRD rendering fixture (large.dmn) with empty extra columns; bronze/silver/gold status set."
+ },
+ "e1a096403740aada": {
+  "sample_no": 39,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Camunda engine test of multi-level decisions; placeholder yy."
+ },
+ "e34beb459fc4934f": {
+  "sample_no": 40,
+  "class": "PARTIAL",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "camunda-process-test fixture (Jedi or Sith, two overlapping \"green\" rules); lightsaber colours beyond blue/green/red exist."
+ },
+ "e412db060fd94624": {
+  "sample_no": 41,
+  "class": "PARTIAL",
+  "domain": "COVERED",
+  "partial_protection": false,
+  "justification": "Drools test of 'and' in unary tests; null, empty, contains \"DNA\" and its negation together cover every string."
+ },
+ "e43bdb0c5c8b29d2": {
+  "sample_no": 42,
+  "class": "PARTIAL",
+  "domain": "OPEN",
+  "partial_protection": false,
+  "justification": "Drools legacy copy of the DROOLS-2125 list unary test; person names are open."
+ },
+ "e5f692b373b44e6b": {
+  "sample_no": 43,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Flowable CMMN decision-task test; testVar = \"test2\"."
+ },
+ "e8072941a610bc26": {
+  "sample_no": 44,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' inside a non-boolean function; \"M\" is a starts with() argument."
+ },
+ "eb76949b343fea59": {
+  "sample_no": 45,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Flowable CMMN decision-task test (V2); testVar = \"test2\"."
+ },
+ "f04f65ce7b57b4a0": {
+  "sample_no": 46,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' as a string; \"M\" is a starts with() argument."
+ },
+ "f6ef6f78dcacea31": {
+  "sample_no": 47,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "Camunda DRG transform test; the upstream Season decision yields only \"Summer\" (or nothing)."
+ },
+ "f79976dd788d5232": {
+  "sample_no": 48,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Drools test of '?' against \"?\"; the literal is the subject of the test."
+ },
+ "f87611e6406ff853": {
+  "sample_no": 49,
+  "class": "PARTIAL",
+  "domain": "CLOSED",
+  "partial_protection": false,
+  "justification": "dmn-scala engine test; customer Business/Private is a two-valued convention."
+ },
+ "fa3855df630ac721": {
+  "sample_no": 50,
+  "class": "PARTIAL",
+  "domain": "SYNTHETIC",
+  "partial_protection": false,
+  "justification": "Camunda FEEL test of untyped string input; foo/bar placeholders."
+ }
+}

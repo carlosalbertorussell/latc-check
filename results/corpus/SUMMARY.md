@@ -76,22 +76,22 @@ With inputValues: 844; allowedValues reachable but no inputValues: 209; declared
 
 ## Exposure: single-hit tables an observed-domain tool cannot complete
 
-A table is *exposed* when its hit policy is single-hit (UNIQUE, ANY, FIRST, PRIORITY; a missing hitPolicy is UNIQUE), it has a string input with no declaration (as above) whose entries mention at least one string literal, and no catch-all rule covers that column: no rule has `-` (or an empty entry) in that column and in every other input. A value no rule mentions then reaches no rule, and an observed-domain tool cannot report it. *Variant*: no rule has `-` in that column at all (a subset of the exposed tables). Multi-hit tables (COLLECT, RULE ORDER, OUTPUT ORDER) are never exposed: an empty result is a legitimate answer for them. Denominator: tables with at least one string input.
+A table is *exposed* when its hit policy is single-hit (UNIQUE, ANY, FIRST, PRIORITY; a missing hitPolicy is UNIQUE), it has a string input with no declaration (as above) whose entries mention at least one string literal, and no catch-all rule covers that column: no rule has `-` (or an empty entry) in that column and in every other input. A value no rule mentions then reaches no rule, and an observed-domain tool cannot report it. *Variant*: no rule has `-` in that column at all (a subset of the exposed tables). *Strict*: the exposed column's entries are all string literals, with no `-`, `not(...)` or other FEEL expression that could match a value the rules never name. Multi-hit tables (COLLECT, RULE ORDER, OUTPUT ORDER) are never exposed: an empty result is a legitimate answer for them. Denominator: tables with at least one string input.
 
-| count by | kind | tables with string inputs | single-hit | with a catch-all rule | exposed | variant: no `-` in the column |
-|---|---|---|---|---|---|---|
-| files | all | 1559 | 1298/1559 (83.3%) | 329 | 369/1559 (23.7%) | 338/1559 (21.7%) |
-| files | examples / tutorials | 112 | 90/112 (80.4%) | 22 | 34/112 (30.4%) | 31/112 (27.7%) |
-| files | product test resources | 1105 | 940/1105 (85.1%) | 238 | 315/1105 (28.5%) | 289/1105 (26.2%) |
-| files | conformance (TCK) | 232 | 174/232 (75.0%) | 53 | 1/232 (0.4%) | 1/232 (0.4%) |
-| files | analyser fixtures | 74 | 66/74 (89.2%) | 13 | 12/74 (16.2%) | 10/74 (13.5%) |
-| files | product, non-test | 36 | 28/36 (77.8%) | 3 | 7/36 (19.4%) | 7/36 (19.4%) |
-| contents | all | 675 | 555/675 (82.2%) | 154 | 190/675 (28.1%) | 168/675 (24.9%) |
-| contents | examples / tutorials | 85 | 66/85 (77.6%) | 21 | 26/85 (30.6%) | 23/85 (27.1%) |
-| contents | product test resources | 480 | 401/480 (83.5%) | 109 | 151/480 (31.5%) | 134/480 (27.9%) |
-| contents | conformance (TCK) | 64 | 48/64 (75.0%) | 14 | 1/64 (1.6%) | 1/64 (1.6%) |
-| contents | analyser fixtures | 36 | 32/36 (88.9%) | 7 | 9/36 (25.0%) | 7/36 (19.4%) |
-| contents | product, non-test | 10 | 8/10 (80.0%) | 3 | 3/10 (30.0%) | 3/10 (30.0%) |
+| count by | kind | tables with string inputs | single-hit | with a catch-all rule | exposed | variant: no `-` in the column | strict: literal entries only |
+|---|---|---|---|---|---|---|---|
+| files | all | 1559 | 1298/1559 (83.3%) | 329 | 369/1559 (23.7%) | 338/1559 (21.7%) | 258/1559 (16.5%) |
+| files | examples / tutorials | 112 | 90/112 (80.4%) | 22 | 34/112 (30.4%) | 31/112 (27.7%) | 29/112 (25.9%) |
+| files | product test resources | 1105 | 940/1105 (85.1%) | 238 | 315/1105 (28.5%) | 289/1105 (26.2%) | 217/1105 (19.6%) |
+| files | conformance (TCK) | 232 | 174/232 (75.0%) | 53 | 1/232 (0.4%) | 1/232 (0.4%) | 1/232 (0.4%) |
+| files | analyser fixtures | 74 | 66/74 (89.2%) | 13 | 12/74 (16.2%) | 10/74 (13.5%) | 6/74 (8.1%) |
+| files | product, non-test | 36 | 28/36 (77.8%) | 3 | 7/36 (19.4%) | 7/36 (19.4%) | 5/36 (13.9%) |
+| contents | all | 675 | 555/675 (82.2%) | 154 | 190/675 (28.1%) | 168/675 (24.9%) | 114/675 (16.9%) |
+| contents | examples / tutorials | 85 | 66/85 (77.6%) | 21 | 26/85 (30.6%) | 23/85 (27.1%) | 21/85 (24.7%) |
+| contents | product test resources | 480 | 401/480 (83.5%) | 109 | 151/480 (31.5%) | 134/480 (27.9%) | 86/480 (17.9%) |
+| contents | conformance (TCK) | 64 | 48/64 (75.0%) | 14 | 1/64 (1.6%) | 1/64 (1.6%) | 1/64 (1.6%) |
+| contents | analyser fixtures | 36 | 32/36 (88.9%) | 7 | 9/36 (25.0%) | 7/36 (19.4%) | 4/36 (11.1%) |
+| contents | product, non-test | 10 | 8/10 (80.0%) | 3 | 3/10 (30.0%) | 3/10 (30.0%) | 2/10 (20.0%) |
 
 ### Hit policies of tables with string inputs
 

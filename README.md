@@ -72,6 +72,8 @@ holds the output of the reference run.
 | `drools_domains.py` | how Drools takes input domains for gap analysis: seven declaration variants (`run_drools_domains.py`), written to `results/drools/domains/` |
 | `datasets_more.py` | UCI Lenses, Balance Scale and MONK's: loaders, checks and the same experiments as `datasets_report.py` (`run_datasets_more.py`), written to `results/datasets_more/` |
 | `dmn_corpus.py` | survey of input-domain declarations in public DMN models (`run_dmn_corpus.py`), written to `results/corpus/` |
+| `dmn_exposed_sample.py` | random sample of the exposed decision tables of the corpus, hand-classified by risk (`run_dmn_exposed_sample.py`), written to `results/corpus/` |
+| `dmn_testinputs.py` | test inputs shipped with the corpus models (DMN TCK test cases) checked for string values no rule mentions (`run_dmn_testinputs.py`), written to `results/corpus/` |
 
 ## Source and interpretive choices
 
@@ -470,14 +472,40 @@ per decision-table input) and `SUMMARY.md`.
   (input, declaration, unmatched values) combination once: 10 of 160 (6.2%), 8 of 140 with
   fixture-like paths (gap, missing, incomplete, dtanalysis, ...) excluded.
 * Exposure: 369 of 1,559 tables with string inputs (23.7%; 30.4% in examples) are single-hit,
-  have an undeclared string input and no catch-all rule, so a value no rule mentions reaches
-  no rule. In single-hit tables, 49.5% of string inputs declare a domain, 41.8% usable by Drools.
+  have an undeclared string input and no catch-all rule, so a value no rule mentions can reach
+  no rule. Counting only columns whose entries are all string literals (no `-`, `not(...)` or
+  other FEEL expression): 258 (16.5%). Exposure is an upper bound on risk: see
+  `EXPOSED_SAMPLE.md` and `TESTINPUTS.md`. In single-hit tables, 49.5% of string inputs declare a domain, 41.8% usable by Drools.
 * In 308 of 1,045 declared literal lists (29.5%) some declared value appears in no rule; in
   724 (69.3%) the declared set equals the set the rules mention (a copied declaration looks
   exactly like a correct one).
 * Each figure is also given by distinct table contents in `SUMMARY.md`.
 
 The sample leans towards test and conformance models; production models are rarely public.
+
+**How many exposed tables are real risks?** (`run_dmn_exposed_sample.py`,
+`latc_check/dmn_exposed_sample.py`). The 369 exposed tables are 190 distinct table contents;
+a simple random sample of 50 (seed 20210101) was read and classified by hand (one rater) as
+OPEN (an unmentioned value can plausibly arrive), CLOSED, PARTIAL (test fixture or deliberate
+fragment) or UNCLEAR. Result: 1 OPEN, 2 CLOSED, 46 PARTIAL, 1 UNCLEAR; OPEN share 2% (Wilson
+95%: 0% to 10%), about 4 of the 190 distinct tables (range 1 to 20). 151 of the 190 are test
+resources of engines and editors. Five sampled tables are counted as exposed although
+`not(...)` or expression entries already cover every value. Outputs:
+`results/corpus/exposed_sample.csv`, `EXPOSED_SAMPLE.md`; the classification is in
+`exposed_sample_classes.json`.
+
+**Do shipped test inputs hit the trap?** (`run_dmn_testinputs.py`,
+`latc_check/dmn_testinputs.py`). Each test value is linked to the decision-table columns it
+feeds (evaluated decisions and their requirements; BKMs through plain-name bindings), and a
+string value is checked against the literals of its column. Only the DMN TCK test cases
+(`*-test-NN.xml`) are on disk: the other sources are `.dmn`-only sparse clones, so their 58
+`.scesim` scenarios and JSON / YAML fixtures are counted from the git trees and left unread.
+In 158 TCK test files (3,456 test cases, 442 input values, 198 of them resolved to a
+column), 58 links carry a string into a string column with literal entries; 2 of these
+values are mentioned by no entry, both still matched by some rule (a `-` entry, a list
+variable), and no TCK test value reaches an exposed column. Outputs:
+`results/corpus/testinputs.json` and `TESTINPUTS.md` (instances, unresolved inputs, skipped
+formats); the corpus results above are unchanged.
 
 ## Sensitivity and policy change (`run_sensitivity.py`)
 
