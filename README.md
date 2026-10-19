@@ -70,6 +70,8 @@ holds the output of the reference run.
 | `datasets_report.py` | public-dataset experiments (`run_datasets.py`), written to `results/datasets/` |
 | `sensitivity.py` | schema migration (cut points, merged / split values, constraints, policy change) by box relations over the rank index (`run_sensitivity.py`), written to `results/sensitivity/` |
 | `drools_domains.py` | how Drools takes input domains for gap analysis: seven declaration variants (`run_drools_domains.py`), written to `results/drools/domains/` |
+| `datasets_more.py` | UCI Lenses, Balance Scale and MONK's: loaders, checks and the same experiments as `datasets_report.py` (`run_datasets_more.py`), written to `results/datasets_more/` |
+| `dmn_corpus.py` | survey of input-domain declarations in public DMN models (`run_dmn_corpus.py`), written to `results/corpus/` |
 
 ## Source and interpretive choices
 
@@ -418,6 +420,51 @@ are 70 tables, all DMN 1.5.
   not completeness.
 * Some reported gaps contain no integer, for example (9..10), because numbers are
   real-valued (D-1). `SUMMARY.md` counts them separately.
+
+## More public datasets (`run_datasets_more.py`)
+
+```
+python run_datasets_more.py
+```
+
+UCI Lenses (24 states), Balance Scale (625) and the three MONK's problems (432 each), all
+full Cartesian products with one class per state, run through the same random and
+structured removals as Car and Nursery (20 seeds per level, seed 20210101). It writes
+`results/datasets_more/results.json` and `SUMMARY.md`, which also recomputes the LATC
+columns for Car and Nursery on the same draws, so all five datasets sit in one table.
+
+* COMPLETE and DMN with declared domains are exact in all 680 runs, and adding COMPLETE's
+  rows restores the original table in every one.
+* With one value removed, LATC (Corollary 1) declares every table complete while on average
+  10.7 of 24 (Lenses), 125 of 625 (Balance Scale) and 152.5 of 432 (MONK's) states are
+  missing; Reading B and DMN with observed domains find none of them.
+* With 6 rows of Balance Scale or 4 of MONK's, Corollary 3 understates the number of missing
+  rows in every run; with 1 row of Lenses, and in 4 of 20 two-row samples, it reports 0.
+* The deficit shortcut (Reading A) is exact only on Lenses with 2 rows removed (11 of 20).
+
+The MONK's tables are read from the `.test` files, which hold all 432 states with exact
+labels; `monks-3.train` has 6 noisy labels and is only checked. See `data/README.md`.
+
+## Domain declarations in public DMN models (`run_dmn_corpus.py`)
+
+```
+python -I run_dmn_corpus.py --corpus ../corpus --tck ../dmn-tck
+```
+
+The corpus is 50 public sources, shallow sparse clones (`.dmn` files only) made outside
+this repository; `SOURCES` in `run_dmn_corpus.py` lists them and
+`results/corpus/sources.json` records the commit of each. Every file is parsed as data,
+nothing in it is executed. Outputs: `results/corpus/results.json`, `inputs.csv` (one row
+per decision-table input) and `SUMMARY.md`.
+
+* 3,766 distinct files, 2,906 decision tables, 2,092 string inputs.
+* 50.3% of string inputs declare a domain (inputValues or reachable allowedValues), 43.6% in
+  a form Drools uses for gap analysis; in examples and tutorials, 40.0% and 33.8%.
+* 724 of 1,559 tables with string inputs declare no string domain at all.
+* In 7.0% of declared literal lists some declared value can be matched by no rule entry,
+  including spelling slips ("US" declared, "USA" in the rules).
+
+The sample leans towards test and conformance models; production models are rarely public.
 
 ## Sensitivity and policy change (`run_sensitivity.py`)
 

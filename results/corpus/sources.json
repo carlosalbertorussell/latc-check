@@ -1,0 +1,403 @@
+{
+ "sources": [
+  {
+   "name": "dmn-tck/tck",
+   "url": "https://github.com/dmn-tck/tck",
+   "role": "tck",
+   "examples_are_tests": false,
+   "sha": "9402e874e0baff16293161f33dd20ec35c262250",
+   "dmn_files_in_checkout": 168
+  },
+  {
+   "name": "red6/dmn-check",
+   "url": "https://github.com/red6/dmn-check",
+   "role": "analyser",
+   "examples_are_tests": false,
+   "sha": "c463ec4c5a547501367d6359cbe867f7b9610fe4",
+   "dmn_files_in_checkout": 11
+  },
+  {
+   "name": "apache/incubator-kie-drools",
+   "url": "https://github.com/apache/incubator-kie-drools",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "a4666bcbf8f1901c9734040300f1b04da2a84a3e",
+   "dmn_files_in_checkout": 1159
+  },
+  {
+   "name": "apache/incubator-kie-kogito-runtimes",
+   "url": "https://github.com/apache/incubator-kie-kogito-runtimes",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "ae95683415df13664861f7077a55914c8b42a62b",
+   "dmn_files_in_checkout": 65
+  },
+  {
+   "name": "apache/incubator-kie-kogito-apps",
+   "url": "https://github.com/apache/incubator-kie-kogito-apps",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "15b82850e9c812e61fe8e36ccf42ae11e211d9fc",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "apache/incubator-kie-tools",
+   "url": "https://github.com/apache/incubator-kie-tools",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "745c6a200067fda5b707028650ce4766bc6418eb",
+   "dmn_files_in_checkout": 107
+  },
+  {
+   "name": "camunda/camunda-bpm-platform",
+   "url": "https://github.com/camunda/camunda-bpm-platform",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "ee4826e5e76c2348a1510ef46a2f4ccd3b080e48",
+   "dmn_files_in_checkout": 202
+  },
+  {
+   "name": "operaton/operaton",
+   "url": "https://github.com/operaton/operaton",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "8cdc25c20ab86357f7b18c3d70d46f499a6a2e01",
+   "dmn_files_in_checkout": 207
+  },
+  {
+   "name": "camunda/camunda",
+   "url": "https://github.com/camunda/camunda",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "448b2c0563459e80cf73f96d2ee23532e37a08e7",
+   "dmn_files_in_checkout": 66
+  },
+  {
+   "name": "camunda/dmn-scala",
+   "url": "https://github.com/camunda/dmn-scala",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "82afbbc6005d5eab40ebcb37b9bad12a450a0219",
+   "dmn_files_in_checkout": 64
+  },
+  {
+   "name": "camunda/camunda-modeler",
+   "url": "https://github.com/camunda/camunda-modeler",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "e62d86a77ad8cd3b4296ef3fb28ca69a0433ab76",
+   "dmn_files_in_checkout": 33
+  },
+  {
+   "name": "camunda/camunda-modeler-plugins",
+   "url": "https://github.com/camunda/camunda-modeler-plugins",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "5e48daa2065422b2beed4a69ce60e48240994390",
+   "dmn_files_in_checkout": 0
+  },
+  {
+   "name": "bpmn-io/dmn-js",
+   "url": "https://github.com/bpmn-io/dmn-js",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "e86e67e85d1ecd3a56d801a1158698e7e7ee4f0a",
+   "dmn_files_in_checkout": 118
+  },
+  {
+   "name": "bpmn-io/dmn-js-properties-panel",
+   "url": "https://github.com/bpmn-io/dmn-js-properties-panel",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "0a7f261f8541818c64f1ea046c5a7067ec3909e6",
+   "dmn_files_in_checkout": 9
+  },
+  {
+   "name": "flowable/flowable-engine",
+   "url": "https://github.com/flowable/flowable-engine",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "f6017e32a4bdd3e59a8881f58b0ee181652d1d9e",
+   "dmn_files_in_checkout": 181
+  },
+  {
+   "name": "goldmansachs/jdmn",
+   "url": "https://github.com/goldmansachs/jdmn",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "918c3c381ba8e7cd2cc24036c46cfbf68bfbfb3d",
+   "dmn_files_in_checkout": 1167
+  },
+  {
+   "name": "adamecr/Common.DMN.Engine",
+   "url": "https://github.com/adamecr/Common.DMN.Engine",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "9c849a7c1519cf1c36aa1d6ade5e1ec1a0fd5f1d",
+   "dmn_files_in_checkout": 128
+  },
+  {
+   "name": "DecisionToolkit/dsntk",
+   "url": "https://github.com/DecisionToolkit/dsntk",
+   "role": "product",
+   "examples_are_tests": true,
+   "sha": "c76aee02187183b3659a9051f3ebb283630066f7",
+   "dmn_files_in_checkout": 277
+  },
+  {
+   "name": "russellmcdonell/pyDMNrules",
+   "url": "https://github.com/russellmcdonell/pyDMNrules",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "761d1c6979d68b2c5b95687e4d9dc761b43c7564",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "camunda-community-hub/camunda-dmn-tester",
+   "url": "https://github.com/camunda-community-hub/camunda-dmn-tester",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "9571176f28ea3e2d6e40940c47adcabab0b688a1",
+   "dmn_files_in_checkout": 10
+  },
+  {
+   "name": "powerflows/powerflows-dmn",
+   "url": "https://github.com/powerflows/powerflows-dmn",
+   "role": "product",
+   "examples_are_tests": false,
+   "sha": "2b656b3fa20626607f4de5ca42ae74c753f89340",
+   "dmn_files_in_checkout": 10
+  },
+  {
+   "name": "apache/incubator-kie-kogito-examples",
+   "url": "https://github.com/apache/incubator-kie-kogito-examples",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "740ddbe35d79f05a684abb10b58475f77e2d932c",
+   "dmn_files_in_checkout": 52
+  },
+  {
+   "name": "camunda/camunda-bpm-examples",
+   "url": "https://github.com/camunda/camunda-bpm-examples",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "6c7f4c4adb4beb9a2f5d4c5e49fc1ddfc6dab3fc",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "bpmn-io/dmn-js-examples",
+   "url": "https://github.com/bpmn-io/dmn-js-examples",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "7382086324e401e7b5f28d3d076f54f40516328f",
+   "dmn_files_in_checkout": 7
+  },
+  {
+   "name": "camunda/camunda-8-tutorials",
+   "url": "https://github.com/camunda/camunda-8-tutorials",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "ddc8f1588db70c58f19bd00abb0b15c0dac9088c",
+   "dmn_files_in_checkout": 6
+  },
+  {
+   "name": "camunda-community-hub/camunda-8-examples",
+   "url": "https://github.com/camunda-community-hub/camunda-8-examples",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "325e5e57f0b7082410827219b166b754b78ba6f4",
+   "dmn_files_in_checkout": 2
+  },
+  {
+   "name": "kiegroup/kie-wb-playground",
+   "url": "https://github.com/kiegroup/kie-wb-playground",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "56ec170c35799592039d608409718ba22eb97ff7",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "camunda-consulting/code",
+   "url": "https://github.com/camunda-consulting/code",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "c9ef30b62a47a7063c077397cb3340b28fb4cc3c",
+   "dmn_files_in_checkout": 37
+  },
+  {
+   "name": "operaton/operaton-examples",
+   "url": "https://github.com/operaton/operaton-examples",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "0cba53d029e417308910e86efb4ed77af0989a08",
+   "dmn_files_in_checkout": 6
+  },
+  {
+   "name": "redhat-cop/businessautomation-cop",
+   "url": "https://github.com/redhat-cop/businessautomation-cop",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "abdd570cef1bb24119a2c8e36730f2544e405b9b",
+   "dmn_files_in_checkout": 8
+  },
+  {
+   "name": "kiegroup/trusty-ai-sandbox",
+   "url": "https://github.com/kiegroup/trusty-ai-sandbox",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "1bd26e2b8781204f5196719e40f2b37e121922e0",
+   "dmn_files_in_checkout": 7
+  },
+  {
+   "name": "steffenbrand/dmn-decision-tables",
+   "url": "https://github.com/steffenbrand/dmn-decision-tables",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "245687f68ebe8707a84e76977560992d7cbb4c1d",
+   "dmn_files_in_checkout": 2
+  },
+  {
+   "name": "DigiBP/digibp-saentis",
+   "url": "https://github.com/DigiBP/digibp-saentis",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "e17c5e47777aee72137c0d1ae012379b67c04247",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "NPDeehan/Risk-Analysis-DMN-OpenAI-Camunda",
+   "url": "https://github.com/NPDeehan/Risk-Analysis-DMN-OpenAI-Camunda",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "b2635dd558684f3af40d7456f4b1a69c24b134b3",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "gautric/KYC-DMN",
+   "url": "https://github.com/gautric/KYC-DMN",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "de0f4c1aa04e6c48b31fdf2b3d59f8532c915d25",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "gautric/dmn-lambda",
+   "url": "https://github.com/gautric/dmn-lambda",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "16e8c1d3559f019e4ae357232fb01dba55267110",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "tarilabs/dmn-framingham-cvd-risk-score",
+   "url": "https://github.com/tarilabs/dmn-framingham-cvd-risk-score",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "a8e9e129866fda69e06c594c1e625203ea9de034",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "tarilabs/dmn-aldrete",
+   "url": "https://github.com/tarilabs/dmn-aldrete",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "450453abfa93cd86bd3f912063d8bce5c35844a9",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "tasso94/camunda-dmn-feel-1.2-example",
+   "url": "https://github.com/tasso94/camunda-dmn-feel-1.2-example",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "1572827e47b92543144db5ab8de369c532ce28bd",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "holunda-io/camunda-decision",
+   "url": "https://github.com/holunda-io/camunda-decision",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "91df967e7d512273bf4cbe71d3ac4738f2bb13ab",
+   "dmn_files_in_checkout": 14
+  },
+  {
+   "name": "holunda-io/camunda-example-tenant-specific-dmn",
+   "url": "https://github.com/holunda-io/camunda-example-tenant-specific-dmn",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "12efe792d0cc1181b2f637265fb6d7952ec9f0e2",
+   "dmn_files_in_checkout": 3
+  },
+  {
+   "name": "Miragon/design-iq",
+   "url": "https://github.com/Miragon/design-iq",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "206e4d0c8eb8cacd11026eb9134fee762894f1eb",
+   "dmn_files_in_checkout": 3
+  },
+  {
+   "name": "cogneon/lernos-prozessmodellierung",
+   "url": "https://github.com/cogneon/lernos-prozessmodellierung",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "dcf9661e4e1b08fd126efd15666d7615e27f39a5",
+   "dmn_files_in_checkout": 0
+  },
+  {
+   "name": "AbSamrah/SmartLoanSystem",
+   "url": "https://github.com/AbSamrah/SmartLoanSystem",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "d3d4ec931cfb71ffc9becbe6743f0b36e9c7cff8",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "darioajr/resgate-dmn",
+   "url": "https://github.com/darioajr/resgate-dmn",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "0d8c461ac85367d36cb07412be3e6518fb0e3532",
+   "dmn_files_in_checkout": 0
+  },
+  {
+   "name": "caponetto/streaming-dmn-kafka",
+   "url": "https://github.com/caponetto/streaming-dmn-kafka",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "f98179e25de8fc5a0853043e578a5801231ed6fc",
+   "dmn_files_in_checkout": 1
+  },
+  {
+   "name": "russellmcdonell/DecisionCentral",
+   "url": "https://github.com/russellmcdonell/DecisionCentral",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "c0e16354eec209038d8acb7319d34425ded6b758",
+   "dmn_files_in_checkout": 0
+  },
+  {
+   "name": "CodeForPhilly/benefit-decision-toolkit",
+   "url": "https://github.com/CodeForPhilly/benefit-decision-toolkit",
+   "role": "example",
+   "examples_are_tests": false,
+   "sha": "37616471dcd3e7c3b3f06a78b06e553ff051fe72",
+   "dmn_files_in_checkout": 39
+  },
+  {
+   "name": "ulaurson/dmn-js (verifier fork)",
+   "url": "https://github.com/ulaurson/dmn-js",
+   "role": "analyser",
+   "sha": "e0b6417a95ea2685e2cd8b46421634afd08b23ec",
+   "dmn_files_in_checkout": 7
+  },
+  {
+   "name": "jonasblatt/ma-jonasblatt-dmn-verifier (Corea, Blatt, Delfmann)",
+   "url": "https://gitlab.uni-koblenz.de/jonasblatt/ma-jonasblatt-dmn-verifier",
+   "role": "analyser",
+   "sha": "5b307e8481170d37b63a9b256a45c3c38c7fa50c",
+   "dmn_files_in_checkout": 2
+  }
+ ],
+ "missing": []
+}
