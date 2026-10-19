@@ -1,0 +1,2 @@
+=== /home/user/latc-check/results/tools/inputs/car_maint_vhigh_V2.dmn : 1 messages
+WARNING	DECISION_TABLE_GAP	DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped. (DMN id: car_maint_vhigh_V2_table, DMN Validation, Decision Table Analysis, Gap Analysis) 

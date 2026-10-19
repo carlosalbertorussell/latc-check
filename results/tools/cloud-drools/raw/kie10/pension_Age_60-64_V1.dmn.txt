@@ -1,0 +1,11 @@
+=== /home/user/latc-check/results/tools/inputs/pension_Age_60-64_V1.dmn : 10 messages
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "D", -, - ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "I", "<30", - ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "I", ">=30", "60-64" ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "F", "I", ">=30", ">=65" ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "D", "<30", - ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "D", ">=30", [ "60-64" .. ">=65" ) ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "I", "<30", [ "60-64" .. ">=65" ) ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_GAP	DMN: Gap detected: [ "M", "I", ">=30", [ "60-64" .. ">=65" ) ] (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Gap Analysis) 
+WARNING	DECISION_TABLE_CONTRACTION_RULE	DMN: Table is not fully contracted. Combine rules [1, 2] by joining input 2. (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Contraction Rule Analysis) 
+WARNING	DECISION_TABLE_2NDNFVIOLATION	DMN: Second Normal Form Violation: Input 2 is irrelevant for rules [1, 2]. Consider combining these rules over the irrelevant input (DMN id: pension_Age_60-64_V1_table, DMN Validation, Decision Table Analysis, Second Normal Form Violation) 

@@ -1,0 +1,4579 @@
+{
+ "driver": "DroolsCheck.java (VALIDATE_SCHEMA, VALIDATE_MODEL, ANALYZE_DECISION_TABLE)",
+ "variants": {
+  "V1": "inputValues = full declared values (all inputs)",
+  "V2": "no allowed values declared (typeRef string only)",
+  "V3b": "itemDefinition allowedValues (full) on inputData variable and inputExpression typeRef",
+  "V4": "inputValues = values observed in T0"
+ },
+ "runs": {
+  "kie10/pension_Age_gt65_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 19,
+   "missing_covered": 19,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 19,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", -, -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V1.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V1",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.36,
+   "peak_rss_mb": 168.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 19,
+    "missing_covered": 19,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 7.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_gt65_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V2.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V2",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.45,
+   "peak_rss_mb": 168.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "Sex",
+     "Activity",
+     "ContributionYears",
+     "Age"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 6.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_gt65_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 19,
+   "missing_covered": 19,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 19,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", -, -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V3b.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V3b",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.92,
+   "peak_rss_mb": 165.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 19,
+    "missing_covered": 19,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 7.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_gt65_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 6,
+   "states_covered_by_gaps": 11,
+   "missing_covered": 11,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 15,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", \"<60\"",
+    "\"F\", \"D\", \">=30\", \"<60\"",
+    "\"F\", \"I\", \"<30\", -",
+    "\"M\", \"D\", -, -",
+    "\"M\", \"I\", \"<30\", \"<60\""
+   ],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V4.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V4",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.46,
+   "peak_rss_mb": 156.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 6,
+    "states_covered_by_gaps": 11,
+    "missing_covered": 11,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 12.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_60-64_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 20,
+   "missing_covered": 20,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 20,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \"60-64\"",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V1.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V1",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.39,
+   "peak_rss_mb": 180.4,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 20,
+    "missing_covered": 20,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 9.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_60-64_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V2.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V2",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.33,
+   "peak_rss_mb": 168.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "Sex",
+     "Activity",
+     "ContributionYears",
+     "Age"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 7.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_60-64_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 20,
+   "missing_covered": 20,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 20,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \"60-64\"",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V3b.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V3b",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.31,
+   "peak_rss_mb": 162.2,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 20,
+    "missing_covered": 20,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 6.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_60-64_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 12,
+   "missing_covered": 12,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 16,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 9,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -",
+    "\"M\", \"D\", \">=30\", \"<60\""
+   ],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V4.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V4",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.32,
+   "peak_rss_mb": 157.5,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 12,
+    "missing_covered": 12,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 8.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_lt60_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 17,
+   "missing_covered": 17,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 17,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 12,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V1.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V1",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.43,
+   "peak_rss_mb": 169.4,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 17,
+    "missing_covered": 17,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 13.2
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_lt60_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V2.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V2",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.26,
+   "peak_rss_mb": 156.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "Sex",
+     "Activity",
+     "ContributionYears",
+     "Age"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 10.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_lt60_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 17,
+   "missing_covered": 17,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 17,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 12,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V3b.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V3b",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.27,
+   "peak_rss_mb": 181.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 17,
+    "missing_covered": 17,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 10.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/pension_Age_lt60_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 9,
+   "missing_covered": 9,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 11,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", \">=65\"",
+    "\"F\", \"D\", \">=30\", \">=65\"",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V4.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V4",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.33,
+   "peak_rss_mb": 164.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 9,
+    "missing_covered": 9,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 7.2
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_buying_vhigh_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 1,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"vhigh\", -, -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V1.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V1",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 14.13,
+   "peak_rss_mb": 410.1,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 1,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 67.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_buying_vhigh_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V2.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V2",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 4.3,
+   "peak_rss_mb": 484.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 14.2
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_buying_vhigh_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 1,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"vhigh\", -, -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V3b.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V3b",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 21.84,
+   "peak_rss_mb": 460.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 1,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 54.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_buying_vhigh_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V4.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V4",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.65,
+   "peak_rss_mb": 474.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 60.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_maint_vhigh_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 4,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 17,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"vhigh\", -, -, -, -",
+    "\"low\", \"vhigh\", -, -, -, -",
+    "\"med\", \"vhigh\", -, -, -, -",
+    "\"vhigh\", \"vhigh\", -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V1.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V1",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 14.11,
+   "peak_rss_mb": 522.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 4,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 63.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_maint_vhigh_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V2.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V2",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 4.01,
+   "peak_rss_mb": 531.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 12.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_maint_vhigh_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 4,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 17,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"vhigh\", -, -, -, -",
+    "\"low\", \"vhigh\", -, -, -, -",
+    "\"med\", \"vhigh\", -, -, -, -",
+    "\"vhigh\", \"vhigh\", -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V3b.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V3b",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 12.87,
+   "peak_rss_mb": 477.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 4,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 63.2
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_maint_vhigh_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V4.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V4",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.05,
+   "peak_rss_mb": 418.1,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 80.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_doors_2_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 16,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 29,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", -, -, -",
+    "\"high\", \"low\", \"2\", -, -, -",
+    "\"high\", \"med\", \"2\", -, -, -",
+    "\"high\", \"vhigh\", \"2\", -, -, -",
+    "\"low\", \"high\", \"2\", -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V1.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V1",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.82,
+   "peak_rss_mb": 451.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 16,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 71.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_doors_2_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V2.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V2",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 3.75,
+   "peak_rss_mb": 523.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 14.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_doors_2_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 16,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 29,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", -, -, -",
+    "\"high\", \"low\", \"2\", -, -, -",
+    "\"high\", \"med\", \"2\", -, -, -",
+    "\"high\", \"vhigh\", \"2\", -, -, -",
+    "\"low\", \"high\", \"2\", -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V3b.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V3b",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.66,
+   "peak_rss_mb": 473.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 16,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 76.0
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_doors_2_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V4.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V4",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 14.54,
+   "peak_rss_mb": 452.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 72.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_persons_2_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 64,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 78,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", -, -",
+    "\"high\", \"high\", \"3\", \"2\", -, -",
+    "\"high\", \"high\", \"4\", \"2\", -, -",
+    "\"high\", \"high\", \"5more\", \"2\", -, -",
+    "\"high\", \"low\", \"2\", \"2\", -, -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V1.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V1",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.33,
+   "peak_rss_mb": 476.1,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 64,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 48.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_persons_2_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V2.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V2",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.8,
+   "peak_rss_mb": 396.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 18.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_persons_2_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 64,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 78,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", -, -",
+    "\"high\", \"high\", \"3\", \"2\", -, -",
+    "\"high\", \"high\", \"4\", \"2\", -, -",
+    "\"high\", \"high\", \"5more\", \"2\", -, -",
+    "\"high\", \"low\", \"2\", \"2\", -, -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V3b.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V3b",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.08,
+   "peak_rss_mb": 454.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 64,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 64.1
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_persons_2_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V4.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V4",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 7.81,
+   "peak_rss_mb": 416.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 39.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_lug_boot_small_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 192,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 206,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"4\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"more\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"4\", \"small\", -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V1.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V1",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 9.74,
+   "peak_rss_mb": 473.2,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 192,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 50.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_lug_boot_small_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V2.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V2",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 3.34,
+   "peak_rss_mb": 473.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 22.1
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_lug_boot_small_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 192,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 206,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"4\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"more\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"4\", \"small\", -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V3b.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V3b",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 9.64,
+   "peak_rss_mb": 490.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 192,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 53.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_lug_boot_small_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V4.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V4",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 9.37,
+   "peak_rss_mb": 465.2,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 49.1
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_safety_low_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 576,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 589,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"med\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"small\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"med\", \"low\""
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V1.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V1",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 7.44,
+   "peak_rss_mb": 385.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 576,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 37.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_safety_low_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V2.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V2",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.88,
+   "peak_rss_mb": 437.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 16.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_safety_low_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 576,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 589,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"med\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"small\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"med\", \"low\""
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V3b.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V3b",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 7.65,
+   "peak_rss_mb": 457.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 576,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 39.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/car_safety_low_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V4.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V4",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.26,
+   "peak_rss_mb": 406.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 35.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_gt65_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 19,
+   "missing_covered": 19,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 19,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", -, -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V1.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V1",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.44,
+   "peak_rss_mb": 137.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 19,
+    "missing_covered": 19,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_gt65_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V2.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V2",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.26,
+   "peak_rss_mb": 139.5,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "Sex",
+     "Activity",
+     "ContributionYears",
+     "Age"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 5.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_gt65_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 19,
+   "missing_covered": 19,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 19,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", -, -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V3b.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V3b",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.21,
+   "peak_rss_mb": 150.4,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 19,
+    "missing_covered": 19,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 3.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_gt65_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 6,
+   "states_covered_by_gaps": 11,
+   "missing_covered": 11,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 15,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", \"<60\"",
+    "\"F\", \"D\", \">=30\", \"<60\"",
+    "\"F\", \"I\", \"<30\", -",
+    "\"M\", \"D\", -, -",
+    "\"M\", \"I\", \"<30\", \"<60\""
+   ],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_gt65_V4.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": ">=65",
+   "variant": "V4",
+   "rules": 5,
+   "missing_states": 19,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.05,
+   "peak_rss_mb": 154.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 6,
+    "states_covered_by_gaps": 11,
+    "missing_covered": 11,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_60-64_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 20,
+   "missing_covered": 20,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 20,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \"60-64\"",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V1.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V1",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.13,
+   "peak_rss_mb": 149.1,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 20,
+    "missing_covered": 20,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_60-64_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V2.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V2",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.12,
+   "peak_rss_mb": 149.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "Sex",
+     "Activity",
+     "ContributionYears",
+     "Age"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.0
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_60-64_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 20,
+   "missing_covered": 20,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 20,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 10,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \"60-64\"",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V3b.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V3b",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.17,
+   "peak_rss_mb": 145.5,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 20,
+    "missing_covered": 20,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_60-64_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 12,
+   "missing_covered": 12,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 16,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 9,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", -, -",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -",
+    "\"M\", \"D\", \">=30\", \"<60\""
+   ],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_60-64_V4.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "60-64",
+   "variant": "V4",
+   "rules": 4,
+   "missing_states": 20,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.14,
+   "peak_rss_mb": 147.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 12,
+    "missing_covered": 12,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_lt60_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 17,
+   "missing_covered": 17,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 17,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 12,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V1.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V1",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.11,
+   "peak_rss_mb": 150.5,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 17,
+    "missing_covered": 17,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.2
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_lt60_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "Sex",
+    "Activity",
+    "ContributionYears",
+    "Age"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [Sex, Activity, ContributionYears, Age] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V2.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V2",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.17,
+   "peak_rss_mb": 156.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "Sex",
+     "Activity",
+     "ContributionYears",
+     "Age"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 3.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_lt60_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 8,
+   "states_covered_by_gaps": 17,
+   "missing_covered": 17,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 17,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 12,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"D\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", [ \"<60\" .. \">=65\" ]",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 8,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V3b.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V3b",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.12,
+   "peak_rss_mb": 149.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 8,
+    "states_covered_by_gaps": 17,
+    "missing_covered": 17,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 8,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 3.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/pension_Age_lt60_V4.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 7,
+   "states_covered_by_gaps": 9,
+   "missing_covered": 9,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 11,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 11,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"F\", \"D\", \"<30\", \">=65\"",
+    "\"F\", \"D\", \">=30\", \">=65\"",
+    "\"F\", \"I\", \"<30\", -",
+    "\"F\", \"I\", \">=30\", \">=65\"",
+    "\"M\", \"D\", \"<30\", -"
+   ],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "pension_Age_lt60_V4.dmn",
+   "dataset": "pension",
+   "attribute": "Age",
+   "removed_value": "<60",
+   "variant": "V4",
+   "rules": 7,
+   "missing_states": 17,
+   "missing_with_removed_value": 8,
+   "finished": true,
+   "killed": false,
+   "wall_s": 1.18,
+   "peak_rss_mb": 140.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 7,
+    "states_covered_by_gaps": 9,
+    "missing_covered": 9,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 4.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_buying_vhigh_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 1,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"vhigh\", -, -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V1.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V1",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.3,
+   "peak_rss_mb": 378.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 1,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 34.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_buying_vhigh_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V2.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V2",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.89,
+   "peak_rss_mb": 415.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 9.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_buying_vhigh_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 1,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"vhigh\", -, -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V3b.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V3b",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.04,
+   "peak_rss_mb": 476.1,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 1,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 42.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_buying_vhigh_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_buying_vhigh_V4.dmn",
+   "dataset": "car",
+   "attribute": "buying",
+   "removed_value": "vhigh",
+   "variant": "V4",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 12.76,
+   "peak_rss_mb": 452.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 41.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_maint_vhigh_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 4,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 17,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"vhigh\", -, -, -, -",
+    "\"low\", \"vhigh\", -, -, -, -",
+    "\"med\", \"vhigh\", -, -, -, -",
+    "\"vhigh\", \"vhigh\", -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V1.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V1",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 11.55,
+   "peak_rss_mb": 375.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 4,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 37.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_maint_vhigh_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V2.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V2",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.62,
+   "peak_rss_mb": 395.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 9.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_maint_vhigh_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 4,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 17,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"vhigh\", -, -, -, -",
+    "\"low\", \"vhigh\", -, -, -, -",
+    "\"med\", \"vhigh\", -, -, -, -",
+    "\"vhigh\", \"vhigh\", -, -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V3b.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V3b",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 11.69,
+   "peak_rss_mb": 377.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 4,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 29.6
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_maint_vhigh_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_maint_vhigh_V4.dmn",
+   "dataset": "car",
+   "attribute": "maint",
+   "removed_value": "vhigh",
+   "variant": "V4",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.53,
+   "peak_rss_mb": 398.1,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 50.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_doors_2_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 16,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 29,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", -, -, -",
+    "\"high\", \"low\", \"2\", -, -, -",
+    "\"high\", \"med\", \"2\", -, -, -",
+    "\"high\", \"vhigh\", \"2\", -, -, -",
+    "\"low\", \"high\", \"2\", -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V1.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V1",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 13.28,
+   "peak_rss_mb": 405.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 16,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 65.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_doors_2_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V2.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V2",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 3.03,
+   "peak_rss_mb": 427.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 22.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_doors_2_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 16,
+   "states_covered_by_gaps": 432,
+   "missing_covered": 432,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 432,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 29,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", -, -, -",
+    "\"high\", \"low\", \"2\", -, -, -",
+    "\"high\", \"med\", \"2\", -, -, -",
+    "\"high\", \"vhigh\", \"2\", -, -, -",
+    "\"low\", \"high\", \"2\", -, -, -"
+   ],
+   "removed_value_states_found": 432,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V3b.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V3b",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 14.01,
+   "peak_rss_mb": 384.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 16,
+    "states_covered_by_gaps": 432,
+    "missing_covered": 432,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 432,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 80.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_doors_2_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 14,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_doors_2_V4.dmn",
+   "dataset": "car",
+   "attribute": "doors",
+   "removed_value": "2",
+   "variant": "V4",
+   "rules": 1296,
+   "missing_states": 432,
+   "missing_with_removed_value": 432,
+   "finished": true,
+   "killed": false,
+   "wall_s": 12.3,
+   "peak_rss_mb": 381.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 62.0
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_persons_2_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 64,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 78,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", -, -",
+    "\"high\", \"high\", \"3\", \"2\", -, -",
+    "\"high\", \"high\", \"4\", \"2\", -, -",
+    "\"high\", \"high\", \"5more\", \"2\", -, -",
+    "\"high\", \"low\", \"2\", \"2\", -, -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V1.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V1",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.01,
+   "peak_rss_mb": 311.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 64,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 25.8
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_persons_2_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V2.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V2",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.46,
+   "peak_rss_mb": 281.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 22.9
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_persons_2_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 64,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 78,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", -, -",
+    "\"high\", \"high\", \"3\", \"2\", -, -",
+    "\"high\", \"high\", \"4\", \"2\", -, -",
+    "\"high\", \"high\", \"5more\", \"2\", -, -",
+    "\"high\", \"low\", \"2\", \"2\", -, -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V3b.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V3b",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.29,
+   "peak_rss_mb": 279.0,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 64,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 26.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_persons_2_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_persons_2_V4.dmn",
+   "dataset": "car",
+   "attribute": "persons",
+   "removed_value": "2",
+   "variant": "V4",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 7.15,
+   "peak_rss_mb": 350.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 30.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_lug_boot_small_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 192,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 206,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"4\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"more\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"4\", \"small\", -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V1.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V1",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.78,
+   "peak_rss_mb": 333.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 192,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 47.0
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_lug_boot_small_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V2.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V2",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.6,
+   "peak_rss_mb": 356.4,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 12.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_lug_boot_small_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 192,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 206,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"4\", \"small\", -",
+    "\"high\", \"high\", \"2\", \"more\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"2\", \"small\", -",
+    "\"high\", \"high\", \"3\", \"4\", \"small\", -"
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V3b.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V3b",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 15.7,
+   "peak_rss_mb": 333.3,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 192,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 33.1
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_lug_boot_small_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_lug_boot_small_V4.dmn",
+   "dataset": "car",
+   "attribute": "lug_boot",
+   "removed_value": "small",
+   "variant": "V4",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 10.68,
+   "peak_rss_mb": 305.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 27.4
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_safety_low_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 576,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 589,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"med\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"small\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"med\", \"low\""
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V1.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V1",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 7.12,
+   "peak_rss_mb": 385.4,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 576,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 20.7
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_safety_low_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "buying",
+    "maint",
+    "doors",
+    "persons",
+    "lug_boot",
+    "safety"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [buying, maint, doors, persons, lug_boot, safety] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V2.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V2",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2.61,
+   "peak_rss_mb": 271.8,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "buying",
+     "maint",
+     "doors",
+     "persons",
+     "lug_boot",
+     "safety"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 8.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_safety_low_V3b.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 576,
+   "states_covered_by_gaps": 576,
+   "missing_covered": 576,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 576,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 589,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"high\", \"high\", \"2\", \"2\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"med\", \"low\"",
+    "\"high\", \"high\", \"2\", \"2\", \"small\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"big\", \"low\"",
+    "\"high\", \"high\", \"2\", \"4\", \"med\", \"low\""
+   ],
+   "removed_value_states_found": 576,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V3b.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V3b",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 9.08,
+   "peak_rss_mb": 390.4,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gaps reported",
+    "gap_messages": 576,
+    "states_covered_by_gaps": 576,
+    "missing_covered": 576,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 576,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE",
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 19.0
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/car_safety_low_V4.dmn": {
+   "outcome": "no gaps reported",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE"
+   ],
+   "messages": 15,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx8g",
+   "cap_s": 1800,
+   "file": "car_safety_low_V4.dmn",
+   "dataset": "car",
+   "attribute": "safety",
+   "removed_value": "low",
+   "variant": "V4",
+   "rules": 1152,
+   "missing_states": 576,
+   "missing_with_removed_value": 576,
+   "finished": true,
+   "killed": false,
+   "wall_s": 8.35,
+   "peak_rss_mb": 344.9,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "no gaps reported",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": null,
+    "message_types": [
+     "DECISION_TABLE_2NDNFVIOLATION",
+     "DECISION_TABLE_CONTRACTION_RULE"
+    ],
+    "seconds": 24.2
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "kie10/nursery_finance_convenient_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 720,
+   "states_covered_by_gaps": 6480,
+   "missing_covered": 6480,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 6480,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 736,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"convenient\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"critical\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"less_conv\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"2\", \"convenient\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"2\", \"critical\", \"convenient\", -, -"
+   ],
+   "removed_value_states_found": 6480,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V1.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V1",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2400.5,
+   "peak_rss_mb": 2264.5,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "not finished (timeout)",
+    "gap_messages": null,
+    "states_covered_by_gaps": null,
+    "missing_covered": null,
+    "covered_not_missing": null,
+    "removed_value_states_found": null,
+    "gap_skip_columns": null,
+    "message_types": null,
+    "seconds": 901.2
+   },
+   "vs_laptop": {
+    "same": null,
+    "note": "laptop run did not finish (not finished (timeout)); nothing to compare"
+   }
+  },
+  "d7/nursery_finance_convenient_V1.dmn": {
+   "outcome": "gaps reported",
+   "gap_messages": 720,
+   "states_covered_by_gaps": 6480,
+   "missing_covered": 6480,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 6480,
+   "gap_skip_columns": null,
+   "message_types": [
+    "DECISION_TABLE_2NDNFVIOLATION",
+    "DECISION_TABLE_CONTRACTION_RULE",
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 736,
+   "errors": [],
+   "skip_message": null,
+   "gaps_first": [
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"convenient\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"critical\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"1\", \"less_conv\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"2\", \"convenient\", \"convenient\", -, -",
+    "\"great_pret\", \"critical\", \"complete\", \"2\", \"critical\", \"convenient\", -, -"
+   ],
+   "removed_value_states_found": 6480,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V1.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V1",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 2076.21,
+   "peak_rss_mb": 1302.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "not finished (killed after about 61 min with a 1.2 GB heap; probe only, recorded in results/drools/domains/SUMMARY.md, not in its results.json)"
+   },
+   "vs_laptop": {
+    "same": null,
+    "note": "laptop run did not finish; nothing to compare"
+   }
+  },
+  "kie10/nursery_finance_convenient_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "parents",
+    "has_nurs",
+    "form",
+    "children",
+    "housing",
+    "finance",
+    "social",
+    "health"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [parents, has_nurs, form, children, housing, finance, social, health] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Apache KIE (Drools) DMN validator 10.2.0",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V2.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V2",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 30.25,
+   "peak_rss_mb": 2718.6,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "parents",
+     "has_nurs",
+     "form",
+     "children",
+     "housing",
+     "finance",
+     "social",
+     "health"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 102.5
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  },
+  "d7/nursery_finance_convenient_V2.dmn": {
+   "outcome": "gap analysis skipped",
+   "gap_messages": 0,
+   "states_covered_by_gaps": 0,
+   "missing_covered": 0,
+   "covered_not_missing": 0,
+   "missing_covered_full_wildcard": 0,
+   "gap_skip_columns": [
+    "parents",
+    "has_nurs",
+    "form",
+    "children",
+    "housing",
+    "finance",
+    "social",
+    "health"
+   ],
+   "message_types": [
+    "DECISION_TABLE_GAP"
+   ],
+   "messages": 1,
+   "errors": [],
+   "skip_message": "DMN: Columns: [parents, has_nurs, form, children, housing, finance, social, health] relate to FEEL string values which can be enumerated for the inputs; Gap analysis skipped.",
+   "gaps_first": [],
+   "removed_value_states_found": 0,
+   "tool": "Drools DMN validator 7.74.1.Final",
+   "jdk": "openjdk version \"21.0.12.1\" 2026-08-18 / OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)",
+   "heap": "-Xmx12g",
+   "cap_s": 7200,
+   "file": "nursery_finance_convenient_V2.dmn",
+   "dataset": "nursery",
+   "attribute": "finance",
+   "removed_value": "convenient",
+   "variant": "V2",
+   "rules": 6480,
+   "missing_states": 6480,
+   "missing_with_removed_value": 6480,
+   "finished": true,
+   "killed": false,
+   "wall_s": 23.74,
+   "peak_rss_mb": 2061.7,
+   "exit_status": 0,
+   "laptop": {
+    "outcome": "gap analysis skipped",
+    "gap_messages": 0,
+    "states_covered_by_gaps": 0,
+    "missing_covered": 0,
+    "covered_not_missing": 0,
+    "removed_value_states_found": 0,
+    "gap_skip_columns": [
+     "parents",
+     "has_nurs",
+     "form",
+     "children",
+     "housing",
+     "finance",
+     "social",
+     "health"
+    ],
+    "message_types": [
+     "DECISION_TABLE_GAP"
+    ],
+    "seconds": 104.3
+   },
+   "vs_laptop": {
+    "same": true,
+    "differences": {}
+   }
+  }
+ }
+}
