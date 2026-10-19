@@ -592,8 +592,15 @@ analysis skipped"). Full values as `inputValues`, or as `allowedValues` of an
 An `itemDefinition` named only by the `inputData` variable is ignored. `inputValues`
 listing only the observed values give "no gaps" on every Car case, a false "complete"
 verdict, and they take precedence over an `itemDefinition` with the full values. See
-`results/drools/domains/SUMMARY.md` for the table and the runs not completed (Nursery
-full-analysis variants exceeded an hour per file and were not run).
+`results/drools/domains/SUMMARY.md` for the table. On the laptop the Nursery full-domain
+run was stopped after about an hour.
+
+**Cloud re-run** (`results/tools/cloud-drools/`). Every file was re-run on an idle cloud VM
+(4 vCPU, 15 GiB, OpenJDK 21, one JVM at a time) for Drools 7.74.1 and Apache KIE 10.2.0. All
+37 comparable results match the laptop for each version. The Nursery full-domain case
+(finance = convenient, 6,480 rules) finishes there: 34.6 min on 7.74.1 and 40.0 min on 10.2.0,
+both reporting the same 720 gaps, which cover all 6,480 missing states and nothing else.
+`SUMMARY.md` there has the timings, peak memory and a thread dump.
 
 ## What the evidence supports, and what it does not
 
