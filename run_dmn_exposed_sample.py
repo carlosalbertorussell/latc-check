@@ -3,7 +3,8 @@
     python -I run_dmn_exposed_sample.py [--results results/corpus/results.json] [--out results/corpus]
 
 Reads ``results.json`` (from ``run_dmn_corpus.py``) and the hand classification
-``exposed_sample_classes.json`` in the output folder, and writes
+``exposed_sample_classes.json`` in the output folder (and, when present, the
+blinded second coder's ``exposed_sample_rater2.json``), and writes
 ``exposed_sample.csv`` and ``EXPOSED_SAMPLE.md`` there.  Standard library only.
 """
 import argparse
@@ -24,7 +25,8 @@ def main():
     a = ap.parse_args()
     with open(a.results, encoding="utf-8") as fh:
         res = json.load(fh)
-    sample = des.write_outputs(res, a.out, os.path.join(a.out, "exposed_sample_classes.json"))
+    sample = des.write_outputs(res, a.out, os.path.join(a.out, "exposed_sample_classes.json"),
+                               rater2_path=os.path.join(a.out, "exposed_sample_rater2.json"))
     print(f"frame={len(des.exposed_frame(res))} sample={len(sample)}")
 
 

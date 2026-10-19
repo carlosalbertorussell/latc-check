@@ -72,7 +72,7 @@ holds the output of the reference run.
 | `drools_domains.py` | how Drools takes input domains for gap analysis: seven declaration variants (`run_drools_domains.py`), written to `results/drools/domains/` |
 | `datasets_more.py` | UCI Lenses, Balance Scale and MONK's: loaders, checks and the same experiments as `datasets_report.py` (`run_datasets_more.py`), written to `results/datasets_more/` |
 | `dmn_corpus.py` | survey of input-domain declarations in public DMN models (`run_dmn_corpus.py`), written to `results/corpus/` |
-| `dmn_exposed_sample.py` | random sample of the exposed decision tables of the corpus, hand-classified by risk (`run_dmn_exposed_sample.py`), written to `results/corpus/` |
+| `dmn_exposed_sample.py` | random sample of the exposed decision tables of the corpus, classified by risk by two coders, with Cohen's kappa (`run_dmn_exposed_sample.py`), written to `results/corpus/` |
 | `dmn_testinputs.py` | test inputs shipped with the corpus models (DMN TCK test cases) checked for string values no rule mentions (`run_dmn_testinputs.py`), written to `results/corpus/` |
 
 ## Source and interpretive choices
@@ -485,7 +485,7 @@ The sample leans towards test and conformance models; production models are rare
 
 **How many exposed tables are real risks?** (`run_dmn_exposed_sample.py`,
 `latc_check/dmn_exposed_sample.py`). The 369 exposed tables are 190 distinct table contents;
-a simple random sample of 50 (seed 20210101) was read and classified by hand (one rater) as
+a simple random sample of 50 (seed 20210101) was read and classified (first coder) as
 OPEN (an unmentioned value can plausibly arrive), CLOSED, PARTIAL (test fixture or deliberate
 fragment) or UNCLEAR. Result: 1 OPEN, 2 CLOSED, 46 PARTIAL, 1 UNCLEAR; OPEN share 2% (Wilson
 95%: 0% to 10%), about 4 of the 190 distinct tables (range 1 to 20). 151 of the 190 are test
@@ -493,6 +493,12 @@ resources of engines and editors. Five sampled tables are counted as exposed alt
 `not(...)` or expression entries already cover every value. Outputs:
 `results/corpus/exposed_sample.csv`, `EXPOSED_SAMPLE.md`; the classification is in
 `exposed_sample_classes.json`.
+
+A second coder classified the same 50 tables blind, from a sheet without the first coder's
+labels (`exposed_sample_rater2.json`): 2 OPEN, 9 CLOSED, 39 PARTIAL. Agreement on the class is
+84% (Cohen's kappa 0.42) and on OPEN against the rest 98% (kappa 0.66); `EXPOSED_SAMPLE.md`
+gives the table. Both coders are instances of the Claude language model, so this measures the
+consistency of the coding and does not replace an independent human check.
 
 **Do shipped test inputs hit the trap?** (`run_dmn_testinputs.py`,
 `latc_check/dmn_testinputs.py`). Each test value is linked to the decision-table columns it

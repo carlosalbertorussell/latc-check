@@ -98,6 +98,18 @@ def wilson(k, n, z=1.959963984540054):
     return (max(0.0, c - h), min(1.0, c + h))
 
 
+def cohen_kappa(a, b):
+    """Observed agreement and Cohen's kappa of two equal-length label lists, as (po, kappa).
+
+    Kappa is 1.0 when chance agreement is already 1 (both coders use one label throughout)."""
+    n = len(a)
+    if n == 0 or n != len(b):
+        raise ValueError("label lists must be non-empty and of equal length")
+    po = sum(x == y for x, y in zip(a, b)) / n
+    pe = sum((a.count(c) / n) * (b.count(c) / n) for c in set(a) | set(b))
+    return po, (1.0 if pe == 1 else (po - pe) / (1 - pe))
+
+
 LIST_COLS = ["sample_no", "fingerprint", "source", "kind", "path", "table", "table_index",
              "hit_policy", "n_rules", "copies", "exposed_inputs", "mentioned_literals",
              "dash_in_column"]
@@ -140,7 +152,7 @@ def tally(sample, classes):
     return counts, missing
 
 
-def summary_md(frame, sample, classes, n_exposed_files):
+def summary_md(frame, sample, classes, n_exposed_files, rater2=None):
     counts, missing = tally(sample, classes)
     n = len(sample) - missing
     k = counts["OPEN"]
@@ -219,14 +231,52 @@ def summary_md(frame, sample, classes, n_exposed_files):
           "This is an estimate from one rater, reading each model without its authors' context. The "
           "sampling unit is the distinct table content; the classes were assigned to that content, and "
           "copies in other files inherit them.", ""]
+    if rater2:
+        L += agreement_md(sample, classes, rater2)
     return "\n".join(L)
+
+
+def agreement_md(sample, classes, rater2):
+    """Markdown lines comparing the classification with a second, blinded coder."""
+    both = [e for e in sample if e["fingerprint"] in classes and e["fingerprint"] in rater2]
+    n = len(both)
+    L = ["## Agreement with a second coder", "",
+         "A second coder classified the same tables blind, from a sheet without the first coder's labels "
+         "(`exposed_sample_rater2.json`), with the same class definitions. Both coders are instances of "
+         "the Claude language model (Anthropic) reading the model files, so their errors may be "
+         "correlated; the agreement below measures the consistency of the coding and is no substitute "
+         "for a check by an independent human expert.", "",
+         "| judgement | tables | observed agreement | Cohen's kappa |", "|---|---:|---:|---:|"]
+    pairs = {}
+    for field in ("class", "domain"):
+        a = [classes[e["fingerprint"]][field] for e in both]
+        b = [rater2[e["fingerprint"]][field] for e in both]
+        pairs[field] = (a, b)
+        po, k = cohen_kappa(a, b)
+        L.append(f"| {field} | {n} | {100 * po:.0f}% | {k:.2f} |")
+        po, k = cohen_kappa([x == "OPEN" for x in a], [y == "OPEN" for y in b])
+        L.append(f"| {field}: OPEN against the rest | {n} | {100 * po:.0f}% | {k:.2f} |")
+    a, b = pairs["class"]
+    L += ["", "Classes, first coder (rows) against second coder (columns):", "",
+          "| | " + " | ".join(CLASSES) + " |", "|---|" + "---:|" * len(CLASSES)]
+    for c in CLASSES:
+        L.append(f"| {c} | " + " | ".join(str(sum(1 for x, y in zip(a, b) if x == c and y == d))
+                                         for d in CLASSES) + " |")
+    k2 = sum(1 for y in b if y == "OPEN")
+    lo, hi = wilson(k2, n)
+    L += ["", f"Second coder's OPEN share: {k2}/{n} = {100 * k2 / n:.0f}% "
+          f"(Wilson 95%: {100 * lo:.0f}% to {100 * hi:.0f}%).", ""]
+    return L
 
 
 OUT_COLS = LIST_COLS + ["class", "domain", "partial_protection", "justification"]
 
 
-def write_outputs(res, out_dir, classes_path=None, n=SAMPLE_SIZE, seed=SEED):
-    """Write exposed_sample.csv (and EXPOSED_SAMPLE.md when classifications exist); return the sample."""
+def write_outputs(res, out_dir, classes_path=None, n=SAMPLE_SIZE, seed=SEED, rater2_path=None):
+    """Write exposed_sample.csv (and EXPOSED_SAMPLE.md when classifications exist); return the sample.
+
+    ``rater2_path`` names an optional second coder's classification in the same format; when it
+    exists, EXPOSED_SAMPLE.md gains an agreement section."""
     frame = exposed_frame(res)
     sample = draw(frame, n, seed)
     classes = {}
@@ -243,5 +293,9 @@ def write_outputs(res, out_dir, classes_path=None, n=SAMPLE_SIZE, seed=SEED):
     _write_csv(os.path.join(out_dir, "exposed_sample.csv"), OUT_COLS, rows)
     if classes:
         with open(os.path.join(out_dir, "EXPOSED_SAMPLE.md"), "w", encoding="utf-8") as fh:
-            fh.write(summary_md(frame, sample, classes, res["summary"]["all"]["exposed_tables"]))
+            rater2 = None
+            if rater2_path and os.path.exists(rater2_path):
+                with open(rater2_path, encoding="utf-8") as r2:
+                    rater2 = json.load(r2)
+            fh.write(summary_md(frame, sample, classes, res["summary"]["all"]["exposed_tables"], rater2))
     return sample

@@ -68,7 +68,46 @@ class WilsonTest(unittest.TestCase):
         self.assertEqual(des.wilson(0, 10)[0], 0.0)
 
 
+class KappaTest(unittest.TestCase):
+    def test_known_values(self):
+        po, k = des.cohen_kappa(["a", "a", "b", "b"], ["a", "a", "b", "b"])
+        self.assertEqual((po, k), (1.0, 1.0))
+        # po = 0.5, pe = 0.5: no better than chance
+        po, k = des.cohen_kappa(["a", "a", "b", "b"], ["a", "b", "a", "b"])
+        self.assertEqual((po, k), (0.5, 0.0))
+        # 2x2 example: po = 0.7, pe = 0.5*0.6 + 0.5*0.4 = 0.5, kappa = 0.4
+        a = ["y"] * 5 + ["n"] * 5
+        b = ["y", "y", "y", "y", "n", "y", "y", "n", "n", "n"]
+        po, k = des.cohen_kappa(a, b)
+        self.assertAlmostEqual(po, 0.7)
+        self.assertAlmostEqual(k, 0.4)
+        self.assertEqual(des.cohen_kappa(["a"], ["a"]), (1.0, 1.0))
+        with self.assertRaises(ValueError):
+            des.cohen_kappa(["a"], [])
+
+
 class OutputTest(unittest.TestCase):
+    def test_agreement_section(self):
+        res = _res()
+        with tempfile.TemporaryDirectory() as d:
+            cp, rp = os.path.join(d, "c.json"), os.path.join(d, "r.json")
+            with open(cp, "w", encoding="utf-8") as fh:
+                json.dump({"fp1": {"class": "OPEN", "domain": "OPEN"},
+                           "fp2": {"class": "PARTIAL", "domain": "SYNTHETIC"}}, fh)
+            with open(rp, "w", encoding="utf-8") as fh:
+                json.dump({"fp1": {"class": "OPEN", "domain": "CLOSED"},
+                           "fp2": {"class": "PARTIAL", "domain": "SYNTHETIC"}}, fh)
+            des.write_outputs(res, d, cp, rater2_path=rp)
+            with open(os.path.join(d, "EXPOSED_SAMPLE.md"), encoding="utf-8") as fh:
+                md = fh.read()
+            self.assertIn("## Agreement with a second coder", md)
+            self.assertIn("| class | 2 | 100% | 1.00 |", md)
+            # domain: po = 0.5, pe = 0.5 * 0.5 (SYNTHETIC only) = 0.25, kappa = 0.25 / 0.75
+            self.assertIn("| domain | 2 | 50% | 0.33 |", md)
+            self.assertIn("| domain: OPEN against the rest | 2 | 50% | 0.00 |", md)
+            self.assertIn("Second coder's OPEN share: 1/2", md)
+
+
     def test_write_outputs(self):
         res = _res()
         with tempfile.TemporaryDirectory() as d:

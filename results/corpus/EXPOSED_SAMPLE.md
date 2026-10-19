@@ -56,6 +56,28 @@ The 5 COVERED tables are counted as exposed by the measure although every value 
 OPEN share: 1/50 = 2% (Wilson 95%: 0% to 10%).
 
 * Over the 190 distinct exposed tables: about 4 at real risk (Wilson range 1 to 20).
-* Over the 369 exposed tables counted over distinct files, applying the same share: about 7 (range 1 to 39). Weighting each sampled table by its number of distinct-file copies instead gives an OPEN share of 7/79 copies = 9%, about 33 tables (a ratio estimate; copies are unevenly spread, so its interval is wider than the Wilson interval above; here one OPEN table with 7 copies drives it).
+* Over the 369 exposed tables counted over distinct files, applying the same share: about 7 (range 1 to 39). Weighting each sampled table by its number of distinct-file copies instead gives an OPEN share of 7/79 copies = 9%, about 33 tables (a ratio estimate; copies are unevenly spread, so its interval is wider than the Wilson interval above, and one table with many copies can drive it).
 
 This is an estimate from one rater, reading each model without its authors' context. The sampling unit is the distinct table content; the classes were assigned to that content, and copies in other files inherit them.
+
+## Agreement with a second coder
+
+A second coder classified the same tables blind, from a sheet without the first coder's labels (`exposed_sample_rater2.json`), with the same class definitions. Both coders are instances of the Claude language model (Anthropic) reading the model files, so their errors may be correlated; the agreement below measures the consistency of the coding and is no substitute for a check by an independent human expert.
+
+| judgement | tables | observed agreement | Cohen's kappa |
+|---|---:|---:|---:|
+| class | 50 | 84% | 0.42 |
+| class: OPEN against the rest | 50 | 98% | 0.66 |
+| domain | 50 | 70% | 0.60 |
+| domain: OPEN against the rest | 50 | 78% | 0.45 |
+
+Classes, first coder (rows) against second coder (columns):
+
+| | OPEN | CLOSED | PARTIAL | UNCLEAR |
+|---|---:|---:|---:|---:|
+| OPEN | 1 | 0 | 0 | 0 |
+| CLOSED | 0 | 2 | 0 | 0 |
+| PARTIAL | 0 | 7 | 39 | 0 |
+| UNCLEAR | 1 | 0 | 0 | 0 |
+
+Second coder's OPEN share: 2/50 = 4% (Wilson 95%: 1% to 13%).
