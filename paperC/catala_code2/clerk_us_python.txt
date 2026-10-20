@@ -1,3 +1,0 @@
-[WARNING] Running as root is not recommended
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  NO TESTS WERE RUN  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

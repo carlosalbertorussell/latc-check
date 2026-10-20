@@ -1,8 +1,0 @@
-[WARNING] Running as root is not recommended
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                                              ┃
-┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
-┃   Python                 0          3          3      100 %                  ┃
-┃                                                                              ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
