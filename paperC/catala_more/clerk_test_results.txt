@@ -1,0 +1,172 @@
+Catala 1.3.0, clerk 1.3.0, catala-examples 2694b17ddd7c2246e207e8f077d586349ee5abea, run 2026-10-20T18:34Z
+================================================================
+$ clerk test aides_logement/tests/tests_eligibilite_apl.catala_fr --verbose --color=never
+================================================================
+__ aides_logement/tests/tests_eligibilite_apl.catala_fr: 7 / 7 tests passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:266-269 cli test passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:273-276 cli test passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:280-283 cli test passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:287-290 cli test passed
+   ■ scope Exemple1 passed (383 µs)
+   ■ scope Exemple2 passed (15 µs)
+   ■ scope Exemple3 passed (8 µs)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Interpreted            0          7          7      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+(exit status 0)
+
+================================================================
+$ clerk test aides_logement/tests/tests_eligibilite_apl.catala_fr --backend=python --verbose --color=never
+================================================================
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Python                 0          3          3      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+(exit status 0)
+
+================================================================
+$ clerk test aides_logement/tests/ --verbose --color=never
+================================================================
+__ aides_logement/tests/tests_calcul_al_accession_propriete.catala_fr: 5 / 5 tests passed
+   ■ aides_logement/tests/tests_calcul_al_accession_propriete.catala_fr:80-86 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_accession_propriete.catala_fr:90-93 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_accession_propriete.catala_fr:97-100 cli test passed
+   ■ scope Exemple1 passed (247 µs)
+   ■ scope Exemple2 passed (12 µs)
+__ aides_logement/tests/tests_calcul_al_locatif.catala_fr: 9 / 9 tests passed
+   ■ aides_logement/tests/tests_calcul_al_locatif.catala_fr:143-149 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_locatif.catala_fr:153-156 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_locatif.catala_fr:160-163 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_locatif.catala_fr:167-170 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_locatif.catala_fr:174-177 cli test passed
+   ■ scope Exemple1 passed (231 µs)
+   ■ scope Exemple2 passed (47 µs)
+   ■ scope Exemple3 passed (5 µs)
+   ■ scope Exemple4 passed (2 µs)
+__ aides_logement/tests/tests_calcul_al_logement_foyer.catala_fr: 3 / 3 tests passed
+   ■ aides_logement/tests/tests_calcul_al_logement_foyer.catala_fr:38-44 cli test passed
+   ■ aides_logement/tests/tests_calcul_al_logement_foyer.catala_fr:48-51 cli test passed
+   ■ scope CasTest1 passed (268 µs)
+__ aides_logement/tests/tests_calcul_apl_accession_propriete.catala_fr: 8 / 8 tests passed
+   ■ aides_logement/tests/tests_calcul_apl_accession_propriete.catala_fr:157-160 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_accession_propriete.catala_fr:164-167 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_accession_propriete.catala_fr:171-174 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_accession_propriete.catala_fr:178-181 cli test passed
+   ■ scope Exemple1 passed (252 µs)
+   ■ scope Exemple2 passed (42 µs)
+   ■ scope Exemple3 passed (37 µs)
+   ■ scope Exemple4 passed (11 µs)
+__ aides_logement/tests/tests_calcul_apl_locatif.catala_fr: 18 / 18 tests passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:303-306 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:310-313 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:317-320 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:324-327 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:331-334 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:338-341 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:345-348 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:352-355 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_locatif.catala_fr:359-362 cli test passed
+   ■ scope Exemple1 passed (323 µs)
+   ■ scope Exemple2 passed (15 µs)
+   ■ scope Exemple3 passed (60 µs)
+   ■ scope Exemple4 passed (19 µs)
+   ■ scope Exemple5 passed (56 µs)
+   ■ scope Exemple6 passed (16 µs)
+   ■ scope Exemple7 passed (9 µs)
+   ■ scope Exemple8 passed (40 µs)
+   ■ scope Exemple9 passed (42 µs)
+__ aides_logement/tests/tests_calcul_apl_logement_foyer.catala_fr: 10 / 10 tests passed
+   ■ aides_logement/tests/tests_calcul_apl_logement_foyer.catala_fr:146-149 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_logement_foyer.catala_fr:153-156 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_logement_foyer.catala_fr:160-163 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_logement_foyer.catala_fr:167-170 cli test passed
+   ■ aides_logement/tests/tests_calcul_apl_logement_foyer.catala_fr:174-177 cli test passed
+   ■ scope CasTest1 passed (219 µs)
+   ■ scope CasTest2 passed (45 µs)
+   ■ scope CasTest3 passed (4 µs)
+   ■ scope CasTest4 passed (1 µs)
+   ■ scope CasTest5 passed (2 µs)
+__ aides_logement/tests/tests_calculette_globale.catala_fr: 4 / 4 tests passed
+   ■ aides_logement/tests/tests_calculette_globale.catala_fr:197-201 cli test passed
+   ■ aides_logement/tests/tests_calculette_globale.catala_fr:205-209 cli test passed
+   ■ scope Exemple1 passed (230 µs)
+   ■ scope Exemple2 passed (27 µs)
+__ aides_logement/tests/tests_couverture_temporelle.catala_fr: 3 / 3 tests passed
+   ■ scope CouvertureAPLLocatifMétropole passed (192 µs)
+   ■ scope CouvertureAPLLocatifColocation passed (31 µs)
+   ■ scope CouvertureAPLLocatifDROM passed (31 µs)
+__ aides_logement/tests/tests_eligibilite_apl.catala_fr: 7 / 7 tests passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:266-269 cli test passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:273-276 cli test passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:280-283 cli test passed
+   ■ aides_logement/tests/tests_eligibilite_apl.catala_fr:287-290 cli test passed
+   ■ scope Exemple1 passed (354 µs)
+   ■ scope Exemple2 passed (26 µs)
+   ■ scope Exemple3 passed (23 µs)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Interpreted            0         67         67      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+(exit status 0)
+
+================================================================
+$ clerk test aides_logement/tests/ --backend=python --verbose --color=never
+================================================================
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Python                 0         33         33      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+(exit status 0)
+
+================================================================
+$ clerk test us_tax_code/tests/ --verbose --color=never
+================================================================
+__ us_tax_code/tests/test_section_121.catala_en: 12 / 12 tests passed
+   ■ us_tax_code/tests/test_section_121.catala_en:163-166 cli test passed
+   ■ us_tax_code/tests/test_section_121.catala_en:170-173 cli test passed
+   ■ us_tax_code/tests/test_section_121.catala_en:177-180 cli test passed
+   ■ us_tax_code/tests/test_section_121.catala_en:184-187 cli test passed
+   ■ us_tax_code/tests/test_section_121.catala_en:191-194 cli test passed
+   ■ us_tax_code/tests/test_section_121.catala_en:198-201 cli test passed
+   ■ scope Test1 passed (244 µs)
+   ■ scope Test2 passed (44 µs)
+   ■ scope Test3 passed (54 µs)
+   ■ scope Test4 passed (54 µs)
+   ■ scope Test5 passed (14 µs)
+   ■ scope Test6 passed (38 µs)
+__ us_tax_code/tests/test_section_132.catala_en: 6 / 6 tests passed
+   ■ us_tax_code/tests/test_section_132.catala_en:50-53 cli test passed
+   ■ us_tax_code/tests/test_section_132.catala_en:57-60 cli test passed
+   ■ us_tax_code/tests/test_section_132.catala_en:64-67 cli test passed
+   ■ scope TestSection132_1 passed (221 µs)
+   ■ scope TestSection132_2 passed (7 µs)
+   ■ scope TestSection132_3 passed (3 µs)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Interpreted            0         18         18      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+(exit status 0)
+
+================================================================
+$ clerk test us_tax_code/tests/ --backend=python --verbose --color=never
+================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  NO TESTS WERE RUN  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+(exit status 0)
+

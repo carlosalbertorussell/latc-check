@@ -1,0 +1,16 @@
+> Using Us_tax_code as T
+
+```catala
+#[test]
+declaration scope ProbeB3:
+  s scope T.Section121SinglePerson
+  output r content money
+
+scope ProbeB3:
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.property_ownage equals [ T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| } ]
+  definition s.property_usage_as_principal_residence equals [ T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| } ]
+  definition s.other_section_121a_sale equals T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| })
+  definition r equals s.income_excluded_from_gross_income
+```

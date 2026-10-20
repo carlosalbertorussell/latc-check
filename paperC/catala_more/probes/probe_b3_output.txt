@@ -1,0 +1,15 @@
+$ clerk run us_tax_code/tests/probe_b3.catala_en --scope ProbeB3
+[WARNING] Running as root is not recommended
+┌─[ERROR]─
+│
+│  During evaluation: ambiguous comparison between durations in different units
+│  (e.g. months vs. days).
+│
+├─➤ us_tax_code/section_121.catala_en:376.9-81:
+│     │
+│ 376 │     and date_of_sale_or_exchange - other_sale.date_of_sale_or_exchange <= 2 year
+│     │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+└─ Section 121
+   └┬ (b) Limitations
+    └─ (3) Application to only 1 sale or exchange every 2 years
+exit status: 123
