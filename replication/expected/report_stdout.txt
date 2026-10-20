@@ -1,0 +1,160 @@
+RQ2.1  Worked example: pension rule (Table 1a)
+----------------------------------------------
+Source rows: CHECKED_AGAINST_IJSER_MANUSCRIPT.
+T0 rows 8; prod Card(Ai) = 24; Corollary 3 missing = 16; exact complement = 16.
+Corollary 4 deficits: Sex M:8, F:8; Activity D:9, I:7; ContributionYears >=30:7, <30:9; Age >=65:5, 60-64:4, <60:7
+Published complementary table (16 rows) == exact complement: True
+Reading A, deficit block fill:     rows 16/16, missed 13, duplicates 11, regenerated T0 6, outside space 0, exact False
+Reading A, best of 48 block orders: rows 16/16, missed 10, duplicates 10, regenerated T0 0, outside space 0, exact False; any order exact: False
+Reading B, odometer + T0 matching: rows 16/16, missed 0, duplicates 0, regenerated T0 0, outside space 0, exact True
+Reading A's marginals equal the deficits: True; source's summed-frequency check on T0 + Reading A passes: True
+Distinct 16-row sets of the 24-cell space with exactly these deficits: 586; of those disjoint from T0: 1
+Reading A rows (* = already in T0):
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+    *     M     D  >=30  >=65
+          M     D  >=30 60-64
+          M     D  >=30 60-64
+          M     D   <30 60-64
+    *     F     D   <30 60-64
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+          F     I   <30   <60
+
+RQ2.2  Two-attribute counterexample
+-----------------------------------
+T0 = [('M', 'D'), ('F', 'I')]; exact complement = [('M', 'I'), ('F', 'D')]
+Reading A fill = [('M', 'D'), ('F', 'I')] -> rows 2/2, missed 2, duplicates 0, regenerated T0 2, outside space 0, exact False
+Twin T0 = [('M', 'I'), ('F', 'D')] has the same frequency table (True) and complement [('M', 'D'), ('F', 'I')].
+With block order [('M', 'F'), ('D', 'I')] both get [('M', 'D'), ('F', 'I')]: correct for at most one.
+Reading B: rows 2/2, missed 0, duplicates 0, regenerated T0 0, outside space 0, exact True
+
+RQ2.3  Randomised property tests (1000 tables per scenario, seed 20210101)
+--------------------------------------------------------------------------
+scenario     method                              trials          exact_rate         mean_missed     mean_duplicates mean_regenerated_t0  mean_outside_space
+observed     reference                             1000               1.000                   0                   0                   0                   0
+observed     latc_A_deficit_fill                   1000               0.263               6.757               4.860               4.186                   0
+observed     latc_A_best_order                      935               0.483               4.276               3.801               0.691                   0
+observed     latc_B_odometer                       1000               1.000                   0                   0                   0                   0
+             corollary3_count_equals_true_missing: 1.000
+             complement_passes_[12]_deficit_check: 1.000
+             complement_passes_valid_space_deficit_check: 1.000
+unobserved   reference                             1000               1.000                   0                   0                   0                   0
+unobserved   latc_A_deficit_fill                   1000               0.000              13.248               2.707               2.971                   0
+unobserved   latc_A_best_order                     1000               0.000              11.595               2.259               0.578                   0
+unobserved   latc_B_odometer                       1000               0.000               8.900                   0                   0                   0
+             corollary3_count_equals_true_missing: 0.000
+             complement_passes_[12]_deficit_check: 0.000
+             complement_passes_valid_space_deficit_check: 1.000
+constrained  reference                             1000               1.000                   0                   0                   0                   0
+constrained  latc_A_deficit_fill                   1000               0.000               5.406               7.671               6.405               3.066
+constrained  latc_A_best_order                      936               0.000               2.935               6.189               2.241               2.136
+constrained  latc_B_odometer                       1000               0.000                   0                   0                   0               6.252
+             corollary3_count_equals_true_missing: 0.000
+             complement_passes_[12]_deficit_check: 0.000
+             complement_passes_valid_space_deficit_check: 1.000
+latc_A_best_order only covers tables with <= 2000 block orders.
+
+RQ2.3b Structured valid-state constraints (1000 tables, seed 20210101)
+----------------------------------------------------------------------
+method                              trials          exact_rate         mean_missed     mean_duplicates mean_regenerated_t0  mean_outside_space
+reference                             1000               1.000                   0                   0                   0                   0
+latc_A_deficit_fill                   1000               0.027               4.681               9.040               6.878               4.439
+latc_A_best_order                      927               0.045               2.534               7.627               2.230               4.197
+latc_B_odometer                       1000               0.050                   0                   0                   0               8.466
+  corollary3_count_equals_true_missing: 0.050
+  complement_passes_[12]_deficit_check: 0.050
+  complement_passes_valid_space_deficit_check: 1.000
+  latc_B_passes_valid_space_deficit_check: 0.050
+  latc_A_deficit_fill_passes_valid_space_deficit_check: 0.050
+  excluded share of the product space: mean 0.342, min 0.062, max 0.833
+  constraints per table 1.87; kinds {'implication': 479, 'exclusion': 503, 'ordinal': 523, 'undefined_when': 362}
+  tables where a declared value is absent from V: 0.100; V a product of its values: 0.050
+
+RQ4.1  Structural checks on the completed pension table (T0 + published Table 2 bis)
+------------------------------------------------------------------------------------
+rows 24, valid_space 24, coverage 1.0, uncovered 0, multi_hit_tuples 0, single_hit True, conflicting_tuples 0, rows_outside_valid_space 0, unknown_outcomes 0, undeclared_outcomes 0 -> sound: True
+Injected conflicting duplicate: multi-hit 1, conflicts 1, sound False
+
+RQ4.2  Out-of-domain inputs
+---------------------------
+8 out-of-domain probes routed to 'Out of Range' (never to an in-domain row): {'dict': 8, 'sha512': 8, 'prime': 8}
+Example reason: Age=130 out of range
+Assumed operating ranges: Age (18, 120), contribution years (0, 60).
+
+RQ4.3  Keying
+-------------
+Canonical bytes of T0 row 1: {"Activity":"D","Age":">=65","ContributionYears":">=30","Sex":"M"}
+Naive ';'-join: ('a;b','c') and ('a','b;c') collide: True; canonical bytes collide: False
+Distinct primes per (attribute, value): one-to-one True, 24/24 distinct keys, {'max_key_bits': 13, 'max_key_digits': 4, 'fits_int64': True, 'fits_uint64': True, 'fits_float64_exact': True}
+Ambiguous assignment (j-th value of every attribute -> j-th prime): one-to-one False, 9/24 distinct keys (15 rows lost to collisions)
+Forced-collision test (SHA-512 truncated to 8 bits, 1024 rows, 770 colliding inserts): verified index correct 1024/1024, digest-only index correct 254/1024
+Prime key size at 10 attributes x 8 values: 73 bits (fits int64: False)
+
+B4.1  DMN gap analysis of T0 (Table 1a as 8 DMN rules)
+------------------------------------------------------
+DMN gap regions: 7 merged (10 before merging; 7 with list-entry grouping), covering 16 tuples; COMPLETE: 16 rows.
+Expanded DMN gaps == COMPLETE's rows: True; partly covered bins 0; overlapping pairs 0.
+    gap: M | D | [0..30) | -
+    gap: M | - | [30..60] | [18..65)
+    gap: M | I | [0..30) | [18..60)
+    gap: F | D | - | [18..60)
+    gap: F | D | [0..30) | [65..120]
+    gap: F | - | [30..60] | [65..120]
+    gap: F | I | [0..30) | -
+
+B4.2  The completed rule written compactly (wildcards and intervals)
+--------------------------------------------------------------------
+Compact UNIQUE table: 8 rules, 25 non-'-' input cells; exact table: 24 rows, 96 input cells.
+Expands to the 24 completed rows with the same outcomes: True; DMN gaps 0, overlaps 0; COMPLETE structural check: coverage 1.0, single-hit True.
+Seeded fault drop_rule_5: DMN gaps 1 region(s)/1 tuple(s), overlap pairs [] (0 UNIQUE violations) | COMPLETE uncovered 1, multi-hit 0, conflicts 0
+Seeded fault widen_rule_2: DMN gaps 0 region(s)/0 tuple(s), overlap pairs [(1, 2), (1, 3), (1, 4)] (3 UNIQUE violations) | COMPLETE uncovered 0, multi-hit 4, conflicts 4
+
+B4.3  Raw Table 1 (Age written as >=65, >=60, <60, <65)
+-------------------------------------------------------
+Overlapping pairs by hit policy: {'UNIQUE': 0, 'ANY': 0, 'FIRST': 0, 'PRIORITY': 0} -> no rows conflict under UNIQUE.
+Age elementary cells from the rule bounds: 18, (18..60), 60, (60..65), 65, (65..120), 120 (the normalised bins <60, 60-64, >=65 up to the range end points).
+Raw rules cover 12 of 24 discretised tuples; Table 1a covers 8. DMN gaps: 4 regions / 12 tuples, equal to COMPLETE on the discretised raw table: True.
+LATC on the raw labels as opaque values: Card(Age) 4, prod Card 32, missing 24.
+    row 1: M D >=30 >=65 -> YES     => 1a M D >=30 >=65 -> YES
+    row 2: M I >=30 >=65 -> YES     => 1a M I >=30 >=65 -> YES
+    row 3: F D >=30 >=60 -> YES     => 1a F D >=30 60-64 -> YES    narrowed from 2 tuples
+    row 4: F I >=30 >=60 -> YES     => 1a F I >=30 60-64 -> YES    narrowed from 2 tuples
+    row 5: F I >=30 <60 -> NO       => 1a F I >=30 <60 -> NO
+    row 6: M I <30 >=65 -> YES      => 1a M I <30 >=65 -> Rv       outcome changed
+    row 7: M I <30 <65 -> NO        => 1a M I <30 60-64 -> NO      narrowed from 2 tuples
+    row 8: F D <30 >=60 -> Rv       => 1a F D <30 60-64 -> YES     narrowed from 2 tuples; outcome changed
+
+B4.4  Counterexample and random scenarios (same 1000 tables per scenario as RQ2.3)
+----------------------------------------------------------------------------------
+Counterexample T0: DMN gaps ['M | I', 'F | D'] -> exact True
+Counterexample twin: DMN gaps ['M | D', 'F | I'] -> exact True
+scenario     variant                          exact_rate   missed  outside  regions   points
+observed     dmn_declared_values                   1.000    0.000    0.000     4.95     8.95
+observed     dmn_observed_values                   1.000    0.000    0.000     4.96     8.95
+observed     dmn_declared+constraint_filter        1.000    0.000    0.000     4.95     8.95
+unobserved   dmn_declared_values                   1.000    0.000    0.000     5.33    15.11
+unobserved   dmn_observed_values                   0.000    8.900    0.000     3.76    15.11
+unobserved   dmn_declared+constraint_filter        1.000    0.000    0.000     5.33    15.11
+constrained  dmn_declared_values                   0.000    0.000    6.252     6.74     6.72
+constrained  dmn_observed_values                   0.000    0.000    6.252     6.71     6.72
+constrained  dmn_declared+constraint_filter        1.000    0.000    0.000     6.74     6.72
+DMN has no valid-state constraint: natively, impossible states are reported as gaps; the filtered variant drops them with the exact model's constraint, outside DMN.
+
+B4.6  Differential test against an exhaustive oracle (1000 random tables)
+-------------------------------------------------------------------------
+Tables of 1-3 inputs and 1-6 rules, every entry kind (points, lists, open/closed intervals,
+negation), all four hit policies; the oracle evaluates every grid point directly.
+    gaps           agree   1000 / 1000
+    gaps_disjoint  agree   1000 / 1000
+    pairs          agree   1000 / 1000
+    maximal_sets   agree   1000 / 1000
+    violations     agree   1000 / 1000
+    never_fire     agree    500 / 500
+Failures: none
