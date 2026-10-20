@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "FR-PF",
+  "commit": "b8feeca189acdbd74a6a53e3159ecb0b11539072",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "13fcf58f77c727f4088dd246d3725e0c06af2bd06566d5ab7fb184e99b49a314",
+    "controls.csv": "9426c17725b8889c9f827e23866ab0feae5535d8df2264e4e0670236f1f6882f",
+    "summary.md": "a8c159190e174d20b9002d3394e6895e61cdd55e57333f242874833929dcd600",
+    "manifest.json": "6237b7c0737b52566941d2f83d1ba716968628586aa264fd68132dbfc944ebb9"
+  },
+  "run_b": {
+    "runs.csv": "13fcf58f77c727f4088dd246d3725e0c06af2bd06566d5ab7fb184e99b49a314",
+    "controls.csv": "9426c17725b8889c9f827e23866ab0feae5535d8df2264e4e0670236f1f6882f",
+    "summary.md": "a8c159190e174d20b9002d3394e6895e61cdd55e57333f242874833929dcd600",
+    "manifest.json": "6237b7c0737b52566941d2f83d1ba716968628586aa264fd68132dbfc944ebb9"
+  }
+}
