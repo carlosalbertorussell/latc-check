@@ -216,3 +216,24 @@ section 4), and the metrics from the formulas in section 6.
 ## Deviations
 
 (none yet)
+
+### 2026-10-20: clarifications made while writing the harness
+
+Recorded after the harness was written and tried once on CTRL-NUR to test it. None
+of these changes a number defined above.
+
+1. Exclusion predicates are parsed with `ast` before evaluation and rejected (run
+   aborted) unless every node is a boolean operator, `not`, a comparison, a tuple,
+   list or set, an attribute name of the sample, or a string constant. Predicates
+   that pass are evaluated exactly as section 2 states.
+2. Wilson bounds are clamped to [0, 1], which only removes rounding residue at
+   k = 0 and k = N.
+3. `SHA256SUMS` is read in `sha256sum` output form (64 hex digits, a space, a space or
+   `*`, the path relative to the sample folder).
+4. The manifest field `tracked_inputs_unmodified` is true when
+   `git status --porcelain` reports nothing for `paperC/harness`, `paperC/PROTOCOL.md`,
+   the sample folder and `latc_check`.
+5. `runs.csv` carries one extra column, `size_exceeds_valid` (1 when n > |V|), which
+   implements the flag of section 5.
+6. CTRL-DET is run by `python -m paperC.harness.determinism`, which clones the current
+   commit twice and compares the four output files byte for byte.
