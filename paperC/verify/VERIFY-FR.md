@@ -22,7 +22,7 @@ run.
 | 2. Ground-truth spot-check, 50 rows | PASS 50/50 | PASS 50/50 | PASS 50/50 | PASS 50/50 |
 | 2. Supplementary (beyond the task) | PASS, all 3 240 rows | PASS 5 000/5 000 | PASS 5 000/5 000 | PASS 5 000/5 000 |
 | 3. Conversion audit | see section 3 | see section 3 | see section 3 | see section 3 |
-| 4. Comparison with `origin/paperc-run-fr` runs.csv | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | PENDING (no runner output yet) |
+| 4. Comparison with `origin/paperc-run-fr` runs.csv | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** |
 
 CTRL-H3 is one of the protocol's measured outcomes (H3), so its failure on FR-AF-1
 is a result of the experiment that the verifier reproduces. It does not indicate a
@@ -154,8 +154,8 @@ In progress at this commit; see the next commit.
 
 ## 4. Comparison with the runner
 
-`origin/paperc-run-fr` at commit `d5285d9` ("FR-AF-1 outputs and FR-PF CTRL-DET
-(interim)") holds `paperC/results/FR-PF/`, `FR-AF-1/` and `FR-AF-2/`. Code:
+`origin/paperc-run-fr` at commit `2034114` ("FR-AF-3 harness outputs (interim)") holds
+`paperC/results/` for all four samples; all four were compared at that commit. Code:
 `compare.py`; reports: `<ID>/compare.txt`.
 
 | sample | runs.csv cells compared | differing | CTRL-PLANT sets compared | differing | summary.md statistics (4 decimals) | differing |
@@ -163,7 +163,7 @@ In progress at this commit; see the next commit.
 | FR-PF | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
 | FR-AF-1 | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
 | FR-AF-2 | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
-| FR-AF-3 | pending | | | | | |
+| FR-AF-3 | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
 
 * runs.csv: 1 266 rows × 25 columns per sample, compared as strings, after the
   two identifier columns were renamed (reading 1 above).
@@ -172,12 +172,11 @@ In progress at this commit; see the next commit.
   metrics; complete share and Wilson bounds) against the verifier's value formatted
   to 4 decimals.
 * Controls agree: CTRL-HASH, CTRL-GT, CTRL-EXCL (0 rows each) and CTRL-PLANT (422/422)
-  in all three; CTRL-H3 422/422 for FR-PF and FR-AF-2, 0/422 for FR-AF-1 (|R| = 46 080)
+  in all four; CTRL-H3 422/422 for FR-PF, FR-AF-2 and FR-AF-3, 0/422 for FR-AF-1 (|R| = 46 080)
   in both implementations; CTRL-FULL (recorded only) missing_count = workload = 2 160
   (FR-PF), 46 080 (FR-AF-1), 0 (FR-AF-2) in both.
-* FR-AF-3: **comparison pending**; the runner had not pushed its results when this
-  step was reached. To complete it:
-  `python3.12 paperC/verify/compare.py paperC/verify/FR-AF-3 <runner runs.csv> <runner controls.csv> paperC/verify/FR-AF-3/compare.txt <runner summary.md>`.
+* FR-AF-3 controls agree too: CTRL-HASH, CTRL-GT, CTRL-EXCL (0 rows), CTRL-PLANT
+  (422/422), CTRL-H3 (422/422), CTRL-FULL missing_count = workload = 0.
 
 ## Files
 
