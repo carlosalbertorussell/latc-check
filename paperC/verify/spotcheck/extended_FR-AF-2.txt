@@ -1,0 +1,2 @@
+FR-AF-2 supplementary draw: random.Random(20261021).sample(range(132300), 5000); 0 disagreements
+ground-truth labels drawn: general_t1 676, general_t2 721, general_t3 725, mayotte 483, outre_mer_1_enfant 1113, zero 1282

@@ -1,0 +1,6 @@
+control,result,detail
+CTRL-HASH,pass,7 files match
+CTRL-GT,pass,3240 rows in odometer order
+CTRL-EXCL,pass,0 disagreeing rows
+CTRL-PLANT,pass,0 of 422 example sets fail
+CTRL-H3,pass,0 of 422 C3 runs fail; max spurious_rejected 0

@@ -1,0 +1,4 @@
+rows: verifier 1266, runner 1266
+cells compared: 31650; differing cells: 0
+CTRL-PLANT example sets: verifier 422, runner 423; differing: 0
+summary.md statistics cells compared (4 decimals): 2268; differing: 0

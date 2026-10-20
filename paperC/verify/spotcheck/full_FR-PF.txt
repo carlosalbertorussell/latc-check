@@ -1,0 +1,1 @@
+FR-PF full enumeration through the verifier adapter: 3240 rows, 0 disagreements
