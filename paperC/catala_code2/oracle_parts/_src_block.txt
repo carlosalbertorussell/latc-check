@@ -1,0 +1,12 @@
+SRC = "aides_logement/"
+|||SPEC = {
+    "id": "FR-APL-1",
+    "title": "APL eligibility (ÉligibilitéAidePersonnaliséeLogement.éligibilité), rented housing: lessor and convention by date and collectivity",
+    "source": {"repository": "https://github.com/CatalaLang/catala-examples",
+               "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+               "entry_point": "Aides_logement.ÉligibilitéAidePersonnaliséeLogement (output éligibilité)",
+               "files": [SRC + "prologue.catala_fr", SRC + "code_construction_legislatif.catala_fr",
+                         SRC + "code_construction_reglementaire.catala_fr", SRC + "arrete_2019-09-27.catala_fr",
+                         SRC + "archives.catala_fr", SRC + "autres_sources.catala_fr",
+                         SRC + "code_sécurité_sociale.catala_fr", SRC + "tests/tests_eligibilite_apl.catala_fr",
+                         "smic/Smic.catala_fr", "prestations_familiales/", "prologue_france/"]},

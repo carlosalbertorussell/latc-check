@@ -1,0 +1,112 @@
+{
+  "id": "US-121-1",
+  "title": "US IRC section 121(a): Section121SinglePerson.requirements_met",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Us_tax_code.Section121SinglePerson (output requirements_met)",
+    "files": [
+      "us_tax_code/us_tax_code.catala_en",
+      "us_tax_code/preamble.catala_en",
+      "us_tax_code/section_121.catala_en",
+      "us_tax_code/tests/test_section_121.catala_en"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "property_ownage",
+      "kind": "enum",
+      "values": [
+        "none",
+        "one_inside_window_over_730d",
+        "one_inside_window_730d",
+        "one_inside_window_under_730d",
+        "one_across_5y_mark_over_730d",
+        "one_across_5y_mark_730d",
+        "one_across_5y_mark_under_730d",
+        "one_ended_before_5y_mark",
+        "two_total_730d_or_more",
+        "two_total_under_730d"
+      ],
+      "representative": {
+        "none": "[]",
+        "one_inside_window_over_730d": "[2017-01-01..2021-01-01]",
+        "one_inside_window_730d": "[2018-01-02..2020-01-02]",
+        "one_inside_window_under_730d": "[2019-01-01..2020-01-01]",
+        "one_across_5y_mark_over_730d": "[2010-01-01..2019-01-01]",
+        "one_across_5y_mark_730d": "[2010-01-01..2018-01-01]",
+        "one_across_5y_mark_under_730d": "[2015-01-01..2017-01-02]",
+        "one_ended_before_5y_mark": "[2005-01-01..2015-06-01]",
+        "two_total_730d_or_more": "[2015-01-01..2017-01-02; 2019-01-01..2020-01-01]",
+        "two_total_under_730d": "[2015-01-01..2016-06-01; 2019-01-01..2020-01-01]"
+      },
+      "source": "us_tax_code/section_121.catala_en:205-247 (aggregate_periods_from_last_five_years: three branches on begin + 5 year and end + 5 year against the sale date; requirement >= 730 day)"
+    },
+    {
+      "name": "property_usage_as_principal_residence",
+      "kind": "enum",
+      "values": [
+        "none",
+        "one_inside_window_over_730d",
+        "one_inside_window_730d",
+        "one_inside_window_under_730d",
+        "one_across_5y_mark_over_730d",
+        "one_across_5y_mark_730d",
+        "one_across_5y_mark_under_730d",
+        "one_ended_before_5y_mark",
+        "two_total_730d_or_more",
+        "two_total_under_730d"
+      ],
+      "representative": {
+        "none": "[]",
+        "one_inside_window_over_730d": "[2017-01-01..2021-01-01]",
+        "one_inside_window_730d": "[2018-01-02..2020-01-02]",
+        "one_inside_window_under_730d": "[2019-01-01..2020-01-01]",
+        "one_across_5y_mark_over_730d": "[2010-01-01..2019-01-01]",
+        "one_across_5y_mark_730d": "[2010-01-01..2018-01-01]",
+        "one_across_5y_mark_under_730d": "[2015-01-01..2017-01-02]",
+        "one_ended_before_5y_mark": "[2005-01-01..2015-06-01]",
+        "two_total_730d_or_more": "[2015-01-01..2017-01-02; 2019-01-01..2020-01-01]",
+        "two_total_under_730d": "[2015-01-01..2016-06-01; 2019-01-01..2020-01-01]"
+      },
+      "source": "us_tax_code/section_121.catala_en:205-247 (aggregate_periods_from_last_five_years: three branches on begin + 5 year and end + 5 year against the sale date; requirement >= 730 day)"
+    },
+    {
+      "name": "other_section_121a_sale",
+      "kind": "interval",
+      "values": [
+        "none",
+        "under_2_years_before",
+        "exactly_2_years_before",
+        "over_2_years_before"
+      ],
+      "representative": {
+        "none": "NoOtherSaleWhereSection121aApplied",
+        "under_2_years_before": "MostRecentSaleWhereSection121aApplied, sold 2020-01-01",
+        "exactly_2_years_before": "MostRecentSaleWhereSection121aApplied, sold 2019-01-01",
+        "over_2_years_before": "MostRecentSaleWhereSection121aApplied, sold 2018-06-01"
+      },
+      "source": "us_tax_code/section_121.catala_en:369-383 (b)(3): date_of_sale_or_exchange - other_sale.date_of_sale_or_exchange <= 2 year"
+    }
+  ],
+  "output": {
+    "name": "requirements_met",
+    "values": [
+      "met",
+      "not_met"
+    ],
+    "source": "us_tax_code/section_121.catala_en:224-240"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "date_of_sale_or_exchange": {
+      "value": "2021-01-01",
+      "why": "date of every official test (Data, test_section_121.catala_en:19)"
+    },
+    "gain_from_sale_or_exchange_of_property": {
+      "value": "$350,000",
+      "why": "official test value (Data, line 21); requirements_met does not read it"
+    }
+  },
+  "notes": "Every list with a MostRecentSaleWhereSection121aApplied value makes the scope raise a Catala DateError (days compared with years at section_121.catala_en:376), in the interpreter and in Python; those rows are REJECTED although requirements_met itself does not read (b)(3)."
+}

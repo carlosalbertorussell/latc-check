@@ -1,0 +1,195 @@
+{
+  "id": "FR-APL-3",
+  "title": "APL eligibility (ÉligibilitéAidePersonnaliséeLogement.éligibilité), home ownership: loan type, holder, signature date, age of dwelling, zone",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Aides_logement.ÉligibilitéAidePersonnaliséeLogement (output éligibilité)",
+    "files": [
+      "aides_logement/prologue.catala_fr",
+      "aides_logement/code_construction_legislatif.catala_fr",
+      "aides_logement/code_construction_reglementaire.catala_fr",
+      "aides_logement/arrete_2019-09-27.catala_fr",
+      "aides_logement/archives.catala_fr",
+      "aides_logement/autres_sources.catala_fr",
+      "aides_logement/code_sécurité_sociale.catala_fr",
+      "aides_logement/tests/tests_eligibilite_apl.catala_fr",
+      "smic/Smic.catala_fr",
+      "prestations_familiales/",
+      "prologue_france/"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "date_courante",
+      "kind": "interval",
+      "values": [
+        "2019-09-01_to_2019-09-30",
+        "2019-10-01_to_2020-12-31",
+        "2021-01-01_to_2021-04-30",
+        "2021-05-01_to_2023-04-04",
+        "2023-04-05_to_2023-08-31",
+        "2023-09-01_to_2023-12-31",
+        "2024-01-01_to_2024-10-31",
+        "from_2024-11-01"
+      ],
+      "representative": {
+        "2019-09-01_to_2019-09-30": "2019-09-01",
+        "2019-10-01_to_2020-12-31": "2020-03-10",
+        "2021-01-01_to_2021-04-30": "2021-01-01",
+        "2021-05-01_to_2023-04-04": "2021-05-01",
+        "2023-04-05_to_2023-08-31": "2023-04-05",
+        "2023-09-01_to_2023-12-31": "2023-09-01",
+        "2024-01-01_to_2024-10-31": "2024-01-01",
+        "from_2024-11-01": "2024-11-01"
+      },
+      "source": "cuts: 2019-09-01 aides_logement/archives.catala_fr:10-12 (personnes_à_charge_prises_en_compte defined from this date; earlier dates raise NoValue); 2019-10-01 arrete_2019-09-27.catala_fr:6070-6074 (zone III rule); 2021-01-01 code_construction_legislatif.catala_fr:1333-1339 (Saint-Pierre-et-Miquelon) and code_construction_reglementaire.catala_fr:6207; 2021-05-01 code_construction_reglementaire.catala_fr:6209-6213; 2023-04-05 code_construction_reglementaire.catala_fr:6001-6018; 2023-09-01 archives.catala_fr:10-24, code_sécurité_sociale.catala_fr:188-221; 2024-01-01 and 2024-11-01 smic/Smic.catala_fr:431-500 (Mayotte SMIC)"
+    },
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": [
+        "Metropole",
+        "Guadeloupe",
+        "Guyane",
+        "Martinique",
+        "LaReunion",
+        "Mayotte",
+        "SaintBarthelemy",
+        "SaintMartin",
+        "SaintPierreEtMiquelon"
+      ],
+      "representative": {
+        "Metropole": "France.Collectivité.Metropole",
+        "Guadeloupe": "France.Collectivité.Guadeloupe",
+        "Guyane": "France.Collectivité.Guyane",
+        "Martinique": "France.Collectivité.Martinique",
+        "LaReunion": "France.Collectivité.LaReunion",
+        "Mayotte": "France.Collectivité.Mayotte",
+        "SaintBarthelemy": "France.Collectivité.SaintBarthelemy",
+        "SaintMartin": "France.Collectivité.SaintMartin",
+        "SaintPierreEtMiquelon": "France.Collectivité.SaintPierreEtMiquelon"
+      },
+      "source": "prologue_france/prologue_france.catala_fr:9-18"
+    },
+    {
+      "name": "mode_occupation",
+      "kind": "enum",
+      "values": [
+        "AccessionProprieteLocalUsageExclusifHabitation",
+        "LocationAccession"
+      ],
+      "representative": {
+        "AccessionProprieteLocalUsageExclusifHabitation": "ModeOccupation.AccessionPropriétéLocalUsageExclusifHabitation (Propriétaire below)",
+        "LocationAccession": "ModeOccupation.LocationAccession (Propriétaire below)"
+      },
+      "source": "prologue.catala_fr ModeOccupation; code_construction_legislatif.catala_fr:668-677 (L831-1 1°), 755-763 (L831-1 6°)"
+    },
+    {
+      "name": "type_pret",
+      "kind": "enum",
+      "values": [
+        "D331_32",
+        "D331_63_64",
+        "D331_59_8",
+        "D331_76_1",
+        "Autre"
+      ],
+      "representative": {
+        "D331_32": "TypePrêt.D331_32",
+        "D331_63_64": "TypePrêt.D331_63_64",
+        "D331_59_8": "TypePrêt.D331_59_8",
+        "D331_76_1": "TypePrêt.D331_76_1",
+        "Autre": "TypePrêt.Autre"
+      },
+      "source": "code_construction_reglementaire.catala_fr:3065-3073 (R832-5), 3103-3111 (R832-7)"
+    },
+    {
+      "name": "titulaire_pret",
+      "kind": "enum",
+      "values": [
+        "Demandeur",
+        "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "representative": {
+        "Demandeur": "TitulairePrêt.Demandeur",
+        "VendeurQuandDemandeurAContratLocationAccession": "TitulairePrêt.VendeurQuandDemandeurAContratLocationAccession"
+      },
+      "source": "code_construction_reglementaire.catala_fr:3065-3111"
+    },
+    {
+      "name": "date_signature_pret",
+      "kind": "interval",
+      "values": [
+        "before_2017-12-31",
+        "on_2017-12-31",
+        "2018-01-01_to_2019-12-31",
+        "from_2020-01-01"
+      ],
+      "representative": {
+        "before_2017-12-31": "2017-12-30",
+        "on_2017-12-31": "2017-12-31",
+        "2018-01-01_to_2019-12-31": "2018-01-01",
+        "from_2020-01-01": "2020-01-01"
+      },
+      "source": "code_construction_legislatif.catala_fr:772-815 (L831-2: >= 2017-12-31 base exclusion, [2018-01-01, 2020-01-01) exception)"
+    },
+    {
+      "name": "anciennete_logement",
+      "kind": "enum",
+      "values": [
+        "neuf",
+        "ancien_ameliore_par_occupant",
+        "ancien_non_ameliore_par_occupant"
+      ],
+      "representative": {
+        "neuf": "NeufOuAncien.Neuf",
+        "ancien_ameliore_par_occupant": "NeufOuAncien.Ancien contenu AmélioréParOccupant.Oui",
+        "ancien_non_ameliore_par_occupant": "NeufOuAncien.Ancien contenu AmélioréParOccupant.Non"
+      },
+      "source": "prologue.catala_fr NeufOuAncien; code_construction_legislatif.catala_fr:796-815"
+    },
+    {
+      "name": "zone",
+      "kind": "enum",
+      "values": [
+        "Zone1",
+        "Zone2",
+        "Zone3"
+      ],
+      "representative": {
+        "Zone1": "ZoneDHabitation.Zone1",
+        "Zone2": "ZoneDHabitation.Zone2",
+        "Zone3": "ZoneDHabitation.Zone3"
+      },
+      "source": "arrete_2019-09-27.catala_fr:6070-6074 (Zone3 = commune of L831-2 last paragraph, from 2019-10-01)"
+    }
+  ],
+  "output": {
+    "name": "eligibilite_apl",
+    "values": [
+      "eligible",
+      "ineligible"
+    ],
+    "source": "prologue.catala_fr:391; code_construction_legislatif.catala_fr:631-645"
+  },
+  "exclusions": [
+    {
+      "id": "loan_signed_after_current_date",
+      "description": "a loan signed on or after 2020-01-01 cannot exist on a current date in 2019-09-01..2019-09-30",
+      "predicate": "date_signature_pret == 'from_2020-01-01' and date_courante == '2019-09-01_to_2019-09-30'",
+      "source": "factual: date_signature is a past event at date_courante (Prêt.date_signature, prologue.catala_fr)"
+    }
+  ],
+  "fixed_inputs": {
+    "Propriétaire": {
+      "value": "mensualité_principale 700 €, charges 0 €, date_entrée_logement = the earlier of the signature and current-date representatives, no works (PasDeTravaux both), not first occupation, no copropriété, situation_r822_11_13_17 faux, opérations_logement_évolutifs_sociaux faux, accord_financement PasdAccord",
+      "why": "fields that the eligibility rules of the APL scope do not read; values chosen once"
+    },
+    "other inputs": {
+      "value": "as in official test Exemple1 (tests_eligibilite_apl.catala_fr:8-107) apart from mode_occupation and zone",
+      "why": "base case = the only official test of this scope"
+    }
+  },
+  "notes": "Sub-table 3 of 5 of FR-APL. No official test of this scope covers home ownership, so no official row maps here. caractéristiques_prêt_l831_1_6 (prologue.catala_fr:387) has no definition, so LocationAccession is never eligible. Mayotte rows are ineligible throughout (French applicant) and REJECTED in 2024-01-01..2024-10-31 (Smic Conflict)."
+}

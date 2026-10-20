@@ -1,0 +1,190 @@
+{
+  "id": "FR-APL-5",
+  "title": "APL eligibility (ÉligibilitéAidePersonnaliséeLogement.éligibilité), housing surface against household size",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Aides_logement.ÉligibilitéAidePersonnaliséeLogement (output éligibilité), sub-scope ÉligibilitéAidesPersonnelleLogement",
+    "files": [
+      "aides_logement/prologue.catala_fr",
+      "aides_logement/code_construction_legislatif.catala_fr",
+      "aides_logement/code_construction_reglementaire.catala_fr",
+      "aides_logement/tests/tests_eligibilite_apl.catala_fr"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": [
+        "Metropole",
+        "LaReunion",
+        "Mayotte"
+      ],
+      "representative": {
+        "Metropole": "France.Collectivité.Metropole",
+        "LaReunion": "France.Collectivité.LaReunion",
+        "Mayotte": "France.Collectivité.Mayotte"
+      },
+      "source": "code_construction_reglementaire.catala_fr:5613-5645 (Mayotte surface rule); other collectivities use R822-25"
+    },
+    {
+      "name": "nationalite_demandeur",
+      "kind": "enum",
+      "values": [
+        "Francaise",
+        "Etrangere_T_T"
+      ],
+      "representative": {
+        "Francaise": "Française",
+        "Etrangere_T_T": "Étrangère {satisfait_conditions_l512_2_code_sécurité_sociale: vrai, satisfait_art_4_ordonnance_2002_mayotte: vrai}"
+      },
+      "source": "code_construction_legislatif.catala_fr:129-136, 1389-1402 (a French applicant is never eligible in Mayotte, so the Mayotte surface rule is only visible with Etrangere_T_T)"
+    },
+    {
+      "name": "situation_familiale",
+      "kind": "enum",
+      "values": [
+        "Celibataire",
+        "Maries",
+        "Pacses",
+        "Concubins",
+        "CelibataireSepareDeFait",
+        "ConcubinageDontSepareDeFait"
+      ],
+      "representative": {
+        "Celibataire": "SituationFamiliale.Celibataire",
+        "Maries": "SituationFamiliale.Mariés contenu 2010-11-26",
+        "Pacses": "SituationFamiliale.Pacses",
+        "Concubins": "SituationFamiliale.Concubins",
+        "CelibataireSepareDeFait": "SituationFamiliale.CelibataireSepareDeFait",
+        "ConcubinageDontSepareDeFait": "SituationFamiliale.ConcubinageDontSepareDeFait"
+      },
+      "source": "code_construction_reglementaire.catala_fr:1015-1027 (1 or 2 persons; 9 or 16 m²; 13 m² in Mayotte)"
+    },
+    {
+      "name": "nombre_autres_occupants_logement",
+      "kind": "interval",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "representative": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "source": "code_construction_reglementaire.catala_fr:1015-1056 (+1 person, +9 m² each)"
+    },
+    {
+      "name": "nombre_personnes_a_charge",
+      "kind": "interval",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "representative": {
+        "0": "0 children (the children of Exemple1 in order, then children born 2012-01-01)",
+        "1": "1 children (the children of Exemple1 in order, then children born 2012-01-01)",
+        "2": "2 children (the children of Exemple1 in order, then children born 2012-01-01)",
+        "3": "3 children (the children of Exemple1 in order, then children born 2012-01-01)",
+        "4": "4 children (the children of Exemple1 in order, then children born 2012-01-01)"
+      },
+      "source": "code_construction_reglementaire.catala_fr:1015-1056 (nombre de ménage.personnes_à_charge, +9 m² each)"
+    },
+    {
+      "name": "surface_m_carres",
+      "kind": "interval",
+      "values": [
+        "below_9",
+        "9_to_12",
+        "13_to_15",
+        "16_to_17",
+        "18_to_21",
+        "22_to_24",
+        "25_to_26",
+        "27_to_30",
+        "31_to_33",
+        "34_to_35",
+        "36_to_39",
+        "40_to_42",
+        "43_to_44",
+        "45_to_48",
+        "49_to_51",
+        "52_to_53",
+        "54_to_57",
+        "58_to_60",
+        "61_to_62",
+        "63_to_66",
+        "67_to_69",
+        "70_to_71",
+        "from_72"
+      ],
+      "representative": {
+        "below_9": "8",
+        "9_to_12": "9",
+        "13_to_15": "13",
+        "16_to_17": "16",
+        "18_to_21": "18",
+        "22_to_24": "22",
+        "25_to_26": "25",
+        "27_to_30": "27",
+        "31_to_33": "31",
+        "34_to_35": "34",
+        "36_to_39": "36",
+        "40_to_42": "40",
+        "43_to_44": "43",
+        "45_to_48": "45",
+        "49_to_51": "49",
+        "52_to_53": "52",
+        "54_to_57": "54",
+        "58_to_60": "58",
+        "61_to_62": "61",
+        "63_to_66": "63",
+        "67_to_69": "67",
+        "70_to_71": "70",
+        "from_72": "72"
+      },
+      "source": "code_construction_reglementaire.catala_fr:1030-1057 (R822-25), 5530-5545 (R844-4), 5613-5645 (Mayotte)"
+    },
+    {
+      "name": "personnes_agees_handicapees_foyer_r844_4",
+      "kind": "bool",
+      "values": [
+        "oui",
+        "non"
+      ],
+      "representative": {
+        "oui": "vrai",
+        "non": "faux"
+      },
+      "source": "code_construction_reglementaire.catala_fr:5530-5545 (R844-4)"
+    }
+  ],
+  "output": {
+    "name": "eligibilite_apl",
+    "values": [
+      "eligible",
+      "ineligible"
+    ],
+    "source": "prologue.catala_fr:336-341, 391; code_construction_legislatif.catala_fr:76-91, 404-410, 631-645"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "date_courante": {
+      "value": "2020-03-10",
+      "why": "date of official test Exemple1"
+    },
+    "other inputs": {
+      "value": "as in official test Exemple1 (tests_eligibilite_apl.catala_fr:8-107), date of marriage 2010-11-26 when Mariés",
+      "why": "base case = the only official test of this scope"
+    }
+  },
+  "notes": "Sub-table 5 of 5 of FR-APL. Household ranges: 0-3 other occupants and 0-4 dependants, so 1 to 9 persons, which reaches the 70 m² cap (8 persons) and the Mayotte 54 m² cap (9 persons). Surface intervals are bounded by every threshold the code computes for these households, so the output is constant inside each interval; the representative is the lower bound (8 for below_9)."
+}

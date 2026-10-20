@@ -1,0 +1,152 @@
+{
+  "id": "FR-APL-2",
+  "title": "APL eligibility (ÉligibilitéAidePersonnaliséeLogement.éligibilité), logement-foyer: type and conventions by date and collectivity",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Aides_logement.ÉligibilitéAidePersonnaliséeLogement (output éligibilité)",
+    "files": [
+      "aides_logement/prologue.catala_fr",
+      "aides_logement/code_construction_legislatif.catala_fr",
+      "aides_logement/code_construction_reglementaire.catala_fr",
+      "aides_logement/arrete_2019-09-27.catala_fr",
+      "aides_logement/archives.catala_fr",
+      "aides_logement/autres_sources.catala_fr",
+      "aides_logement/code_sécurité_sociale.catala_fr",
+      "aides_logement/tests/tests_eligibilite_apl.catala_fr",
+      "smic/Smic.catala_fr",
+      "prestations_familiales/",
+      "prologue_france/"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "date_courante",
+      "kind": "interval",
+      "values": [
+        "2019-09-01_to_2019-09-30",
+        "2019-10-01_to_2020-12-31",
+        "2021-01-01_to_2021-04-30",
+        "2021-05-01_to_2023-04-04",
+        "2023-04-05_to_2023-08-31",
+        "2023-09-01_to_2023-12-31",
+        "2024-01-01_to_2024-10-31",
+        "from_2024-11-01"
+      ],
+      "representative": {
+        "2019-09-01_to_2019-09-30": "2019-09-01",
+        "2019-10-01_to_2020-12-31": "2020-03-10",
+        "2021-01-01_to_2021-04-30": "2021-01-01",
+        "2021-05-01_to_2023-04-04": "2021-05-01",
+        "2023-04-05_to_2023-08-31": "2023-04-05",
+        "2023-09-01_to_2023-12-31": "2023-09-01",
+        "2024-01-01_to_2024-10-31": "2024-01-01",
+        "from_2024-11-01": "2024-11-01"
+      },
+      "source": "cuts: 2019-09-01 aides_logement/archives.catala_fr:10-12 (personnes_à_charge_prises_en_compte defined from this date; earlier dates raise NoValue); 2019-10-01 arrete_2019-09-27.catala_fr:6070-6074 (zone III rule); 2021-01-01 code_construction_legislatif.catala_fr:1333-1339 (Saint-Pierre-et-Miquelon) and code_construction_reglementaire.catala_fr:6207; 2021-05-01 code_construction_reglementaire.catala_fr:6209-6213; 2023-04-05 code_construction_reglementaire.catala_fr:6001-6018; 2023-09-01 archives.catala_fr:10-24, code_sécurité_sociale.catala_fr:188-221; 2024-01-01 and 2024-11-01 smic/Smic.catala_fr:431-500 (Mayotte SMIC)"
+    },
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": [
+        "Metropole",
+        "Guadeloupe",
+        "Guyane",
+        "Martinique",
+        "LaReunion",
+        "Mayotte",
+        "SaintBarthelemy",
+        "SaintMartin",
+        "SaintPierreEtMiquelon"
+      ],
+      "representative": {
+        "Metropole": "France.Collectivité.Metropole",
+        "Guadeloupe": "France.Collectivité.Guadeloupe",
+        "Guyane": "France.Collectivité.Guyane",
+        "Martinique": "France.Collectivité.Martinique",
+        "LaReunion": "France.Collectivité.LaReunion",
+        "Mayotte": "France.Collectivité.Mayotte",
+        "SaintBarthelemy": "France.Collectivité.SaintBarthelemy",
+        "SaintMartin": "France.Collectivité.SaintMartin",
+        "SaintPierreEtMiquelon": "France.Collectivité.SaintPierreEtMiquelon"
+      },
+      "source": "prologue_france/prologue_france.catala_fr:9-18; code_construction_legislatif.catala_fr:1471-1488 and code_construction_reglementaire.catala_fr:6001-6018 (DROM rules)"
+    },
+    {
+      "name": "type_logement_foyer",
+      "kind": "enum",
+      "values": [
+        "LogementPersonnesAgeesOuHandicapees",
+        "ResidenceSociale",
+        "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+        "Autre"
+      ],
+      "representative": {
+        "LogementPersonnesAgeesOuHandicapees": "TypeLogementFoyer.LogementPersonnesAgeesOuHandicapees",
+        "ResidenceSociale": "TypeLogementFoyer.ResidenceSociale",
+        "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995": "TypeLogementFoyer.FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+        "Autre": "TypeLogementFoyer.Autre"
+      },
+      "source": "code_construction_reglementaire.catala_fr:3729-3752 (R832-20, type Autre excluded); 6001-6018 (R861-20 1°)"
+    },
+    {
+      "name": "conventionne_livre_III_titre_V_chap_III",
+      "kind": "bool",
+      "values": [
+        "oui",
+        "non"
+      ],
+      "representative": {
+        "oui": "vrai",
+        "non": "faux"
+      },
+      "source": "code_construction_legislatif.catala_fr:736-744 (L831-1 5°)"
+    },
+    {
+      "name": "conventionne_selon_regles_drom",
+      "kind": "bool",
+      "values": [
+        "oui",
+        "non"
+      ],
+      "representative": {
+        "oui": "vrai",
+        "non": "faux"
+      },
+      "source": "code_construction_legislatif.catala_fr:1471-1488 (L861-? 5° for Guadeloupe, Guyane, Martinique, La Réunion, Mayotte)"
+    },
+    {
+      "name": "remplit_conditions_r832_21",
+      "kind": "bool",
+      "values": [
+        "oui",
+        "non"
+      ],
+      "representative": {
+        "oui": "vrai",
+        "non": "faux"
+      },
+      "source": "code_construction_reglementaire.catala_fr:3800-3813 (R832-21)"
+    }
+  ],
+  "output": {
+    "name": "eligibilite_apl",
+    "values": [
+      "eligible",
+      "ineligible"
+    ],
+    "source": "prologue.catala_fr:391; code_construction_legislatif.catala_fr:631-645"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "mode_occupation": {
+      "value": "RésidentLogementFoyer with logement_foyer_jeunes_travailleurs faux, date_conventionnement 2010-01-01, construit_application_loi_1957_12_III faux, redevance 400 €, catégorie AutresPersonnes, not furnished, not a room, no colocation",
+      "why": "fields that the eligibility rules of the APL scope do not read; values chosen once"
+    },
+    "other inputs": {
+      "value": "as in official test Exemple1 (tests_eligibilite_apl.catala_fr:8-107) apart from mode_occupation",
+      "why": "base case = the only official test of this scope"
+    }
+  },
+  "notes": "Sub-table 2 of 5 of FR-APL. Official test Exemple1 is a tenancy, so no official row maps onto this table. Mayotte rows are ineligible throughout (French applicant, see FR-APL-1 notes) and REJECTED in 2024-01-01..2024-10-31 (Smic Conflict)."
+}

@@ -1,0 +1,2 @@
+case_id,residence,nationalite_demandeur,situation_familiale,nombre_autres_occupants_logement,nombre_personnes_a_charge,surface_m_carres,personnes_agees_handicapees_foyer_r844_4,output
+tests_eligibilite_apl.catala_fr:Exemple1,Metropole,Francaise,Maries,1,3,from_72,non,eligible

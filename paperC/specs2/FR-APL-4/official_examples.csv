@@ -1,0 +1,2 @@
+case_id,residence,nationalite_demandeur,residence_principale,rattache_foyer_fiscal_parent_ifi,logement_decent,loue_ou_sous_loue_a_des_tiers,age_personne_sous_location,sous_locataire_conforme_l442_1,proprietaire_famille,usufruit_famille,mode_occupation,output
+tests_eligibilite_apl.catala_fr:Exemple1,Metropole,Francaise,oui,non,oui,non,sans_objet,sans_objet,autre,autre,Locataire,eligible
