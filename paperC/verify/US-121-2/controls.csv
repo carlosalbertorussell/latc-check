@@ -1,0 +1,7 @@
+control,result,detail
+CTRL-HASH,pass,6 files
+CTRL-GT,pass,"|D|=1296, official rows=2"
+CTRL-EXCL,pass,0 disagreeing rows
+CTRL-FULL,n/a,pass criterion only for CTRL-NUR
+CTRL-PLANT,pass,422/422 example sets; C1 count for v nonzero in 0 sets
+CTRL-H3,fail,0/422 C3 runs complete; max spurious_rejected=432
