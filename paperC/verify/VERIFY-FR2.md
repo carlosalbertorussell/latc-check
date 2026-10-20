@@ -86,7 +86,7 @@ row maps to its listed output).
 | US-121-2 | 50 | 50 | 2 no_exclusion, 34 EXCLUDED, 14 REJECTED | `DateError` section_121.catala_en:376 (14) |
 
 Supplementary (outside the verdict): the same adapter run on every row of every table
-(77,418 rows) agrees everywhere, including the 32 eligible rows of FR-APL-3 and the
+(78,618 rows) agrees everywhere, including the 32 eligible rows of FR-APL-3 and the
 positive amounts of US-121-2 that the draw missed; 956 in-band probes changed no output.
 The verifier re-ran `spotcheck.py` and got the same draw results.
 
