@@ -7,7 +7,7 @@
 | sha256 `generated/Allocations_familiales.py` | `53948f3a4cf35eb0e6108e180c08c84f9af9044d06cea56cde0d106ce5f6ad89` |
 | sha256 `runtime/catala/catala_runtime.py` | `6d0188c5d3640a3d1cf529eaa01d74a6ba943b8413be6295e258496cd1b9c82e` |
 | sha256 `run_official_tests.py` | `b41d3657ccf07703faa5ed87e10aa6bb31397bb17848158fc8a15c5165e8a42c` |
-| Python | 3.13.16 (also run on 3.12.3 with byte-identical `ground_truth.csv`); 3.12 or later is required by the Catala 1.3.0 runtime |
+| Python | 3.13.16 and 3.12.3 (byte-identical `ground_truth.csv`); 3.12 or later is required by the Catala 1.3.0 runtime |
 | Dependencies | standard library only, plus the bundled runtime |
 | Host | Ubuntu 24.04.5 LTS, x86_64, 4 cores, Claude Code cloud container |
 | Date of the run | 2026-10-20 |

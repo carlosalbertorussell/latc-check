@@ -184,7 +184,7 @@ Further thresholds compared by the rules and left without a band of their own:
 the 16 an of D755-5 (`b + 16 an > dc` / `<= dc`, securite_sociale_D.catala_fr:420, 431)
 differs from the Pendant limit (`>=`) on the 16th birthday only, which lies in
 `a14_16`; the 2008 rule (R521-1, securite_sociale_R.catala_fr:80-83:
-`b + 11 an <= 2008-04-30` gives a majoration age of 16 instead of 14) concerns
+`b + 11 an <= 2008-04-30` sets the majoration age at 16, 14 otherwise) concerns
 births up to 1997-04-30, all inside `a20_plus`, where both ages are passed.
 Neither changes a label (band robustness, A10).
 
