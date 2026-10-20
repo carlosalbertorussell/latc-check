@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "CTRL-NUR",
+  "commit": "0269952afddb3d6e0458f1e035de733f8721be96",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "900c6fe189e610426094267814368a057813578c74ef224ed2077dcedc650645",
+    "controls.csv": "8a4fd19f587101d52232344395ab0a1f1093b17fef9555854dad123c0adb636b",
+    "summary.md": "ea45fb7b8035e3b35bd14d6726d00e308ed80614699b8534d7808afd860c910d",
+    "manifest.json": "8f98210267fa5effd6f16882f6637e4ed6d49fd20fa99fb06d0fd3fc0a4e51cd"
+  },
+  "run_b": {
+    "runs.csv": "900c6fe189e610426094267814368a057813578c74ef224ed2077dcedc650645",
+    "controls.csv": "8a4fd19f587101d52232344395ab0a1f1093b17fef9555854dad123c0adb636b",
+    "summary.md": "ea45fb7b8035e3b35bd14d6726d00e308ed80614699b8534d7808afd860c910d",
+    "manifest.json": "8f98210267fa5effd6f16882f6637e4ed6d49fd20fa99fb06d0fd3fc0a4e51cd"
+  }
+}
