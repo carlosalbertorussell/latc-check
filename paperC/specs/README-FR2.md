@@ -229,3 +229,19 @@ that this scope treats a surviving spouse as a single filer. `--check-official` 
 direct, 2/2 mapped), `--enumerate`, `--write-official` (unchanged file) and
 `--check-bands` (17,700 evaluations, all agreeing) were rerun and `SHA256SUMS`
 regenerated.
+
+Checks of the corrected table outside this folder:
+
+* **Catala interpreter.** All 900 non-excluded rows (the 396 changed rows among them)
+  were run as `#[test]` scopes with the Catala 1.3.0 interpreter: 204 label rows pass,
+  696 REJECTED rows fail with the run-time error of `section_121.catala_en:376`, 0
+  disagreements; a negative control was reported as a disagreement
+  (`paperC/results/US-121-2-interpreter/`).
+* **Harness.** `python3.12 -m paperC.harness.run --spec paperC/specs/US-121/US-121-2 --out
+  paperC/results/US-121-2`: CTRL-HASH, CTRL-GT, CTRL-EXCL, CTRL-PLANT (422/422) pass;
+  CTRL-H3 fails as PROTOCOL.md 7(c) expects with REJECTED rows; CTRL-DET passes.
+* **Verifier's code** (copied to `paperC/verify-fix/`): recompute with the same controls,
+  spot-check of all 1,296 rows (1,296 agree), and 0 differing cells out of 31,650 against
+  the harness `runs.csv`.
+
+`paperC/results/REPORT-US-121-2-FIX.md` gives the details and the hypothesis indicators.

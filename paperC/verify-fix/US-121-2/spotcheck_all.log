@@ -1,0 +1,24 @@
+official-test validation: PASS
+   tests_eligibilite_apl/Exemple1 (literal transcription, direct call): eligible (asserted eligible)
+   fr_household({}) structurally equal to Exemple1 literal: True
+   test_section_121/Test1 (direct): requirements_met=True (asserted True)
+   test_section_121/Test2 (direct): requirements_met=False (asserted False)
+   test_section_121/Test3 (direct): requirements_met=False (asserted False)
+   test_section_121/Test4 (direct): requirements_met=True (asserted True)
+   test_section_121/Test5 (direct): income_excluded=$250,000.00 (asserted $250,000)
+   test_section_121/Test6 (direct): income_excluded=$350,000.00 (asserted $350,000)
+   FR-APL-1 tests_eligibilite_apl/Exemple1 via label adapter: eligible (official_examples: eligible) AGREE
+   FR-APL-2 tests_eligibilite_apl/Exemple1 via label adapter: eligible (official_examples: eligible) AGREE
+   FR-APL-3 tests_eligibilite_apl/Exemple1 via label adapter: eligible (official_examples: eligible) AGREE
+   FR-APL-4: official_examples.csv has no data row
+   FR-APL-5: official_examples.csv has no data row
+   US-121-1 test_section_121/Test1 via label adapter: requirements_met (official_examples: requirements_met) AGREE
+   US-121-1 test_section_121/Test2 via label adapter: requirements_not_met (official_examples: requirements_not_met) AGREE
+   US-121-1 test_section_121/Test3 via label adapter: requirements_not_met (official_examples: requirements_not_met) AGREE
+   US-121-1 test_section_121/Test4 via label adapter: requirements_met (official_examples: requirements_met) AGREE
+   US-121-2 test_section_121/Test5 via label adapter: limited_to_250000 (official_examples: limited_to_250000) AGREE
+   US-121-2 test_section_121/Test6 via label adapter: entire_gain (official_examples: entire_gain) AGREE
+US-121-2: checked=1296 agree=1296 disagree=0
+ground truth outputs: {'no_exclusion': 144, 'EXCLUDED': 396, 'REJECTED': 696, 'entire_gain': 23, 'limited_to_250000': 34, 'limited_to_500000': 3}
+verifier outputs: {'no_exclusion': 144, 'EXCLUDED': 396, 'REJECTED': 696, 'entire_gain': 23, 'limited_to_250000': 34, 'limited_to_500000': 3}
+in-band probes: 9072 on 1296 rows; rows with a difference: 0

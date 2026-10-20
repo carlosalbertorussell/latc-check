@@ -1,0 +1,1304 @@
+> Using Us_tax_code as T
+
+```catala
+#[test]
+declaration scope XUS1212_0300:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0300:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0301:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0301:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0302:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0302:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0303:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0303:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0304:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0304:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0305:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0305:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0306:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0306:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0307:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0307:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0308:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0308:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0309:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0309:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0310:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0310:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0311:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0311:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0312:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0312:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0313:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0313:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0314:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0314:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0315:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0315:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0316:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0316:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0317:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0317:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0318:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0318:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0319:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0319:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0320:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0320:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0321:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0321:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0322:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0322:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0323:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0323:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0324:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0324:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0325:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0325:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0326:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0326:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0327:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0327:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0328:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0328:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0329:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0329:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0330:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0330:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0331:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0331:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0332:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0332:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0333:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0333:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0334:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0334:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0335:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0335:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0336:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0336:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0337:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0337:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0338:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0338:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0339:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0339:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0340:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0340:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0341:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0341:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0342:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0342:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0343:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0343:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0344:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0344:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0345:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0345:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0346:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0346:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0347:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0347:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0348:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0348:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0349:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0349:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0350:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0350:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0351:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0351:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0352:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0352:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0353:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0353:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0354:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0354:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0355:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0355:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0356:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0356:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0357:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0357:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0358:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0358:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0359:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0359:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0360:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0360:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $200,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0361:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0361:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $250,000 and s.income_excluded_from_gross_income_uncapped >= $250,000 and not s.section_121_b_2_A_condition
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0362:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0362:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $250,000 and s.income_excluded_from_gross_income_uncapped >= $250,000 and not s.section_121_b_2_A_condition
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0363:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0363:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0364:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0364:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0365:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0365:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0366:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0366:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0367:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0367:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0368:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0368:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0369:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0369:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $200,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0370:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0370:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $350,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0371:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0371:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $500,000 and s.income_excluded_from_gross_income_uncapped >= $500,000 and s.section_121_b_2_A_condition
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0372:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0372:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0373:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0373:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0374:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0374:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0375:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0375:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0376:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0376:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0377:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0377:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0378:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0378:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $200,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0379:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0379:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $250,000 and s.income_excluded_from_gross_income_uncapped >= $250,000 and not s.section_121_b_2_A_condition
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0380:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0380:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $250,000 and s.income_excluded_from_gross_income_uncapped >= $250,000 and not s.section_121_b_2_A_condition
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0381:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0381:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0382:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0382:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0383:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0383:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0384:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0384:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0385:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0385:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0386:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0386:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0387:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0387:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $200,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0388:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0388:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $350,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0389:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0389:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $500,000 and s.income_excluded_from_gross_income_uncapped >= $500,000 and s.section_121_b_2_A_condition
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0390:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0390:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0391:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0391:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0392:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0392:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+#[test]
+declaration scope XUS1212_0393:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0393:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0394:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0394:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0395:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0395:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2018-06-01| }) } })
+
+#[test]
+declaration scope XUS1212_0396:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0396:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0397:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0397:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $350,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0398:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0398:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $600,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied } })
+
+#[test]
+declaration scope XUS1212_0399:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_0399:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income >= $0
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.JointReturn content (T.JointReturn { -- person1: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2017-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } -- person2: T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.MostRecentSaleWhereSection121aApplied content (T.PreviousSaleWhereSection121aApplied { -- date_of_sale_or_exchange: |2020-01-01| }) } })
+
+```

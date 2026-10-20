@@ -1,0 +1,6 @@
+$ python3.12 paperC/results/US-121-2-interpreter/xcheck_us121_2.py read paperC/results/US-121-2-interpreter/clerk_report.txt
+  US-121-2: 900 rows run; label rows passing their assertion: 204; REJECTED rows raising a runtime error in the interpreter: 696; disagreements: 0
+  NEGATIVE-CONTROL: 1 rows run; label rows passing their assertion: 0; REJECTED rows raising a runtime error in the interpreter: 0; disagreements: 1
+    disagreement: ('XUS1212_NEG', 'NEGATIVE-CONTROL', 'entire_gain', 'failed', 'us_tax_code/tests/xcheck_fix_us121_2_09.catala_en:11.4-228 Assertion failed: $0.00 ≠ $200,000.00')
+  interpreter errors of the REJECTED rows:
+    US-121-2: 696 x us_tax_code/section_121.catala_en:376.10-82: ambiguous comparison between durations in different units (e.g. months vs. days).

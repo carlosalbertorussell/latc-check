@@ -1,0 +1,17 @@
+> Using Us_tax_code as T
+
+```catala
+#[test]
+declaration scope XUS1212_NEG:
+  s scope T.Section121TwoPersons
+  output r content money
+
+scope XUS1212_NEG:
+  definition r equals s.income_excluded_from_gross_income
+  assertion s.income_excluded_from_gross_income = $200,000 and s.income_excluded_from_gross_income_uncapped > $0 and s.income_excluded_from_gross_income_uncapped < (if s.section_121_b_2_A_condition then $500,000 else $250,000)
+  definition s.date_of_sale_or_exchange equals |2021-01-01|
+  definition s.return_date equals |2021-01-01|
+  definition s.gain_from_sale_or_exchange_of_property equals $200,000
+  definition s.return_type equals T.ReturnType.SingleReturn content (T.PersonalData { -- property_ownage: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- property_usage_as_principal_residence: [T.Period { -- begin: |2020-01-01| -- end: |2021-01-01| }] -- other_section_121a_sale: T.OtherSection121aSale.NoOtherSaleWhereSection121aApplied })
+
+```

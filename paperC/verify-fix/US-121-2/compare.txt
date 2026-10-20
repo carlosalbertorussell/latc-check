@@ -1,0 +1,7 @@
+$ python3.12 paperC/verify-fix/compare.py paperC/verify-fix/US-121-2/runs.csv paperC/results/US-121-2/runs.csv
+columns only in verifier: ['sample', 'n']
+columns only in runner: ['sample_id', 'size']
+VERDICT DIFFERENT: 29118 shared cells compared, 0 differ
+
+$ python3.12 paperC/verify-fix/compare_renamed.py paperC/verify-fix/US-121-2/runs.csv paperC/results/US-121-2/runs.csv
+VERDICT IDENTICAL: 31650 shared cells compared, 0 differ
