@@ -1,0 +1,510 @@
+# clerk test allocations_familiales/tests/  (interpreter, Catala 1.3.0)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Interpreted            0         31         31      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+# clerk test allocations_familiales/tests/ --backend=python
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ALL TESTS PASSED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Python                 0         15         15      100 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+# clerk test allocations_familiales/tests/ --xml  (per-test list)
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="31" failures="0">
+  <testsuite
+   name="allocations_familiales/tests/tests_allocations_familiales.catala_fr"
+   tests="29" failures="0">
+    <testcase line="402">
+      <property name="description">
+        /root/.opam/catala/bin/catala typecheck -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="409">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test1
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="416">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test2
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="423">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test3
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="430">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test4
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="437">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test5
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="444">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test6
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="451">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test7
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="458">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test8
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="465">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test9
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="472">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test10
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="479">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test11
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="486">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test12
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="493">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test13
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase line="500">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test13
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+      </property>
+    </testcase>
+    <testcase name="Test1">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test1
+      </property>
+    </testcase>
+    <testcase name="Test2">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test2
+      </property>
+    </testcase>
+    <testcase name="Test3">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test3
+      </property>
+    </testcase>
+    <testcase name="Test4">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test4
+      </property>
+    </testcase>
+    <testcase name="Test5">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test5
+      </property>
+    </testcase>
+    <testcase name="Test6">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test6
+      </property>
+    </testcase>
+    <testcase name="Test7">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test7
+      </property>
+    </testcase>
+    <testcase name="Test8">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test8
+      </property>
+    </testcase>
+    <testcase name="Test9">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test9
+      </property>
+    </testcase>
+    <testcase name="Test10">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test10
+      </property>
+    </testcase>
+    <testcase name="Test11">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test11
+      </property>
+    </testcase>
+    <testcase name="Test12">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test12
+      </property>
+    </testcase>
+    <testcase name="Test13">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test13
+      </property>
+    </testcase>
+    <testcase name="Test14">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_allocations_familiales.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test14
+      </property>
+    </testcase>
+  </testsuite>
+  <testsuite
+   name="allocations_familiales/tests/tests_ouverture_droits.catala_fr"
+   tests="2" failures="0">
+    <testcase line="72">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests --stdlib=_build/libcatala -I
+          aides_logement -I aides_logement/tests -I allocations_familiales -I
+          allocations_familiales/tests -I asp/aide_fibre -I
+          asp/aide_fibre/tests -I asp/bcae7 -I asp/bcae7/tests -I asp/fonpeps
+          -I asp/fonpeps/tests -I base_mensuelle_allocations_familiales -I
+          droit_successions -I droit_successions/tests -I impot_revenu -I
+          impot_revenu/tests -I prestations_familiales -I
+          prestations_familiales/tests -I prologue_france -I smic -I
+          us_tax_code -I us_tax_code/tests --disable-warnings --scope=Test1
+          allocations_familiales/tests/tests_ouverture_droits.catala_fr
+      </property>
+    </testcase>
+    <testcase name="Test1">
+      <property name="description">
+        /root/.opam/catala/bin/catala interpret -I
+          allocations_familiales/tests
+          allocations_familiales/tests/tests_ouverture_droits.catala_fr
+          --stdlib=_build/libcatala -I aides_logement -I aides_logement/tests
+          -I allocations_familiales -I allocations_familiales/tests -I
+          asp/aide_fibre -I asp/aide_fibre/tests -I asp/bcae7 -I
+          asp/bcae7/tests -I asp/fonpeps -I asp/fonpeps/tests -I
+          base_mensuelle_allocations_familiales -I droit_successions -I
+          droit_successions/tests -I impot_revenu -I impot_revenu/tests -I
+          prestations_familiales -I prestations_familiales/tests -I
+          prologue_france -I smic -I us_tax_code -I us_tax_code/tests
+          --scope=Test1
+      </property>
+    </testcase>
+  </testsuite>
+</testsuites>
