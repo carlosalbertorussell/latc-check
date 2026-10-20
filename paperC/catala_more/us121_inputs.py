@@ -93,3 +93,29 @@ def two_persons(return_type, date_of_sale, return_date, gain):
         date_of_sale_or_exchange_in=date(date_of_sale),
         gain_from_sale_or_exchange_of_property_in=Money(gain),
     ))
+
+
+def add_years(iso, years):
+    import datetime
+    d = datetime.date.fromisoformat(iso)
+    return d.replace(year=d.year + years)
+
+
+def aggregate_days_last_five_years(date_of_sale, pairs):
+    """Days counted by the encoding's aggregate_periods_from_last_five_years
+    (us_tax_code/section_121.catala_en:179-191), recomputed with datetime:
+    a period whose begin is at most 5 years before the sale counts in full
+    (end - begin), a period that ended 5 years or more before the sale counts 0,
+    and a period straddling the 5-year mark counts (end + 5 years) - sale."""
+    import datetime
+    sale = datetime.date.fromisoformat(date_of_sale)
+    total = 0
+    for b, e in pairs:
+        begin, end = datetime.date.fromisoformat(b), datetime.date.fromisoformat(e)
+        if sale <= add_years(b, 5):
+            total += (end - begin).days
+        elif sale >= add_years(e, 5):
+            total += 0
+        else:
+            total += (add_years(e, 5) - sale).days
+    return total

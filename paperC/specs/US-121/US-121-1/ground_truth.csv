@@ -1,0 +1,13 @@
+ownership_days_in_5_years,use_days_in_5_years,other_section_121a_sale,output
+lt_730_days,lt_730_days,none,requirements_not_met
+lt_730_days,lt_730_days,within_2_years,REJECTED
+lt_730_days,lt_730_days,more_than_2_years,REJECTED
+lt_730_days,ge_730_days,none,requirements_not_met
+lt_730_days,ge_730_days,within_2_years,REJECTED
+lt_730_days,ge_730_days,more_than_2_years,REJECTED
+ge_730_days,lt_730_days,none,requirements_not_met
+ge_730_days,lt_730_days,within_2_years,REJECTED
+ge_730_days,lt_730_days,more_than_2_years,REJECTED
+ge_730_days,ge_730_days,none,requirements_met
+ge_730_days,ge_730_days,within_2_years,REJECTED
+ge_730_days,ge_730_days,more_than_2_years,REJECTED

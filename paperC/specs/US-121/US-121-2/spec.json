@@ -1,0 +1,165 @@
+{
+  "id": "US-121-2",
+  "title": "US IRC section 121: amount of gain excluded on a single or joint return",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Us_tax_code scope Section121TwoPersons, output income_excluded_from_gross_income (Python: generated.Us_tax_code.section121_two_persons, Catala 1.3.0)",
+    "files": [
+      "us_tax_code/section_121.catala_en",
+      "us_tax_code/us_tax_code.catala_en",
+      "us_tax_code/tests/test_section_121.catala_en"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "return_type",
+      "kind": "enum",
+      "values": [
+        "single",
+        "joint",
+        "surviving_spouse"
+      ],
+      "representative": {
+        "single": "SingleReturn content (person 1)",
+        "joint": "JointReturn content JointReturn {person1: (person 1), person2: (person 2)}",
+        "surviving_spouse": "SingleReturnSurvivingSpouse content DeadSpouseInfo {return: (person 1), date_of_spouse_death: |2020-06-01|, death_spouse_info_at_time_of_death: (person 2)}"
+      },
+      "source": "Section121TwoPersons.return_type, enumeration ReturnType (us_tax_code/section_121.catala_en:65-68, 80); person1 and person2 are taken from it at us_tax_code/section_121.catala_en:95-105; 26 U.S.C. 121(b)(2) (joint returns) and (b)(4) (surviving spouses)"
+    },
+    {
+      "name": "person1_ownership_days_in_5_years",
+      "kind": "interval",
+      "values": [
+        "lt_730_days",
+        "ge_730_days"
+      ],
+      "representative": {
+        "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
+        "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
+      },
+      "source": "PersonalData.property_ownage of person 1 (us_tax_code/section_121.catala_en:50-54), aggregated and compared with 730 days by Section121SinglePerson (us_tax_code/section_121.catala_en:179-198); 26 U.S.C. 121(a)"
+    },
+    {
+      "name": "person1_use_days_in_5_years",
+      "kind": "interval",
+      "values": [
+        "lt_730_days",
+        "ge_730_days"
+      ],
+      "representative": {
+        "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
+        "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
+      },
+      "source": "PersonalData.property_usage_as_principal_residence of person 1 (us_tax_code/section_121.catala_en:50-54), compared with 730 days (us_tax_code/section_121.catala_en:200-205); 26 U.S.C. 121(a)"
+    },
+    {
+      "name": "person1_other_section_121a_sale",
+      "kind": "enum",
+      "values": [
+        "none",
+        "within_2_years",
+        "more_than_2_years"
+      ],
+      "representative": {
+        "none": "NoOtherSaleWhereSection121aApplied",
+        "within_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2020-01-01|}",
+        "more_than_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2018-06-01|}"
+      },
+      "source": "PersonalData.other_section_121a_sale of person 1 (us_tax_code/section_121.catala_en:54), read by section_121_b_3_applies (us_tax_code/section_121.catala_en:371-383); 26 U.S.C. 121(b)(3). within_2_years: 1 day to 2 years before the date of sale; more_than_2_years: more than 2 years before"
+    },
+    {
+      "name": "person2_ownership_days_in_5_years",
+      "kind": "interval",
+      "values": [
+        "lt_730_days",
+        "ge_730_days"
+      ],
+      "representative": {
+        "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
+        "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
+      },
+      "source": "PersonalData.property_ownage of person 2 (us_tax_code/section_121.catala_en:50-57), as for person 1"
+    },
+    {
+      "name": "person2_use_days_in_5_years",
+      "kind": "interval",
+      "values": [
+        "lt_730_days",
+        "ge_730_days"
+      ],
+      "representative": {
+        "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
+        "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
+      },
+      "source": "PersonalData.property_usage_as_principal_residence of person 2, as for person 1"
+    },
+    {
+      "name": "person2_other_section_121a_sale",
+      "kind": "enum",
+      "values": [
+        "none",
+        "within_2_years",
+        "more_than_2_years"
+      ],
+      "representative": {
+        "none": "NoOtherSaleWhereSection121aApplied",
+        "within_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2020-01-01|}",
+        "more_than_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2018-06-01|}"
+      },
+      "source": "PersonalData.other_section_121a_sale of person 2, as for person 1"
+    },
+    {
+      "name": "gain",
+      "kind": "interval",
+      "values": [
+        "gt_0_lt_250000",
+        "250000_to_lt_500000",
+        "ge_500000"
+      ],
+      "representative": {
+        "gt_0_lt_250000": "$200,000",
+        "250000_to_lt_500000": "$350,000",
+        "ge_500000": "$600,000"
+      },
+      "source": "Section121TwoPersons.gain_from_sale_or_exchange_of_property (us_tax_code/section_121.catala_en:83); compared with the $250,000 and $500,000 limitations (us_tax_code/section_121.catala_en:236-254, 309-313); 26 U.S.C. 121(b)(1) and (b)(2)(A)"
+    }
+  ],
+  "output": {
+    "name": "excluded_gain",
+    "values": [
+      "no_exclusion",
+      "entire_gain",
+      "limited_to_250000",
+      "limited_to_500000"
+    ],
+    "source": "Section121TwoPersons.income_excluded_from_gross_income (us_tax_code/section_121.catala_en:85, 250-254) with income_excluded_from_gross_income_uncapped (us_tax_code/section_121.catala_en:84, 219-224). Labels follow the cases of 26 U.S.C. 121: no_exclusion when (a) is not met or (b)(3) applies (uncapped amount $0); limited_to_250000 when the gain reaches the (b)(1) limitation; limited_to_500000 when it reaches the (b)(2)(A) limitation; entire_gain when the whole gain is excluded below the applicable limitation"
+  },
+  "exclusions": [
+    {
+      "id": "person2_differs_on_single_return",
+      "description": "On a single return, and on a surviving spouse's return in this scope, there is one taxpayer: the scope takes person 2 to be person 1 (section_121.catala_en:101-105), so a row whose person-2 labels differ from the person-1 labels describes no return",
+      "predicate": "return_type in ('single', 'surviving_spouse') and ((person1_ownership_days_in_5_years == 'lt_730_days' and person2_ownership_days_in_5_years == 'ge_730_days') or (person1_ownership_days_in_5_years == 'ge_730_days' and person2_ownership_days_in_5_years == 'lt_730_days') or (person1_use_days_in_5_years == 'lt_730_days' and person2_use_days_in_5_years == 'ge_730_days') or (person1_use_days_in_5_years == 'ge_730_days' and person2_use_days_in_5_years == 'lt_730_days') or (person1_other_section_121a_sale == 'none' and person2_other_section_121a_sale == 'within_2_years') or (person1_other_section_121a_sale == 'none' and person2_other_section_121a_sale == 'more_than_2_years') or (person1_other_section_121a_sale == 'within_2_years' and person2_other_section_121a_sale == 'none') or (person1_other_section_121a_sale == 'within_2_years' and person2_other_section_121a_sale == 'more_than_2_years') or (person1_other_section_121a_sale == 'more_than_2_years' and person2_other_section_121a_sale == 'none') or (person1_other_section_121a_sale == 'more_than_2_years' and person2_other_section_121a_sale == 'within_2_years'))",
+      "source": "us_tax_code/section_121.catala_en:95-105 (person1 and person2 both read the single PersonalData of SingleReturn and SingleReturnSurvivingSpouse); 26 U.S.C. 121(b)(1)"
+    }
+  ],
+  "fixed_inputs": {
+    "date_of_sale_or_exchange": {
+      "value": "|2021-01-01|",
+      "why": "Data scope of the official tests (us_tax_code/tests/test_section_121.catala_en:19)"
+    },
+    "return_date": {
+      "value": "|2021-01-01|",
+      "why": "Data scope of the official tests (us_tax_code/tests/test_section_121.catala_en:20); not read by any rule"
+    },
+    "DeadSpouseInfo.date_of_spouse_death": {
+      "value": "|2020-06-01|",
+      "why": "needed to build SingleReturnSurvivingSpouse; Section121TwoPersons does not read it (only Section121TwoPasses does, us_tax_code/section_121.catala_en:398-431)"
+    },
+    "person1, person2, gain_cap (context variables)": {
+      "value": "not redefined (the scope's own definitions)",
+      "why": "the official tests do not redefine them"
+    }
+  },
+  "notes": "Sub-table 2 of 2 of US-121. Section121TwoPersons is the scope the official tests use; it has no (b)(2)(B) or (b)(4) rule (those are in Section121TwoPasses, whose PeriodMerge is a placeholder that returns [] and which no official test exercises), so a surviving spouse is treated like a single filer and a joint return that misses (b)(2)(A) gets the $250,000 limitation. REJECTED rows: any row with another section 121(a) sale for a person raises the DateError of us_tax_code/section_121.catala_en:376 (US-121-1 notes)."
+}

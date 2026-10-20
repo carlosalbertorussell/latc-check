@@ -1,0 +1,81 @@
+{
+  "id": "US-121-1",
+  "title": "US IRC section 121(a): ownership and use requirements of one taxpayer",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Us_tax_code scope Section121SinglePerson, output requirements_met (Python: generated.Us_tax_code.section121_single_person, Catala 1.3.0)",
+    "files": [
+      "us_tax_code/section_121.catala_en",
+      "us_tax_code/us_tax_code.catala_en",
+      "us_tax_code/tests/test_section_121.catala_en"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "ownership_days_in_5_years",
+      "kind": "interval",
+      "values": [
+        "lt_730_days",
+        "ge_730_days"
+      ],
+      "representative": {
+        "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
+        "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
+      },
+      "source": "Section121SinglePerson.property_ownage (us_tax_code/section_121.catala_en:36), aggregated by aggregate_periods_from_last_five_years (us_tax_code/section_121.catala_en:179-191) and compared with 730 days (us_tax_code/section_121.catala_en:196-198; Treas. Reg. 1.121-1(c)(1)); 26 U.S.C. 121(a): owned for periods aggregating 2 years or more during the 5 years ending on the date of sale"
+    },
+    {
+      "name": "use_days_in_5_years",
+      "kind": "interval",
+      "values": [
+        "lt_730_days",
+        "ge_730_days"
+      ],
+      "representative": {
+        "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
+        "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
+      },
+      "source": "Section121SinglePerson.property_usage_as_principal_residence (us_tax_code/section_121.catala_en:38-39), same aggregation, compared with 730 days (us_tax_code/section_121.catala_en:200-205); 26 U.S.C. 121(a): used as principal residence for periods aggregating 2 years or more"
+    },
+    {
+      "name": "other_section_121a_sale",
+      "kind": "enum",
+      "values": [
+        "none",
+        "within_2_years",
+        "more_than_2_years"
+      ],
+      "representative": {
+        "none": "NoOtherSaleWhereSection121aApplied",
+        "within_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2020-01-01|}",
+        "more_than_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2018-06-01|}"
+      },
+      "source": "Section121SinglePerson.other_section_121a_sale, enumeration OtherSection121aSale (us_tax_code/section_121.catala_en:26-29, 48); read by section_121_b_3_applies (us_tax_code/section_121.catala_en:371-377); 26 U.S.C. 121(b)(3): one sale every 2 years. within_2_years: the earlier sale took place 1 day to 2 years before the date of sale; more_than_2_years: more than 2 years before"
+    }
+  ],
+  "output": {
+    "name": "requirements_met",
+    "values": [
+      "requirements_met",
+      "requirements_not_met"
+    ],
+    "source": "Section121SinglePerson.requirements_met (us_tax_code/section_121.catala_en:32, rule 207-209): ownership and use requirements of 26 U.S.C. 121(a) both met"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "date_of_sale_or_exchange": {
+      "value": "|2021-01-01|",
+      "why": "Data scope of the official tests (us_tax_code/tests/test_section_121.catala_en:19)"
+    },
+    "gain_from_sale_or_exchange_of_property": {
+      "value": "$350,000",
+      "why": "Data scope of the official tests (us_tax_code/tests/test_section_121.catala_en:21); requirements_met does not read it"
+    },
+    "gain_cap, section_121_b_3_applies (context variables)": {
+      "value": "not redefined (the scope's own definitions)",
+      "why": "the official tests do not redefine them"
+    }
+  },
+  "notes": "Sub-table 1 of 2 of US-121. REJECTED rows: whenever another section 121(a) sale is given, the comparison `date_of_sale_or_exchange - other_sale.date_of_sale_or_exchange <= 2 year` (us_tax_code/section_121.catala_en:376) compares a duration in days with a duration in years, which Catala rejects at run time (DateError); the scope computes all its outputs, so requirements_met is not returned either. The Catala interpreter gives the same error (paperC/catala_more/probes/probe_b3_output.txt)."
+}

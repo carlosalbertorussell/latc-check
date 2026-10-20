@@ -1,0 +1,5 @@
+case_id,ownership_days_in_5_years,use_days_in_5_years,other_section_121a_sale,output
+test_section_121/Test1,ge_730_days,ge_730_days,none,requirements_met
+test_section_121/Test2,ge_730_days,lt_730_days,none,requirements_not_met
+test_section_121/Test3,ge_730_days,lt_730_days,none,requirements_not_met
+test_section_121/Test4,ge_730_days,ge_730_days,none,requirements_met
