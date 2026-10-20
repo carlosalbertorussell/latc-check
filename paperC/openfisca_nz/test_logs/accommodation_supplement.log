@@ -1,0 +1,57 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-8.4.2, pluggy-1.7.0 -- /home/user/work/venv311/bin/python3.11
+cachedir: .pytest_cache
+rootdir: /home/user/work/openfisca-aotearoa
+configfile: pyproject.toml
+collecting ... collected 47 items
+
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml:: PASSED [  2%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml:: PASSED [  2%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml:: PASSED [  2%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml:: PASSED [  2%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml:: PASSED [  2%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml:: PASSED [  2%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/_benefit_me.yaml:: PASSED [  4%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/_benefit_me.yaml:: PASSED [  4%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/_benefit_me.yaml:: PASSED [  4%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/accommodation_supplement.yaml:: PASSED [  6%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/area.yaml:: PASSED [  8%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml:: PASSED [ 10%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml:: PASSED [ 10%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml:: PASSED [ 10%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml:: PASSED [ 10%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml:: PASSED [ 12%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/beneficiary.yaml:: PASSED [ 14%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml:: PASSED [ 17%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml:: PASSED [ 17%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml:: PASSED [ 17%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml:: PASSED [ 17%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml:: PASSED [ 17%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml:: PASSED [ 17%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/cutout.yaml:: PASSED [ 19%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml:: PASSED [ 21%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml:: PASSED [ 23%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/rate.yaml:: PASSED [ 25%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/rebate.yaml:: PASSED [ 27%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml:: PASSED [ 29%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml:: PASSED [ 29%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml:: PASSED [ 29%]
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml:: PASSED [ 29%]
+
+============================== 47 passed in 8.57s ==============================
+exit status: 0
