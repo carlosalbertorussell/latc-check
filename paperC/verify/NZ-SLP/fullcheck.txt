@@ -1,0 +1,6 @@
+NZ-SLP: 256 rows evaluated directly in OpenFisca
+ground_truth=EXCLUDED openfisca=False: 29
+ground_truth=EXCLUDED openfisca=True: 3
+ground_truth=False openfisca=False: 176
+ground_truth=True openfisca=True: 48
+valid rows disagreeing: 0

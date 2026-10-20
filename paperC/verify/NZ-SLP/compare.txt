@@ -1,0 +1,7 @@
+NZ-SLP: verifier columns 25, runner columns 25; verifier rows 1266, runner rows 1266
+columns only in verifier: sample
+columns only in runner: sample_id
+same column order: False; byte-identical file: False
+differing cells in common columns: 0 (of 30384)
+CTRL-PLANT per example set: verifier 422, runner 422, differing 0
+summary statistics rows checked: 462, differing: 0
