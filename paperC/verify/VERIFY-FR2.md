@@ -16,13 +16,13 @@ before step 1 was committed (commit `Add independent recomputation ...`).
 
 | Sample | 1 Recompute (controls) | 2 Ground-truth spot-check | 3 Conversion audit | 4 Comparison with runner |
 |---|---|---|---|---|
-| FR-APL-1 | PASS | PASS (50/50) | PASS (minor items) | PENDING |
-| FR-APL-2 | PASS | PASS (50/50) | PASS (minor items) | PENDING |
-| FR-APL-3 | PASS | PASS (50/50) | PASS (minor items) | PENDING |
-| FR-APL-4 | PASS | PASS (50/50) | PASS (minor items; one exclusion questionable) | PENDING |
-| FR-APL-5 | PASS | PASS (50/50) | PASS (minor items) | PENDING |
-| US-121-1 | PASS | PASS (12/12, all rows) | PASS | PENDING |
-| US-121-2 | PASS | PASS (50/50) | **FAIL** (exclusion on a wrong legal ground for 396 rows) | PENDING |
+| FR-APL-1 | PASS | PASS (50/50) | PASS (minor items) | PASS (1266 rows identical) |
+| FR-APL-2 | PASS | PASS (50/50) | PASS (minor items) | PASS (1266 rows identical) |
+| FR-APL-3 | PASS | PASS (50/50) | PASS (minor items) | PASS (1266 rows identical) |
+| FR-APL-4 | PASS | PASS (50/50) | PASS (minor items; one exclusion questionable) | PASS (1263 rows identical) |
+| FR-APL-5 | PASS | PASS (50/50) | PASS (minor items) | PASS (1263 rows identical) |
+| US-121-1 | PASS | PASS (12/12, all rows) | PASS | PASS (1266 rows identical) |
+| US-121-2 | PASS | PASS (50/50) | **FAIL** (exclusion on a wrong legal ground for 396 rows) | PASS (1266 rows identical) |
 
 "PASS" for step 1 means the recompute ran to completion with CTRL-HASH, CTRL-GT,
 CTRL-EXCL and CTRL-PLANT passing. CTRL-H3 fails, as PROTOCOL.md 7(c) expects, in the five
@@ -156,6 +156,29 @@ its constructors; the REJECTED mechanisms are where the notes say.
 
 ## Step 4: comparison with the runner
 
-PENDING. `origin/paperc-run-fr2` did not exist when this file was written. The comparison
-script is `paperC/verify/compare.py` (rows by position, columns by name, every differing
-cell printed).
+Compared with `origin/paperc-run-fr2` at commit `eb508e7` ("Phase 2 runner: harness
+results and REPORT-FR2 ..."), files `paperC/results/<ID>/runs.csv`, read only after
+steps 1 to 3 were committed. Script: `paperC/verify/compare.py`, plus a byte comparison of
+the files without their header line.
+
+| Sample | Rows | Data rows byte-identical | Shared cells compared | Cells differing |
+|---|---|---|---|---|
+| FR-APL-1 | 1266 | yes | 29118 | 0 |
+| FR-APL-2 | 1266 | yes | 29118 | 0 |
+| FR-APL-3 | 1266 | yes | 29118 | 0 |
+| FR-APL-4 | 1263 | yes | 29049 | 0 |
+| FR-APL-5 | 1263 | yes | 29049 | 0 |
+| US-121-1 | 1266 | yes | 29118 | 0 |
+| US-121-2 | 1266 | yes | 29118 | 0 |
+
+The only difference is two header names: the runner writes `sample_id` and `size` where
+the verifier writes `sample` and `n` (READINGS.md item 1). With those two names
+substituted, each header is identical too, so the column order and every value
+(including every float `repr`) agree. Two independent implementations of PROTOCOL.md give
+the same 8,856 runs.
+
+The runner's `controls.csv` gives the same verdicts per sample: CTRL-HASH, CTRL-GT,
+CTRL-EXCL pass; CTRL-PLANT passes on every example set (422, or 421 without OFFICIAL,
+plus one aggregate row `ALL`); CTRL-H3 fails in FR-APL-1, -2, -4, US-121-1, -2 and passes
+in FR-APL-3 and FR-APL-5. The `summary.md` files were not compared cell by cell (the
+layouts are each implementation's own).
