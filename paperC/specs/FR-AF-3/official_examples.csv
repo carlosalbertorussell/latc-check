@@ -1,0 +1,2 @@
+case_id,enfant1_age,enfant1_remuneration,enfant1_deja_ouvert,enfant1_apl,enfant2_age,enfant2_remuneration,enfant2_deja_ouvert,enfant2_apl,enfant3_age,enfant3_remuneration,enfant3_deja_ouvert,enfant3_apl,output
+allocations_familiales.Test2,a11_14,le_plafond,true,false,a11_14,le_plafond,true,false,a20_plus,le_plafond,true,false,base_forfaitaire

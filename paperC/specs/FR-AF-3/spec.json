@@ -1,0 +1,402 @@
+{
+  "id": "FR-AF-3",
+  "title": "French family benefits, household amount regime for three children in Métropole by each child's age, earnings, prior entitlement and personal housing aid (InterfaceAllocationsFamiliales, 2020-05-01)",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Allocations_familiales.InterfaceAllocationsFamiliales.i_montant_versé (Python: generated.Allocations_familiales.interface_allocations_familiales), Catala 1.3.0 build in paperC/catala_family_benefits",
+    "files": [
+      "allocations_familiales/prologue.catala_fr",
+      "allocations_familiales/epilogue.catala_fr",
+      "allocations_familiales/securite_sociale_L.catala_fr",
+      "allocations_familiales/securite_sociale_R.catala_fr",
+      "allocations_familiales/securite_sociale_D.catala_fr",
+      "allocations_familiales/decrets_divers.catala_fr",
+      "allocations_familiales/autres_codes.catala_fr",
+      "base_mensuelle_allocations_familiales/Bmaf.catala_fr",
+      "smic/Smic.catala_fr",
+      "prologue_france/France.catala_fr",
+      "allocations_familiales/tests/tests_allocations_familiales.catala_fr"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "enfant1_age",
+      "kind": "interval",
+      "values": [
+        "a00_03",
+        "a03_11",
+        "a11_14",
+        "a14_16",
+        "a16_19",
+        "a19_20",
+        "a20_plus"
+      ],
+      "representative": {
+        "a00_03": "2019-01-01",
+        "a03_11": "2013-01-01",
+        "a11_14": "2007-01-01",
+        "a14_16": "2005-01-01",
+        "a16_19": "2003-01-01",
+        "a19_20": "2000-08-01",
+        "a20_plus": "1999-01-01"
+      },
+      "intervals": {
+        "a00_03": {
+          "predicate": "date_de_naissance + 3 an >= date_courante",
+          "birth_from": "2017-05-01",
+          "birth_to": null
+        },
+        "a03_11": {
+          "predicate": "date_de_naissance + 3 an < date_courante and date_de_naissance + 11 an > date_courante",
+          "birth_from": "2009-05-02",
+          "birth_to": "2017-04-30"
+        },
+        "a11_14": {
+          "predicate": "date_de_naissance + 11 an <= date_courante and date_de_naissance + 14 an > date_courante",
+          "birth_from": "2006-05-02",
+          "birth_to": "2009-05-01"
+        },
+        "a14_16": {
+          "predicate": "date_de_naissance + 14 an <= date_courante and date_de_naissance + 16 an >= date_courante",
+          "birth_from": "2004-05-01",
+          "birth_to": "2006-05-01"
+        },
+        "a16_19": {
+          "predicate": "date_de_naissance + 16 an < date_courante and (date_de_naissance + 20 an) - date_courante >= 365 jour",
+          "birth_from": "2001-05-01",
+          "birth_to": "2004-04-30"
+        },
+        "a19_20": {
+          "predicate": "(date_de_naissance + 20 an) - date_courante < 365 jour and date_de_naissance + 20 an > date_courante",
+          "birth_from": "2000-05-02",
+          "birth_to": "2001-04-30"
+        },
+        "a20_plus": {
+          "predicate": "date_de_naissance + 20 an <= date_courante",
+          "birth_from": null,
+          "birth_to": "2000-05-01"
+        }
+      },
+      "source": "d_date_de_naissance of EnfantEntrée (epilogue.catala_fr:68); representative = birth date of slot 1 (slot k: plus k-1 days) at date_courante 2020-05-01. Thresholds: 3 an and 16 an (obligation_scolaire, epilogue.catala_fr:123, 127), 11 an (D755-5, securite_sociale_D.catala_fr:419-420), 14 an (majoration L521-3 with R521-1, securite_sociale_L.catala_fr:315-321, securite_sociale_R.catala_fr:54), 20 an minus 365 jour (allocation forfaitaire L521-1, securite_sociale_L.catala_fr:146-152), 20 an (L512-3 2°, securite_sociale_L.catala_fr:71; R512-2, securite_sociale_R.catala_fr:21)"
+    },
+    {
+      "name": "enfant1_remuneration",
+      "kind": "interval",
+      "values": [
+        "le_plafond",
+        "gt_plafond"
+      ],
+      "representative": {
+        "le_plafond": "0.00",
+        "gt_plafond": "1000.00"
+      },
+      "intervals": {
+        "le_plafond": {
+          "predicate": "d_rémuneration_mensuelle <= plafond_l512_3_2"
+        },
+        "gt_plafond": {
+          "predicate": "d_rémuneration_mensuelle > plafond_l512_3_2"
+        }
+      },
+      "source": "d_rémuneration_mensuelle (epilogue.catala_fr:67), euros per month; plafond_l512_3_2 = (smic.brut_horaire * 55%) * 169,0 (securite_sociale_R.catala_fr:29-31, 218-223) = 943,02 € (Mayotte 711,49 €) at 2020-05-01 after the runtime's rounding; compared with <= (securite_sociale_L.catala_fr:70, 83)"
+    },
+    {
+      "name": "enfant1_deja_ouvert",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "d_a_déjà_ouvert_droit_aux_allocations_familiales (epilogue.catala_fr:70); read by the allocation forfaitaire (securite_sociale_L.catala_fr:153)"
+    },
+    {
+      "name": "enfant1_apl",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "d_bénéficie_titre_personnel_aide_personnelle_logement (epilogue.catala_fr:71); L821-3 exception on droit_ouvert (autres_codes.catala_fr:21-27)"
+    },
+    {
+      "name": "enfant2_age",
+      "kind": "interval",
+      "values": [
+        "a00_03",
+        "a03_11",
+        "a11_14",
+        "a14_16",
+        "a16_19",
+        "a19_20",
+        "a20_plus"
+      ],
+      "representative": {
+        "a00_03": "2019-01-02",
+        "a03_11": "2013-01-02",
+        "a11_14": "2007-01-02",
+        "a14_16": "2005-01-02",
+        "a16_19": "2003-01-02",
+        "a19_20": "2000-08-02",
+        "a20_plus": "1999-01-02"
+      },
+      "intervals": {
+        "a00_03": {
+          "predicate": "date_de_naissance + 3 an >= date_courante",
+          "birth_from": "2017-05-01",
+          "birth_to": null
+        },
+        "a03_11": {
+          "predicate": "date_de_naissance + 3 an < date_courante and date_de_naissance + 11 an > date_courante",
+          "birth_from": "2009-05-02",
+          "birth_to": "2017-04-30"
+        },
+        "a11_14": {
+          "predicate": "date_de_naissance + 11 an <= date_courante and date_de_naissance + 14 an > date_courante",
+          "birth_from": "2006-05-02",
+          "birth_to": "2009-05-01"
+        },
+        "a14_16": {
+          "predicate": "date_de_naissance + 14 an <= date_courante and date_de_naissance + 16 an >= date_courante",
+          "birth_from": "2004-05-01",
+          "birth_to": "2006-05-01"
+        },
+        "a16_19": {
+          "predicate": "date_de_naissance + 16 an < date_courante and (date_de_naissance + 20 an) - date_courante >= 365 jour",
+          "birth_from": "2001-05-01",
+          "birth_to": "2004-04-30"
+        },
+        "a19_20": {
+          "predicate": "(date_de_naissance + 20 an) - date_courante < 365 jour and date_de_naissance + 20 an > date_courante",
+          "birth_from": "2000-05-02",
+          "birth_to": "2001-04-30"
+        },
+        "a20_plus": {
+          "predicate": "date_de_naissance + 20 an <= date_courante",
+          "birth_from": null,
+          "birth_to": "2000-05-01"
+        }
+      },
+      "source": "d_date_de_naissance of EnfantEntrée (epilogue.catala_fr:68); representative = birth date of slot 1 (slot k: plus k-1 days) at date_courante 2020-05-01. Thresholds: 3 an and 16 an (obligation_scolaire, epilogue.catala_fr:123, 127), 11 an (D755-5, securite_sociale_D.catala_fr:419-420), 14 an (majoration L521-3 with R521-1, securite_sociale_L.catala_fr:315-321, securite_sociale_R.catala_fr:54), 20 an minus 365 jour (allocation forfaitaire L521-1, securite_sociale_L.catala_fr:146-152), 20 an (L512-3 2°, securite_sociale_L.catala_fr:71; R512-2, securite_sociale_R.catala_fr:21)"
+    },
+    {
+      "name": "enfant2_remuneration",
+      "kind": "interval",
+      "values": [
+        "le_plafond",
+        "gt_plafond"
+      ],
+      "representative": {
+        "le_plafond": "0.00",
+        "gt_plafond": "1000.00"
+      },
+      "intervals": {
+        "le_plafond": {
+          "predicate": "d_rémuneration_mensuelle <= plafond_l512_3_2"
+        },
+        "gt_plafond": {
+          "predicate": "d_rémuneration_mensuelle > plafond_l512_3_2"
+        }
+      },
+      "source": "d_rémuneration_mensuelle (epilogue.catala_fr:67), euros per month; plafond_l512_3_2 = (smic.brut_horaire * 55%) * 169,0 (securite_sociale_R.catala_fr:29-31, 218-223) = 943,02 € (Mayotte 711,49 €) at 2020-05-01 after the runtime's rounding; compared with <= (securite_sociale_L.catala_fr:70, 83)"
+    },
+    {
+      "name": "enfant2_deja_ouvert",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "d_a_déjà_ouvert_droit_aux_allocations_familiales (epilogue.catala_fr:70); read by the allocation forfaitaire (securite_sociale_L.catala_fr:153)"
+    },
+    {
+      "name": "enfant2_apl",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "d_bénéficie_titre_personnel_aide_personnelle_logement (epilogue.catala_fr:71); L821-3 exception on droit_ouvert (autres_codes.catala_fr:21-27)"
+    },
+    {
+      "name": "enfant3_age",
+      "kind": "interval",
+      "values": [
+        "a00_03",
+        "a03_11",
+        "a11_14",
+        "a14_16",
+        "a16_19",
+        "a19_20",
+        "a20_plus"
+      ],
+      "representative": {
+        "a00_03": "2019-01-03",
+        "a03_11": "2013-01-03",
+        "a11_14": "2007-01-03",
+        "a14_16": "2005-01-03",
+        "a16_19": "2003-01-03",
+        "a19_20": "2000-08-03",
+        "a20_plus": "1999-01-03"
+      },
+      "intervals": {
+        "a00_03": {
+          "predicate": "date_de_naissance + 3 an >= date_courante",
+          "birth_from": "2017-05-01",
+          "birth_to": null
+        },
+        "a03_11": {
+          "predicate": "date_de_naissance + 3 an < date_courante and date_de_naissance + 11 an > date_courante",
+          "birth_from": "2009-05-02",
+          "birth_to": "2017-04-30"
+        },
+        "a11_14": {
+          "predicate": "date_de_naissance + 11 an <= date_courante and date_de_naissance + 14 an > date_courante",
+          "birth_from": "2006-05-02",
+          "birth_to": "2009-05-01"
+        },
+        "a14_16": {
+          "predicate": "date_de_naissance + 14 an <= date_courante and date_de_naissance + 16 an >= date_courante",
+          "birth_from": "2004-05-01",
+          "birth_to": "2006-05-01"
+        },
+        "a16_19": {
+          "predicate": "date_de_naissance + 16 an < date_courante and (date_de_naissance + 20 an) - date_courante >= 365 jour",
+          "birth_from": "2001-05-01",
+          "birth_to": "2004-04-30"
+        },
+        "a19_20": {
+          "predicate": "(date_de_naissance + 20 an) - date_courante < 365 jour and date_de_naissance + 20 an > date_courante",
+          "birth_from": "2000-05-02",
+          "birth_to": "2001-04-30"
+        },
+        "a20_plus": {
+          "predicate": "date_de_naissance + 20 an <= date_courante",
+          "birth_from": null,
+          "birth_to": "2000-05-01"
+        }
+      },
+      "source": "d_date_de_naissance of EnfantEntrée (epilogue.catala_fr:68); representative = birth date of slot 1 (slot k: plus k-1 days) at date_courante 2020-05-01. Thresholds: 3 an and 16 an (obligation_scolaire, epilogue.catala_fr:123, 127), 11 an (D755-5, securite_sociale_D.catala_fr:419-420), 14 an (majoration L521-3 with R521-1, securite_sociale_L.catala_fr:315-321, securite_sociale_R.catala_fr:54), 20 an minus 365 jour (allocation forfaitaire L521-1, securite_sociale_L.catala_fr:146-152), 20 an (L512-3 2°, securite_sociale_L.catala_fr:71; R512-2, securite_sociale_R.catala_fr:21)"
+    },
+    {
+      "name": "enfant3_remuneration",
+      "kind": "interval",
+      "values": [
+        "le_plafond",
+        "gt_plafond"
+      ],
+      "representative": {
+        "le_plafond": "0.00",
+        "gt_plafond": "1000.00"
+      },
+      "intervals": {
+        "le_plafond": {
+          "predicate": "d_rémuneration_mensuelle <= plafond_l512_3_2"
+        },
+        "gt_plafond": {
+          "predicate": "d_rémuneration_mensuelle > plafond_l512_3_2"
+        }
+      },
+      "source": "d_rémuneration_mensuelle (epilogue.catala_fr:67), euros per month; plafond_l512_3_2 = (smic.brut_horaire * 55%) * 169,0 (securite_sociale_R.catala_fr:29-31, 218-223) = 943,02 € (Mayotte 711,49 €) at 2020-05-01 after the runtime's rounding; compared with <= (securite_sociale_L.catala_fr:70, 83)"
+    },
+    {
+      "name": "enfant3_deja_ouvert",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "d_a_déjà_ouvert_droit_aux_allocations_familiales (epilogue.catala_fr:70); read by the allocation forfaitaire (securite_sociale_L.catala_fr:153)"
+    },
+    {
+      "name": "enfant3_apl",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "d_bénéficie_titre_personnel_aide_personnelle_logement (epilogue.catala_fr:71); L821-3 exception on droit_ouvert (autres_codes.catala_fr:21-27)"
+    }
+  ],
+  "output": {
+    "name": "composantes_montant_verse",
+    "values": [
+      "zero",
+      "base",
+      "base_majoration",
+      "base_forfaitaire",
+      "base_majoration_forfaitaire"
+    ],
+    "source": "Derived from i_montant_versé (epilogue.catala_fr:80, 90; montant_versé = base + majorations + forfaitaire + compléments, epilogue.catala_fr:45-52): zero = 0 €; otherwise which components the amount contains, found by decomposing it as base(n) + a × 66,30 € (majoration 16 % of BMAF 414,4 €, D521-1 I 1°, securite_sociale_D.catala_fr:57-63) + b × 83,85 € (forfaitaire 20,234 %, D521-2 I 1°, securite_sociale_D.catala_fr:231-235), base(n) taken from the encoding. See CONVERSION.md T5"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "date_courante": {
+      "value": "2020-05-01",
+      "why": "date of 7 of the 14 household tests (Test1-Test6, Test9); every date-dependent parameter (SMIC 2020, BMAF 414,4 € from 2020-04-01, household ceilings 2020, Mayotte rates 2020) is constant on [2020-04-01, 2020-12-31]"
+    },
+    "child_slots": {
+      "value": 3,
+      "why": "number of child slots of the table; children of a row are the present slots in slot order"
+    },
+    "identifiants": {
+      "value": "0, 1, 2 in list order",
+      "why": "d_identifiant is read only through the record equality of EnfantLePlusÂgé (epilogue.catala_fr:11-23, 33-35); distinct values keep two children with the same birth date distinct"
+    },
+    "residence": {
+      "label": "Metropole",
+      "value": "Métropole",
+      "why": "fixed in this sub-table; residence varies in FR-AF-1 and FR-AF-2"
+    },
+    "ressources": {
+      "label": "le_plafond_I",
+      "value": "30000.00",
+      "why": "resources of most official household tests; resources vary in FR-AF-1 and FR-AF-2"
+    },
+    "est_parent": {
+      "label": "true",
+      "value": "vrai",
+      "why": "set by every official household test; the parent conditions vary in FR-AF-1"
+    },
+    "titre_I": {
+      "label": "false",
+      "value": "faux",
+      "why": "left at its default by every official household test; varies in FR-AF-1"
+    },
+    "avait_enfant_avant_2012": {
+      "label": "false",
+      "value": "faux",
+      "why": "left at its default by 13 of 14 official household tests; varies in FR-AF-1"
+    },
+    "enfant_prise_en_charge": {
+      "label": "EffectiveEtPermanente",
+      "value": "EffectiveEtPermanente",
+      "why": "the arrangement of most official test children; varies in FR-AF-2"
+    }
+  },
+  "notes": "Households of exactly three children in Métropole with resources of 30 000 €: the size at which the allocation forfaitaire (L521-1 al. 2, three children, D521-2 III) and the majoration for every child (L521-3 al. 2, three children, R521-1) can apply. See CONVERSION.md."
+}

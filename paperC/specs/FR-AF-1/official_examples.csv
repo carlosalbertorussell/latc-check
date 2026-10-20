@@ -1,0 +1,4 @@
+case_id,residence,ressources,avait_enfant_avant_2012,est_parent,titre_I,enfant1_age,enfant2_age,enfant3_age,output
+allocations_familiales.Test2,Metropole,lt_plafond_I,false,true,false,a11_14,a11_14,a20_plus,general_t1
+allocations_familiales.Test3,Guyane,entre_I_II,false,true,false,a11_14,absent,absent,outre_mer_1_enfant
+allocations_familiales.Test5,Metropole,lt_plafond_I,false,true,false,a11_14,absent,absent,zero

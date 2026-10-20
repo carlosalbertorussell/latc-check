@@ -259,6 +259,47 @@ def af_label(montant, residence, n, ressources):
     return "general_t3"
 
 
+AF_COMPONENT_LABELS = ["zero", "base", "base_majoration", "base_forfaitaire", "base_majoration_forfaitaire"]
+_BASE_CACHE = {}
+
+
+def _reference_base(n, dc_iso):
+    """Amount of a Métropole household at 30 000 € with n children in band a03_11 (no majoration,
+    no forfaitaire, tier 1): the L521-1 / D521-1 I 1° base for n children, taken from the encoding."""
+    if (n, dc_iso) not in _BASE_CACHE:
+        kids = [{"naissance": _shift(AGE_BANDS_AF["a03_11"][1], k), "remuneration": "0.00",
+                 "prise": "EffectiveEtPermanente", "deja": True, "apl": False} for k in range(n)]
+        _BASE_CACHE[(n, dc_iso)] = int(interface(kids, "30000.00", dc_iso, "Metropole", True, False, False))
+    return _BASE_CACHE[(n, dc_iso)]
+
+
+def af_component_label(montant, residence, n, ressources, dc_iso=DATE_COURANTE):
+    """Components of montant_versé for a Métropole household at tier 1 (FR-AF-3; CONVERSION.md T5).
+
+    montant = base(n) + a * majoration + b * forfaitaire, with base(n) from the encoding
+    (_reference_base), majoration = bmaf * 16 % (D521-1 I 1°) and forfaitaire = bmaf * 20,234 %
+    (D521-2 I 1°), each rounded to the cent as the runtime does; a, b in 0..3 found by search."""
+    if montant == Money("0"):
+        return "zero"
+    if residence != "Metropole" or float(ressources) > plafond_I(n) or n < 2:
+        raise AssertionError("component labels are defined for Métropole, tier 1, n >= 2 only")
+    from catala_runtime import Decimal as CDecimal
+    bmaf = Money("414.40")
+    maj, forf = int(bmaf * CDecimal("0.16")), int(bmaf * CDecimal("0.20234"))
+    residual = int(montant) - _reference_base(n, dc_iso)
+    hits = [(a, b) for a in range(4) for b in range(4) if a * maj + b * forf == residual]
+    if len(hits) != 1:
+        raise AssertionError(f"montant {money_str(montant)} with n={n} does not decompose uniquely: {hits}")
+    a, b = hits[0]
+    return "base" + ("_majoration" if a else "") + ("_forfaitaire" if b else "")
+
+
+def label_for(spec, montant, residence, n, ressources, dc_iso=DATE_COURANTE):
+    if spec["output"]["name"] == "composantes_montant_verse":
+        return af_component_label(montant, residence, n, ressources, dc_iso)
+    return af_label(montant, residence, n, ressources)
+
+
 def resources_band5(ressources, n):
     """Five-way resource band (FR-AF-1): lt_plafond_I, eq_plafond_I, entre_I_II, eq_plafond_II, gt_plafond_II."""
     r = Money(ressources)
@@ -493,21 +534,168 @@ def bisect_plafond_remuneration(residence, dc_iso=DATE_COURANTE):
     return money_str(Money(lo))
 
 
-def robustness(spec, evaluate, alternatives, sample_every=1):
+def robustness(spec, evaluate, alternatives, sample_every=1, order_key=None):
     """Re-evaluate non-excluded rows with every alternative concrete value of one attribute at a
-    time (alternatives(attr, label, row) -> list of concrete values) and count label changes."""
-    checked = changed = 0
+    time (alternatives(attr, label, row) -> list of concrete values) and count label changes.
+    With order_key(row, overrides), alternatives that reverse the birth order of two children
+    are counted apart (the age bands do not fix which of two same-band children is the elder)."""
+    stats = {"kept": [0, 0], "reversed": [0, 0]}
     examples = []
     for i, row in enumerate(all_rows(spec)):
         if i % sample_every or excluded(spec, row):
             continue
         base = evaluate(row)
+        base_order = order_key(row, {}) if order_key else None
         for a in spec["attributes"]:
             for alt in alternatives(a["name"], row[a["name"]], row):
-                got = evaluate(row, {a["name"]: alt})
-                checked += 1
+                ov = {a["name"]: alt}
+                kind = "reversed" if order_key and order_key(row, ov) != base_order else "kept"
+                got = evaluate(row, ov)
+                stats[kind][0] += 1
                 if got != base:
-                    changed += 1
-                    if len(examples) < 20:
+                    stats[kind][1] += 1
+                    if kind == "kept" and len(examples) < 20:
                         examples.append((dict(row), a["name"], alt, base, got))
-    return checked, changed, examples
+    return stats, examples
+
+
+# --------------------------------------------------------------------------- FR-AF tables
+
+EARNINGS_REP = {"le_plafond": "0.00", "gt_plafond": "1000.00"}
+
+
+def resolve_resources(token, n):
+    """A resource band label, or an alternative token used by --self-check, as euros."""
+    pI, pII = plafond_I(n), plafond_II(n)
+    alt = {"zero": "0.00", "PI-1c": f"{pI - 1}.99", "PI+1c": f"{pI}.01", "PII-1c": f"{pII - 1}.99",
+           "PII+1c": f"{pII}.01", "PI": f"{pI}.00", "PII": f"{pII}.00", "high": "500000.00"}
+    return alt[token] if token in alt else resources_value(token, n)
+
+
+def resource_alternatives(label):
+    return {"lt_plafond_I": ["zero", "PI-1c"], "le_plafond_I": ["zero", "PI"],
+            "eq_plafond_I": [], "eq_plafond_II": [],
+            "entre_I_II": ["PI+1c", "PII-1c"], "gt_I_le_II": ["PI+1c", "PII"],
+            "gt_plafond_II": ["PII+1c", "high"]}[label]
+
+
+def af_value(row, fixed, key, slot=None):
+    if slot is not None:
+        name = f"enfant{slot}_{key}"
+        return row[name] if name in row else fixed[f"enfant_{key}"]
+    return row[key] if key in row else fixed[key]
+
+
+def af_concrete(row, fixed, nslots, overrides=None, dc_iso=DATE_COURANTE):
+    """Concrete inputs of InterfaceAllocationsFamiliales for a row of labels.
+    overrides: {attribute name: concrete value} (birth date, euros, or resource token)."""
+    overrides = overrides or {}
+    children = []
+    for k in range(1, nslots + 1):
+        age = af_value(row, fixed, "age", k)
+        if age == "absent":
+            continue
+        rep = AGE_BANDS_AF[age][1]
+        # Slot k's representative is the band representative plus (k - 1) days, so that of two
+        # children in the same band the lower slot is the elder (CONVERSION.md, slot order).
+        naissance = overrides.get(f"enfant{k}_age", _shift(rep, k - 1))
+        rem_label = af_value(row, fixed, "remuneration", k)
+        rem = overrides.get(f"enfant{k}_remuneration", EARNINGS_REP[rem_label])
+        children.append({
+            "naissance": naissance,
+            "remuneration": rem,
+            "prise": af_value(row, fixed, "prise_en_charge", k),
+            "deja": af_value(row, fixed, "deja_ouvert", k) == "true",
+            "apl": af_value(row, fixed, "apl", k) == "true",
+        })
+    residence = af_value(row, fixed, "residence")
+    n = n_droit_ouvert(children, dc_iso, residence)
+    ressources = resolve_resources(overrides.get("ressources", af_value(row, fixed, "ressources")), n)
+    cond = {k: af_value(row, fixed, k) == "true" for k in ("est_parent", "titre_I", "avait_enfant_avant_2012")}
+    return children, residence, ressources, cond, n
+
+
+def af_evaluate_with_reason(spec, fixed, nslots, row, overrides=None, dc_iso=DATE_COURANTE):
+    x = excluded(spec, row)
+    if x:
+        return "EXCLUDED", x
+    try:
+        with quiet():
+            children, residence, ressources, cond, n = af_concrete(row, fixed, nslots, overrides, dc_iso)
+            montant = interface(children, ressources, dc_iso, residence, cond["est_parent"],
+                                cond["titre_I"], cond["avait_enfant_avant_2012"])
+    except CatalaError as exc:
+        pos = exc.source_positions[0] if exc.source_positions else "?"
+        return "REJECTED", f"{type(exc).__name__} at {pos}"
+    return label_for(spec, montant, residence, n, ressources, dc_iso), None
+
+
+def af_alternatives(attr, label, row):
+    if attr.endswith("_age"):
+        if label == "absent":
+            return []
+        _, _, (first, last) = AGE_BANDS_AF[label]
+        return [d for d in (first, last) if d] + UNBOUNDED_PROBES.get(label, [])
+    if attr.endswith("_remuneration"):
+        p = int(Money(plafond_remuneration(row.get("residence", "Metropole"))))
+        return {"le_plafond": ["400.00", money_str(Money(p))],
+                "gt_plafond": [money_str(Money(p + 1)), "5000.00"]}[label]
+    if attr == "ressources":
+        return resource_alternatives(label)
+    return []
+
+
+def af_birth_order(fixed, nslots):
+    """order_key for robustness(): slot numbers sorted by the birth dates actually used."""
+    def key(row, overrides):
+        b = []
+        for k in range(1, nslots + 1):
+            a = af_value(row, fixed, "age", k)
+            if a != "absent":
+                b.append((overrides.get(f"enfant{k}_age", _shift(AGE_BANDS_AF[a][1], k - 1)), k))
+        return [k for _, k in sorted(b)]
+    return key
+
+
+def af_map_case(case, spec, fixed, nslots):
+    """Map an official household test onto a row of this table, or return (None, reason)."""
+    name, children, ressources, dc, residence, cond, expected = case
+    names = [a["name"] for a in spec["attributes"]]
+    if not in_2020_parameter_period(dc):
+        return None, f"date_courante {dc} lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table"
+    if len(children) > nslots:
+        return None, f"{len(children)} children; the table has {nslots} child slots"
+    if "enfant1_age" in names and "absent" not in spec["attributes"][names.index("enfant1_age")]["values"] \
+            and len(children) != nslots:
+        return None, f"{len(children)} child(ren); the table describes households of exactly {nslots} children"
+    labels = {"residence": residence,
+              "est_parent": "true" if cond["est_parent"] else "false",
+              "titre_I": "true" if cond["titre_I"] else "false",
+              "avait_enfant_avant_2012": "true" if cond["avant_2012"] else "false"}
+    n = n_droit_ouvert(children, dc, residence)
+    res_values = (spec["attributes"][names.index("ressources")]["values"] if "ressources" in names
+                  else [fixed["ressources"]])
+    labels["ressources"] = (resources_band5 if "eq_plafond_I" in res_values else resources_band3)(ressources, n)
+    for k in range(1, nslots + 1):
+        if k > len(children):
+            labels[f"enfant{k}_age"] = "absent"
+            continue
+        c = children[k - 1]
+        labels[f"enfant{k}_age"] = age_band(AGE_BANDS_AF, c["naissance"], dc)
+        labels[f"enfant{k}_remuneration"] = earnings_band(c["remuneration"], residence)
+        labels[f"enfant{k}_prise_en_charge"] = c["prise"]
+        labels[f"enfant{k}_deja_ouvert"] = "true" if c["deja"] else "false"
+        labels[f"enfant{k}_apl"] = "true" if c["apl"] else "false"
+    row = {}
+    for key, value in labels.items():
+        if key in names:
+            row[key] = value
+            continue
+        is_child = key.startswith("enfant") and key[6].isdigit()
+        if is_child and labels[f"enfant{key[6]}_age"] == "absent":
+            continue
+        fixed_value = fixed[f"enfant_{key.split('_', 1)[1]}"] if is_child else fixed[key]
+        if value != fixed_value:
+            return None, f"{key} = {value}, the table fixes it to {fixed_value}"
+    label = label_for(spec, Money(expected), residence, n, ressources, dc)
+    return (row, label), None

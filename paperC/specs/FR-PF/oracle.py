@@ -144,7 +144,8 @@ def self_check():
         exp = F.plafond_remuneration(res)
         print(f"earnings ceiling {res}: encoding {got}, spec {exp}: {'ok' if got == exp else 'MISMATCH'}")
         fails += [] if got == exp else [res]
-    checked, changed, ex = F.robustness(SPEC, evaluate, alternatives)
+    stats, ex = F.robustness(SPEC, evaluate, alternatives)
+    checked, changed = stats["kept"]
     print(f"band robustness: {checked} alternative evaluations, {changed} label changes")
     for e in ex:
         print("   ", e)
