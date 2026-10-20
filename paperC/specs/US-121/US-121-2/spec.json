@@ -23,7 +23,7 @@
       "representative": {
         "single": "SingleReturn content (person 1)",
         "joint": "JointReturn content JointReturn {person1: (person 1), person2: (person 2)}",
-        "surviving_spouse": "SingleReturnSurvivingSpouse content DeadSpouseInfo {return: (person 1), date_of_spouse_death: |2020-06-01|, death_spouse_info_at_time_of_death: (person 2)}"
+        "surviving_spouse": "SingleReturnSurvivingSpouse content DeadSpouseInfo {return: (person 1), date_of_spouse_death: |2020-12-31|, death_spouse_info_at_time_of_death: (person 2)}"
       },
       "source": "Section121TwoPersons.return_type, enumeration ReturnType (us_tax_code/section_121.catala_en:65-68, 80); person1 and person2 are taken from it at us_tax_code/section_121.catala_en:95-105; 26 U.S.C. 121(b)(2) (joint returns) and (b)(4) (surviving spouses)"
     },
@@ -79,7 +79,7 @@
         "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
         "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
       },
-      "source": "PersonalData.property_ownage of person 2 (us_tax_code/section_121.catala_en:50-57), as for person 1"
+      "source": "PersonalData.property_ownage of person 2 (us_tax_code/section_121.catala_en:50-54), as for person 1: on a joint return the second spouse (JointReturn.person2, us_tax_code/section_121.catala_en:56-58); on a surviving spouse's return the deceased spouse (DeadSpouseInfo.death_spouse_info_at_time_of_death, us_tax_code/section_121.catala_en:60-63), whose facts 26 U.S.C. 121(b)(4) and (d)(2) use; Section121TwoPersons reads person 2 of a surviving spouse's return from DeadSpouseInfo.return (us_tax_code/section_121.catala_en:105)"
     },
     {
       "name": "person2_use_days_in_5_years",
@@ -92,7 +92,7 @@
         "lt_730_days": "[Period {begin: |2020-01-01|, end: |2021-01-01|}]",
         "ge_730_days": "[Period {begin: |2017-01-01|, end: |2021-01-01|}]"
       },
-      "source": "PersonalData.property_usage_as_principal_residence of person 2, as for person 1"
+      "source": "PersonalData.property_usage_as_principal_residence of person 2 (second spouse, or deceased spouse), as for person1_ownership_days_in_5_years and person2_ownership_days_in_5_years"
     },
     {
       "name": "person2_other_section_121a_sale",
@@ -107,7 +107,7 @@
         "within_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2020-01-01|}",
         "more_than_2_years": "MostRecentSaleWhereSection121aApplied content PreviousSaleWhereSection121aApplied {date_of_sale_or_exchange: |2018-06-01|}"
       },
-      "source": "PersonalData.other_section_121a_sale of person 2, as for person 1"
+      "source": "PersonalData.other_section_121a_sale of person 2 (second spouse, or deceased spouse), as for person 1"
     },
     {
       "name": "gain",
@@ -138,9 +138,9 @@
   "exclusions": [
     {
       "id": "person2_differs_on_single_return",
-      "description": "On a single return, and on a surviving spouse's return in this scope, there is one taxpayer: the scope takes person 2 to be person 1 (section_121.catala_en:101-105), so a row whose person-2 labels differ from the person-1 labels describes no return",
-      "predicate": "return_type in ('single', 'surviving_spouse') and ((person1_ownership_days_in_5_years == 'lt_730_days' and person2_ownership_days_in_5_years == 'ge_730_days') or (person1_ownership_days_in_5_years == 'ge_730_days' and person2_ownership_days_in_5_years == 'lt_730_days') or (person1_use_days_in_5_years == 'lt_730_days' and person2_use_days_in_5_years == 'ge_730_days') or (person1_use_days_in_5_years == 'ge_730_days' and person2_use_days_in_5_years == 'lt_730_days') or (person1_other_section_121a_sale == 'none' and person2_other_section_121a_sale == 'within_2_years') or (person1_other_section_121a_sale == 'none' and person2_other_section_121a_sale == 'more_than_2_years') or (person1_other_section_121a_sale == 'within_2_years' and person2_other_section_121a_sale == 'none') or (person1_other_section_121a_sale == 'within_2_years' and person2_other_section_121a_sale == 'more_than_2_years') or (person1_other_section_121a_sale == 'more_than_2_years' and person2_other_section_121a_sale == 'none') or (person1_other_section_121a_sale == 'more_than_2_years' and person2_other_section_121a_sale == 'within_2_years'))",
-      "source": "us_tax_code/section_121.catala_en:95-105 (person1 and person2 both read the single PersonalData of SingleReturn and SingleReturnSurvivingSpouse); 26 U.S.C. 121(b)(1)"
+      "description": "On a single return there is one taxpayer and the return carries one PersonalData, which the scope uses for both person 1 and person 2 (section_121.catala_en:95-105); a row whose person-2 labels differ from the person-1 labels describes no single return. Surviving-spouse returns are outside this exclusion: their person-2 labels describe the deceased spouse (CONVERSION.md sections 2 and 11)",
+      "predicate": "return_type == 'single' and ((person1_ownership_days_in_5_years == 'lt_730_days' and person2_ownership_days_in_5_years == 'ge_730_days') or (person1_ownership_days_in_5_years == 'ge_730_days' and person2_ownership_days_in_5_years == 'lt_730_days') or (person1_use_days_in_5_years == 'lt_730_days' and person2_use_days_in_5_years == 'ge_730_days') or (person1_use_days_in_5_years == 'ge_730_days' and person2_use_days_in_5_years == 'lt_730_days') or (person1_other_section_121a_sale == 'none' and person2_other_section_121a_sale == 'within_2_years') or (person1_other_section_121a_sale == 'none' and person2_other_section_121a_sale == 'more_than_2_years') or (person1_other_section_121a_sale == 'within_2_years' and person2_other_section_121a_sale == 'none') or (person1_other_section_121a_sale == 'within_2_years' and person2_other_section_121a_sale == 'more_than_2_years') or (person1_other_section_121a_sale == 'more_than_2_years' and person2_other_section_121a_sale == 'none') or (person1_other_section_121a_sale == 'more_than_2_years' and person2_other_section_121a_sale == 'within_2_years'))",
+      "source": "us_tax_code/section_121.catala_en:65-66 (SingleReturn content PersonalData: one person's data) and us_tax_code/section_121.catala_en:95-105 (person1 and person2 both read that PersonalData)"
     }
   ],
   "fixed_inputs": {
@@ -153,13 +153,13 @@
       "why": "Data scope of the official tests (us_tax_code/tests/test_section_121.catala_en:20); not read by any rule"
     },
     "DeadSpouseInfo.date_of_spouse_death": {
-      "value": "|2020-06-01|",
-      "why": "needed to build SingleReturnSurvivingSpouse; Section121TwoPersons does not read it (only Section121TwoPasses does, us_tax_code/section_121.catala_en:398-431)"
+      "value": "|2020-12-31|",
+      "why": "needed to build SingleReturnSurvivingSpouse; the day before the sale, so that the person-2 periods, which end on the date of sale, end at the death (durations are end - begin, us_tax_code/section_121.catala_en:179-191); Section121TwoPersons does not read it (only Section121TwoPasses does, us_tax_code/section_121.catala_en:398-431)"
     },
     "person1, person2, gain_cap (context variables)": {
       "value": "not redefined (the scope's own definitions)",
       "why": "the official tests do not redefine them"
     }
   },
-  "notes": "Sub-table 2 of 2 of US-121. Section121TwoPersons is the scope the official tests use; it has no (b)(2)(B) or (b)(4) rule (those are in Section121TwoPasses, whose PeriodMerge is a placeholder that returns [] and which no official test exercises), so a surviving spouse is treated like a single filer and a joint return that misses (b)(2)(A) gets the $250,000 limitation. REJECTED rows: any row with another section 121(a) sale for a person raises the DateError of us_tax_code/section_121.catala_en:376 (US-121-1 notes)."
+  "notes": "Sub-table 2 of 2 of US-121. Section121TwoPersons is the scope the official tests use; it has no (b)(2)(B) or (b)(4) rule (those are in Section121TwoPasses, whose PeriodMerge is a placeholder that returns [] and which no official test exercises), so a surviving spouse is treated like a single filer and a joint return that misses (b)(2)(A) gets the $250,000 limitation. On a surviving spouse's return the person-2 labels fill DeadSpouseInfo.death_spouse_info_at_time_of_death, the record that Section121TwoPasses passes as person 2 of a joint return evaluated at the date of death (us_tax_code/section_121.catala_en:399-421); Section121TwoPersons reads person 2 from DeadSpouseInfo.return (us_tax_code/section_121.catala_en:105), so on those rows the output does not depend on the person-2 labels. REJECTED rows: any row in which a person whose data the scope reads has another section 121(a) sale raises the DateError of us_tax_code/section_121.catala_en:376 (US-121-1 notes). Corrected on 2026-10-20 (CONVERSION.md section 11)."
 }

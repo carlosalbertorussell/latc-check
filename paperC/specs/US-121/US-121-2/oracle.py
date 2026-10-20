@@ -26,7 +26,10 @@ S121 = "us_tax_code/section_121.catala_en"
 TESTS = "us_tax_code/tests/test_section_121.catala_en"
 SALE = R.DATA["date_of_sale_or_exchange"]     # |2021-01-01|
 RETURN_DATE = R.DATA["return_date"]           # |2021-01-01|
-DEATH = "2020-06-01"                          # date_of_spouse_death for SingleReturnSurvivingSpouse
+# date_of_spouse_death for SingleReturnSurvivingSpouse: the day before the sale, so that the
+# person-2 periods (which end on |2021-01-01|, durations counted as end - begin) describe the
+# deceased spouse up to the death (correction of 2026-10-20, CONVERSION.md section 11).
+DEATH = "2020-12-31"
 
 
 def periods_literal(pairs):
@@ -130,13 +133,18 @@ ATTRIBUTES = [
                  "2 years before the date of sale; more_than_2_years: more than 2 years before",
                  setter("p1", "previous_sale")),
     OC.Attribute("person2_ownership_days_in_5_years", "interval", PERIOD_LABELS,
-                 "PersonalData.property_ownage of person 2 (" + S121 + ":50-57), as for person 1",
+                 "PersonalData.property_ownage of person 2 (" + S121 + ":50-54), as for person 1: on a joint return the "
+                 "second spouse (JointReturn.person2, " + S121 + ":56-58); on a surviving spouse's return the "
+                 "deceased spouse (DeadSpouseInfo.death_spouse_info_at_time_of_death, " + S121 + ":60-63), whose "
+                 "facts 26 U.S.C. 121(b)(4) and (d)(2) use; Section121TwoPersons reads person 2 of a surviving "
+                 "spouse's return from DeadSpouseInfo.return (" + S121 + ":105)",
                  setter("p2", "ownage")),
     OC.Attribute("person2_use_days_in_5_years", "interval", PERIOD_LABELS,
-                 "PersonalData.property_usage_as_principal_residence of person 2, as for person 1",
+                 "PersonalData.property_usage_as_principal_residence of person 2 (second spouse, or deceased spouse), "
+                 "as for person1_ownership_days_in_5_years and person2_ownership_days_in_5_years",
                  setter("p2", "usage")),
     OC.Attribute("person2_other_section_121a_sale", "enum", OTHER_SALE,
-                 "PersonalData.other_section_121a_sale of person 2, as for person 1",
+                 "PersonalData.other_section_121a_sale of person 2 (second spouse, or deceased spouse), as for person 1",
                  setter("p2", "previous_sale")),
     OC.Attribute("gain", "interval", GAIN,
                  "Section121TwoPersons.gain_from_sale_or_exchange_of_property (" + S121 + ":83); compared with the "
@@ -155,7 +163,7 @@ def person2_differs_predicate():
     for a1, a2, labels in P2_PAIRS:
         for (l1, _, _), (l2, _, _) in itertools.permutations(labels, 2):
             terms.append(f"({a1} == '{l1}' and {a2} == '{l2}')")
-    return "return_type in ('single', 'surviving_spouse') and (" + " or ".join(terms) + ")"
+    return "return_type == 'single' and (" + " or ".join(terms) + ")"
 
 
 META = {
@@ -181,26 +189,32 @@ META = {
     "exclusions": [
         {
             "id": "person2_differs_on_single_return",
-            "description": "On a single return, and on a surviving spouse's return in this scope, there is one "
-                           "taxpayer: the scope takes person 2 to be person 1 (section_121.catala_en:101-105), so a "
-                           "row whose person-2 labels differ from the person-1 labels describes no return",
+            "description": "On a single return there is one taxpayer and the return carries one PersonalData, "
+                           "which the scope uses for both person 1 and person 2 (section_121.catala_en:95-105); a "
+                           "row whose person-2 labels differ from the person-1 labels describes no single return. "
+                           "Surviving-spouse returns are outside this exclusion: their person-2 labels describe the "
+                           "deceased spouse (CONVERSION.md sections 2 and 11)",
             "predicate": person2_differs_predicate(),
-            "source": S121 + ":95-105 (person1 and person2 both read the single PersonalData of SingleReturn and "
-                      "SingleReturnSurvivingSpouse); 26 U.S.C. 121(b)(1)",
+            "source": S121 + ":65-66 (SingleReturn content PersonalData: one person's data) and " + S121
+                      + ":95-105 (person1 and person2 both read that PersonalData)",
         },
     ],
     "fixed_inputs": {
         "date_of_sale_or_exchange": {"value": "|2021-01-01|", "why": "Data scope of the official tests (" + TESTS + ":19)"},
         "return_date": {"value": "|2021-01-01|", "why": "Data scope of the official tests (" + TESTS + ":20); not read by any rule"},
-        "DeadSpouseInfo.date_of_spouse_death": {"value": f"|{DEATH}|", "why": "needed to build SingleReturnSurvivingSpouse; Section121TwoPersons does not read it (only Section121TwoPasses does, " + S121 + ":398-431)"},
+        "DeadSpouseInfo.date_of_spouse_death": {"value": f"|{DEATH}|", "why": "needed to build SingleReturnSurvivingSpouse; the day before the sale, so that the person-2 periods, which end on the date of sale, end at the death (durations are end - begin, " + S121 + ":179-191); Section121TwoPersons does not read it (only Section121TwoPasses does, " + S121 + ":398-431)"},
         "person1, person2, gain_cap (context variables)": {"value": "not redefined (the scope's own definitions)", "why": "the official tests do not redefine them"},
     },
     "notes": "Sub-table 2 of 2 of US-121. Section121TwoPersons is the scope the official tests use; it has no "
              "(b)(2)(B) or (b)(4) rule (those are in Section121TwoPasses, whose PeriodMerge is a placeholder that "
              "returns [] and which no official test exercises), so a surviving spouse is treated like a single "
-             "filer and a joint return that misses (b)(2)(A) gets the $250,000 limitation. REJECTED rows: any "
-             "row with another section 121(a) sale for a person raises the DateError of "
-             + S121 + ":376 (US-121-1 notes).",
+             "filer and a joint return that misses (b)(2)(A) gets the $250,000 limitation. On a surviving spouse's "
+             "return the person-2 labels fill DeadSpouseInfo.death_spouse_info_at_time_of_death, the record that "
+             "Section121TwoPasses passes as person 2 of a joint return evaluated at the date of death ("
+             + S121 + ":399-421); Section121TwoPersons reads person 2 from DeadSpouseInfo.return (" + S121
+             + ":105), so on those rows the output does not depend on the person-2 labels. REJECTED rows: any "
+             "row in which a person whose data the scope reads has another section 121(a) sale raises the "
+             "DateError of " + S121 + ":376 (US-121-1 notes). Corrected on 2026-10-20 (CONVERSION.md section 11).",
 }
 
 SPEC = OC.build_spec(META, ATTRIBUTES)

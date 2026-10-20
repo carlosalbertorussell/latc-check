@@ -30,9 +30,10 @@ run.
 | FR-APL-4 | logement-foyer residents | 6 | 1,440 | 952 | 460 | 28 | eligible 504, not_eligible 448 | 0 |
 | FR-APL-5 | home buyers | 8 | 2,880 | 2,520 | 360 | 0 | eligible 80, not_eligible 2,440 | 0 |
 | US-121-1 | §121(a) requirements, one taxpayer | 3 | 12 | 4 | 0 | 8 | requirements_met 1, requirements_not_met 3 | 4 |
-| US-121-2 | §121 amount excluded, single or joint return | 8 | 1,296 | 72 | 792 | 432 | no_exclusion 45, entire_gain 12, limited_to_250000 12, limited_to_500000 3 | 2 |
+| US-121-2 | §121 amount excluded, single, joint or surviving-spouse return | 8 | 1,296 | 204 | 396 | 696 | no_exclusion 144, entire_gain 23, limited_to_250000 34, limited_to_500000 3 | 2 |
 
-"valid" = \|D\| − EXCLUDED − REJECTED (PROTOCOL.md section 2).
+"valid" = \|D\| − EXCLUDED − REJECTED (PROTOCOL.md section 2). The US-121-2 row gives the
+counts after the correction of 2026-10-20 (section "Correction" at the end).
 
 ### REJECTED rows
 
@@ -128,7 +129,7 @@ records; for FR-APL-2 with the test's 80 m² in place of the band representative
    | FR-APL-4 | 600 | 581 | 19 | 0 |
    | FR-APL-5 | 600 | 600 | 0 | 0 |
    | US-121-1 | 12 | 4 | 8 | 0 |
-   | US-121-2 | 504 | 72 | 432 | 0 |
+   | US-121-2 (before the correction) | 504 | 72 | 432 | 0 |
 
    A negative control (one assertion flipped) was reported as a disagreement.
 4. **Harness loader.** With the harness of branch `paperc-harness` (commit `89795da`),
@@ -192,3 +193,39 @@ records; for FR-APL-2 with the test's 80 m² in place of the band representative
     us_tax_code/python/Us_tax_code.py`, and its tests are re-run by
     `paperC/catala_more/run_official_tests_us121.py` (clerk's Python test runner has no
     target to run).
+
+## Correction of 2026-10-20: US-121-2
+
+The independent verification (`paperC/verify/VERIFY-FR2.md`, branch
+`paperc-verify-fr2`, "Substantive disagreement", item 1) found that the US-121-2
+exclusion `person2_differs_on_single_return` rested on a wrong ground for
+surviving-spouse returns. Its reason, "one taxpayer, so the person-2 labels describe no
+return", holds for `single` returns. On a `surviving_spouse` row the person-2 labels
+describe the deceased spouse (`DeadSpouseInfo.death_spouse_info_at_time_of_death`),
+whose ownership, use and earlier sales 26 U.S.C. 121(b)(4) and (d)(2) take into
+account; the scope `Section121TwoPersons` ignores that record
+(`section_121.catala_en:101-105`), which is behaviour of the encoding and makes no row
+legally impossible.
+
+Correction (branch `paperc-data-fr2-fix`, folder `paperC/specs/US-121/US-121-2/` only):
+the exclusion now applies to `single` rows; every `surviving_spouse` row is evaluated
+through the encoding, with the person-2 labels in the deceased spouse's record; the
+fixed date of the spouse's death moved from 2020-06-01 to 2020-12-31 so that the
+person-2 periods, which end on the date of sale, end at the death. No other table, no
+part of `paperC/PROTOCOL.md` and no part of `paperC/harness/` was changed.
+US-121-2 CONVERSION.md section 11 gives the mapping, the statute and code lines, and
+the checks.
+
+| US-121-2 | \|D\| | valid | EXCLUDED | REJECTED | no_exclusion | entire_gain | limited_to_250000 | limited_to_500000 |
+|---|---|---|---|---|---|---|---|---|
+| before | 1,296 | 72 | 792 | 432 | 45 | 12 | 12 | 3 |
+| after | 1,296 | 204 | 396 | 696 | 144 | 23 | 34 | 3 |
+
+The 396 rows that left EXCLUDED became 264 REJECTED (person 1 has an earlier §121(a)
+sale, the `DateError` of line 376), 99 `no_exclusion`, 11 `entire_gain` and 22
+`limited_to_250000`; the other 900 rows keep their outputs. Their outputs never depend
+on the person-2 labels (checked on all 432 surviving-spouse rows): the table records
+that this scope treats a surviving spouse as a single filer. `--check-official` (6/6
+direct, 2/2 mapped), `--enumerate`, `--write-official` (unchanged file) and
+`--check-bands` (17,700 evaluations, all agreeing) were rerun and `SHA256SUMS`
+regenerated.
