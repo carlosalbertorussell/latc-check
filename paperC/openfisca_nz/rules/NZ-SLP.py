@@ -30,6 +30,7 @@ TEST_FILES = ["openfisca_aotearoa/tests/social_security/supported_living_payment
 ATTR_VARS = {a["name"] for a in SPEC["attributes"]}
 REP = {a["name"]: a["representative"] for a in SPEC["attributes"]}
 FIXED_CHECKS: list = []
+VALID_FROM, VALID_UNTIL = "2018-11-26", None  # formula_2018_11_26; parameters constant since
 
 AGE_BANDS = [("<16", None, 16), ("16-17", 16, 18), ("18-19", 18, 20), (">=20", 20, None)]
 

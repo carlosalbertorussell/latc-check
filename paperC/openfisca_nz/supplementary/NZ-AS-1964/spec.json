@@ -1,0 +1,169 @@
+{
+  "id": "NZ-AS-1964",
+  "title": "Accommodation Supplement: eligibility under the Social Security Act 1964 formula (s 61EA), OpenFisca Aotearoa encoding, week 2018-W01 (supplementary table)",
+  "source": {
+    "repository": "https://github.com/digitalaotearoa/openfisca-aotearoa",
+    "commit": "9d77ea7ce3c45b6292d4b4eaf3566b2fb00e7ceb",
+    "entry_point": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:10 accommodation_supplement__entitled (formula_1964_12_04, line 75)",
+    "files": [
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py",
+      "openfisca_aotearoa/variables/acts/immigration/residence.py",
+      "openfisca_aotearoa/variables/acts/citizenship/citizenship.py",
+      "openfisca_aotearoa/variables/acts/social_security/resident.py",
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/costs.py",
+      "openfisca_aotearoa/variables/demographics/ages.py",
+      "openfisca_aotearoa/parameters/social_security/accommodation_supplement/age_threshold.yaml",
+      "openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "age",
+      "kind": "interval",
+      "values": [
+        "<16",
+        ">=16"
+      ],
+      "representative": {
+        "<16": 15,
+        ">=16": 16
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:80-89 (age at period.first_day >= parameters/social_security/accommodation_supplement/age_threshold.yaml, value 16 from 1964-12-04; reference SSA 1964 DLM359124)"
+    },
+    {
+      "name": "immigration__resident",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:107; openfisca_aotearoa/variables/acts/immigration/residence.py:34-42 (ETERNITY; formula holds_resident_visa + permanent_resident; set directly by the official tests, see CONVERSION.md 2)"
+    },
+    {
+      "name": "immigration__permanent_resident",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:108; openfisca_aotearoa/variables/acts/immigration/residence.py:26 (input variable, ETERNITY)"
+    },
+    {
+      "name": "citizenship__citizen",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:109; acts/citizenship/citizenship.py:11 (input variable, ETERNITY)"
+    },
+    {
+      "name": "social_security__ordinarily_resident_in_new_zealand",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:101-104 (SSA 1964 s 74AA; read at period.first_month); resident.py:77 (input variable, ETERNITY)"
+    },
+    {
+      "name": "accommodation_supplement__accommodation_costs",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:112-115; costs.py:11 (default False; its only formula starts 2018-11-26, so before that date it is an input)"
+    },
+    {
+      "name": "social_housing__eligible",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:117-118 (has social housing; entitlement needs False); entitled.py:142 (input variable, default True)"
+    },
+    {
+      "name": "accommodation_supplement__below_income_threshold",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:120-123; entitled.py:151 (input variable, default True)"
+    },
+    {
+      "name": "accommodation_supplement__below_cash_threshold",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:125-128; entitled.py:159 (input variable, default True)"
+    }
+  ],
+  "output": {
+    "name": "accommodation_supplement__entitled",
+    "values": [
+      "True",
+      "False"
+    ],
+    "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:75-138, value at week 2018-W01"
+  },
+  "exclusions": [
+    {
+      "id": "AS64-X1",
+      "description": "Holder of a permanent resident visa who is not 'Holder of a permanent resident visa or a resident visa'. The encoding defines immigration__resident as that disjunction.",
+      "predicate": "immigration__permanent_resident == 'True' and immigration__resident == 'False'",
+      "source": "openfisca_aotearoa/variables/acts/immigration/residence.py:38 (label) and :41-42 (formula)"
+    }
+  ],
+  "fixed_inputs": {
+    "period": {
+      "value": "2018-W01",
+      "why": "The week asserted by all 6 cases of 1964/entitled.yaml. formula_1964_12_04 applies until 2018-11-25; the one parameter (age threshold 16) has a single value since 1964-12-04."
+    },
+    "household": {
+      "value": "the applicant alone",
+      "why": "The 1964 formula reads only person-level variables."
+    },
+    "date_of_birth": {
+      "value": "not set; age is set directly for every day of the week",
+      "why": "The official tests set age directly."
+    }
+  },
+  "notes": "Supplementary table, kept outside paperC/specs so that it is not counted as a sample. It is the earlier formula version of the same variable as NZ-AS; all 6 official SSA 1964 entitlement cases map onto it."
+}

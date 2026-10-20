@@ -7,7 +7,6 @@ openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__benefit.yaml#6[Koro],1:<14,True,False,False,True,False,False,False,False,False,False,False,True,>=20,True
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#1[Koro],1:<14,True,True,False,False,False,False,False,False,False,False,False,True,>=20,False
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#2[Koro],1:<14,True,False,False,False,False,False,False,False,False,False,False,True,>=20,True
-openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[1],none,True,False,False,False,False,False,False,False,False,False,False,True,>=20,False
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#6[Koro],1:<14,True,True,False,False,False,False,False,False,False,False,False,True,>=20,False
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#7[Koro],1:<14,True,False,True,False,False,False,False,False,False,False,False,True,>=20,True
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#8[Koro],1:<14,True,False,False,True,False,False,False,False,False,False,False,True,>=20,True

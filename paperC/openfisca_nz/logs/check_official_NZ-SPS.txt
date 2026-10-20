@@ -1,8 +1,8 @@
 NZ-SPS: 25 official cases in openfisca_aotearoa/tests/social_security/sole_parent_support/*.yaml
   cases without an assertion of sole_parent_support__entitled: 7
   asserted person-values run directly through OpenFisca: 38/38 passed
-  person-values mapped onto the table: 15; through the oracle: 15/15 passed
-  person-values unmappable: 23
+  person-values mapped onto the table: 14; through the oracle: 14/14 passed
+  person-values unmappable: 24
 
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__benefit.yaml#1[Koro]	PASS	oracle=True expected=True	sole_parent_support__age_threshold@2019-W05 set to True, equal to the value computed from the row
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]	UNMAPPABLE	person has role child in the family; the table describes the family's principal
@@ -20,11 +20,11 @@ openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#1[Tamaiti]	UNMAPPABLE	person has role child in the family; the table describes the family's principal
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#2[Koro]	PASS	oracle=True expected=True	sole_parent_support__age_threshold@2019-W05 set to True, equal to the value computed from the row; sole_parent_support__lost_regular_support@2019-W05 set to False, equal to the value computed from the row
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#2[Tamaiti]	UNMAPPABLE	person has role child in the family; the table describes the family's principal
-openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[0]	UNMAPPABLE	sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False
-openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[1]	PASS	oracle=False expected=False	sole_parent_support__age_threshold@2019-W05 set to True, equal to the value computed from the row; sole_parent_support__requirement@2019-W05 set to False, equal to the value computed from the row; sole_parent_support__split_care@2019-W05 set to True, equal to the value computed from the row
-openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[2]	UNMAPPABLE	sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False
-openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[3]	UNMAPPABLE	sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False
-openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[4]	UNMAPPABLE	sets sole_parent_support__age_threshold@2019-W05 = False, which the table's attributes compute as True
+openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[0]	UNMAPPABLE	maps onto a row excluded by the spec: SPS-X1
+openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[1]	UNMAPPABLE	maps onto a row excluded by the spec: SPS-X1
+openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[2]	UNMAPPABLE	maps onto a row excluded by the spec: SPS-X1
+openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[3]	UNMAPPABLE	maps onto a row excluded by the spec: SPS-X1
+openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#3[4]	UNMAPPABLE	maps onto a row excluded by the spec: SPS-X1
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#4[Koro]	UNMAPPABLE	sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#4[Tamaiti]	UNMAPPABLE	person has role child in the family; the table describes the family's principal
 openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml#5	UNMAPPABLE	sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False

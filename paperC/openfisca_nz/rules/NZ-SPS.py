@@ -31,6 +31,7 @@ TEST_FILES = ["openfisca_aotearoa/tests/social_security/sole_parent_support/*.ya
 ATTR_VARS = {a["name"] for a in SPEC["attributes"]} - {"children"} | {"social_security__financially_independent"}
 REP = {a["name"]: a["representative"] for a in SPEC["attributes"]}
 FIXED_CHECKS: list = []
+VALID_FROM, VALID_UNTIL = "2018-11-26", None  # formula_2018_11_26; parameters constant since
 
 CHILD_BANDS = [("<14", None, 14), ("14-15", 14, 16), ("16-17", 16, 18), (">=18", 18, None)]
 AGE_BANDS = [("<20", None, 20), (">=20", 20, None)]

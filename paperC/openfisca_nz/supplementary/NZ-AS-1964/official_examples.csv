@@ -1,0 +1,7 @@
+case_id,age,immigration__resident,immigration__permanent_resident,citizenship__citizen,social_security__ordinarily_resident_in_new_zealand,accommodation_supplement__accommodation_costs,social_housing__eligible,accommodation_supplement__below_income_threshold,accommodation_supplement__below_cash_threshold,output
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#1,>=16,True,False,False,True,True,False,True,True,True
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#2,>=16,True,True,False,True,True,False,True,True,True
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#3,>=16,False,False,True,True,True,False,True,True,True
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#4,>=16,True,False,False,True,False,False,True,True,False
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#5,<16,True,False,False,True,True,False,True,True,False
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#6,>=16,True,False,False,True,True,True,True,True,False

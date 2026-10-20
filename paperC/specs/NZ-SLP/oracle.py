@@ -30,6 +30,7 @@ TEST_FILES = ["openfisca_aotearoa/tests/social_security/supported_living_payment
 ATTR_VARS = {a["name"] for a in SPEC["attributes"]}
 REP = {a["name"]: a["representative"] for a in SPEC["attributes"]}
 FIXED_CHECKS: list = []
+VALID_FROM, VALID_UNTIL = "2018-11-26", None  # formula_2018_11_26; parameters constant since
 
 AGE_BANDS = [("<16", None, 16), ("16-17", 16, 18), ("18-19", 18, 20), (">=20", 20, None)]
 
@@ -80,6 +81,7 @@ def map_person(sim, i, period):
 #
 # The rule-specific part defines:
 #   SPEC, PERIOD, OUTPUT_VAR, TEST_FILES, ATTR_VARS, FIXED_CHECKS,
+#   VALID_FROM, VALID_UNTIL (ISO dates or None: weeks whose output the table gives),
 #   build_unit(row, uid) -> (persons, groups, applicant_id)
 #   map_person(sim, index, period) -> dict[str, str]  (raises Unmappable)
 # ---------------------------------------------------------------------------
@@ -285,10 +287,18 @@ def _same(a, b) -> bool:
 
 def map_case_person(case, direct, index, pid, period):
     """Map one person of an official case onto a table row, or raise Unmappable."""
+    from openfisca_core import periods
+    pp = periods.period(period)
+    if (VALID_FROM and str(pp.start) < VALID_FROM) or (VALID_UNTIL and str(pp.stop) > VALID_UNTIL):
+        raise Unmappable(f"asserted for {period}, outside {VALID_FROM or '...'} to {VALID_UNTIL or '...'}, "
+                         "where the table's formula version and parameter values apply")
     row = map_person(direct, index, period)
     for n in NAMES:
         if row[n] not in DOMAINS[NAMES.index(n)]:
             raise Unmappable(f"{n}={row[n]!r} is not a declared label")
+    if excluded(row):
+        raise Unmappable("maps onto a row excluded by the spec: " + ", ".join(
+            e["id"] for e in EXCLUSIONS if eval(e["predicate"], {"__builtins__": {}}, dict(row))))
     for check in FIXED_CHECKS:
         check(direct, index, period)
     osim, oindex, _ = simulate([row], trace=True)

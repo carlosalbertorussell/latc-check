@@ -1,0 +1,257 @@
+{
+  "id": "NZ-AS",
+  "title": "Accommodation Supplement: eligibility (Social Security Act 2018 ss 65-67, Social Security Regulations 2018 reg 15), OpenFisca Aotearoa encoding, week 2022-W01",
+  "source": {
+    "repository": "https://github.com/digitalaotearoa/openfisca-aotearoa",
+    "commit": "9d77ea7ce3c45b6292d4b4eaf3566b2fb00e7ceb",
+    "entry_point": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:10 accommodation_supplement__entitled (formula_2018_11_26, line 19)",
+    "files": [
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py",
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/costs.py",
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py",
+      "openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py",
+      "openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py",
+      "openfisca_aotearoa/variables/regulation/student_allowance/independent_circumstances.py",
+      "openfisca_aotearoa/variables/demographics/housing.py",
+      "openfisca_aotearoa/variables/acts/social_security/relationships.py",
+      "openfisca_aotearoa/variables/acts/social_security/resident.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/child.py",
+      "openfisca_aotearoa/parameters/social_security/accommodation_supplement/assets.yaml",
+      "openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/*.yaml",
+      "openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "social_security__residential_requirement",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 16; openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:28; resident.py:21 (defined term with its own formula, set directly as input, see CONVERSION.md 2)"
+    },
+    {
+      "name": "accommodation_type",
+      "kind": "enum",
+      "values": [
+        "unknown",
+        "rent",
+        "board",
+        "lodging",
+        "mortgage",
+        "social_housing",
+        "residential_care"
+      ],
+      "representative": {
+        "unknown": "unknown",
+        "rent": "rent",
+        "board": "board",
+        "lodging": "lodging",
+        "mortgage": "mortgage",
+        "social_housing": "social_housing",
+        "residential_care": "residential_care"
+      },
+      "source": "housing.py:8-15 (AccommodationType, declared order of possible_values) and :18 (input variable, default unknown); read at openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/costs.py:21, openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:19 and :34"
+    },
+    {
+      "name": "accommodation_costs",
+      "kind": "interval",
+      "values": [
+        "<=0",
+        ">0"
+      ],
+      "representative": {
+        "<=0": 0.0,
+        ">0": 100.0
+      },
+      "source": "SSA 2018 s 65(2); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/costs.py:22 and :57, :64, :69, :79, :84 (accommodation_costs > 0); housing.py:30 (input variable, float, default 0)"
+    },
+    {
+      "name": "social_security__in_a_relationship",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "Social Security Regulations 2018 reg 15(1)(a); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:21; relationships.py:8 (defined term with its own formula, set directly as input, see CONVERSION.md 2)"
+    },
+    {
+      "name": "social_security__dependent_children",
+      "kind": "interval",
+      "values": [
+        "0",
+        ">=1"
+      ],
+      "representative": {
+        "0": 0,
+        ">=1": 1
+      },
+      "source": "Social Security Regulations 2018 reg 15(1)(a)(ii), (b); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:24 (>= 1); interpretation/child.py:43 (count, set directly as input, see CONVERSION.md 2)"
+    },
+    {
+      "name": "accommodation_supplement__cash_assets",
+      "kind": "interval",
+      "values": [
+        "<=8100",
+        "8101-16200",
+        ">16200"
+      ],
+      "representative": {
+        "<=8100": 8100,
+        "8101-16200": 16200,
+        ">16200": 16201
+      },
+      "source": "Social Security Regulations 2018 reg 15(1); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:49-63 (total cash assets of principal and partners <= threshold); parameters/social_security/accommodation_supplement/assets.yaml: ssa2018_15_1_a = 16200 and ssa2018_15_1_b = 8100, both from 2018-11-26 (only values); the attribute is the total of the applicant and partner (CONVERSION.md 4)"
+    },
+    {
+      "name": "partner_accommodation_supplement__receiving",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(a); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:46-49 (family sum over role partner of accommodation_supplement__receiving, :82, default False); value of the partner's variable (CONVERSION.md 4)"
+    },
+    {
+      "name": "basic_grant__receiving",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(b)(i); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:51-54; openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py:60 (input variable, default False)"
+    },
+    {
+      "name": "independent_circumstances_grant__receiving",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(b)(i); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:51-54; openfisca_aotearoa/variables/regulation/student_allowance/independent_circumstances.py:30 (input variable, default False)"
+    },
+    {
+      "name": "basic_grant__entitled",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(b)(ii); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:56-59 (read at period.first_month); openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py:10 (Student Allowances Regulations 1998 reg 4; own formula, set directly as input, see CONVERSION.md 2)"
+    },
+    {
+      "name": "independent_circumstances_grant__entitled",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(b)(ii); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:56-59 (read at period.first_month); openfisca_aotearoa/variables/regulation/student_allowance/independent_circumstances.py:8 (input variable, no formula)"
+    },
+    {
+      "name": "basic_grant__would_be_entitled",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(b)(iii); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:61-64; openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py:70 (input variable, default False)"
+    },
+    {
+      "name": "independent_circumstances_grant__would_be_entitled",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(b)(iii); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:61-64; openfisca_aotearoa/variables/regulation/student_allowance/independent_circumstances.py:40 (input variable, default False)"
+    },
+    {
+      "name": "accommodation_supplement__disability",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 67(d); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:68 (read), :92 (input variable, default False)"
+    }
+  ],
+  "output": {
+    "name": "accommodation_supplement__entitled",
+    "values": [
+      "True",
+      "False"
+    ],
+    "source": "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:10-73, value at week 2022-W01 of the family's principal"
+  },
+  "exclusions": [
+    {
+      "id": "AS-X1",
+      "description": "The applicant is not in a relationship but a partner receives Accommodation Supplement. The partner exists only as a member in the family role partner, and the encoding's own definition makes such a member a relationship (people.family.nb_persons(PARTNER) > 0).",
+      "predicate": "social_security__in_a_relationship == 'False' and partner_accommodation_supplement__receiving == 'True'",
+      "source": "SSA 2018 s 67(a) ('P's spouse or partner'); relationships.py:20-24"
+    },
+    {
+      "id": "AS-X2",
+      "description": "The applicant is eligible for an independent circumstances grant while receiving a basic grant. Student Allowances Regulations 1998 reg 8(3): 'no student is eligible for an independent circumstances grant if the student receives a basic grant'.",
+      "predicate": "independent_circumstances_grant__entitled == 'True' and basic_grant__receiving == 'True'",
+      "source": "Student Allowances Regulations 1998 reg 8(3), quoted in openfisca_aotearoa/variables/regulation/student_allowance/independent_circumstances.py:24-25"
+    }
+  ],
+  "fixed_inputs": {
+    "period": {
+      "value": "2022-W01",
+      "why": "The week asserted by the only SSA 2018 entitlement case (2018/entitled.yaml). formula_2018_11_26 applies from 2018-11-26 and assets.yaml has one value per threshold, so every week from then on gives the same table."
+    },
+    "household": {
+      "value": "the applicant is principal of a family, of a tenancy and of an ownership with no other member; when social_security__in_a_relationship is True the family also has one partner, with cash assets 0 and accommodation_supplement__receiving from the attribute partner_accommodation_supplement__receiving",
+      "why": "s 65(2)(a), (b) and (d) distinguish principal tenants or owners from other tenants or owners (costs.py:24-87); with the applicant as sole principal, (d) coincides with (a) and (b). See CONVERSION.md 4."
+    },
+    "accommodation_supplement__receiving (applicant)": {
+      "value": "False (default)",
+      "why": "Read for every person but summed over the partner role only (exclusion.py:41-49); the applicant's own value has no effect."
+    }
+  },
+  "notes": "Eligibility of the family's principal for Accommodation Supplement under the SSA 2018 formula. The SSA 1964 formula of the same variable (applies to weeks before 2018-11-26, tested by 1964/entitled.yaml) is kept as a supplementary table outside paperC/specs (paperC/openfisca_nz/supplementary/NZ-AS-1964/). See CONVERSION.md."
+}

@@ -1,0 +1,58 @@
+NZ-AS-1964: 47 official cases in openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/*.yaml, openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/*.yaml
+  cases without an assertion of accommodation_supplement__entitled: 40
+  asserted person-values run directly through OpenFisca: 12/12 passed
+  person-values mapped onto the table: 6; through the oracle: 6/6 passed
+  person-values unmappable: 6
+
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/_benefit_me.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement, family_tax_credit, jobseeker_support__benefit)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/_benefit_me.yaml#2	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement, family_tax_credit, jobseeker_support__benefit)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/_benefit_me.yaml#3	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement, family_tax_credit, jobseeker_support__benefit)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/accommodation_supplement.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/area.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__area_of_residence)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__assets_requirement)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml#2	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__assets_requirement)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml#3	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__assets_requirement)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/assets.yaml#4	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__assets_requirement)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#2	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#3	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#4	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#5	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#6	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#7	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#8	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#9	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/base.yaml#10	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__base)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/beneficiary.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__beneficiary, accommodation_supplement__non_beneficiary)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__accommodation_costs)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml#2	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__accommodation_costs)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml#3	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__accommodation_costs)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml#4	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__accommodation_costs)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml#5	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__accommodation_costs)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/costs.yaml#6	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__accommodation_costs)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/cutout.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__cutout)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml#1[0]	UNMAPPABLE	asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml#1[1]	UNMAPPABLE	asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml#1[2]	UNMAPPABLE	asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml#1[3]	UNMAPPABLE	asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml#1[4]	UNMAPPABLE	asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml#1[5]	UNMAPPABLE	asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__social_housing_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#2	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__other_funding_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#3	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__other_funding_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#4	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__other_funding_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#5	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__other_funding_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#6	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__other_funding_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/exclusion.yaml#7	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__other_funding_exclusion)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/rate.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__rate)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/rebate.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts accommodation_supplement__rebate)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml#1	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts persons)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml#2	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts persons)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml#3	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts persons)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/situation.yaml#4	UNMAPPABLE	does not assert accommodation_supplement__entitled (asserts persons)
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#1	PASS	oracle=True expected=True
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#2	PASS	oracle=True expected=True
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#3	PASS	oracle=True expected=True
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#4	PASS	oracle=False expected=False
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#5	PASS	oracle=False expected=False
+openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml#6	PASS	oracle=False expected=False
