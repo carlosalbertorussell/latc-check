@@ -4,7 +4,7 @@
     "path": "paperC/PROTOCOL.md",
     "registered_commit": "ee7c527080e665df70b906f0cbf091098e84ad5f"
   },
-  "harness_commit": "9a2f43a177c1c6cac6015f140d09fa01f1b8cade",
+  "harness_commit": "b8feeca189acdbd74a6a53e3159ecb0b11539072",
   "tracked_inputs_unmodified": true,
   "python": {
     "version": "3.12.3",
