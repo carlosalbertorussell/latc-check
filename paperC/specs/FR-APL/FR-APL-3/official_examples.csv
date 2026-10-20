@@ -1,0 +1,2 @@
+case_id,mode_occupation,bailleur,part_propriete_famille,part_usufruit_famille,loue_ou_sous_loue_a_des_tiers,logement_decent_l89_462,residence_principale,condition_rattache_foyer_fiscal_parent_ifi,output
+tests_eligibilite_apl/Exemple1,Locataire,BailleurSocial_conventionne,Autre,Autre,Non,vrai,vrai,faux,eligible

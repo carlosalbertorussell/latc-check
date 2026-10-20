@@ -1,0 +1,160 @@
+{
+  "id": "FR-APL-3",
+  "title": "Aide personnalisée au logement (APL): eligibility of tenants and sub-tenants",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Aides_logement scope ÉligibilitéAidePersonnaliséeLogement, output éligibilité (Python: generated.Aides_logement.eligibilite_aide_personnalisee_logement, Catala 1.3.0)",
+    "files": [
+      "aides_logement/prologue.catala_fr",
+      "aides_logement/code_construction_legislatif.catala_fr",
+      "aides_logement/code_construction_reglementaire.catala_fr",
+      "aides_logement/archives.catala_fr",
+      "aides_logement/arrete_2019-09-27.catala_fr",
+      "aides_logement/autres_sources.catala_fr",
+      "aides_logement/code_sécurité_sociale.catala_fr",
+      "prologue_france/France.catala_fr",
+      "prestations_familiales/prologue.catala_fr",
+      "smic/Smic.catala_fr",
+      "aides_logement/tests/tests_eligibilite_apl.catala_fr"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "mode_occupation",
+      "kind": "enum",
+      "values": [
+        "Locataire",
+        "SousLocataire"
+      ],
+      "representative": {
+        "Locataire": "Locataire (Location {...})",
+        "SousLocataire": "SousLocataire (Location {...})"
+      },
+      "source": "Logement.mode_occupation, constructors Locataire and SousLocataire of ModeOccupation (aides_logement/prologue.catala_fr:143-149); read by L822-2 II (aides_logement/code_construction_legislatif.catala_fr:147-160), L822-3 (aides_logement/code_construction_legislatif.catala_fr:185-196) and L831-1 2° (aides_logement/code_construction_legislatif.catala_fr:690-704)"
+    },
+    {
+      "name": "bailleur",
+      "kind": "enum",
+      "values": [
+        "BailleurSocial_conventionne",
+        "BailleurSocial_non_conventionne",
+        "BailleurPriveAvecConventionnementSocial_conventionne",
+        "BailleurPriveAvecConventionnementSocial_non_conventionne",
+        "BailleurPrive"
+      ],
+      "representative": {
+        "BailleurSocial_conventionne": "BailleurSocial {conventionné_livre_III_titre_V_chap_III: vrai, réduction_loyer_solidarité_perçue: 0 €}",
+        "BailleurSocial_non_conventionne": "BailleurSocial {conventionné_livre_III_titre_V_chap_III: faux, réduction_loyer_solidarité_perçue: 0 €}",
+        "BailleurPriveAvecConventionnementSocial_conventionne": "BailleurPrivéAvecConventionnementSocial {conventionné_livre_III_titre_II_chap_I_sec_3: vrai}",
+        "BailleurPriveAvecConventionnementSocial_non_conventionne": "BailleurPrivéAvecConventionnementSocial {conventionné_livre_III_titre_II_chap_I_sec_3: faux}",
+        "BailleurPrive": "BailleurPrivé"
+      },
+      "source": "Location.bailleur, enumeration TypeBailleur (aides_logement/prologue.catala_fr:16-38); read by L831-1 2° (aides_logement/code_construction_legislatif.catala_fr:690-704)"
+    },
+    {
+      "name": "part_propriete_famille",
+      "kind": "interval",
+      "values": [
+        "Autre",
+        "famille_moins_de_10pc",
+        "famille_10pc_ou_plus"
+      ],
+      "representative": {
+        "Autre": "Autre",
+        "famille_moins_de_10pc": "DemandeurOuConjointOuParentOuViaPartsSociétés contenu 0,05",
+        "famille_10pc_ou_plus": "DemandeurOuConjointOuParentOuViaPartsSociétés contenu 0,1"
+      },
+      "source": "Logement.propriétaire, enumeration ParentOuAutre (aides_logement/prologue.catala_fr:151-153); read by L822-3 (aides_logement/code_construction_legislatif.catala_fr:172-213) with the 10 % threshold of R822-1 (aides_logement/code_construction_reglementaire.catala_fr:104-106)"
+    },
+    {
+      "name": "part_usufruit_famille",
+      "kind": "interval",
+      "values": [
+        "Autre",
+        "famille_moins_de_10pc",
+        "famille_10pc_ou_plus"
+      ],
+      "representative": {
+        "Autre": "Autre",
+        "famille_moins_de_10pc": "DemandeurOuConjointOuParentOuViaPartsSociétés contenu 0,05",
+        "famille_10pc_ou_plus": "DemandeurOuConjointOuParentOuViaPartsSociétés contenu 0,1"
+      },
+      "source": "Logement.usufruit, enumeration ParentOuAutre (aides_logement/prologue.catala_fr:151-153); same rules"
+    },
+    {
+      "name": "loue_ou_sous_loue_a_des_tiers",
+      "kind": "enum",
+      "values": [
+        "Non",
+        "Oui_moins_de_30_ans_non_conforme_l442_1",
+        "Oui_moins_de_30_ans_conforme_l442_1",
+        "Oui_30_ans_ou_plus_non_conforme_l442_1",
+        "Oui_30_ans_ou_plus_conforme_l442_1"
+      ],
+      "representative": {
+        "Non": "Non",
+        "Oui_moins_de_30_ans_non_conforme_l442_1": "Oui {date_naissance_personne_sous_location: |2000-01-01|, conforme_article_l442_1: faux}",
+        "Oui_moins_de_30_ans_conforme_l442_1": "Oui {date_naissance_personne_sous_location: |2000-01-01|, conforme_article_l442_1: vrai}",
+        "Oui_30_ans_ou_plus_non_conforme_l442_1": "Oui {date_naissance_personne_sous_location: |1980-01-01|, conforme_article_l442_1: faux}",
+        "Oui_30_ans_ou_plus_conforme_l442_1": "Oui {date_naissance_personne_sous_location: |1980-01-01|, conforme_article_l442_1: vrai}"
+      },
+      "source": "Logement.loué_ou_sous_loué_à_des_tiers, enumeration LouéOuSousLouéÀDesTiers with PersonneSousLocation (aides_logement/prologue.catala_fr:155-161); read by L822-4 (aides_logement/code_construction_legislatif.catala_fr:233-253)"
+    },
+    {
+      "name": "logement_decent_l89_462",
+      "kind": "bool",
+      "values": [
+        "faux",
+        "vrai"
+      ],
+      "representative": {
+        "faux": "faux",
+        "vrai": "vrai"
+      },
+      "source": "Logement.logement_decent_l89_462 (aides_logement/prologue.catala_fr:169); read by L822-9 (aides_logement/code_construction_legislatif.catala_fr:382-385)"
+    },
+    {
+      "name": "residence_principale",
+      "kind": "bool",
+      "values": [
+        "faux",
+        "vrai"
+      ],
+      "representative": {
+        "faux": "faux",
+        "vrai": "vrai"
+      },
+      "source": "Logement.résidence_principale (aides_logement/prologue.catala_fr:164); read by L821-2 (aides_logement/code_construction_legislatif.catala_fr:42-46)"
+    },
+    {
+      "name": "condition_rattache_foyer_fiscal_parent_ifi",
+      "kind": "bool",
+      "values": [
+        "faux",
+        "vrai"
+      ],
+      "representative": {
+        "faux": "faux",
+        "vrai": "vrai"
+      },
+      "source": "Ménage.condition_rattaché_foyer_fiscal_parent_ifi (aides_logement/prologue.catala_fr:222); read by L822-8 (aides_logement/code_construction_legislatif.catala_fr:368-371)"
+    }
+  ],
+  "output": {
+    "name": "eligibilite_apl",
+    "values": [
+      "eligible",
+      "not_eligible"
+    ],
+    "source": "ÉligibilitéAidePersonnaliséeLogement.éligibilité (condition), aides_logement/prologue.catala_fr:393; rules aides_logement/code_construction_legislatif.catala_fr:631-645 and 1333-1339"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "every ménage and demandeur field that is not an attribute": {
+      "value": "as in the official test Exemple1 (aides_logement/tests/tests_eligibilite_apl.catala_fr:16-107): date_courante |2020-03-10|, résidence Métropole, Mariés |2010-11-26|, three EnfantÀCharge (born 2001-01-01 Après with études, 2009-01-01 Pendant, 2012-01-01 Pendant; French, 0 € pay, no shared custody, a_déjà_ouvert_droit_aux_allocations_familiales vrai), prestations [AllocationSoutienEnfantHandicapé; ComplémentFamilial; AllocationsFamiliales], 1 other occupant, Locataire of a BailleurSocial conventionné (loyer 750 €, RLS 0 €, every other Location boolean faux, PasDeChangement), Zone1, résidence principale, décent, 80 m², propriétaire Autre, usufruit Autre, not let to third parties, no IFI, no unborn child, not R844-4; demandeur born 1970-05-02, Française, with every other boolean faux",
+      "why": "keeps the official test Exemple1 on the table; the Location record keeps Exemple1's values for every field other than bailleur (loyer 750 €, every boolean faux, PasDeChangement)"
+    }
+  },
+  "notes": "Sub-table 3 of 5 of FR-APL (amount computation out of scope). In the encoding a SousLocataire can never be eligible for the APL: condition_logement_bailleur has rules for Locataire, RésidentLogementFoyer, AccessionPropriétéLocalUsageExclusifHabitation and LocationAccession only (CONVERSION.md)."
+}

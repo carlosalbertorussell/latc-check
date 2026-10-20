@@ -1,0 +1,2 @@
+case_id,date_courante,residence,nationalite_demandeur,output
+tests_eligibilite_apl/Exemple1,2019-09-01_to_2020-12-31,Metropole,francaise,eligible

@@ -1,0 +1,191 @@
+{
+  "id": "FR-APL-2",
+  "title": "Aide personnalisée au logement (APL): eligibility by household size and floor area",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Aides_logement scope ÉligibilitéAidePersonnaliséeLogement, output éligibilité (Python: generated.Aides_logement.eligibilite_aide_personnalisee_logement, Catala 1.3.0)",
+    "files": [
+      "aides_logement/prologue.catala_fr",
+      "aides_logement/code_construction_legislatif.catala_fr",
+      "aides_logement/code_construction_reglementaire.catala_fr",
+      "aides_logement/archives.catala_fr",
+      "aides_logement/arrete_2019-09-27.catala_fr",
+      "aides_logement/autres_sources.catala_fr",
+      "aides_logement/code_sécurité_sociale.catala_fr",
+      "prologue_france/France.catala_fr",
+      "prestations_familiales/prologue.catala_fr",
+      "smic/Smic.catala_fr",
+      "aides_logement/tests/tests_eligibilite_apl.catala_fr"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": [
+        "Metropole",
+        "Guadeloupe",
+        "Guyane",
+        "Martinique",
+        "LaReunion",
+        "SaintBarthelemy",
+        "SaintMartin",
+        "SaintPierreEtMiquelon",
+        "Mayotte"
+      ],
+      "representative": {
+        "Metropole": "Métropole",
+        "Guadeloupe": "Guadeloupe",
+        "Guyane": "Guyane",
+        "Martinique": "Martinique",
+        "LaReunion": "LaRéunion",
+        "SaintBarthelemy": "SaintBarthélemy",
+        "SaintMartin": "SaintMartin",
+        "SaintPierreEtMiquelon": "SaintPierreEtMiquelon",
+        "Mayotte": "Mayotte"
+      },
+      "source": "Ménage.résidence, enumeration France.Collectivité (prologue_france/France.catala_fr:9-18)"
+    },
+    {
+      "name": "nationalite_demandeur",
+      "kind": "enum",
+      "values": [
+        "francaise",
+        "etrangere_l512_2_et_art_4",
+        "etrangere_l512_2_seulement",
+        "etrangere_art_4_seulement",
+        "etrangere_aucune"
+      ],
+      "representative": {
+        "francaise": "Française",
+        "etrangere_l512_2_et_art_4": "Étrangère {satisfait_conditions_l512_2_code_sécurité_sociale: vrai, satisfait_art_4_ordonnance_2002_mayotte: vrai}",
+        "etrangere_l512_2_seulement": "Étrangère {satisfait_conditions_l512_2_code_sécurité_sociale: vrai, satisfait_art_4_ordonnance_2002_mayotte: faux}",
+        "etrangere_art_4_seulement": "Étrangère {satisfait_conditions_l512_2_code_sécurité_sociale: faux, satisfait_art_4_ordonnance_2002_mayotte: vrai}",
+        "etrangere_aucune": "Étrangère {satisfait_conditions_l512_2_code_sécurité_sociale: faux, satisfait_art_4_ordonnance_2002_mayotte: faux}"
+      },
+      "source": "Demandeur.nationalité (aides_logement/prologue.catala_fr:228-247); read by L822-2 I (aides_logement/code_construction_legislatif.catala_fr:130-136) and its Mayotte version L861-5 1° (aides_logement/code_construction_legislatif.catala_fr:1389-1400)"
+    },
+    {
+      "name": "situation_familiale",
+      "kind": "enum",
+      "values": [
+        "Celibataire",
+        "Maries",
+        "Pacses",
+        "Concubins",
+        "CelibataireSepareDeFait",
+        "ConcubinageDontSepareDeFait"
+      ],
+      "representative": {
+        "Celibataire": "Célibataire",
+        "Maries": "Mariés |2010-11-26|",
+        "Pacses": "Pacsés",
+        "Concubins": "Concubins",
+        "CelibataireSepareDeFait": "CélibataireSéparéDeFait",
+        "ConcubinageDontSepareDeFait": "ConcubinageDontSéparéDeFait"
+      },
+      "source": "Ménage.situation_familiale, enumeration SituationFamiliale (aides_logement/code_construction_legislatif.catala_fr:107-117); read by R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1015-1063) and R861-5 3° (5614-5640)"
+    },
+    {
+      "name": "personnes_a_charge",
+      "kind": "enum",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "representative": {
+        "0": "[]",
+        "1": "the first 1 EnfantÀCharge of Exemple1",
+        "2": "the first 2 EnfantÀCharge of Exemple1",
+        "3": "the first 3 EnfantÀCharge of Exemple1"
+      },
+      "source": "Ménage.personnes_à_charge (aides_logement/prologue.catala_fr:217-226), counted by `nombre de ménage.personnes_à_charge` in R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1016-1028, 1046-1049) and R861-5 3° (5630-5633)"
+    },
+    {
+      "name": "autres_occupants",
+      "kind": "enum",
+      "values": [
+        "0",
+        "1"
+      ],
+      "representative": {
+        "0": "0",
+        "1": "1"
+      },
+      "source": "Ménage.nombre_autres_occupants_logement (aides_logement/prologue.catala_fr:217-226), same rules"
+    },
+    {
+      "name": "surface_m_carres",
+      "kind": "interval",
+      "values": [
+        "lt_9",
+        "9_to_12",
+        "13_to_15",
+        "16_to_17",
+        "18_to_21",
+        "22_to_24",
+        "25_to_26",
+        "27_to_30",
+        "31_to_33",
+        "34_to_35",
+        "36_to_39",
+        "40_to_42",
+        "43_to_44",
+        "45_to_48",
+        "49_to_51",
+        "ge_52"
+      ],
+      "representative": {
+        "lt_9": "8",
+        "9_to_12": "9",
+        "13_to_15": "13",
+        "16_to_17": "16",
+        "18_to_21": "18",
+        "22_to_24": "22",
+        "25_to_26": "25",
+        "27_to_30": "27",
+        "31_to_33": "31",
+        "34_to_35": "34",
+        "36_to_39": "36",
+        "40_to_42": "40",
+        "43_to_44": "43",
+        "45_to_48": "45",
+        "49_to_51": "49",
+        "ge_52": "52"
+      },
+      "source": "Logement.surface_m_carrés (aides_logement/prologue.catala_fr:163-171), compared by R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1029-1063), R844-4 (5531-5546) and R861-5 3° for Mayotte (5614-5646)"
+    },
+    {
+      "name": "personnes_agees_handicapees_r844_4",
+      "kind": "bool",
+      "values": [
+        "faux",
+        "vrai"
+      ],
+      "representative": {
+        "faux": "faux",
+        "vrai": "vrai"
+      },
+      "source": "Ménage.personnes_âgées_handicapées_foyer_r844_4 (aides_logement/prologue.catala_fr:224), read by R844-4 (aides_logement/code_construction_reglementaire.catala_fr:5531-5546)"
+    }
+  ],
+  "output": {
+    "name": "eligibilite_apl",
+    "values": [
+      "eligible",
+      "not_eligible"
+    ],
+    "source": "ÉligibilitéAidePersonnaliséeLogement.éligibilité (condition), aides_logement/prologue.catala_fr:393; rules aides_logement/code_construction_legislatif.catala_fr:631-645 and 1333-1339"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "every ménage and demandeur field that is not an attribute": {
+      "value": "as in the official test Exemple1 (aides_logement/tests/tests_eligibilite_apl.catala_fr:16-107): date_courante |2020-03-10|, résidence Métropole, Mariés |2010-11-26|, three EnfantÀCharge (born 2001-01-01 Après with études, 2009-01-01 Pendant, 2012-01-01 Pendant; French, 0 € pay, no shared custody, a_déjà_ouvert_droit_aux_allocations_familiales vrai), prestations [AllocationSoutienEnfantHandicapé; ComplémentFamilial; AllocationsFamiliales], 1 other occupant, Locataire of a BailleurSocial conventionné (loyer 750 €, RLS 0 €, every other Location boolean faux, PasDeChangement), Zone1, résidence principale, décent, 80 m², propriétaire Autre, usufruit Autre, not let to third parties, no IFI, no unborn child, not R844-4; demandeur born 1970-05-02, Française, with every other boolean faux",
+      "why": "keeps the official test Exemple1 on the table (date_courante |2020-03-10|); dependants are the first k children of Exemple1 so that k = 3 reproduces the test exactly"
+    }
+  },
+  "notes": "Sub-table 2 of 5 of FR-APL (amount computation out of scope). The floor-area bands are cut at every minimum area the code can compare against for the household sizes in the table (2 to 6 persons with a couple, 1 to 5 with a single adult); the caps of R822-25 (70 m² from 8 persons) and of the Mayotte rule (54 m² from 9 persons) are out of reach with these sizes. REJECTED rows: in Mayotte the Mayotte surface rule and R844-4 are both exceptions to the same base rule and conflict (CONVERSION.md)."
+}

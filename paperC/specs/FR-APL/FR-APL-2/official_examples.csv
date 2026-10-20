@@ -1,0 +1,2 @@
+case_id,residence,nationalite_demandeur,situation_familiale,personnes_a_charge,autres_occupants,surface_m_carres,personnes_agees_handicapees_r844_4,output
+tests_eligibilite_apl/Exemple1,Metropole,francaise,Maries,3,1,ge_52,faux,eligible
