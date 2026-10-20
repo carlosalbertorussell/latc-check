@@ -1,6 +1,6 @@
 {
   "id": "US-121-2",
-  "title": "US IRC section 121: amount of gain excluded on a single or joint return",
+  "title": "US IRC section 121: amount of gain excluded on a single, joint or surviving-spouse return",
   "source": {
     "repository": "https://github.com/CatalaLang/catala-examples",
     "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",

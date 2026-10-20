@@ -238,8 +238,12 @@ valid; `surviving_spouse` 288 REJECTED, 144 valid.
 table definition), `--check-official` (6/6 direct, 2/2 mapped, both agreeing; the
 mapped rows are a `single` and a `joint` row, unchanged), `--enumerate`,
 `--write-official` (official_examples.csv byte-identical) and `--check-bands` (17,700
-evaluations, all agreeing). `SHA256SUMS` regenerated.
+evaluations, all agreeing). `SHA256SUMS` regenerated. The Catala-interpreter check of the changed
+rows, the harness run and the verifier's recomputation on the corrected table are
+recorded in the "Correction" section of `paperC/specs/README-FR2.md` and in
+`paperC/results/REPORT-US-121-2-FIX.md`.
 
 Other changes in this folder made with the correction: the exclusion's source now
 cites `S121:65-66` and `95-105` in place of 26 U.S.C. 121(b)(1) (verifier item 10), and
-the person-2 ownership source cites `S121:50-54` in place of `50-57` (verifier item 11).
+the person-2 ownership source cites `S121:50-54` in place of `50-57` (verifier item 11). The
+table title now names surviving-spouse returns, which the table always contained.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Oracle for US-121-2: section 121 exclusion of gain on a single or joint return
+"""Oracle for US-121-2: section 121 exclusion of gain on a single, joint or surviving-spouse return
 (scope Section121TwoPersons, output income_excluded_from_gross_income as a band).
 
 Holds the table definition (spec.json is written from it with --write-spec), evaluates
@@ -168,7 +168,7 @@ def person2_differs_predicate():
 
 META = {
     "id": "US-121-2",
-    "title": "US IRC section 121: amount of gain excluded on a single or joint return",
+    "title": "US IRC section 121: amount of gain excluded on a single, joint or surviving-spouse return",
     "source": {
         "repository": "https://github.com/CatalaLang/catala-examples",
         "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
