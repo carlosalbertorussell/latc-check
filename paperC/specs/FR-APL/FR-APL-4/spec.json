@@ -64,7 +64,7 @@
         "2024-01-01_to_2024-10-31": "|2024-06-01|",
         "ge_2024-11-01": "|2025-06-01|"
       },
-      "source": "ÉligibilitéAidePersonnaliséeLogement.date_courante (aides_logement/prologue.catala_fr:378-381). Cut points: aides_logement/code_construction_legislatif.catala_fr:1333-1339 (Saint-Pierre-et-Miquelon from 2021-01-01); aides_logement/code_construction_reglementaire.catala_fr:6001-6020 (DROM rule for FoyerJeunesTravailleurs… from 2023-04-05); smic/Smic.catala_fr:436-445 and 482-491 (Mayotte SMIC conflict 2024-01-01 to 2024-10-31). The domain starts at 2019-09-01: before that date every input raises NoValue (see FR-APL-1)"
+      "source": "ÉligibilitéAidePersonnaliséeLogement.date_courante (aides_logement/prologue.catala_fr:378-381). Cut points: aides_logement/code_construction_legislatif.catala_fr:1333-1339 (Saint-Pierre-et-Miquelon from 2021-01-01); aides_logement/code_construction_reglementaire.catala_fr:5995-6019 (DROM rule for FoyerJeunesTravailleurs… from 2023-04-05); smic/Smic.catala_fr:434-443 and 481-489 (Mayotte SMIC conflict 2024-01-01 to 2024-10-31). The domain starts at 2019-09-01: before that date every input raises NoValue (see FR-APL-1)"
     },
     {
       "name": "type_logement_foyer",
@@ -81,7 +81,7 @@
         "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995": "FoyerJeunesTravailleursOuMigrantsConventionnéL353_2Avant1995",
         "Autre": "Autre"
       },
-      "source": "LogementFoyer.type_logement, enumeration TypeLogementFoyer (aides_logement/code_construction_reglementaire.catala_fr:3732-3736); read by aides_logement/code_construction_reglementaire.catala_fr:3742-3751 and 6001-6020"
+      "source": "LogementFoyer.type_logement, enumeration TypeLogementFoyer (aides_logement/code_construction_reglementaire.catala_fr:3732-3736); read by aides_logement/code_construction_reglementaire.catala_fr:3729-3751 and 5995-6019"
     },
     {
       "name": "conventionne_livre_III_titre_V_chap_III",
@@ -94,7 +94,7 @@
         "faux": "faux",
         "vrai": "vrai"
       },
-      "source": "LogementFoyer.conventionné_livre_III_titre_V_chap_III (aides_logement/prologue.catala_fr:117-135); read by L831-1 5° (aides_logement/code_construction_legislatif.catala_fr:735-744)"
+      "source": "LogementFoyer.conventionné_livre_III_titre_V_chap_III (aides_logement/prologue.catala_fr:117-135); read by L831-1 5° (aides_logement/code_construction_legislatif.catala_fr:735-745)"
     },
     {
       "name": "remplit_conditions_r832_21",
@@ -107,7 +107,7 @@
         "faux": "faux",
         "vrai": "vrai"
       },
-      "source": "LogementFoyer.remplit_conditions_r832_21 (aides_logement/prologue.catala_fr:117-135); read by R832-21 (aides_logement/code_construction_reglementaire.catala_fr:3800-3812)"
+      "source": "LogementFoyer.remplit_conditions_r832_21 (aides_logement/prologue.catala_fr:117-135); read by R832-21 (aides_logement/code_construction_reglementaire.catala_fr:3801-3813)"
     },
     {
       "name": "conventionne_selon_regles_drom",
@@ -120,7 +120,7 @@
         "faux": "faux",
         "vrai": "vrai"
       },
-      "source": "LogementFoyer.conventionné_selon_règles_drom (aides_logement/prologue.catala_fr:117-135); read by L861-5-1 (aides_logement/code_construction_legislatif.catala_fr:1469-1488) in Guadeloupe, Guyane, Martinique, La Réunion and Mayotte"
+      "source": "LogementFoyer.conventionné_selon_règles_drom (aides_logement/prologue.catala_fr:117-135); read by L861-5-1 (aides_logement/code_construction_legislatif.catala_fr:1463-1489) in Guadeloupe, Guyane, Martinique, La Réunion and Mayotte"
     }
   ],
   "output": {
@@ -136,13 +136,13 @@
       "id": "fjt_type_without_l353_2_convention",
       "description": "The type FoyerJeunesTravailleursOuMigrantsConventionnéL353_2Avant1995 is by definition a foyer that signed an L353-2 convention before 1995; L353-2 is in livre III, titre V, chapitre III of the code de la construction, so the foyer cannot be unconventioned under that chapter",
       "predicate": "type_logement_foyer == 'FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995' and conventionne_livre_III_titre_V_chap_III == 'faux'",
-      "source": "aides_logement/code_construction_reglementaire.catala_fr:3732-3736 (enumeration) and 5995-6000 (R832-20 3°: foyers \"ayant fait l'objet d'une convention, prévue à l'article L. 353-2, signée avant le 1er janvier 1995\")"
+      "source": "aides_logement/code_construction_reglementaire.catala_fr:3712-3727 (R832-20 3°: foyers \"ayant fait l'objet d'une convention, prévue à l'article L. 353-2, signée avant le 1er janvier 1995\") and 3732-3736 (enumeration)"
     },
     {
       "id": "drom_convention_outside_drom",
       "description": "A convention under the DROM rules of L861-5-1 exists only for foyers in Guadeloupe, Guyane, Martinique, La Réunion and Mayotte",
       "predicate": "conventionne_selon_regles_drom == 'vrai' and residence not in ('Guadeloupe', 'Guyane', 'Martinique', 'LaReunion', 'Mayotte')",
-      "source": "aides_logement/code_construction_legislatif.catala_fr:1463-1488 (L861-5-1, which defines that convention for these five territories only)"
+      "source": "aides_logement/code_construction_legislatif.catala_fr:1463-1489 (L861-5-1, which defines that convention for these five territories only)"
     }
   ],
   "fixed_inputs": {

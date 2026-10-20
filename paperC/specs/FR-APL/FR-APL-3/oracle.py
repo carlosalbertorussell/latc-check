@@ -74,19 +74,19 @@ ATTRIBUTES = [
     OC.Attribute(
         "mode_occupation", "enum", MODE,
         "Logement.mode_occupation, constructors Locataire and SousLocataire of ModeOccupation "
-        "(aides_logement/prologue.catala_fr:143-149); read by L822-2 II (" + LEG + ":147-160), L822-3 (" + LEG +
-        ":185-196) and L831-1 2° (" + LEG + ":690-704)",
+        "(aides_logement/prologue.catala_fr:143-149); read by L822-2 II (" + LEG + ":146-161), L822-3 (" + LEG +
+        ":171-222) and L831-1 2° (" + LEG + ":689-706)",
         F.setter("mode")),
     OC.Attribute(
         "bailleur", "enum", BAILLEUR,
         "Location.bailleur, enumeration TypeBailleur (aides_logement/prologue.catala_fr:16-38); read by "
-        "L831-1 2° (" + LEG + ":690-704)",
+        "L831-1 2° (" + LEG + ":689-706)",
         F.setter("bailleur")),
     OC.Attribute(
         "part_propriete_famille", "interval", parts("propriété"),
         "Logement.propriétaire, enumeration ParentOuAutre (aides_logement/prologue.catala_fr:151-153); read by "
-        "L822-3 (" + LEG + ":172-213) with the 10 % threshold of R822-1 "
-        "(aides_logement/code_construction_reglementaire.catala_fr:104-106)",
+        "L822-3 (" + LEG + ":171-222) with the 10 % threshold of R822-1 "
+        "(aides_logement/code_construction_reglementaire.catala_fr:103-107)",
         F.setter("proprietaire_parts")),
     OC.Attribute(
         "part_usufruit_famille", "interval", parts("usufruit"),
@@ -95,7 +95,7 @@ ATTRIBUTES = [
     OC.Attribute(
         "loue_ou_sous_loue_a_des_tiers", "enum", LOUE,
         "Logement.loué_ou_sous_loué_à_des_tiers, enumeration LouéOuSousLouéÀDesTiers with PersonneSousLocation "
-        "(aides_logement/prologue.catala_fr:155-161); read by L822-4 (" + LEG + ":233-253)",
+        "(aides_logement/prologue.catala_fr:155-161); read by L822-4 (" + LEG + ":232-254)",
         F.setter("loue_tiers")),
     OC.Attribute(
         "logement_decent_l89_462", "bool", BOOL,
@@ -103,7 +103,7 @@ ATTRIBUTES = [
         F.setter("decent")),
     OC.Attribute(
         "residence_principale", "bool", BOOL,
-        "Logement.résidence_principale (aides_logement/prologue.catala_fr:164); read by L821-2 (" + LEG + ":42-46)",
+        "Logement.résidence_principale (aides_logement/prologue.catala_fr:164); read by L821-2 (" + LEG + ":42-47)",
         F.setter("residence_principale")),
     OC.Attribute(
         "condition_rattache_foyer_fiscal_parent_ifi", "bool", BOOL,

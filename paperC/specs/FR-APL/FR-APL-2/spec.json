@@ -85,7 +85,7 @@
         "CelibataireSepareDeFait": "CélibataireSéparéDeFait",
         "ConcubinageDontSepareDeFait": "ConcubinageDontSéparéDeFait"
       },
-      "source": "Ménage.situation_familiale, enumeration SituationFamiliale (aides_logement/code_construction_legislatif.catala_fr:107-117); read by R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1015-1063) and R861-5 3° (5614-5640)"
+      "source": "Ménage.situation_familiale, enumeration SituationFamiliale (aides_logement/code_construction_legislatif.catala_fr:107-117); read by R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1015-1058) and R861-5 3° (5614-5645)"
     },
     {
       "name": "personnes_a_charge",
@@ -102,7 +102,7 @@
         "2": "the first 2 EnfantÀCharge of Exemple1",
         "3": "the first 3 EnfantÀCharge of Exemple1"
       },
-      "source": "Ménage.personnes_à_charge (aides_logement/prologue.catala_fr:217-226), counted by `nombre de ménage.personnes_à_charge` in R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1016-1028, 1046-1049) and R861-5 3° (5630-5633)"
+      "source": "Ménage.personnes_à_charge (aides_logement/prologue.catala_fr:217-226), counted by `nombre de ménage.personnes_à_charge` in R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1016-1028, 1042-1045) and R861-5 3° (5629-5632)"
     },
     {
       "name": "autres_occupants",
@@ -156,7 +156,7 @@
         "49_to_51": "49",
         "ge_52": "52"
       },
-      "source": "Logement.surface_m_carrés (aides_logement/prologue.catala_fr:163-171), compared by R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1029-1063), R844-4 (5531-5546) and R861-5 3° for Mayotte (5614-5646)"
+      "source": "Logement.surface_m_carrés (aides_logement/prologue.catala_fr:163-171), compared by R822-25 (aides_logement/code_construction_reglementaire.catala_fr:1029-1058), R844-4 (5531-5545) and R861-5 3° for Mayotte (5614-5645)"
     },
     {
       "name": "personnes_agees_handicapees_r844_4",
@@ -169,7 +169,7 @@
         "faux": "faux",
         "vrai": "vrai"
       },
-      "source": "Ménage.personnes_âgées_handicapées_foyer_r844_4 (aides_logement/prologue.catala_fr:224), read by R844-4 (aides_logement/code_construction_reglementaire.catala_fr:5531-5546)"
+      "source": "Ménage.personnes_âgées_handicapées_foyer_r844_4 (aides_logement/prologue.catala_fr:224), read by R844-4 (aides_logement/code_construction_reglementaire.catala_fr:5531-5545)"
     }
   ],
   "output": {

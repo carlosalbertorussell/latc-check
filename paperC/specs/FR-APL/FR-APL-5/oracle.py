@@ -78,12 +78,12 @@ ATTRIBUTES = [
         "mode_occupation", "enum", MODE,
         "Logement.mode_occupation, constructors AccessionPropriétéLocalUsageExclusifHabitation and LocationAccession "
         "of ModeOccupation (aides_logement/prologue.catala_fr:143-149); read by L822-2 II (" + LEG + ":147-160), "
-        "L831-1 1° and 6° (" + LEG + ":666-675, 752-762) and L831-2 (" + LEG + ":772-812)",
+        "L831-1 1° and 6° (" + LEG + ":658-676, 754-763) and L831-2 (" + LEG + ":771-815)",
         F.setter("mode")),
     OC.Attribute(
         "type_pret", "enum", TYPE_PRET,
         "Prêt.type_prêt, enumeration TypePrêt (aides_logement/prologue.catala_fr:44-60); read by R832-5 and R832-7 "
-        "(" + REG + ":3065-3074, 3103-3112)",
+        "(" + REG + ":3064-3074, 3102-3112)",
         pret_field("type_pret")),
     OC.Attribute(
         "titulaire_pret", "enum", TITULAIRE,
@@ -92,12 +92,12 @@ ATTRIBUTES = [
     OC.Attribute(
         "date_signature_pret", "interval", [(lab, rep, f"|{rep}|") for lab, _, _, rep in SIGNATURE_BANDS],
         "Prêt.date_signature (aides_logement/prologue.catala_fr:55-60); compared with |2017-12-31| (>=), "
-        "|2018-01-01| (>=) and |2020-01-01| (<) by L831-2 (" + LEG + ":772-812)",
+        "|2018-01-01| (>=) and |2020-01-01| (<) by L831-2 (" + LEG + ":771-815)",
         pret_field("date_signature")),
     OC.Attribute(
         "anciennete_logement", "enum", ANCIENNETE,
         "Propriétaire.ancienneté_logement, enumeration NeufOuAncien carrying AmélioréParOccupant "
-        "(aides_logement/prologue.catala_fr:87-95); read by L831-2 (" + LEG + ":797-812)",
+        "(aides_logement/prologue.catala_fr:87-95); read by L831-2 (" + LEG + ":795-815)",
         pret_field("anciennete")),
     OC.Attribute(
         "zone", "enum", ZONE,
@@ -129,7 +129,7 @@ META = {
                            "the loan that finances the dwelling cannot have been signed after the date at which "
                            "eligibility is assessed",
             "predicate": "date_signature_pret == 'ge_2020-01-01' and date_courante == '2019-09-01_to_2019-09-30'",
-            "source": LEG + ":652-665 (L831-1 1°: dwellings \"construits, acquis ou améliorés au moyen ... de prêts\", "
+            "source": LEG + ":648-657 (L831-1 1°: dwellings \"construits, acquis ou améliorés au moyen ... de prêts\", "
                       "i.e. financed by an existing loan)",
         },
     ],
@@ -148,7 +148,7 @@ META = {
     },
     "notes": "Sub-table 5 of 5 of FR-APL (amount computation out of scope). In the encoding a LocationAccession can "
              "never be eligible: caractéristiques_prêt_l831_1_6 is declared (aides_logement/prologue.catala_fr:387) "
-             "and used (" + LEG + ":752-762) but never defined, so it is always false; the R832-7 case of a "
+             "and used (" + LEG + ":754-763) but never defined, so it is always false; the R832-7 case of a "
              "location-accession whose seller holds the loan is encoded under caractéristiques_prêt_l831_1_1 and "
              "reached only with mode AccessionPropriété (CONVERSION.md). No official test of "
              "tests_eligibilite_apl.catala_fr concerns home buyers, so official_examples.csv has no data row.",

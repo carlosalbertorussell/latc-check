@@ -45,7 +45,7 @@ ATTRIBUTES = [
         "aides_logement/archives.catala_fr:11-16 (personnes_à_charge_prises_en_compte defined from 2019-09-01, "
         "counted at aides_logement/prologue.catala_fr:342-343); "
         "aides_logement/code_construction_legislatif.catala_fr:1333-1339 (L860-3: Saint-Pierre-et-Miquelon "
-        "excluded from 2021-01-01); smic/Smic.catala_fr:436-445 and 482-491 (two Mayotte SMIC definitions "
+        "excluded from 2021-01-01); smic/Smic.catala_fr:434-443 and 481-489 (two Mayotte SMIC definitions "
         "overlap from 2024-01-01 to 2024-10-31)",
         F.setter("date_courante")),
     OC.Attribute("residence", "enum", F.RESIDENCE, F.RESIDENCE_SOURCE, F.setter("residence")),

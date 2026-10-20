@@ -60,13 +60,13 @@ ATTRIBUTES = [
         "situation_familiale", "enum", SITUATION,
         "Ménage.situation_familiale, enumeration SituationFamiliale "
         "(aides_logement/code_construction_legislatif.catala_fr:107-117); read by R822-25 "
-        "(aides_logement/code_construction_reglementaire.catala_fr:1015-1063) and R861-5 3° (5614-5640)",
+        "(aides_logement/code_construction_reglementaire.catala_fr:1015-1058) and R861-5 3° (5614-5645)",
         F.setter("situation_familiale")),
     OC.Attribute(
         "personnes_a_charge", "enum", PERSONNES_A_CHARGE,
         "Ménage.personnes_à_charge (aides_logement/prologue.catala_fr:217-226), counted by "
         "`nombre de ménage.personnes_à_charge` in R822-25 (aides_logement/code_construction_reglementaire.catala_fr:"
-        "1016-1028, 1046-1049) and R861-5 3° (5630-5633)",
+        "1016-1028, 1042-1045) and R861-5 3° (5629-5632)",
         F.setter("n_enfants")),
     OC.Attribute(
         "autres_occupants", "enum", AUTRES_OCCUPANTS,
@@ -76,14 +76,14 @@ ATTRIBUTES = [
         "surface_m_carres", "interval",
         [(lab, rep, str(rep)) for lab, _, _, rep in SURFACE_BANDS],
         "Logement.surface_m_carrés (aides_logement/prologue.catala_fr:163-171), compared by R822-25 "
-        "(aides_logement/code_construction_reglementaire.catala_fr:1029-1063), R844-4 (5531-5546) and "
-        "R861-5 3° for Mayotte (5614-5646)",
+        "(aides_logement/code_construction_reglementaire.catala_fr:1029-1058), R844-4 (5531-5545) and "
+        "R861-5 3° for Mayotte (5614-5645)",
         F.setter("surface")),
     OC.Attribute(
         "personnes_agees_handicapees_r844_4", "bool",
         [("faux", False, "faux"), ("vrai", True, "vrai")],
         "Ménage.personnes_âgées_handicapées_foyer_r844_4 (aides_logement/prologue.catala_fr:224), read by R844-4 "
-        "(aides_logement/code_construction_reglementaire.catala_fr:5531-5546)",
+        "(aides_logement/code_construction_reglementaire.catala_fr:5531-5545)",
         F.setter("r844_4")),
 ]
 

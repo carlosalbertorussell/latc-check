@@ -71,30 +71,30 @@ ATTRIBUTES = [
     OC.Attribute(
         "date_courante", "interval", [(lab, rep, f"|{rep}|") for lab, _, _, rep in DATE_BANDS],
         "ÉligibilitéAidePersonnaliséeLogement.date_courante (aides_logement/prologue.catala_fr:378-381). Cut points: "
-        + LEG + ":1333-1339 (Saint-Pierre-et-Miquelon from 2021-01-01); " + REG + ":6001-6020 (DROM rule for "
-        "FoyerJeunesTravailleurs… from 2023-04-05); smic/Smic.catala_fr:436-445 and 482-491 (Mayotte SMIC "
+        + LEG + ":1333-1339 (Saint-Pierre-et-Miquelon from 2021-01-01); " + REG + ":5995-6019 (DROM rule for "
+        "FoyerJeunesTravailleurs… from 2023-04-05); smic/Smic.catala_fr:434-443 and 481-489 (Mayotte SMIC "
         "conflict 2024-01-01 to 2024-10-31). The domain starts at 2019-09-01: before that date every input raises "
         "NoValue (see FR-APL-1)",
         F.setter("date_courante")),
     OC.Attribute(
         "type_logement_foyer", "enum", TYPE,
         "LogementFoyer.type_logement, enumeration TypeLogementFoyer (" + REG + ":3732-3736); read by "
-        + REG + ":3742-3751 and 6001-6020",
+        + REG + ":3729-3751 and 5995-6019",
         foyer_field("type")),
     OC.Attribute(
         "conventionne_livre_III_titre_V_chap_III", "bool", BOOL,
         "LogementFoyer.conventionné_livre_III_titre_V_chap_III (aides_logement/prologue.catala_fr:117-135); read by "
-        "L831-1 5° (" + LEG + ":735-744)",
+        "L831-1 5° (" + LEG + ":735-745)",
         foyer_field("conventionne_livre_III")),
     OC.Attribute(
         "remplit_conditions_r832_21", "bool", BOOL,
         "LogementFoyer.remplit_conditions_r832_21 (aides_logement/prologue.catala_fr:117-135); read by R832-21 "
-        "(" + REG + ":3800-3812)",
+        "(" + REG + ":3801-3813)",
         foyer_field("remplit_r832_21")),
     OC.Attribute(
         "conventionne_selon_regles_drom", "bool", BOOL,
         "LogementFoyer.conventionné_selon_règles_drom (aides_logement/prologue.catala_fr:117-135); read by "
-        "L861-5-1 (" + LEG + ":1469-1488) in Guadeloupe, Guyane, Martinique, La Réunion and Mayotte",
+        "L861-5-1 (" + LEG + ":1463-1489) in Guadeloupe, Guyane, Martinique, La Réunion and Mayotte",
         foyer_field("conventionne_drom")),
 ]
 
@@ -114,15 +114,15 @@ META = {
                            "that chapter",
             "predicate": "type_logement_foyer == 'FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995' "
                          "and conventionne_livre_III_titre_V_chap_III == 'faux'",
-            "source": REG + ":3732-3736 (enumeration) and 5995-6000 (R832-20 3°: foyers \"ayant fait l'objet d'une "
-                      "convention, prévue à l'article L. 353-2, signée avant le 1er janvier 1995\")",
+            "source": REG + ":3712-3727 (R832-20 3°: foyers \"ayant fait l'objet d'une convention, prévue à "
+                      "l'article L. 353-2, signée avant le 1er janvier 1995\") and 3732-3736 (enumeration)",
         },
         {
             "id": "drom_convention_outside_drom",
             "description": "A convention under the DROM rules of L861-5-1 exists only for foyers in Guadeloupe, "
                            "Guyane, Martinique, La Réunion and Mayotte",
             "predicate": f"conventionne_selon_regles_drom == 'vrai' and residence not in {DROM_TUPLE}",
-            "source": LEG + ":1463-1488 (L861-5-1, which defines that convention for these five territories only)",
+            "source": LEG + ":1463-1489 (L861-5-1, which defines that convention for these five territories only)",
         },
     ],
     "fixed_inputs": {
