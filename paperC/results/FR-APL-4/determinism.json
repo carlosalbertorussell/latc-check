@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "FR-APL-4",
+  "commit": "ac308042bd9614c308fa33f447f8a9f626c25d5f",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "027605a2805b3800fac088cb411c9308688a603df9535b6c778ba40edae9fd85",
+    "controls.csv": "925cbbcaddc6af35cb9405ca3849f0dab7b782e615f2c48afdcaa3786066f970",
+    "summary.md": "ef0346c30b330a42c70ef438b9968235e390c2929a40b4bfdc347c2bf2ad89ca",
+    "manifest.json": "497012afc787faa3f2b21f5e62f31008ad7f6af52977ad395f103967134c0354"
+  },
+  "run_b": {
+    "runs.csv": "027605a2805b3800fac088cb411c9308688a603df9535b6c778ba40edae9fd85",
+    "controls.csv": "925cbbcaddc6af35cb9405ca3849f0dab7b782e615f2c48afdcaa3786066f970",
+    "summary.md": "ef0346c30b330a42c70ef438b9968235e390c2929a40b4bfdc347c2bf2ad89ca",
+    "manifest.json": "497012afc787faa3f2b21f5e62f31008ad7f6af52977ad395f103967134c0354"
+  }
+}

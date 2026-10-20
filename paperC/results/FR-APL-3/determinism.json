@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "FR-APL-3",
+  "commit": "ac308042bd9614c308fa33f447f8a9f626c25d5f",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "e066f819ddaa9b1cd668242673bef158ee22873220680333fbed3b81257d1346",
+    "controls.csv": "364fc6556be0eef967b32cbd97b1baa03daa1c7c743ee9b01f07fa975ffa3294",
+    "summary.md": "ab2aca08fae14037a2d53dac0dee2bd9d9fb6a3cb3830ceb764359c71b5d757a",
+    "manifest.json": "3b3a70394b997ecd98f440f936aa30db0664e77f0d3ee6f74a7f980edc15b3a4"
+  },
+  "run_b": {
+    "runs.csv": "e066f819ddaa9b1cd668242673bef158ee22873220680333fbed3b81257d1346",
+    "controls.csv": "364fc6556be0eef967b32cbd97b1baa03daa1c7c743ee9b01f07fa975ffa3294",
+    "summary.md": "ab2aca08fae14037a2d53dac0dee2bd9d9fb6a3cb3830ceb764359c71b5d757a",
+    "manifest.json": "3b3a70394b997ecd98f440f936aa30db0664e77f0d3ee6f74a7f980edc15b3a4"
+  }
+}
