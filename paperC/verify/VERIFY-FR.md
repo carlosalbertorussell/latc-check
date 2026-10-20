@@ -21,7 +21,8 @@ run.
 | 1. Recompute: fast path = literal set algebra (`selftest.py`) | PASS (1 266 runs) | PASS (123 runs) | PASS (123 runs) | PASS (123 runs) |
 | 2. Ground-truth spot-check, 50 rows | PASS 50/50 | PASS 50/50 | PASS 50/50 | PASS 50/50 |
 | 2. Supplementary (beyond the task) | PASS, all 3 240 rows | PASS 5 000/5 000 | PASS 5 000/5 000 | PASS 5 000/5 000 |
-| 3. Conversion audit | see section 3 | see section 3 | see section 3 | see section 3 |
+| 3. Conversion audit: values, thresholds, operators, exclusions, labels | PASS | PASS | PASS | PASS |
+| 3. Conversion audit: citations (documentation only, no label affected) | 1 disagreement (item 1), 1 minor offset (4) | 2 disagreements (2, 3), 2 minor offsets (4 via A2, 5) | 1 disagreement (3), 2 minor offsets (4 via A2, 5) | 1 minor offset (4 via A2) |
 | 4. Comparison with `origin/paperc-run-fr` runs.csv | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** |
 
 CTRL-H3 is one of the protocol's measured outcomes (H3), so its failure on FR-AF-1
@@ -150,7 +151,77 @@ from its 50-row draw).
 
 ## 3. Conversion audit
 
-In progress at this commit; see the next commit.
+Detail: `AUDIT-FR.md` (one table per sample, every attribute, output, exclusion and
+fixed input, with quoted Catala lines). The citations were checked against a clone of
+CatalaLang/catala-examples at `2694b17ddd7c2246e207e8f077d586349ee5abea` and against
+the generated Python; behaviours were confirmed by calling the generated Python
+(`audit/probe.py`, `audit/feb29_mayotte_probe.py`). The audit was carried out by a
+helper agent under the same independence rules; the verifier re-checked items 2, 3,
+4, 5, E6, E7 and the 29 February ambiguity directly.
+
+**Verdict: no disagreement changes a ground-truth label.** Every enum is complete
+with no extras (ASCII renaming checked against the generated code); every threshold
+(3, 11, 14, 16, 20 an; 365 jour; 55 % × SMIC × 169; SMIC 10,15 €, Mayotte 7,66 €;
+ceilings 57 759 / 80 831 / 5 775 €; BMAF 414,4 €; majoration 16 %; forfaitaire
+20,234 %) and every boundary operator in the interval predicates is the one the
+Catala code uses; every band's birth_from/birth_to recomputes; X1-X3 equal the
+epilogue derivation (epilogue.catala_fr:121-131).
+
+Disagreements (documentation only):
+
+1. FR-PF `fixed_inputs.date_courante.why` calls 2020-05-01 the date "of most AF
+   tests"; 7 of the 14 household tests use it (Test1-6, Test9). CONVERSION.md C2
+   states seven correctly.
+2. FR-AF-1 `avait_enfant_avant_2012` source names "Décret n°2002-423 art. 7 and
+   Annexe"; the article 7 code (decrets_divers.catala_fr:180-239) never reads the
+   flag; only the Annexe does (decrets_divers.catala_fr:295-394, e.g. line 394).
+3. FR-AF-1/2 output label `mayotte` cites decrets_divers.catala_fr:170-215; the
+   rates in force on 2020-05-01 sit in the Annexe (7,17 % at line 397, 30,68 % at
+   486, 14,30 % at 567).
+4. Minor offset: Smic.catala_fr:80-110 ends two lines before the Mayotte value
+   7,66 € (line 112); FR-PF `remuneration`, FR-PF fixed input, CONVERSION C2 and A2.
+5. Minor offset: L755-12 cited as securite_sociale_L.catala_fr:436-466; the file has
+   465 lines.
+
+Encoding against statute (the tables reproduce the encoding, as the protocol asks;
+these bear on what the ground truth means legally and belong in the paper's
+threats-to-validity):
+
+* E1. `(b + 20 an) - dc < 365 jour` pays the allocation forfaitaire in the year
+  before the 20th birthday as well, while the child still counts for the base
+  (probe: a16_19 → a19_20 child changes 368,81 € to 452,66 €). CONVERSION.md A11
+  records only the "past 20, no time limit" half (E2).
+* E3. The eldest child is chosen among all children and the majoration ignores the
+  child's own entitlement: an older non-entitled child makes the eldest entitled
+  child eligible (282,76 € against 132,61 €), and a child with personal housing aid
+  still receives the majoration and forfaitaire and still counts, although the
+  quoted L821-3 removes it from the enfants à charge. Not stated in A11.
+* E4. The D755-5 single-child majorations reach only households with a non-entitled
+  elder sibling; a genuinely single child never receives them.
+* E5. L755-12 al. 2 disapplies "the last four paragraphs" of L521-1 (paragraphs
+  3-6); the encoding also disapplies the forfaitaire (paragraph 2), and CONVERSION
+  A3 presents this as statutory.
+* E6. Mayotte: the encoding adds the first-child rate to the two-child rate where
+  the Annexe gives household totals; two children at 2020-05-01 receive 156,85 € in
+  the encoding (verifier probe reproduces 156,85 €) against 127,14 € by the Annexe.
+* E7. The runtime rounds SMIC × 55 % to the cent before × 169: ceiling 943,02 €
+  against the statutory 943,44 € (10,15 × 0,55 × 169 = 943,4425); Mayotte 711,49 €
+  against 712,00 €. Children earning between the two values are labelled by the
+  encoding's ceiling. CONVERSION C6 records the rounding; the statutory value is
+  worth stating beside it.
+* E8. L131-1 "dès l'âge de trois ans": the encoding keeps a child `Avant` on the third
+  birthday (one-day edge, `>=`).
+
+Ambiguity found by the audit (verified): in the FR-AF tables a child born on
+29 February makes the encoding raise `DateError` (date + 3 an rounding under
+`AbortOnRound`, epilogue.catala_fr:123); the verifier's probe reproduces it for
+births 2016-02-29, 2008-02-29 and 2004-02-29. Bands a00_03, a03_11, a11_14, a16_19 and
+a20_plus contain such dates, so for real households these bands are partly
+unevaluable by the encoding. The labels are computed at representatives (none a
+29 February), so the tables are internally consistent, but the band definitions
+silently assume no 29 February birth. FR-PF's PrestationsFamiliales path adds 20 an
+to the birth date and is exposed to the same rounding rule for 29 February births
+in a16_20/a20_plus (not probed).
 
 ## 4. Comparison with the runner
 
@@ -186,5 +257,5 @@ In progress at this commit; see the next commit.
 | `recompute.py`, `selftest.py` | step 1 |
 | `<ID>/runs.csv`, `controls.csv`, `plant.csv`, `summary.md` | step 1 outputs |
 | `spotcheck.py`, `spotcheck/` | step 2 |
-| `AUDIT-FR.md` | step 3 detail |
+| `AUDIT-FR.md`, `audit/` | step 3 detail and probes |
 | `compare.py`, `<ID>/compare.txt` | step 4 |
