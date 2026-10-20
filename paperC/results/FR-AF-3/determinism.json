@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "FR-AF-3",
+  "commit": "b8feeca189acdbd74a6a53e3159ecb0b11539072",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "b7d6b1fc9f6657a26e74d835a18e90bad6ed3e5cc857a8caf5ba3b1121a83299",
+    "controls.csv": "be304a46d7f3ab3ca0e589b31456e46b205323c8af62e7b2af95ee8ef20d6b46",
+    "summary.md": "cf95115c75ed2a85190aa2a09a4c3f09e0540da84bc4700d9674e0738c1408f5",
+    "manifest.json": "3aa6a0d4bb5b613925705a5bb52719fd31e6f43fcf69208404b165385d2d612e"
+  },
+  "run_b": {
+    "runs.csv": "b7d6b1fc9f6657a26e74d835a18e90bad6ed3e5cc857a8caf5ba3b1121a83299",
+    "controls.csv": "be304a46d7f3ab3ca0e589b31456e46b205323c8af62e7b2af95ee8ef20d6b46",
+    "summary.md": "cf95115c75ed2a85190aa2a09a4c3f09e0540da84bc4700d9674e0738c1408f5",
+    "manifest.json": "3aa6a0d4bb5b613925705a5bb52719fd31e6f43fcf69208404b165385d2d612e"
+  }
+}
