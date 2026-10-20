@@ -142,8 +142,8 @@ compared byte for byte with the Python 3.13.16 files:
 |---|---|---|
 | FR-PF | identical | identical |
 | FR-AF-1 | identical | identical |
-| FR-AF-2 | pending | pending |
-| FR-AF-3 | pending | pending |
+| FR-AF-2 | identical | identical |
+| FR-AF-3 | identical | identical |
 
 ## How to rebuild
 
