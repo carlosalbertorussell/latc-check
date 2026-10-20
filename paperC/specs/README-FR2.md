@@ -131,7 +131,16 @@ records; for FR-APL-2 with the test's 80 m² in place of the band representative
    | US-121-2 | 504 | 72 | 432 | 0 |
 
    A negative control (one assertion flipped) was reported as a disagreement.
-4. **Reproducibility.** The enumeration run with Python 3.13.16 and again with Python
+4. **Harness loader.** With the harness of branch `paperc-harness` (commit `89795da`),
+   `paperC.harness.spec.load_sample` loads all seven folders (CTRL-HASH and CTRL-GT
+   pass), and in every folder a row is EXCLUDED exactly when an exclusion predicate
+   holds (CTRL-EXCL, 0 disagreeing rows). A trial run of
+   `python -m paperC.harness.run --spec paperC/specs/US-121/US-121-1` (output kept out of
+   the repository) completed its 1,266 runs; its only failing control was CTRL-H3,
+   which PROTOCOL.md section 7(c) expects for a sample with REJECTED rows (C3 then
+   generates rejected rows). Five of the seven samples have REJECTED rows (every one
+   except FR-APL-3 and FR-APL-5).
+5. **Reproducibility.** The enumeration run with Python 3.13.16 and again with Python
    3.12.3 gave byte-identical `ground_truth.csv` and `official_examples.csv` files.
    `spec.json` is written by `oracle.py --write-spec` from the table definition, and
    `oracle.py` refuses to run when the two differ.

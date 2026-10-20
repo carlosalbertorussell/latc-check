@@ -149,8 +149,9 @@ as `#[test]` scopes of two Catala files placed in the catala-examples checkout, 
 with the oracle's inputs and an assertion stating the ground-truth label. `clerk
 test` then runs them with the Catala **interpreter**, so this check involves neither
 the Python backend nor the Python input builders. A row agrees when its assertion
-passes; a REJECTED row agrees when the scope fails with a run-time error ("During
-evaluation", not an assertion failure). Result: see `interpreter_crosscheck_report.txt`
+passes; a REJECTED row agrees when the scope fails with a run-time error (clerk
+prints "During evaluation"; a failed assertion on a REJECTED row counts as a
+disagreement). Result: see `interpreter_crosscheck_report.txt`
 and the summary in `paperC/specs/README-FR2.md`.
 
 Negative control: flipping the assertion of one FR-APL-3 row made the reader report

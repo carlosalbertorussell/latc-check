@@ -7,8 +7,8 @@ the ground-truth output. `clerk test` (Catala 1.3.0 interpreter, no Python invol
 then runs them; the script reads clerk's verbose report and checks that:
 
   * every row whose ground truth is a label passes its assertion, and
-  * every REJECTED row fails with a Catala runtime error (and is not an assertion
-    failure), with the error position reported by clerk.
+  * every REJECTED row fails with a Catala runtime error ("During evaluation"; a
+    failed assertion counts as a disagreement), with the error position reported by clerk.
 
 Usage (from a catala-examples checkout at commit 2694b17 with Catala 1.3.0 on PATH):
 
