@@ -1,0 +1,41 @@
+## NZ-SLP
+declared space 256; EXCLUDED 32; REJECTED 0; valid 224; valid outputs {'False': 176, 'True': 48}
+official example rows 13; outputs {'False': 7, 'True': 6}; distinct conditions 12
+
+## NZ-AS
+declared space 86016; EXCLUDED 37632; REJECTED 0; valid 48384; valid outputs {'False': 48356, 'True': 28}
+official example rows 1; outputs {'False': 1}; distinct conditions 1
+  unseen social_security__residential_requirement: False
+  unseen accommodation_type: rent, board, lodging, mortgage, social_housing, residential_care
+  unseen accommodation_costs: >0
+  unseen social_security__in_a_relationship: True
+  unseen social_security__dependent_children: >=1
+  unseen accommodation_supplement__cash_assets: 8101-16200, >16200
+  unseen partner_accommodation_supplement__receiving: True
+  unseen basic_grant__receiving: True
+  unseen independent_circumstances_grant__receiving: True
+  unseen basic_grant__entitled: True
+  unseen independent_circumstances_grant__entitled: True
+  unseen basic_grant__would_be_entitled: True
+  unseen independent_circumstances_grant__would_be_entitled: True
+  unseen accommodation_supplement__disability: True
+
+## NZ-SPS
+declared space 122880; EXCLUDED 23040; REJECTED 0; valid 99840; valid outputs {'False': 92973, 'True': 6867}
+official example rows 14; outputs {'False': 2, 'True': 12}; distinct conditions 7
+  unseen children: none, 1:14-15, 1:16-17, 1:>=18, 2:<14+<14, 2:<14+14-15, 2:<14+16-17, 2:<14+>=18, 2:14-15+14-15, 2:14-15+16-17, 2:14-15+>=18, 2:16-17+16-17, 2:16-17+>=18, 2:>=18+>=18
+  unseen social_security__principal_caregiver: False
+  unseen sole_parent_support__receiving: True
+  unseen sole_parent_support__principal_caregiver_before_apart: True
+  unseen sole_parent_support__principal_caregiver_of_youngest: True
+  unseen sole_parent_support__both_primary_caregiver_by_order: True
+  unseen social_security__residential_requirement: False
+  unseen age: <20
+
+## NZ-AS-1964
+declared space 512; EXCLUDED 128; REJECTED 0; valid 384; valid outputs {'False': 379, 'True': 5}
+official example rows 6; outputs {'False': 3, 'True': 3}; distinct conditions 6
+  unseen social_security__ordinarily_resident_in_new_zealand: False
+  unseen accommodation_supplement__below_income_threshold: False
+  unseen accommodation_supplement__below_cash_threshold: False
+

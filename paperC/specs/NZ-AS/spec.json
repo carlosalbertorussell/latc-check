@@ -33,7 +33,7 @@
         "True": true,
         "False": false
       },
-      "source": "SSA 2018 s 16; openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:28; resident.py:21 (defined term with its own formula, set directly as input, see CONVERSION.md 2)"
+      "source": "SSA 2018 s 16; openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:28; resident.py:21 (defined term with its own formula, set directly as input, see CONVERSION.md 3 and C2)"
     },
     {
       "name": "accommodation_type",
@@ -82,7 +82,7 @@
         "True": true,
         "False": false
       },
-      "source": "Social Security Regulations 2018 reg 15(1)(a); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:21; relationships.py:8 (defined term with its own formula, set directly as input, see CONVERSION.md 2)"
+      "source": "Social Security Regulations 2018 reg 15(1)(a); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:21; relationships.py:8 (defined term with its own formula, set directly as input, see CONVERSION.md 3 and C2)"
     },
     {
       "name": "social_security__dependent_children",
@@ -95,7 +95,7 @@
         "0": 0,
         ">=1": 1
       },
-      "source": "Social Security Regulations 2018 reg 15(1)(a)(ii), (b); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:24 (>= 1); interpretation/child.py:43 (count, set directly as input, see CONVERSION.md 2)"
+      "source": "Social Security Regulations 2018 reg 15(1)(a)(ii), (b); openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:24 (>= 1); interpretation/child.py:43 (count, set directly as input, see CONVERSION.md 3 and C2)"
     },
     {
       "name": "accommodation_supplement__cash_assets",
@@ -162,7 +162,7 @@
         "True": true,
         "False": false
       },
-      "source": "SSA 2018 s 67(b)(ii); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:56-59 (read at period.first_month); openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py:10 (Student Allowances Regulations 1998 reg 4; own formula, set directly as input, see CONVERSION.md 2)"
+      "source": "SSA 2018 s 67(b)(ii); openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/exclusion.py:56-59 (read at period.first_month); openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py:10 (Student Allowances Regulations 1998 reg 4; own formula, set directly as input, see CONVERSION.md 3 and C2)"
     },
     {
       "name": "independent_circumstances_grant__entitled",

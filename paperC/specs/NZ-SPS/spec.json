@@ -305,12 +305,12 @@
     },
     "social_security__financially_independent (children)": {
       "value": "False",
-      "why": "Keeps the table under 200,000 combinations (with it, 294,912 rows even with unordered children). Default value of the encoding when not computed from its inputs; all official cases leave it at False. See CONVERSION.md 3."
+      "why": "Keeps the table under 200,000 combinations (with it, 294,912 rows even with unordered children). Default value of the encoding when not computed from its inputs; all official cases leave it at False. See CONVERSION.md 4."
     },
     "date_of_birth": {
       "value": "not set; age is set directly for every day of the week",
       "why": "The official tests set age directly."
     }
   },
-  "notes": "Eligibility of the family's principal for Sole Parent Support. Children are encoded as one unordered composite attribute (no child, one child, or two children with their age bands). The encoding's comparison at sole_parent_support.py:180-181 reads (dependent_child * age) < 14, so a child who is not a dependent child also satisfies the 'dependent child under 14' requirement; the table reproduces the encoding as written (CONVERSION.md 5)."
+  "notes": "Eligibility of the family's principal for Sole Parent Support. Children are encoded as one unordered composite attribute (no child, one child, or two children with their age bands). The encoding's comparison at sole_parent_support.py:180-181 reads (dependent_child * age) < 14, so a child who is not a dependent child also satisfies the 'dependent child under 14' requirement; the table reproduces the encoding as written (CONVERSION.md, section Encoding behaviour reproduced)."
 }

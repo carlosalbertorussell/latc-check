@@ -37,3 +37,19 @@ Command, run from the clone root:
 | sole_parent_support | sole_parent_support__entitled.yaml (12), __split_care.yaml (7), __benefit.yaml (6) | 25 | 25 passed, exit 0 |
 
 Run date: 2026-10-20.
+
+## Files in this folder
+
+| File | Purpose |
+|---|---|
+| `requirements.lock` | `pip freeze` of the virtualenv |
+| `setup_env.sh` | clone at the commit, create the Python 3.11 virtualenv, install with the lock as constraints |
+| `run_official_tests.sh` | run `openfisca test` on the three rule folders, writing `test_logs/` |
+| `test_logs/` | verbatim `openfisca test -v` output (50, 47 and 25 passed) |
+| `oracle_core.py`, `rules/<ID>.py`, `build_oracles.py` | parts of each `oracle.py` and the script that assembles them (`--check` verifies) |
+| `crosscheck.py` | OpenFisca-free re-implementation of every table, compared row by row |
+| `summarise.py` | the numbers of `paperC/specs/README-NZ.md` |
+| `case_table.py`, `docs/`, `make_docs.py` | CONVERSION.md bodies and the generated official-case tables; ENVIRONMENT.md and SHA256SUMS of each folder |
+| `logs/` | `check_official_<ID>.txt` (one line per official case or person) and `summary.txt` |
+| `rebuild_all.sh` | rebuild every table, log, doc and checksum from scratch |
+| `supplementary/NZ-AS-1964/` | Accommodation Supplement under the SSA 1964 formula, same format, not a sample |
