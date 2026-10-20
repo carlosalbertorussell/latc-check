@@ -39,7 +39,7 @@ changes the output.
 
 | Label | Days | Representative | Why the cut |
 |---|---|---|---|
-| `lt_2019-01-01` | before 2019-01-01 | 2018-06-01 | `Smic.brut_horaire` has no definition before 2019-01-01 (`smic/Smic.catala_fr:9-18`); the scope instantiates `Prestations_familiales.ÉligibilitéPrestationsFamiliales`, which computes it. The assertion `date_courante >= |2018-04-01|` (`aides_logement/prologue.catala_fr:369`) is never reached first. |
+| `lt_2019-01-01` | before 2019-01-01 | 2018-06-01 | `Smic.brut_horaire` has no definition before 2019-01-01 (`smic/Smic.catala_fr:9-18`); the scope instantiates `Prestations_familiales.ÉligibilitéPrestationsFamiliales`, which computes it. The assertion `date_courante >= \|2018-04-01\|` (`aides_logement/prologue.catala_fr:369`) is never reached first. |
 | `2019-01-01_to_2019-08-31` | 2019-01-01 to 2019-08-31 | 2019-05-01 | `personnes_à_charge_prises_en_compte` is defined from 2019-09-01 only (`aides_logement/archives.catala_fr:11-16`, then `code_construction_reglementaire.catala_fr:1129-1133` from 2023-09-01); `nombre_personnes_à_charge_prises_en_compte` counts it (`prologue.catala_fr:342-343`). |
 | `2019-09-01_to_2020-12-31` | 2019-09-01 to 2020-12-31 | 2020-03-10 (Exemple1's date) | first day without a run-time error |
 | `2021-01-01_to_2023-12-31` | 2021-01-01 to 2023-12-31 | 2022-06-01 | L860-3 I: no APL in Saint-Pierre-et-Miquelon from 2021-01-01 (`code_construction_legislatif.catala_fr:1333-1339`) |
