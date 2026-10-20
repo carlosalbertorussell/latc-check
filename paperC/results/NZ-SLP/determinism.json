@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "NZ-SLP",
+  "commit": "859b82615f676dbe949d8a502583fdce764c8070",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "29a971fe9dff4c8b8ac52c5d3c30790712aea4f372b3423c298b08476a8ec90e",
+    "controls.csv": "2ee19cf1bf19f37a90576ba3c0bd1a1b4e5cd3ed95b015211de42b671478bcdd",
+    "summary.md": "653c67021c6e61aa0cca4d00f24e701158a59bb2c43ba41983cf52ea047b6781",
+    "manifest.json": "e58286e16a7cab672e5790c628ace45b5a1e67f0c9155aefef561757e8815480"
+  },
+  "run_b": {
+    "runs.csv": "29a971fe9dff4c8b8ac52c5d3c30790712aea4f372b3423c298b08476a8ec90e",
+    "controls.csv": "2ee19cf1bf19f37a90576ba3c0bd1a1b4e5cd3ed95b015211de42b671478bcdd",
+    "summary.md": "653c67021c6e61aa0cca4d00f24e701158a59bb2c43ba41983cf52ea047b6781",
+    "manifest.json": "e58286e16a7cab672e5790c628ace45b5a1e67f0c9155aefef561757e8815480"
+  }
+}

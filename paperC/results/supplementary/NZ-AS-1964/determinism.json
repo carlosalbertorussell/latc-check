@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "NZ-AS-1964",
+  "commit": "859b82615f676dbe949d8a502583fdce764c8070",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "406c797ae567608912f31bf6c1440a6578074d9953b4957c9b19ca4ba6827b50",
+    "controls.csv": "706c14ecb69d02e3053f7ca7448e9a5e37c5f42b288f8a298c4fdf1788c73a75",
+    "summary.md": "5d3632fae89a9b566437bddf127872b29c85ddf969be672cee2ebd990c459a06",
+    "manifest.json": "d30a6963d686d8b84a2a43e1bbb164cbf864de5b515018f76522ed27e17612bd"
+  },
+  "run_b": {
+    "runs.csv": "406c797ae567608912f31bf6c1440a6578074d9953b4957c9b19ca4ba6827b50",
+    "controls.csv": "706c14ecb69d02e3053f7ca7448e9a5e37c5f42b288f8a298c4fdf1788c73a75",
+    "summary.md": "5d3632fae89a9b566437bddf127872b29c85ddf969be672cee2ebd990c459a06",
+    "manifest.json": "d30a6963d686d8b84a2a43e1bbb164cbf864de5b515018f76522ed27e17612bd"
+  }
+}
