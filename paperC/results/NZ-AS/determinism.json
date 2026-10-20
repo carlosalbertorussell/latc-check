@@ -1,0 +1,19 @@
+{
+  "control": "CTRL-DET",
+  "sample_id": "NZ-AS",
+  "commit": "859b82615f676dbe949d8a502583fdce764c8070",
+  "python": "3.12.3",
+  "identical": true,
+  "run_a": {
+    "runs.csv": "a97be8a20c3696d616985e87c044360f4cc5f0bcbf6270eba064e37784bbf6a0",
+    "controls.csv": "b097b9b3c699c23c210b4bf4d567bea7a2fcee3184b2d5b520167f47b531dc3f",
+    "summary.md": "3191430bdcb231c0d8a65ccfa759442c33826aa506dddae0e5024d2d07195467",
+    "manifest.json": "5b820ccd57368d2bbd41a79131e1ff9db337bcfeea3b770e6ff9aa4410b67862"
+  },
+  "run_b": {
+    "runs.csv": "a97be8a20c3696d616985e87c044360f4cc5f0bcbf6270eba064e37784bbf6a0",
+    "controls.csv": "b097b9b3c699c23c210b4bf4d567bea7a2fcee3184b2d5b520167f47b531dc3f",
+    "summary.md": "3191430bdcb231c0d8a65ccfa759442c33826aa506dddae0e5024d2d07195467",
+    "manifest.json": "5b820ccd57368d2bbd41a79131e1ff9db337bcfeea3b770e6ff9aa4410b67862"
+  }
+}
