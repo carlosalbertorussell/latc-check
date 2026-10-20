@@ -1,0 +1,316 @@
+{
+  "id": "NZ-SPS",
+  "title": "Sole Parent Support: eligibility (Social Security Act 2018 ss 29-32), OpenFisca Aotearoa encoding, week 2019-W05",
+  "source": {
+    "repository": "https://github.com/digitalaotearoa/openfisca-aotearoa",
+    "commit": "9d77ea7ce3c45b6292d4b4eaf3566b2fb00e7ceb",
+    "entry_point": "openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:23 sole_parent_support__entitled (formula_2018_11_26, line 30)",
+    "files": [
+      "openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/child.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/financially_independent.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/relationship.py",
+      "openfisca_aotearoa/variables/acts/social_security/relationships.py",
+      "openfisca_aotearoa/variables/acts/social_security/resident.py",
+      "openfisca_aotearoa/variables/demographics/ages.py",
+      "openfisca_aotearoa/parameters/entitlements/social_security/sole_parent_support/age_threshold.yaml",
+      "openfisca_aotearoa/parameters/social_security/sole_parent_support/child_age_threshold.yml",
+      "openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml",
+      "openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__split_care.yaml",
+      "openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__benefit.yaml"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "children",
+      "kind": "enum",
+      "values": [
+        "none",
+        "1:<14",
+        "1:14-15",
+        "1:16-17",
+        "1:>=18",
+        "2:<14+<14",
+        "2:<14+14-15",
+        "2:<14+16-17",
+        "2:<14+>=18",
+        "2:14-15+14-15",
+        "2:14-15+16-17",
+        "2:14-15+>=18",
+        "2:16-17+16-17",
+        "2:16-17+>=18",
+        "2:>=18+>=18"
+      ],
+      "representative": {
+        "none": [],
+        "1:<14": [
+          5
+        ],
+        "1:14-15": [
+          14
+        ],
+        "1:16-17": [
+          16
+        ],
+        "1:>=18": [
+          18
+        ],
+        "2:<14+<14": [
+          5,
+          5
+        ],
+        "2:<14+14-15": [
+          5,
+          14
+        ],
+        "2:<14+16-17": [
+          5,
+          16
+        ],
+        "2:<14+>=18": [
+          5,
+          18
+        ],
+        "2:14-15+14-15": [
+          14,
+          14
+        ],
+        "2:14-15+16-17": [
+          14,
+          16
+        ],
+        "2:14-15+>=18": [
+          14,
+          18
+        ],
+        "2:16-17+16-17": [
+          16,
+          16
+        ],
+        "2:16-17+>=18": [
+          16,
+          18
+        ],
+        "2:>=18+>=18": [
+          18,
+          18
+        ]
+      },
+      "source": "The family's members in role child and their age bands (CONVERSION.md 3). Thresholds: 14 = parameters/social_security/sole_parent_support/child_age_threshold.yml (value 14 from 2018-11-26; SSA 2018 s 30, child under 14), read at openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:178-181 (age at period.first_day); 16 and 18 = interpretation/child.py:18-19 (social_security__child: under 16, or under 18 and not financially independent; SSA 2018 Schedule 2 'child'); count >= 2 = openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:260 (SSA 2018 s 32 applies to parents of 2 or more dependent children)."
+    },
+    {
+      "name": "social_security__principal_caregiver",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30 and Schedule 2 'principal caregiver'; openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:183 and :266 (read at period.first_month); interpretation/relationship.py:28 (input variable, MONTH)"
+    },
+    {
+      "name": "social_security__in_a_relationship",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30(a); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:156; relationships.py:8 (defined term with its own formula, set directly as input, see CONVERSION.md 2)"
+    },
+    {
+      "name": "sole_parent_support__spouse_or_partner_died",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30(b); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:158 (read), :190 (input variable, default False)"
+    },
+    {
+      "name": "sole_parent_support__marriage_or_civil_union_dissolved",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30(c); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:160 (read), :199 (input variable, default False)"
+    },
+    {
+      "name": "sole_parent_support__living_apart_and_lost_support",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30(d); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:162 (read), :208 (input variable, default False)"
+    },
+    {
+      "name": "sole_parent_support__partner_imprisoned",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30(e)(i); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:226 (read by sole_parent_support__lost_regular_support, line 217), :232 (input variable, default False)"
+    },
+    {
+      "name": "sole_parent_support__partner_supervision",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 30(e)(ii); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:227 (read by sole_parent_support__lost_regular_support, line 217), :241 (input variable, default False)"
+    },
+    {
+      "name": "sole_parent_support__receiving",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 32(2)(a); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:272-274 (read), :70 (input variable, default False)"
+    },
+    {
+      "name": "sole_parent_support__principal_caregiver_before_apart",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 32(2)(b); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:275 (read), :306 (input variable)"
+    },
+    {
+      "name": "sole_parent_support__principal_caregiver_of_youngest",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 32(2)(c); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:276 (read), :315 (input variable)"
+    },
+    {
+      "name": "sole_parent_support__both_primary_caregiver_by_order",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 32(3); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:283-285 (read), :324 (input variable)"
+    },
+    {
+      "name": "social_security__residential_requirement",
+      "kind": "bool",
+      "values": [
+        "True",
+        "False"
+      ],
+      "representative": {
+        "True": true,
+        "False": false
+      },
+      "source": "SSA 2018 s 16 via s 29(c); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:35; resident.py:21 (defined term with its own formula, set directly as input, see CONVERSION.md 2)"
+    },
+    {
+      "name": "age",
+      "kind": "interval",
+      "values": [
+        "<20",
+        ">=20"
+      ],
+      "representative": {
+        "<20": 19,
+        ">=20": 20
+      },
+      "source": "SSA 2018 s 29(d); openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:118-130 sole_parent_support__age_threshold, age at period.first_day >= parameters/entitlements/social_security/sole_parent_support/age_threshold.yaml (value 20 from 2018; MSD policy page cited there)"
+    }
+  ],
+  "output": {
+    "name": "sole_parent_support__entitled",
+    "values": [
+      "True",
+      "False"
+    ],
+    "source": "openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:23-39, value at week 2019-W05 of the family's principal"
+  },
+  "exclusions": [
+    {
+      "id": "SPS-X1",
+      "description": "The applicant is principal caregiver although the family has no dependent child. The variable is defined as 'Principal Caregiver in relation to a dependent child'. With children's financial independence fixed to False, a child is dependent exactly when aged under 18.",
+      "predicate": "social_security__principal_caregiver == 'True' and children in ('none', '1:>=18', '2:>=18+>=18')",
+      "source": "SSA 2018 Schedule 2 'principal caregiver'; interpretation/relationship.py:32 (variable label); interpretation/child.py:17-40 (dependent child)"
+    },
+    {
+      "id": "SPS-X2",
+      "description": "A split-care flag that refers to the parents' children (principal caregiver before living apart, principal caregiver of the youngest child, principal caregiver by court order) is set although the family has no dependent child. Section 32 reads 'child' as a dependent child of the parents.",
+      "predicate": "(sole_parent_support__principal_caregiver_before_apart == 'True' or sole_parent_support__principal_caregiver_of_youngest == 'True' or sole_parent_support__both_primary_caregiver_by_order == 'True') and children in ('none', '1:>=18', '2:>=18+>=18')",
+      "source": "SSA 2018 s 32(4), quoted in openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:289 ('In this section, child means a dependent child of the parents'); variable labels at openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py:309, :318, :327"
+    }
+  ],
+  "fixed_inputs": {
+    "period": {
+      "value": "2019-W05",
+      "why": "The period of 22 of the 25 official cases (all of sole_parent_support__entitled.yaml and __split_care.yaml). Both parameters read have a single value since 2018 (20 and 14), and formula_2018_11_26 applies throughout, so every week from 2018-11-26 on gives the same table."
+    },
+    "household": {
+      "value": "one family: the applicant as principal plus the children of the 'children' attribute; no partner, parent or other member",
+      "why": "The s 32(1)(b)-(c) and s 32(2)(b) split-care paths compare the applicant with another parent who is a member of the same family (sole_parent_support.py:266-275). Modelling that parent would need a second full applicant profile; with no such member those terms are 0 (s 32(1)) or always satisfied (the other-parent-not-receiving factor of s 32(2)(b)). See CONVERSION.md 4."
+    },
+    "sole_parent_support__parents_living_apart": {
+      "value": "not set (no effect)",
+      "why": "Read only inside s 32(1) (sole_parent_support.py:265), which is 0 without another parent in the family."
+    },
+    "social_security__financially_independent (children)": {
+      "value": "False",
+      "why": "Keeps the table under 200,000 combinations (with it, 294,912 rows even with unordered children). Default value of the encoding when not computed from its inputs; all official cases leave it at False. See CONVERSION.md 3."
+    },
+    "date_of_birth": {
+      "value": "not set; age is set directly for every day of the week",
+      "why": "The official tests set age directly."
+    }
+  },
+  "notes": "Eligibility of the family's principal for Sole Parent Support. Children are encoded as one unordered composite attribute (no child, one child, or two children with their age bands). The encoding's comparison at sole_parent_support.py:180-181 reads (dependent_child * age) < 14, so a child who is not a dependent child also satisfies the 'dependent child under 14' requirement; the table reproduces the encoding as written (CONVERSION.md 5)."
+}
