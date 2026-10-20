@@ -1,0 +1,106 @@
+{
+  "id": "FR-PF",
+  "title": "French family benefits: per-child entitlement PrestationsFamiliales.droit_ouvert (Code de la sécurité sociale L512-3, R512-2, L821-3) at 2020-05-01",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "entry_point": "Allocations_familiales.PrestationsFamiliales.droit_ouvert (Python: generated.Allocations_familiales.prestations_familiales(...).droit_ouvert), Catala 1.3.0 build in paperC/catala_family_benefits",
+    "files": [
+      "allocations_familiales/prologue.catala_fr",
+      "allocations_familiales/securite_sociale_L.catala_fr",
+      "allocations_familiales/securite_sociale_R.catala_fr",
+      "allocations_familiales/autres_codes.catala_fr",
+      "allocations_familiales/epilogue.catala_fr",
+      "smic/Smic.catala_fr",
+      "prologue_france/France.catala_fr",
+      "allocations_familiales/tests/tests_ouverture_droits.catala_fr"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": ["Guadeloupe", "Guyane", "Martinique", "LaReunion", "SaintBarthelemy", "SaintMartin", "Metropole", "SaintPierreEtMiquelon", "Mayotte"],
+      "representative": {"Guadeloupe": "Guadeloupe", "Guyane": "Guyane", "Martinique": "Martinique", "LaReunion": "LaRéunion", "SaintBarthelemy": "SaintBarthélemy", "SaintMartin": "SaintMartin", "Metropole": "Métropole", "SaintPierreEtMiquelon": "SaintPierreEtMiquelon", "Mayotte": "Mayotte"},
+      "source": "PrestationsFamiliales input résidence (prologue.catala_fr:53), type France.Collectivité (prologue_france/France.catala_fr:9-18); labels are the ASCII constructor names of the generated Python, representatives the Catala constructors"
+    },
+    {
+      "name": "obligation_scolaire",
+      "kind": "enum",
+      "values": ["Avant", "Pendant", "Apres"],
+      "representative": {"Avant": "Avant", "Pendant": "Pendant", "Apres": "Après"},
+      "source": "Enfant.obligation_scolaire (prologue.catala_fr:24), type SituationObligationScolaire (prologue.catala_fr:17-20); read by L512-3 1° and 2° (securite_sociale_L.catala_fr:54-71)"
+    },
+    {
+      "name": "prise_en_charge",
+      "kind": "enum",
+      "values": ["GardeAlterneePartageAllocations", "GardeAlterneeAllocataireUnique", "EffectiveEtPermanente", "ServicesSociauxAllocationVerseeALaFamille", "ServicesSociauxAllocationVerseeAuxServicesSociaux"],
+      "representative": {"GardeAlterneePartageAllocations": "GardeAlternéePartageAllocations", "GardeAlterneeAllocataireUnique": "GardeAlternéeAllocataireUnique", "EffectiveEtPermanente": "EffectiveEtPermanente", "ServicesSociauxAllocationVerseeALaFamille": "ServicesSociauxAllocationVerséeÀLaFamille", "ServicesSociauxAllocationVerseeAuxServicesSociaux": "ServicesSociauxAllocationVerséeAuxServicesSociaux"},
+      "source": "Enfant.prise_en_charge (prologue.catala_fr:27), type PriseEnCharge (prologue.catala_fr:10-15); not read by droit_ouvert (included as required by the protocol; see CONVERSION.md C4)"
+    },
+    {
+      "name": "age",
+      "kind": "interval",
+      "values": ["a00_03", "a03_16", "a16_20", "a20_plus"],
+      "representative": {"a00_03": "2019-01-01", "a03_16": "2007-01-01", "a16_20": "2003-01-01", "a20_plus": "1999-01-01"},
+      "intervals": {
+        "a00_03": {"predicate": "date_de_naissance + 3 an >= date_courante", "birth_from": "2017-05-01", "birth_to": null},
+        "a03_16": {"predicate": "date_de_naissance + 3 an < date_courante and date_de_naissance + 16 an >= date_courante", "birth_from": "2004-05-01", "birth_to": "2017-04-30"},
+        "a16_20": {"predicate": "date_de_naissance + 16 an < date_courante and date_de_naissance + 20 an > date_courante", "birth_from": "2000-05-02", "birth_to": "2004-04-30"},
+        "a20_plus": {"predicate": "date_de_naissance + 20 an <= date_courante", "birth_from": null, "birth_to": "2000-05-01"}
+      },
+      "source": "Enfant.date_de_naissance (prologue.catala_fr:26); representative = date_de_naissance at date_courante 2020-05-01. Threshold 20 an: L512-3 2° comparison date_de_naissance + âge_l512_3_2 > date_courante (securite_sociale_L.catala_fr:71) with âge_l512_3_2 = 20 an (R512-2, securite_sociale_R.catala_fr:21). Thresholds 3 an and 16 an: Code de l'éducation L131-1 as encoded in epilogue.catala_fr:121-131 (used only by exclusions X1-X3)"
+    },
+    {
+      "name": "remuneration",
+      "kind": "interval",
+      "values": ["lt_plafond", "eq_plafond", "gt_plafond"],
+      "representative": {"lt_plafond": "400.00", "eq_plafond": "943.02", "gt_plafond": "1000.00"},
+      "representative_by_residence": {"eq_plafond": {"Mayotte": "711.49", "otherwise": "943.02"}},
+      "intervals": {
+        "lt_plafond": {"predicate": "rémuneration_mensuelle < plafond_l512_3_2"},
+        "eq_plafond": {"predicate": "rémuneration_mensuelle = plafond_l512_3_2"},
+        "gt_plafond": {"predicate": "rémuneration_mensuelle > plafond_l512_3_2"}
+      },
+      "source": "Enfant.rémuneration_mensuelle (prologue.catala_fr:25), in euros per month. Ceiling plafond_l512_3_2 = (smic.brut_horaire * 55%) * 169,0 (R512-2, securite_sociale_R.catala_fr:30-31; R755-0-2, securite_sociale_R.catala_fr:219-223), compared with <= in L512-3 2° (securite_sociale_L.catala_fr:70). SMIC at 2020-05-01: 10,15 € / Mayotte 7,66 € (smic/Smic.catala_fr:80-110). With the runtime's rounding to the cent after each product the ceiling is 943,02 € (Mayotte 711,49 €); eq_plafond's representative depends on residence (see representative_by_residence and CONVERSION.md C6)"
+    },
+    {
+      "name": "apl",
+      "kind": "bool",
+      "values": ["false", "true"],
+      "representative": {"false": "faux", "true": "vrai"},
+      "source": "Enfant.bénéficie_titre_personnel_aide_personnelle_logement (prologue.catala_fr:29); L821-3 exception on droit_ouvert (autres_codes.catala_fr:21-27)"
+    }
+  ],
+  "output": {
+    "name": "droit_ouvert",
+    "values": ["entitled", "not_entitled"],
+    "source": "PrestationsFamiliales.droit_ouvert (prologue.catala_fr:47): entitled = vrai, not_entitled = faux"
+  },
+  "exclusions": [
+    {
+      "id": "X1",
+      "description": "obligation_scolaire Avant with a child whose third birthday has passed: Avant means date_de_naissance + 3 an >= date_courante",
+      "predicate": "obligation_scolaire == 'Avant' and age != 'a00_03'",
+      "source": "Code de l'éducation L131-1 (instruction obligatoire dès l'âge de trois ans), as the same encoding derives obligation_scolaire in InterfaceAllocationsFamiliales, epilogue.catala_fr:104-131 (lines 123-124)"
+    },
+    {
+      "id": "X2",
+      "description": "obligation_scolaire Pendant with a child outside the compulsory-schooling ages: Pendant means date_de_naissance + 3 an < date_courante <= date_de_naissance + 16 an",
+      "predicate": "obligation_scolaire == 'Pendant' and age != 'a03_16'",
+      "source": "Code de l'éducation L131-1 (de trois à seize ans), epilogue.catala_fr:121-131 (lines 123-128)"
+    },
+    {
+      "id": "X3",
+      "description": "obligation_scolaire Apres with a child who has not passed the sixteenth birthday: Apres means date_de_naissance + 16 an < date_courante",
+      "predicate": "obligation_scolaire == 'Apres' and age in ('a00_03', 'a03_16')",
+      "source": "Code de l'éducation L131-1 (jusqu'à l'âge de seize ans), epilogue.catala_fr:121-131 (lines 127-129)"
+    }
+  ],
+  "fixed_inputs": {
+    "date_courante": {"value": "2020-05-01", "why": "the date of the official test tests_ouverture_droits.catala_fr Test1 (and of most AF tests); SMIC 2020 applies (Smic.catala_fr:80-110)"},
+    "identifiant": {"value": "1", "why": "not read by droit_ouvert"},
+    "a_deja_ouvert_droit_aux_allocations_familiales": {"value": "vrai", "why": "not read by droit_ouvert; vrai as in every official test child"}
+  },
+  "notes": "Output is droit_ouvert. conditions_hors_âge is left out because its disjunction over the three obligation_scolaire values is always true, so it reduces to the earnings test alone (securite_sociale_L.catala_fr:76-84). The scope PrestationsFamiliales takes obligation_scolaire as an input independent of the date of birth; exclusions X1-X3 restore the link the epilogue uses. See CONVERSION.md."
+}

@@ -1,0 +1,5 @@
+case_id,residence,obligation_scolaire,prise_en_charge,age,remuneration,apl,output
+ouverture_droits.Test1.enfant1,Metropole,Pendant,EffectiveEtPermanente,a03_16,lt_plafond,false,entitled
+ouverture_droits.Test1.enfant2,Metropole,Apres,EffectiveEtPermanente,a16_20,gt_plafond,false,not_entitled
+ouverture_droits.Test1.enfant3,Metropole,Apres,EffectiveEtPermanente,a16_20,lt_plafond,false,entitled
+ouverture_droits.Test1.enfant4,Metropole,Apres,EffectiveEtPermanente,a20_plus,lt_plafond,false,not_entitled
