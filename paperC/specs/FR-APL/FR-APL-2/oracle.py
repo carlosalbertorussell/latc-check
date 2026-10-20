@@ -82,7 +82,7 @@ ATTRIBUTES = [
     OC.Attribute(
         "personnes_agees_handicapees_r844_4", "bool",
         [("faux", False, "faux"), ("vrai", True, "vrai")],
-        "Ménage.personnes_âgées_handicapées_foyer_r844_4 (aides_logement/prologue.catala_fr:224), read by R844-4 "
+        "Ménage.personnes_âgées_handicapées_foyer_r844_4 (aides_logement/prologue.catala_fr:225), read by R844-4 "
         "(aides_logement/code_construction_reglementaire.catala_fr:5531-5545)",
         F.setter("r844_4")),
 ]

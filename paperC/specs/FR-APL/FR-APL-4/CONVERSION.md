@@ -104,6 +104,8 @@ table: Exemple1's household is a `Locataire`, and Exemple2 and Exemple3 test
 A sample of 600 non-excluded rows was also run through the Catala interpreter: see
 `paperC/catala_more/interpreter_crosscheck_report.txt` and `paperC/specs/README-FR2.md`.
 
+Result: 600 rows run through the interpreter, 0 disagreements (581 rows whose label assertion passed, 19 REJECTED rows that failed with a run-time error at the same source position as in the Python runtime).
+
 ## 10. Counts
 
 1,440 rows: 504 `eligible`, 448 `not_eligible`, 460 EXCLUDED, 28 REJECTED. No

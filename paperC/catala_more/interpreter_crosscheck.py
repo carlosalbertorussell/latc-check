@@ -13,8 +13,7 @@ then runs them; the script reads clerk's verbose report and checks that:
 Usage (from a catala-examples checkout at commit 2694b17 with Catala 1.3.0 on PATH):
 
   python3 interpreter_crosscheck.py write <catala-examples dir> [rows per table]
-  (cd <catala-examples dir> && clerk test aides_logement/tests/xcheck_fr_apl.catala_fr \
-       us_tax_code/tests/xcheck_us121.catala_en --verbose --color=never > report.txt 2>&1)
+  (cd <catala-examples dir> && clerk test $(cat xcheck_files.txt) --verbose --color=never > report.txt 2>&1)
   python3 interpreter_crosscheck.py read <catala-examples dir>/report.txt
 
 The sample is drawn with random.Random(2026) (all rows when a table has fewer valid
@@ -295,12 +294,20 @@ def write(examples_dir, n):
             else:
                 us.append(us2_scope(name, raw, expected))
             manifest.append({"scope": name, "table": table, "row": row, "expected": expected})
-    fr.append("```\n")
-    us.append("```\n")
-    with open(os.path.join(examples_dir, "aides_logement", "tests", "xcheck_fr_apl.catala_fr"), "w", encoding="utf-8") as f:
-        f.write("".join(fr))
-    with open(os.path.join(examples_dir, "us_tax_code", "tests", "xcheck_us121.catala_en"), "w", encoding="utf-8") as f:
-        f.write("".join(us))
+    # The interpreter's run time grows faster than linearly with the number of scopes in
+    # one file, so the scopes are written in files of at most CHUNK scopes.
+    CHUNK = 100
+    names = []
+    for kind, header, scopes, folder, ext in (
+            ("fr_apl", fr[0], fr[1:], os.path.join("aides_logement", "tests"), "catala_fr"),
+            ("us121", us[0], us[1:], os.path.join("us_tax_code", "tests"), "catala_en")):
+        for k in range(0, len(scopes), CHUNK):
+            rel = os.path.join(folder, f"xcheck_{kind}_{k // CHUNK:02d}.{ext}")
+            with open(os.path.join(examples_dir, rel), "w", encoding="utf-8") as f:
+                f.write(header + "".join(scopes[k:k + CHUNK]) + "```\n")
+            names.append(rel)
+    with open(os.path.join(examples_dir, "xcheck_files.txt"), "w", encoding="utf-8") as f:
+        f.write("\n".join(names) + "\n")
     with open(os.path.join(examples_dir, "xcheck_manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=0)
     print(f"wrote {len(manifest)} test scopes")
@@ -314,7 +321,7 @@ def read(report_path):
     # Each scope line is followed, when it failed, by the command and the error message
     # up to the next "■" line.
     status, message = {}, {}
-    for m in re.finditer(r"■ scope (X\S+) (passed|failed)(.*?)(?=\n\s*■|\n\n|\Z)", text, re.S):
+    for m in re.finditer(r"■ scope (X\S+) (passed|failed)(.*?)(?=\n\s*■|\n__ |\n\n|\Z)", text, re.S):
         status[m.group(1)] = m.group(2)
         msg = " ".join(line.strip() for line in m.group(3).splitlines() if line.strip() and not line.strip().startswith("$"))
         message[m.group(1)] = msg

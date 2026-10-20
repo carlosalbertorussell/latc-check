@@ -119,6 +119,8 @@ A sample of 600 rows (random.Random(2026)) was also run through the Catala inter
 by `paperC/catala_more/interpreter_crosscheck.py`: see
 `paperC/catala_more/interpreter_crosscheck_report.txt` and `paperC/specs/README-FR2.md`.
 
+Result: 600 rows run through the interpreter, 0 disagreements (579 rows whose label assertion passed, 21 REJECTED rows that failed with a run-time error at the same source position as in the Python runtime).
+
 ## 10. Counts
 
 69,120 rows: 12,864 `eligible`, 54,276 `not_eligible`, 0 EXCLUDED, 1,980 REJECTED. One

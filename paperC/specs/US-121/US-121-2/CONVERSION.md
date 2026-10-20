@@ -120,6 +120,8 @@ the label's representative period (1,461 days), with the same output.
 All 504 non-excluded rows were also run through the Catala interpreter: see
 `paperC/catala_more/interpreter_crosscheck_report.txt` and `paperC/specs/README-FR2.md`.
 
+Result: 504 rows run through the interpreter, 0 disagreements (72 rows whose label assertion passed, 432 REJECTED rows that failed with a run-time error at the same source position as in the Python runtime).
+
 ## 10. Counts
 
 1,296 rows: 45 `no_exclusion`, 12 `entire_gain`, 12 `limited_to_250000`, 3

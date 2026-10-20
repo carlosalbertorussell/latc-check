@@ -172,7 +172,7 @@ SOURCE = {
 OUTPUT = {
     "name": "eligibilite_apl",
     "values": ["eligible", "not_eligible"],
-    "source": "ÉligibilitéAidePersonnaliséeLogement.éligibilité (condition), aides_logement/prologue.catala_fr:393; "
+    "source": "ÉligibilitéAidePersonnaliséeLogement.éligibilité (condition), aides_logement/prologue.catala_fr:391; "
               "rules aides_logement/code_construction_legislatif.catala_fr:631-645 and 1333-1339",
 }
 

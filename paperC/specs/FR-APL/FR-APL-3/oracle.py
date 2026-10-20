@@ -107,7 +107,7 @@ ATTRIBUTES = [
         F.setter("residence_principale")),
     OC.Attribute(
         "condition_rattache_foyer_fiscal_parent_ifi", "bool", BOOL,
-        "Ménage.condition_rattaché_foyer_fiscal_parent_ifi (aides_logement/prologue.catala_fr:222); read by L822-8 "
+        "Ménage.condition_rattaché_foyer_fiscal_parent_ifi (aides_logement/prologue.catala_fr:223); read by L822-8 "
         "(" + LEG + ":368-371)",
         F.setter("ifi")),
 ]

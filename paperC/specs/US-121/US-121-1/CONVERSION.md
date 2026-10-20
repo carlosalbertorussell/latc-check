@@ -121,6 +121,8 @@ differ and fall in the same label). `python oracle.py --check-official`: 6/6 dir
 All 12 rows were also run through the Catala interpreter: see
 `paperC/catala_more/interpreter_crosscheck_report.txt` and `paperC/specs/README-FR2.md`.
 
+Result: 12 rows run through the interpreter, 0 disagreements (4 rows whose label assertion passed, 8 REJECTED rows that failed with a run-time error at the same source position as in the Python runtime).
+
 ## 10. Counts
 
 12 rows: 1 `requirements_met`, 3 `requirements_not_met`, 0 EXCLUDED, 8 REJECTED. Four

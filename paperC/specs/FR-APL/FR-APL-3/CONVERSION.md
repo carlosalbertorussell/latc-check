@@ -108,6 +108,8 @@ the label's representative.
 A sample of 600 rows was also run through the Catala interpreter: see
 `paperC/catala_more/interpreter_crosscheck_report.txt` and `paperC/specs/README-FR2.md`.
 
+Result: 600 rows run through the interpreter, 0 disagreements (600 rows whose label assertion passed, 0 REJECTED rows that failed with a run-time error at the same source position as in the Python runtime).
+
 ## 10. Counts
 
 3,600 rows: 32 `eligible`, 3,568 `not_eligible`, 0 EXCLUDED, 0 REJECTED. One official

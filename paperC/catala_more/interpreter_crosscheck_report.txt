@@ -1,0 +1,35 @@
+Interpreter cross-check of the FR-APL and US-121 ground truth (Catala 1.3.0 interpreter via clerk test)
+catala-examples commit 2694b17ddd7c2246e207e8f077d586349ee5abea; run 2026-10-20
+
+$ python3 interpreter_crosscheck.py write <catala-examples> 600
+wrote 3186 test scopes in 33 files (at most 100 scopes per file)
+
+$ clerk test $(cat xcheck_files.txt) --verbose --color=never > report_full.txt
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  TESTS FAILED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃                     FAILED     PASSED      TOTAL      RATIO                  ┃
+┃   Interpreted          575       2611       3186       81 %                  ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+(575 failed = the 575 REJECTED rows of the sample; every label row passed)
+
+$ python3 interpreter_crosscheck.py read report_full.txt
+FR-APL-1: 270 rows run; label rows passing their assertion: 175; REJECTED rows raising a runtime error in the interpreter: 95; disagreements: 0
+FR-APL-2: 600 rows run; label rows passing their assertion: 579; REJECTED rows raising a runtime error in the interpreter: 21; disagreements: 0
+FR-APL-3: 600 rows run; label rows passing their assertion: 600; REJECTED rows raising a runtime error in the interpreter: 0; disagreements: 0
+FR-APL-4: 600 rows run; label rows passing their assertion: 581; REJECTED rows raising a runtime error in the interpreter: 19; disagreements: 0
+FR-APL-5: 600 rows run; label rows passing their assertion: 600; REJECTED rows raising a runtime error in the interpreter: 0; disagreements: 0
+US-121-1: 12 rows run; label rows passing their assertion: 4; REJECTED rows raising a runtime error in the interpreter: 8; disagreements: 0
+US-121-2: 504 rows run; label rows passing their assertion: 72; REJECTED rows raising a runtime error in the interpreter: 432; disagreements: 0
+interpreter errors of the REJECTED rows:
+  FR-APL-1: 45 x aides_logement/prologue.catala_fr:343.16-51: no applicable rule to define this variable in this situation.
+  FR-APL-1: 45 x smic/Smic.catala_fr:13.13-25: no applicable rule to define this variable in this situation.
+  FR-APL-1: 5 x smic/Smic.catala_fr:443.6-12: conflict between multiple valid consequences for assigning the same variable.
+  FR-APL-2: 21 x aides_logement/code_construction_reglementaire.catala_fr:5645.16-22: conflict between multiple valid consequences for assigning the same variable.
+  FR-APL-4: 19 x smic/Smic.catala_fr:443.6-12: conflict between multiple valid consequences for assigning the same variable.
+  US-121-1: 8 x us_tax_code/section_121.catala_en:376.10-82: ambiguous comparison between durations in different units (e.g. months vs. days).
+  US-121-2: 432 x us_tax_code/section_121.catala_en:376.10-82: ambiguous comparison between durations in different units (e.g. months vs. days).
+(exit status 0)
+
+Negative control (earlier, 43-scope run): flipping the assertion of row XFRAPL3_0000 made the reader report
+  disagreement: ('XFRAPL3_0000', 'FR-APL-3', 'not_eligible', 'failed', '...: Assertion failed: vrai')
