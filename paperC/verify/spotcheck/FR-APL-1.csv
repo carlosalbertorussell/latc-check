@@ -1,0 +1,51 @@
+index,date_courante,residence,nationalite_demandeur,gt_output,my_output,agree,detail,supplementary_band_probe
+9,lt_2019-01-01,Guadeloupe,etrangere_aucune,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+12,lt_2019-01-01,Guyane,etrangere_l512_2_seulement,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+16,lt_2019-01-01,Martinique,etrangere_l512_2_et_art_4,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+23,lt_2019-01-01,LaReunion,etrangere_art_4_seulement,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+29,lt_2019-01-01,SaintBarthelemy,etrangere_aucune,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+31,lt_2019-01-01,SaintMartin,etrangere_l512_2_et_art_4,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+33,lt_2019-01-01,SaintMartin,etrangere_art_4_seulement,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+39,lt_2019-01-01,SaintPierreEtMiquelon,etrangere_aucune,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+40,lt_2019-01-01,Mayotte,francaise,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+41,lt_2019-01-01,Mayotte,etrangere_l512_2_et_art_4,REJECTED,REJECTED,1,NoValue at smic/Smic.catala_fr:13.12-13.24,2/2 in-band probes same
+46,2019-01-01_to_2019-08-31,Metropole,etrangere_l512_2_et_art_4,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+52,2019-01-01_to_2019-08-31,Guadeloupe,etrangere_l512_2_seulement,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+54,2019-01-01_to_2019-08-31,Guadeloupe,etrangere_aucune,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+56,2019-01-01_to_2019-08-31,Guyane,etrangere_l512_2_et_art_4,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+68,2019-01-01_to_2019-08-31,LaReunion,etrangere_art_4_seulement,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+70,2019-01-01_to_2019-08-31,SaintBarthelemy,francaise,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+75,2019-01-01_to_2019-08-31,SaintMartin,francaise,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+81,2019-01-01_to_2019-08-31,SaintPierreEtMiquelon,etrangere_l512_2_et_art_4,REJECTED,REJECTED,1,NoValue at aides_logement/prologue.catala_fr:343.15-343.50,2/2 in-band probes same
+104,2019-09-01_to_2020-12-31,Guyane,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+108,2019-09-01_to_2020-12-31,Martinique,etrangere_art_4_seulement,not_eligible,not_eligible,1,,2/2 in-band probes same
+113,2019-09-01_to_2020-12-31,LaReunion,etrangere_art_4_seulement,not_eligible,not_eligible,1,,2/2 in-band probes same
+119,2019-09-01_to_2020-12-31,SaintBarthelemy,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+126,2019-09-01_to_2020-12-31,SaintPierreEtMiquelon,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+135,2021-01-01_to_2023-12-31,Metropole,francaise,eligible,eligible,1,,2/2 in-band probes same
+142,2021-01-01_to_2023-12-31,Guadeloupe,etrangere_l512_2_seulement,eligible,eligible,1,,2/2 in-band probes same
+148,2021-01-01_to_2023-12-31,Guyane,etrangere_art_4_seulement,not_eligible,not_eligible,1,,2/2 in-band probes same
+149,2021-01-01_to_2023-12-31,Guyane,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+160,2021-01-01_to_2023-12-31,SaintBarthelemy,francaise,eligible,eligible,1,,2/2 in-band probes same
+161,2021-01-01_to_2023-12-31,SaintBarthelemy,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+165,2021-01-01_to_2023-12-31,SaintMartin,francaise,eligible,eligible,1,,2/2 in-band probes same
+171,2021-01-01_to_2023-12-31,SaintPierreEtMiquelon,etrangere_l512_2_et_art_4,not_eligible,not_eligible,1,,2/2 in-band probes same
+175,2021-01-01_to_2023-12-31,Mayotte,francaise,not_eligible,not_eligible,1,,2/2 in-band probes same
+182,2024-01-01_to_2024-10-31,Metropole,etrangere_l512_2_seulement,eligible,eligible,1,,2/2 in-band probes same
+186,2024-01-01_to_2024-10-31,Guadeloupe,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+190,2024-01-01_to_2024-10-31,Guyane,francaise,eligible,eligible,1,,2/2 in-band probes same
+191,2024-01-01_to_2024-10-31,Guyane,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+199,2024-01-01_to_2024-10-31,Martinique,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+201,2024-01-01_to_2024-10-31,LaReunion,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+203,2024-01-01_to_2024-10-31,LaReunion,etrangere_art_4_seulement,not_eligible,not_eligible,1,,2/2 in-band probes same
+204,2024-01-01_to_2024-10-31,LaReunion,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+218,2024-01-01_to_2024-10-31,SaintPierreEtMiquelon,etrangere_art_4_seulement,not_eligible,not_eligible,1,,2/2 in-band probes same
+224,2024-01-01_to_2024-10-31,Mayotte,etrangere_aucune,REJECTED,REJECTED,1,"Conflict at smic/Smic.catala_fr:443.5-443.11, smic/Smic.catala_fr:489.5-489.11",2/2 in-band probes same
+229,ge_2024-11-01,Metropole,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+231,ge_2024-11-01,Guadeloupe,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+235,ge_2024-11-01,Guyane,francaise,eligible,eligible,1,,2/2 in-band probes same
+237,ge_2024-11-01,Guyane,etrangere_l512_2_seulement,eligible,eligible,1,,2/2 in-band probes same
+246,ge_2024-11-01,LaReunion,etrangere_l512_2_et_art_4,eligible,eligible,1,,2/2 in-band probes same
+253,ge_2024-11-01,SaintBarthelemy,etrangere_art_4_seulement,not_eligible,not_eligible,1,,2/2 in-band probes same
+259,ge_2024-11-01,SaintMartin,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
+269,ge_2024-11-01,Mayotte,etrangere_aucune,not_eligible,not_eligible,1,,2/2 in-band probes same
