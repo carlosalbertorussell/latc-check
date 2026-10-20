@@ -1,0 +1,218 @@
+{
+  "id": "FR-AF-1",
+  "title": "Allocations familiales, household with 1 child: amount regime (second coder)",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "files": [
+      "allocations_familiales/prologue.catala_fr",
+      "allocations_familiales/epilogue.catala_fr",
+      "allocations_familiales/autres_codes.catala_fr",
+      "allocations_familiales/securite_sociale_L.catala_fr",
+      "allocations_familiales/securite_sociale_R.catala_fr",
+      "allocations_familiales/securite_sociale_D.catala_fr",
+      "allocations_familiales/decrets_divers.catala_fr",
+      "allocations_familiales/tests/tests_ouverture_droits.catala_fr",
+      "allocations_familiales/tests/tests_allocations_familiales.catala_fr",
+      "prologue_france/France.catala_fr",
+      "smic/Smic.catala_fr",
+      "base_mensuelle_allocations_familiales/Bmaf.catala_fr"
+    ],
+    "entry_point": "InterfaceAllocationsFamiliales (Python: generated.Allocations_familiales.interface_allocations_familiales); components read from scope AllocationsFamiliales"
+  },
+  "attributes": [
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": [
+        "metropole",
+        "drom_l751_1",
+        "mayotte"
+      ],
+      "representative": {
+        "metropole": "Métropole",
+        "drom_l751_1": "Guadeloupe",
+        "mayotte": "Mayotte"
+      },
+      "source": "prologue_france/France.catala_fr:9-18 (Collectivité); L751-1 securite_sociale_L.catala_fr:376-385; smic/Smic.catala_fr:81-112 (SMIC 2020: Mayotte apart); Mayotte rules decrets_divers.catala_fr:181-238, 286-569. metropole = {Métropole, SaintPierreEtMiquelon}; drom_l751_1 = {Guadeloupe, Guyane, Martinique, LaRéunion, SaintBarthélemy, SaintMartin}; mayotte = {Mayotte}"
+    },
+    {
+      "name": "attributaire",
+      "kind": "enum",
+      "values": [
+        "parent",
+        "tiers_titre_I",
+        "aucun"
+      ],
+      "representative": {
+        "parent": "est_parent = vrai, remplit_titre_I = faux",
+        "tiers_titre_I": "est_parent = faux, remplit_titre_I = vrai",
+        "aucun": "est_parent = faux, remplit_titre_I = faux"
+      },
+      "source": "personne_charge_effective_permanente_est_parent / _remplit_titre_I, L521-2 securite_sociale_L.catala_fr:240-246, epilogue.catala_fr:91-96"
+    },
+    {
+      "name": "ressources",
+      "kind": "interval",
+      "values": [
+        "jusqu_plafond_I",
+        "zone_degressive_I",
+        "entre_plafonds_I_II",
+        "zone_degressive_II",
+        "au_dela_plafond_II"
+      ],
+      "representative": {
+        "jusqu_plafond_I": "30000.00",
+        "zone_degressive_I": "plafond_I_d521_3 + 1.00",
+        "entre_plafonds_I_II": "plafond_II_d521_3",
+        "zone_degressive_II": "plafond_II_d521_3 + 1.00",
+        "au_dela_plafond_II": "200000.00"
+      },
+      "source": "ressources_ménage (EUR/year) relative to plafond_I_d521_3 = 57759 + 5775 n and plafond_II_d521_3 = 80831 + 5775 n at 2020 (decrets_divers.catala_fr:102-123), n = enfants with droit ouvert; tiers D521-1 securite_sociale_D.catala_fr:35, 76-78, 120; zones of the complément dégressif securite_sociale_D.catala_fr:169-185 and 277-308: zone_degressive_X = (plafond_X, plafond_X + 12 a], a = max(montant_versé_base + montant_versé_majoration, montant_versé_forfaitaire). plafond_* in a representative is the value the encoding computes for the household"
+    },
+    {
+      "name": "avant_2012",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "avait_enfant_à_charge_avant_1er_janvier_2012, read only for Mayotte, decrets_divers.catala_fr:295-407 (décret 2002-423 annexe)"
+    },
+    {
+      "name": "e1_age",
+      "kind": "interval",
+      "values": [
+        "moins_3",
+        "3_11",
+        "11_14",
+        "14_16",
+        "anniversaire_16",
+        "16_19",
+        "19_20",
+        "20_23",
+        "23_plus"
+      ],
+      "representative": {
+        "moins_3": "2019-05-01",
+        "3_11": "2013-05-01",
+        "11_14": "2008-05-01",
+        "14_16": "2005-05-01",
+        "anniversaire_16": "2004-05-01",
+        "16_19": "2002-05-01",
+        "19_20": "2000-11-01",
+        "20_23": "1999-05-01",
+        "23_plus": "1995-05-01"
+      },
+      "source": "date_de_naissance, banded at date_courante 2020-05-01 by every comparison the code makes: +3 an >= (epilogue.catala_fr:123, L131-1), +11 an <= (securite_sociale_D.catala_fr:419, D755-5), +14 an <= (securite_sociale_R.catala_fr:54 with securite_sociale_L.catala_fr:319, R521-1/L521-3), +16 an >= (epilogue.catala_fr:127) and +16 an > / <= (securite_sociale_D.catala_fr:420, 431), (+20 an) - date < 365 jour (securite_sociale_L.catala_fr:149-151, L521-1), +20 an > (securite_sociale_L.catala_fr:71, R512-2 securite_sociale_R.catala_fr:21), +11 an <= 2008-04-30 (securite_sociale_R.catala_fr:81). Representative = birth date"
+    },
+    {
+      "name": "e1_remuneration",
+      "kind": "interval",
+      "values": [
+        "jusqu_plafond_mayotte",
+        "entre_plafonds",
+        "au_dessus_plafonds"
+      ],
+      "representative": {
+        "jusqu_plafond_mayotte": "0.00",
+        "entre_plafonds": "800.00",
+        "au_dessus_plafonds": "1500.00"
+      },
+      "source": "rémuneration_mensuelle (EUR/month) cut at the two values of plafond_l512_3_2 at 2020-05-01: 711.49 (Mayotte) and 943.02 (all others) = (smic.brut_horaire * 55%) * 169 (R512-2 securite_sociale_R.catala_fr:29-31, R755-0-2 securite_sociale_R.catala_fr:218-223, smic/Smic.catala_fr:81-112), compared with <= in L512-3 securite_sociale_L.catala_fr:70 and 83. Bands: [0, 711.49], (711.49, 943.02], (943.02, +inf)"
+    },
+    {
+      "name": "e1_prise_en_charge",
+      "kind": "enum",
+      "values": [
+        "complete",
+        "partagee",
+        "services_sociaux"
+      ],
+      "representative": {
+        "complete": "EffectiveEtPermanente",
+        "partagee": "GardeAlternéePartageAllocations",
+        "services_sociaux": "ServicesSociauxAllocationVerséeAuxServicesSociaux"
+      },
+      "source": "PriseEnCharge prologue.catala_fr:10-15, grouped by prise_en_compte (L521-2 securite_sociale_L.catala_fr:188-197, 209-231, 262-281): complete = {EffectiveEtPermanente, GardeAlternéeAllocataireUnique, ServicesSociauxAllocationVerséeÀLaFamille} (Complète), partagee = {GardeAlternéePartageAllocations} (Partagée), services_sociaux = {ServicesSociauxAllocationVerséeAuxServicesSociaux} (Zéro)"
+    },
+    {
+      "name": "e1_deja_ouvert",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "a_déjà_ouvert_droit_aux_allocations_familiales, read only by the forfaitaire, L521-1 securite_sociale_L.catala_fr:153"
+    },
+    {
+      "name": "e1_aide_logement",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "bénéficie_titre_personnel_aide_personnelle_logement, L821-3 autres_codes.catala_fr:22-26"
+    }
+  ],
+  "output": {
+    "name": "regime_montant",
+    "values": [
+      "sans_droit",
+      "outre_mer_un_enfant/nul",
+      "outre_mer_un_enfant/B",
+      "mayotte/T1/nul",
+      "mayotte/T1/B",
+      "mayotte/T2/nul",
+      "mayotte/T2/B",
+      "mayotte/T2/B+C",
+      "mayotte/T3/nul",
+      "mayotte/T3/B",
+      "mayotte/T3/B+C",
+      "mayotte_avant_2012/T1/nul",
+      "mayotte_avant_2012/T1/B",
+      "mayotte_avant_2012/T2/nul",
+      "mayotte_avant_2012/T2/B",
+      "mayotte_avant_2012/T2/B+C",
+      "mayotte_avant_2012/T3/nul",
+      "mayotte_avant_2012/T3/B",
+      "mayotte_avant_2012/T3/B+C"
+    ],
+    "source": "regime of montant_versé (epilogue.catala_fr:45-52), read from the components the encoding computes: 'sans_droit' when droit_ouvert_base is false (L521-1 securite_sociale_L.catala_fr:124-127, L755-12 :436-442, Mayotte decrets_divers.catala_fr:191-194); otherwise bareme/tier/parts with bareme general (D521-1), outre_mer_un_enfant (D755-5 securite_sociale_D.catala_fr:384-433, no tier), mayotte or mayotte_avant_2012 (decrets_divers.catala_fr:181-407); tier T1/T2/T3 = ressources vs plafond_I/II (D521-1, D521-2); parts = non-zero components among B base, M majorations, F forfaitaire, C complément dégressif (base or forfaitaire), or 'nul'"
+  },
+  "exclusions": [
+    {
+      "id": "X-AF-ATTRIB",
+      "description": "the person in charge is neither a parent nor a person meeting Title I: outside the domain the encoding asserts",
+      "predicate": "attributaire == 'aucun'",
+      "source": "L521-2 assertion securite_sociale_L.catala_fr:240-246"
+    }
+  ],
+  "fixed_inputs": {
+    "date_courante": {
+      "value": "2020-05-01",
+      "why": "date of the PrestationsFamiliales test and of 7 of the 14 household tests; all date-dependent parameters (BMAF Bmaf.catala_fr:52-58, SMIC Smic.catala_fr:81-112, plafonds decrets_divers.catala_fr:102-123, Mayotte 2020 rates decrets_divers.catala_fr:389-398, 481-487, 562-568) are constant on 2020-04-01..2020-12-31"
+    },
+    "nombre_enfants": {
+      "value": "1",
+      "why": "this sub-table holds households with exactly 1 child(ren) in i_enfants"
+    },
+    "d_identifiant": {
+      "value": "1..1 in list order",
+      "why": "only used to tell apart children with equal birth dates (EnfantLePlusÂgé)"
+    }
+  },
+  "notes": "Second, blinded conversion (see ../README-FR-CODE2.md). Sub-table of the household allowance split by number of children. Interpretive choices with sources are in CONVERSION_2.md."
+}

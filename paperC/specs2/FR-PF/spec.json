@@ -1,0 +1,131 @@
+{
+  "id": "FR-PF",
+  "title": "Prestations familiales: per-child entitlement droit_ouvert (second coder)",
+  "source": {
+    "repository": "https://github.com/CatalaLang/catala-examples",
+    "commit": "2694b17ddd7c2246e207e8f077d586349ee5abea",
+    "files": [
+      "allocations_familiales/prologue.catala_fr",
+      "allocations_familiales/epilogue.catala_fr",
+      "allocations_familiales/autres_codes.catala_fr",
+      "allocations_familiales/securite_sociale_L.catala_fr",
+      "allocations_familiales/securite_sociale_R.catala_fr",
+      "allocations_familiales/securite_sociale_D.catala_fr",
+      "allocations_familiales/decrets_divers.catala_fr",
+      "allocations_familiales/tests/tests_ouverture_droits.catala_fr",
+      "allocations_familiales/tests/tests_allocations_familiales.catala_fr",
+      "prologue_france/France.catala_fr",
+      "smic/Smic.catala_fr",
+      "base_mensuelle_allocations_familiales/Bmaf.catala_fr"
+    ],
+    "entry_point": "PrestationsFamiliales.droit_ouvert (Python: generated.Allocations_familiales.prestations_familiales(...).droit_ouvert)"
+  },
+  "attributes": [
+    {
+      "name": "residence",
+      "kind": "enum",
+      "values": [
+        "metropole",
+        "drom_l751_1",
+        "mayotte"
+      ],
+      "representative": {
+        "metropole": "Métropole",
+        "drom_l751_1": "Guadeloupe",
+        "mayotte": "Mayotte"
+      },
+      "source": "prologue_france/France.catala_fr:9-18 (Collectivité); L751-1 securite_sociale_L.catala_fr:376-385; smic/Smic.catala_fr:81-112 (SMIC 2020: Mayotte apart); Mayotte rules decrets_divers.catala_fr:181-238, 286-569. metropole = {Métropole, SaintPierreEtMiquelon}; drom_l751_1 = {Guadeloupe, Guyane, Martinique, LaRéunion, SaintBarthélemy, SaintMartin}; mayotte = {Mayotte}"
+    },
+    {
+      "name": "obligation_scolaire",
+      "kind": "enum",
+      "values": [
+        "Avant",
+        "Pendant",
+        "Apres"
+      ],
+      "representative": {
+        "Avant": "Avant",
+        "Pendant": "Pendant",
+        "Apres": "Après"
+      },
+      "source": "SituationObligationScolaire prologue.catala_fr:17-20; L512-3 securite_sociale_L.catala_fr:52-72"
+    },
+    {
+      "name": "remuneration_mensuelle",
+      "kind": "interval",
+      "values": [
+        "jusqu_plafond_mayotte",
+        "entre_plafonds",
+        "au_dessus_plafonds"
+      ],
+      "representative": {
+        "jusqu_plafond_mayotte": "0.00",
+        "entre_plafonds": "800.00",
+        "au_dessus_plafonds": "1500.00"
+      },
+      "source": "rémuneration_mensuelle (EUR/month) cut at the two values of plafond_l512_3_2 at 2020-05-01: 711.49 (Mayotte) and 943.02 (all others) = (smic.brut_horaire * 55%) * 169 (R512-2 securite_sociale_R.catala_fr:29-31, R755-0-2 securite_sociale_R.catala_fr:218-223, smic/Smic.catala_fr:81-112), compared with <= in L512-3 securite_sociale_L.catala_fr:70 and 83. Bands: [0, 711.49], (711.49, 943.02], (943.02, +inf)"
+    },
+    {
+      "name": "age_20_ans",
+      "kind": "interval",
+      "values": [
+        "moins_20",
+        "20_ou_plus"
+      ],
+      "representative": {
+        "moins_20": "2005-01-01",
+        "20_ou_plus": "1998-01-01"
+      },
+      "source": "date_de_naissance vs date_courante: moins_20 iff date_de_naissance + 20 an > date_courante (L512-3 securite_sociale_L.catala_fr:71; R512-2 securite_sociale_R.catala_fr:21). Representative = birth date"
+    },
+    {
+      "name": "aide_logement_personnelle",
+      "kind": "bool",
+      "values": [
+        "false",
+        "true"
+      ],
+      "representative": {
+        "false": "faux",
+        "true": "vrai"
+      },
+      "source": "bénéficie_titre_personnel_aide_personnelle_logement, L821-3 autres_codes.catala_fr:22-26"
+    }
+  ],
+  "output": {
+    "name": "droit_ouvert",
+    "values": [
+      "ouvert",
+      "non_ouvert"
+    ],
+    "source": "droit_ouvert, L512-3 securite_sociale_L.catala_fr:52-72 with the L821-3 exception autres_codes.catala_fr:22-26"
+  },
+  "exclusions": [
+    {
+      "id": "X-PF-SCOL",
+      "description": "a child aged 20 or more cannot be before or within compulsory schooling, which ends at 16",
+      "predicate": "obligation_scolaire in ('Avant', 'Pendant') and age_20_ans == '20_ou_plus'",
+      "source": "Code de l'éducation L131-1 as encoded in epilogue.catala_fr:113-136"
+    }
+  ],
+  "fixed_inputs": {
+    "date_courante": {
+      "value": "2020-05-01",
+      "why": "date of the PrestationsFamiliales test and of 7 of the 14 household tests; all date-dependent parameters (BMAF Bmaf.catala_fr:52-58, SMIC Smic.catala_fr:81-112, plafonds decrets_divers.catala_fr:102-123, Mayotte 2020 rates decrets_divers.catala_fr:389-398, 481-487, 562-568) are constant on 2020-04-01..2020-12-31"
+    },
+    "prise_en_charge": {
+      "value": "EffectiveEtPermanente",
+      "why": "not read by droit_ouvert"
+    },
+    "a_déjà_ouvert_droit_aux_allocations_familiales": {
+      "value": "vrai",
+      "why": "not read by droit_ouvert"
+    },
+    "identifiant": {
+      "value": "1",
+      "why": "not read by droit_ouvert"
+    }
+  },
+  "notes": "Second, blinded conversion (see ../README-FR-CODE2.md). Interpretive choices with sources are in CONVERSION_2.md. Grouped residence labels were checked member by member (oracle.py --check-groups)."
+}

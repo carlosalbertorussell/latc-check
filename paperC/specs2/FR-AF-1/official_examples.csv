@@ -1,0 +1,3 @@
+case_id,residence,attributaire,ressources,avant_2012,e1_age,e1_remuneration,e1_prise_en_charge,e1_deja_ouvert,e1_aide_logement,output
+tests_allocations_familiales/Test3,drom_l751_1,parent,zone_degressive_I,false,11_14,jusqu_plafond_mayotte,complete,true,false,outre_mer_un_enfant/B
+tests_allocations_familiales/Test5,metropole,parent,jusqu_plafond_I,false,11_14,jusqu_plafond_mayotte,complete,true,false,sans_droit

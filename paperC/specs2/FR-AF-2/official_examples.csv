@@ -1,0 +1,5 @@
+case_id,residence,ressources,avant_2012,e1_age,e1_remuneration,e1_prise_en_charge,e2_age,e2_remuneration,e2_prise_en_charge,output
+tests_allocations_familiales/Test4,metropole,jusqu_plafond_I,false,11_14,jusqu_plafond_mayotte,complete,16_19,jusqu_plafond_mayotte,partagee,general/T1/B
+tests_allocations_familiales/Test6,drom_l751_1,entre_plafonds_I_II,false,3_11,jusqu_plafond_mayotte,complete,moins_3,au_dessus_plafonds,complete,general/T2/B
+tests_allocations_familiales/Test9,drom_l751_1,entre_plafonds_I_II,false,16_19,au_dessus_plafonds,services_sociaux,11_14,au_dessus_plafonds,services_sociaux,outre_mer_un_enfant/nul
+tests_allocations_familiales/Test10,metropole,jusqu_plafond_I,false,16_19,jusqu_plafond_mayotte,complete,3_11,jusqu_plafond_mayotte,partagee,general/T1/B

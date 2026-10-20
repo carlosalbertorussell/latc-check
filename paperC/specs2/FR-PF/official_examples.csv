@@ -1,0 +1,5 @@
+case_id,residence,obligation_scolaire,remuneration_mensuelle,age_20_ans,aide_logement_personnelle,output
+tests_ouverture_droits/Test1/enfant1,metropole,Pendant,jusqu_plafond_mayotte,moins_20,false,ouvert
+tests_ouverture_droits/Test1/enfant2,metropole,Apres,au_dessus_plafonds,moins_20,false,non_ouvert
+tests_ouverture_droits/Test1/enfant3,metropole,Apres,jusqu_plafond_mayotte,moins_20,false,ouvert
+tests_ouverture_droits/Test1/enfant4,metropole,Apres,jusqu_plafond_mayotte,20_ou_plus,false,non_ouvert

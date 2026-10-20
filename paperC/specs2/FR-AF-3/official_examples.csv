@@ -1,0 +1,2 @@
+case_id,residence,ressources,avant_2012,e1_age,e1_deja_ouvert,e2_age,e2_deja_ouvert,e3_age,e3_deja_ouvert,output
+tests_allocations_familiales/Test2,metropole,jusqu_plafond_I,false,11_14,true,11_14,true,20_23,true,general/T1/B+F
