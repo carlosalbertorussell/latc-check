@@ -22,7 +22,7 @@ run.
 | 2. Ground-truth spot-check, 50 rows | PASS 50/50 | PASS 50/50 | PASS 50/50 | PASS 50/50 |
 | 2. Supplementary (beyond the task) | PASS, all 3 240 rows | PASS 5 000/5 000 | PASS 5 000/5 000 | PASS 5 000/5 000 |
 | 3. Conversion audit | see section 3 | see section 3 | see section 3 | see section 3 |
-| 4. Comparison with `origin/paperc-run-fr` runs.csv | **PASS: 0 of 31 650 cells differ** | PENDING (no runner output yet) | PENDING | PENDING |
+| 4. Comparison with `origin/paperc-run-fr` runs.csv | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | **PASS: 0 of 31 650 cells differ** | PENDING (no runner output yet) |
 
 CTRL-H3 is one of the protocol's measured outcomes (H3), so its failure on FR-AF-1
 is a result of the experiment that the verifier reproduces. It does not indicate a
@@ -107,8 +107,8 @@ protocol counts as spurious.
 8. **"every OFFICIAL row uses declared labels" (CTRL-GT)** was also applied to the
    output column (output in `output.values`).
 9. **CTRL-H3 when R is non-empty**: recorded as fail for the sample with the maximum
-   `spurious_rejected`, as section 7 (c) describes. The runner's FR-AF-1 output was
-   not yet available to compare.
+   `spurious_rejected`, as section 7 (c) describes. The runner records the same
+   outcome for FR-AF-1 (0 of 422 C3 runs complete).
 
 ## 2. Ground-truth spot-check through the Catala encoding
 
@@ -154,21 +154,30 @@ In progress at this commit; see the next commit.
 
 ## 4. Comparison with the runner
 
-`origin/paperc-run-fr` at commit `9a2f43a` ("FR-PF harness outputs (interim; FR-AF
-runs in progress)") holds `paperC/results/FR-PF/` only. Code: `compare.py`; report:
-`FR-PF/compare.txt`.
+`origin/paperc-run-fr` at commit `d5285d9` ("FR-AF-1 outputs and FR-PF CTRL-DET
+(interim)") holds `paperC/results/FR-PF/`, `FR-AF-1/` and `FR-AF-2/`. Code:
+`compare.py`; reports: `<ID>/compare.txt`.
 
-* **FR-PF runs.csv: 1 266 rows × 25 columns = 31 650 cells compared, 0 differ.**
-* CTRL-PLANT, per example set (v, expected count, C2 count, C1 count, pass): 422
-  compared, 0 differ.
+| sample | runs.csv cells compared | differing | CTRL-PLANT sets compared | differing | summary.md statistics (4 decimals) | differing |
+|---|---|---|---|---|---|---|
+| FR-PF | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
+| FR-AF-1 | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
+| FR-AF-2 | 31 650 | **0** | 422 | 0 | 2 268 | 0 |
+| FR-AF-3 | pending | | | | | |
+
+* runs.csv: 1 266 rows × 25 columns per sample, compared as strings, after the
+  two identifier columns were renamed (reading 1 above).
+* CTRL-PLANT, per example set: v, expected count, C2 count, C1 count and pass.
 * summary.md: every statistic the runner prints (mean, median, p2.5, p97.5 of the ten
-  metrics, complete share and Wilson bounds; 2 268 cells, printed to 4 decimals)
-  equals the verifier's value formatted to 4 decimals.
-* Controls agree: CTRL-HASH, CTRL-GT, CTRL-EXCL (0 rows), CTRL-PLANT (422/422),
-  CTRL-H3 (422/422, |R| = 0).
-* FR-AF-1, FR-AF-2, FR-AF-3: **comparison pending**; the runner had not pushed their
-  results when this step was reached. To complete it:
-  `python3.12 paperC/verify/compare.py paperC/verify/<ID> <runner runs.csv> <runner controls.csv> paperC/verify/<ID>/compare.txt <runner summary.md>`.
+  metrics; complete share and Wilson bounds) against the verifier's value formatted
+  to 4 decimals.
+* Controls agree: CTRL-HASH, CTRL-GT, CTRL-EXCL (0 rows each) and CTRL-PLANT (422/422)
+  in all three; CTRL-H3 422/422 for FR-PF and FR-AF-2, 0/422 for FR-AF-1 (|R| = 46 080)
+  in both implementations; CTRL-FULL (recorded only) missing_count = workload = 2 160
+  (FR-PF), 46 080 (FR-AF-1), 0 (FR-AF-2) in both.
+* FR-AF-3: **comparison pending**; the runner had not pushed its results when this
+  step was reached. To complete it:
+  `python3.12 paperC/verify/compare.py paperC/verify/FR-AF-3 <runner runs.csv> <runner controls.csv> paperC/verify/FR-AF-3/compare.txt <runner summary.md>`.
 
 ## Files
 
@@ -179,4 +188,4 @@ runs in progress)") holds `paperC/results/FR-PF/` only. Code: `compare.py`; repo
 | `<ID>/runs.csv`, `controls.csv`, `plant.csv`, `summary.md` | step 1 outputs |
 | `spotcheck.py`, `spotcheck/` | step 2 |
 | `AUDIT-FR.md` | step 3 detail |
-| `compare.py`, `FR-PF/compare.txt` | step 4 |
+| `compare.py`, `<ID>/compare.txt` | step 4 |
