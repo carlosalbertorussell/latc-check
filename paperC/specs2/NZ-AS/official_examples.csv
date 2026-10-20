@@ -1,0 +1,7 @@
+case_id,age,immigration_resident,immigration_permanent_resident,citizen,ordinarily_resident_in_nz,accommodation_costs,social_housing,below_income_threshold,below_cash_threshold,output
+social_security/accommodation_supplement/1964/entitled.yaml#0:0,16+,True,False,False,True,True,False,True,True,True
+social_security/accommodation_supplement/1964/entitled.yaml#1:0,16+,True,True,False,True,True,False,True,True,True
+social_security/accommodation_supplement/1964/entitled.yaml#2:0,16+,False,False,True,True,True,False,True,True,True
+social_security/accommodation_supplement/1964/entitled.yaml#3:0,16+,True,False,False,True,False,False,True,True,False
+social_security/accommodation_supplement/1964/entitled.yaml#4:0,<16,True,False,False,True,True,False,True,True,False
+social_security/accommodation_supplement/1964/entitled.yaml#5:0,16+,True,False,False,True,True,True,True,True,False

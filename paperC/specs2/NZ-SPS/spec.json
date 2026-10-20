@@ -1,0 +1,153 @@
+{
+  "id": "NZ-SPS",
+  "title": "Sole Parent Support entitlement (Social Security Act 2018 ss 29-32), OpenFisca Aotearoa; second coder",
+  "source": {
+    "repository": "https://github.com/digitalaotearoa/openfisca-aotearoa",
+    "commit": "9d77ea7ce3c45b6292d4b4eaf3566b2fb00e7ceb",
+    "entry_point": "sole_parent_support__entitled",
+    "files": [
+      "openfisca_aotearoa/variables/acts/social_security/sole_parent_support/sole_parent_support.py",
+      "openfisca_aotearoa/variables/acts/social_security/resident.py",
+      "openfisca_aotearoa/variables/acts/social_security/relationships.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/child.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/relationship.py",
+      "openfisca_aotearoa/variables/demographics/ages.py",
+      "openfisca_aotearoa/parameters/entitlements/social_security/sole_parent_support/age_threshold.yaml",
+      "openfisca_aotearoa/parameters/social_security/sole_parent_support/child_age_threshold.yml",
+      "openfisca_aotearoa/tests/social_security/sole_parent_support/sole_parent_support__entitled.yaml"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "residential_requirement",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:35 (s29(c)); variable social_security__residential_requirement, resident.py:21 (s16)"
+    },
+    {
+      "name": "age",
+      "kind": "interval",
+      "values": [
+        "<20",
+        "20+"
+      ],
+      "representative": {
+        "<20": 19,
+        "20+": 20
+      },
+      "source": "sole_parent_support.py:37 and :118-130 (s29(d)): age at period.first_day >= entitlements.social_security.sole_parent_support.age_threshold = 20 (parameters/entitlements/social_security/sole_parent_support/age_threshold.yaml, from 2018)"
+    },
+    {
+      "name": "in_a_relationship",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:156 (s30(a)); variable social_security__in_a_relationship, relationships.py:8"
+    },
+    {
+      "name": "spouse_or_partner_died",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:158 (s30(b)), variable :190"
+    },
+    {
+      "name": "marriage_or_civil_union_dissolved",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:160 (s30(c)), variable :199"
+    },
+    {
+      "name": "living_apart_and_lost_support",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:162 (s30(d)), variable :208"
+    },
+    {
+      "name": "partner_imprisoned",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:164 and :217-229 (s30(e)(i)), variable :232"
+    },
+    {
+      "name": "partner_supervision",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:164 and :217-229 (s30(e)(ii)), variable :241"
+    },
+    {
+      "name": "principal_caregiver",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:183 (s30), read at period.first_month of each day; variable social_security__principal_caregiver, interpretation/relationship.py:28 (Schedule 2)"
+    },
+    {
+      "name": "child_dependent",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "sole_parent_support.py:180 (s30), the child's social_security__dependent_child, interpretation/child.py:26 (Schedule 2)"
+    },
+    {
+      "name": "child_age",
+      "kind": "interval",
+      "values": [
+        "<14",
+        "14+"
+      ],
+      "representative": {
+        "<14": 13,
+        "14+": 14
+      },
+      "source": "sole_parent_support.py:178-181 (s30): child's age at the day < social_security.sole_parent_support.child_age_threshold = 14 (parameters/social_security/sole_parent_support/child_age_threshold.yml, from 2018-11-26)"
+    }
+  ],
+  "output": {
+    "name": "sole_parent_support__entitled",
+    "values": [
+      "False",
+      "True"
+    ],
+    "source": "sole_parent_support.py:23-39, formula_2018_11_26 = requirement AND split_care AND residential_requirement AND age_threshold, for the principal P"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "period": {
+      "value": "2019-W05",
+      "why": "the only period used by the official tests; formula_2018_11_26 applies"
+    },
+    "household": {
+      "value": "family F with principal P and one member C in the child role; P is the subject; every other input at its declared default",
+      "why": "s30 and s32 read the family; with one child, social_security__dependent_children of P is 0 or 1, so split care (s32) reduces to P holding the principal role, and the other parent of s32 does not arise"
+    },
+    "principal_caregiver period": {
+      "value": "set for month:2019-01:2",
+      "why": "the dependent child requirement reads it at the first month of each day of 2019-W05, which spans January and February 2019; the official tests set it the same way"
+    }
+  },
+  "notes": "Second-coder conversion (blinded). Choices and sources in CONVERSION_2.md."
+}

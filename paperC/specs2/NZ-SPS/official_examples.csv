@@ -1,0 +1,9 @@
+case_id,residential_requirement,age,in_a_relationship,spouse_or_partner_died,marriage_or_civil_union_dissolved,living_apart_and_lost_support,partner_imprisoned,partner_supervision,principal_caregiver,child_dependent,child_age,output
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#0:Koro,True,20+,True,False,False,False,False,False,True,True,<14,False
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#1:Koro,True,20+,False,False,False,False,False,False,True,True,<14,True
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#5:Koro,True,20+,True,False,False,False,False,False,True,True,<14,False
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#6:Koro,True,20+,False,True,False,False,False,False,True,True,<14,True
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#7:Koro,True,20+,False,False,True,False,False,False,True,True,<14,True
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#8:Koro,True,20+,False,False,False,True,False,False,True,True,<14,True
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#10:Koro,True,20+,False,False,False,False,True,False,True,True,<14,True
+social_security/sole_parent_support/sole_parent_support__entitled.yaml#11:Koro,True,20+,False,False,False,False,False,True,True,True,<14,True

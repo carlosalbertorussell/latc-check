@@ -1,0 +1,134 @@
+{
+  "id": "NZ-AS",
+  "title": "Accommodation Supplement entitlement at 2018-W01 (Social Security Act 1964 s 61EA, formula_1964_12_04), OpenFisca Aotearoa; second coder",
+  "source": {
+    "repository": "https://github.com/digitalaotearoa/openfisca-aotearoa",
+    "commit": "9d77ea7ce3c45b6292d4b4eaf3566b2fb00e7ceb",
+    "entry_point": "accommodation_supplement__entitled",
+    "files": [
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py",
+      "openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/costs.py",
+      "openfisca_aotearoa/variables/acts/immigration/residence.py",
+      "openfisca_aotearoa/variables/acts/citizenship/citizenship.py",
+      "openfisca_aotearoa/variables/acts/social_security/resident.py",
+      "openfisca_aotearoa/variables/demographics/ages.py",
+      "openfisca_aotearoa/parameters/social_security/accommodation_supplement/age_threshold.yaml",
+      "openfisca_aotearoa/tests/social_security/accommodation_supplement/1964/entitled.yaml",
+      "openfisca_aotearoa/tests/social_security/accommodation_supplement/2018/entitled.yaml"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "age",
+      "kind": "interval",
+      "values": [
+        "<16",
+        "16+"
+      ],
+      "representative": {
+        "<16": 15,
+        "16+": 16
+      },
+      "source": "entitled.py:80-89, age at period.first_day >= social_security.accommodation_supplement.age_threshold = 16 (parameters/social_security/accommodation_supplement/age_threshold.yaml, from 1964-12-04; SSA 1964 s 61EA, https://www.legislation.govt.nz/act/public/1964/0136/latest/DLM359124.html)"
+    },
+    {
+      "name": "immigration_resident",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:107; variable immigration__resident, immigration/residence.py:34 (Immigration Act 2009 s 4)"
+    },
+    {
+      "name": "immigration_permanent_resident",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:108; variable immigration__permanent_resident, immigration/residence.py:26"
+    },
+    {
+      "name": "citizen",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:109; variable citizenship__citizen, citizenship/citizenship.py:11"
+    },
+    {
+      "name": "ordinarily_resident_in_nz",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:101-104; variable social_security__ordinarily_resident_in_new_zealand, resident.py:77"
+    },
+    {
+      "name": "accommodation_costs",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:112-115; accommodation_supplement__accommodation_costs (costs.py:11) has only formula_2018_11_26, so at 2018-W01 it is a plain input"
+    },
+    {
+      "name": "social_housing",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:117-118; variable social_housing__eligible, entitled.py:142 (default True)"
+    },
+    {
+      "name": "below_income_threshold",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:120-123; variable at entitled.py:151 (default True)"
+    },
+    {
+      "name": "below_cash_threshold",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "entitled.py:125-128; variable at entitled.py:159 (default True)"
+    }
+  ],
+  "output": {
+    "name": "accommodation_supplement__entitled",
+    "values": [
+      "False",
+      "True"
+    ],
+    "source": "entitled.py:75-138, formula_1964_12_04 (applies to periods before 2018-11-26)"
+  },
+  "exclusions": [
+    {
+      "id": "PR-IMPLIES-RESIDENT",
+      "description": "A holder of a permanent resident visa is by definition a resident: the encoding defines immigration__resident as 'Holder of a permanent resident visa or a resident visa' (formula holds_resident_visa OR permanent_resident), and the Immigration Act 2009 s 4 counts a permanent resident visa among residence class visas.",
+      "predicate": "immigration_permanent_resident == 'True' and immigration_resident == 'False'",
+      "source": "immigration/residence.py:34-42; Immigration Act 2009 s 4, http://legislation.govt.nz/act/public/2009/0051/latest/whole.html#DLM1440311"
+    }
+  ],
+  "fixed_inputs": {
+    "period": {
+      "value": "2018-W01",
+      "why": "period of the six 1964-Act official tests; formula_1964_12_04 applies"
+    },
+    "household": {
+      "value": "one person P, principal of a one-person family; every other input at its declared default",
+      "why": "formula_1964_12_04 reads only person-level variables"
+    }
+  },
+  "notes": "Second-coder conversion (blinded). Choices and sources in CONVERSION_2.md."
+}

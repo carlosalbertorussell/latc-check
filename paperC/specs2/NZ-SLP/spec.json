@@ -1,0 +1,114 @@
+{
+  "id": "NZ-SLP",
+  "title": "Supported Living Payment entitlement (Social Security Act 2018 ss 34-42), OpenFisca Aotearoa; second coder",
+  "source": {
+    "repository": "https://github.com/digitalaotearoa/openfisca-aotearoa",
+    "commit": "9d77ea7ce3c45b6292d4b4eaf3566b2fb00e7ceb",
+    "entry_point": "supported_living_payment__entitled",
+    "files": [
+      "openfisca_aotearoa/variables/acts/social_security/supported_living_payment/supported_living_payment.py",
+      "openfisca_aotearoa/variables/acts/social_security/resident.py",
+      "openfisca_aotearoa/variables/acts/social_security/interpretation/child.py",
+      "openfisca_aotearoa/variables/demographics/ages.py",
+      "openfisca_aotearoa/variables/demographics/health.py",
+      "openfisca_aotearoa/tests/social_security/supported_living_payment/entitled.yaml"
+    ]
+  },
+  "attributes": [
+    {
+      "name": "restricted_work_capacity",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "supported_living_payment.py:50 (s34(a)); variable supported_living_payment__restricted_work_capacity, supported_living_payment.py:109"
+    },
+    {
+      "name": "totally_blind",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "supported_living_payment.py:50 (s34(a)); variable totally_blind, demographics/health.py:26"
+    },
+    {
+      "name": "residential_requirement",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "supported_living_payment.py:53 and :84 (s34(b), s40(1)(b)); variable social_security__residential_requirement, resident.py:21 (s16)"
+    },
+    {
+      "name": "age",
+      "kind": "interval",
+      "values": [
+        "<16",
+        "16-17",
+        "18-19",
+        "20+"
+      ],
+      "representative": {
+        "<16": 15,
+        "16-17": 16,
+        "18-19": 18,
+        "20+": 20
+      },
+      "source": "supported_living_payment.py:56 (>= 16, s34(c)), :87 (>= 18, s40(1)(c)(i)), :90 (>= 20, s40(1)(c)(ii)); age read at period.start"
+    },
+    {
+      "name": "disability_self_inflicted",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "supported_living_payment.py:61 (s36); variable at supported_living_payment.py:147"
+    },
+    {
+      "name": "caring_for_another_person",
+      "kind": "bool",
+      "values": [
+        "False",
+        "True"
+      ],
+      "source": "supported_living_payment.py:81 (s40(1)(a)); variable at supported_living_payment.py:137"
+    },
+    {
+      "name": "dependent_children",
+      "kind": "interval",
+      "values": [
+        "0",
+        "1+"
+      ],
+      "representative": {
+        "0": 0,
+        "1+": 1
+      },
+      "source": "supported_living_payment.py:87 (== 0, s40(1)(c)(i)); variable social_security__dependent_children, interpretation/child.py:43 (Schedule 2)"
+    }
+  ],
+  "output": {
+    "name": "supported_living_payment__entitled",
+    "values": [
+      "False",
+      "True"
+    ],
+    "source": "supported_living_payment.py:9-38, formula_2018_11_26 = disabled_or_blind OR carer"
+  },
+  "exclusions": [],
+  "fixed_inputs": {
+    "period": {
+      "value": "2019-W01",
+      "why": "the only period used by the official entitlement tests (entitled.yaml); formula_2018_11_26 applies"
+    },
+    "household": {
+      "value": "one person P, principal of a one-person family; every other input at its declared default",
+      "why": "the formula reads only person-level variables; dependent children enter through the dependent_children attribute"
+    }
+  },
+  "notes": "Second-coder conversion (blinded). Choices and sources in CONVERSION_2.md."
+}

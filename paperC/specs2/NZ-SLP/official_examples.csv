@@ -1,0 +1,14 @@
+case_id,restricted_work_capacity,totally_blind,residential_requirement,age,disability_self_inflicted,caring_for_another_person,dependent_children,output
+social_security/supported_living_payment/entitled.yaml#0:0,False,False,False,16-17,False,False,0,False
+social_security/supported_living_payment/entitled.yaml#1:0,False,True,True,16-17,False,False,0,True
+social_security/supported_living_payment/entitled.yaml#1:1,False,True,True,<16,False,False,0,False
+social_security/supported_living_payment/entitled.yaml#2:0,True,False,True,16-17,False,False,0,True
+social_security/supported_living_payment/entitled.yaml#2:1,True,False,True,<16,False,False,0,False
+social_security/supported_living_payment/entitled.yaml#3:0,True,False,True,16-17,False,False,0,True
+social_security/supported_living_payment/entitled.yaml#3:1,True,False,True,16-17,True,False,0,False
+social_security/supported_living_payment/entitled.yaml#4:0,False,False,True,16-17,False,True,0,False
+social_security/supported_living_payment/entitled.yaml#4:1,False,False,True,18-19,False,True,0,True
+social_security/supported_living_payment/entitled.yaml#5:0,False,False,True,18-19,False,True,1+,False
+social_security/supported_living_payment/entitled.yaml#5:1,False,False,True,20+,False,True,1+,True
+social_security/supported_living_payment/entitled.yaml#6:0,False,False,True,20+,False,True,0,True
+social_security/supported_living_payment/entitled.yaml#6:1,False,False,False,20+,False,True,0,False
