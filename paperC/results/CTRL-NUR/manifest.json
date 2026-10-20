@@ -1,0 +1,69 @@
+{
+  "sample_id": "CTRL-NUR",
+  "protocol": {
+    "path": "paperC/PROTOCOL.md",
+    "registered_commit": "ee7c527080e665df70b906f0cbf091098e84ad5f"
+  },
+  "harness_commit": "0269952afddb3d6e0458f1e035de733f8721be96",
+  "tracked_inputs_unmodified": true,
+  "python": {
+    "version": "3.12.3",
+    "implementation": "CPython"
+  },
+  "design": {
+    "sources": [
+      "OFFICIAL",
+      "FULL",
+      "UNIFORM",
+      "ZIPF"
+    ],
+    "sizes": [
+      10,
+      20,
+      50,
+      100,
+      200,
+      500,
+      1000
+    ],
+    "seeds": [
+      0,
+      29
+    ],
+    "conditions": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "zipf_s": 1.0
+  },
+  "counts": {
+    "runs": 1263,
+    "controls_rows": 427
+  },
+  "inputs": {
+    "paperC/specs/CTRL-NUR/CONVERSION.md": "ff4b7d1014c66bfca9ce7005627930a21a73567115c77771d5b2efe4d58a4898",
+    "paperC/specs/CTRL-NUR/ENVIRONMENT.md": "c795d3b1077b2082ac284a28d7168b051e03b6c37dcb9b6ddabba689ddff5a98",
+    "paperC/specs/CTRL-NUR/ground_truth.csv": "0bb5f73ee7ad1cc8faf2cbbc887bfd87280183b4719f17f8064893a444078035",
+    "paperC/specs/CTRL-NUR/official_examples.csv": "56146a20b9c6cff63fceb5bb3fd99b7232f908f0bcb8f236644824b6bfe53bcd",
+    "paperC/specs/CTRL-NUR/oracle.py": "aa0f7f0624d7a9c0f085bee519f870a302f09bdd05906dd35493146be3667c6e",
+    "paperC/specs/CTRL-NUR/spec.json": "0aa33ec9c2314deb8c0623a3f06c2bcd5abeca6362e7baad3b6fe8c4845f5df7",
+    "paperC/specs/CTRL-NUR/SHA256SUMS": "82abdaf551d55f9587b00595f5a992031bfb3f81dcc4a9171e38efedff6ba80b",
+    "paperC/PROTOCOL.md": "3ceab66fe2cfcda05508949e9f6e35702430620351416113889d2f8e1af75462",
+    "paperC/harness/__init__.py": "f22c44537c32376398cd9f3058108fcdb3b200224ee7c10757215b2322b97f40",
+    "paperC/harness/determinism.py": "249f09b67649809ca30305035b6684d60b6c9840b46cc8cda8118091895ab168",
+    "paperC/harness/experiment.py": "603971cb700b51a850bb2a24a1e8f1706c7490a519c252a1a599207f20a41525",
+    "paperC/harness/run.py": "aa7cda5ed30d24a58dce423dc586e2151c19a1b2b583491a52eaa4e5fe59b025",
+    "paperC/harness/spec.py": "f04a5cc0f0e78c904ec14a3793d273963738ab6039f0ab7cc476b032a260c14a",
+    "paperC/harness/stats.py": "a003178bac85f1a83f0343712f0b4e57917375f8262453bf9b62759b56c6a8ff",
+    "latc_check/__init__.py": "2065b78ce59b052f3da932279d303a4c799062cc899d1d524211eca80137bee0",
+    "latc_check/latc.py": "5efbc69f9bdfd0e87952402581cb40c852076b41e98f0568f057307a3626ec57",
+    "latc_check/model.py": "8695ec6e0e16fc7e524945431eecab3267bbcb727b360ebd3e7e89448ad2ac90",
+    "latc_check/reference.py": "2ff558e8eb1a767e2b457cf0751f7bdef2c64df4efb0dc51d9b9ded29d4aab74"
+  },
+  "outputs": {
+    "paperC/results/CTRL-NUR/runs.csv": "900c6fe189e610426094267814368a057813578c74ef224ed2077dcedc650645",
+    "paperC/results/CTRL-NUR/controls.csv": "8a4fd19f587101d52232344395ab0a1f1093b17fef9555854dad123c0adb636b",
+    "paperC/results/CTRL-NUR/summary.md": "ea45fb7b8035e3b35bd14d6726d00e308ed80614699b8534d7808afd860c910d"
+  }
+}

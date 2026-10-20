@@ -1,0 +1,32 @@
+{
+  "id": "CTRL-NUR",
+  "title": "UCI Nursery (control): ranking of applications for nursery schools, Ljubljana, 1980s",
+  "source": {
+    "repository": "https://archive.ics.uci.edu/dataset/76/nursery (copy in this repository under data/raw/uci_nursery/)",
+    "commit": "c6d2802abe667a9a49cbcb3848f12407fdf00ef5",
+    "entry_point": "data/raw/uci_nursery/nursery.data",
+    "files": [
+      "data/raw/uci_nursery/nursery.data",
+      "data/raw/uci_nursery/nursery.names",
+      "data/raw/uci_nursery/nursery.c45-names"
+    ]
+  },
+  "attributes": [
+    {"name": "parents", "kind": "enum", "values": ["usual", "pretentious", "great_pret"], "representative": {}, "source": "nursery.names section 7"},
+    {"name": "has_nurs", "kind": "enum", "values": ["proper", "less_proper", "improper", "critical", "very_crit"], "representative": {}, "source": "nursery.names section 7"},
+    {"name": "form", "kind": "enum", "values": ["complete", "completed", "incomplete", "foster"], "representative": {}, "source": "nursery.names section 7"},
+    {"name": "children", "kind": "enum", "values": ["1", "2", "3", "more"], "representative": {}, "source": "nursery.names section 7"},
+    {"name": "housing", "kind": "enum", "values": ["convenient", "less_conv", "critical"], "representative": {}, "source": "nursery.names section 7"},
+    {"name": "finance", "kind": "enum", "values": ["convenient", "inconv"], "representative": {}, "source": "nursery.names section 7"},
+    {"name": "social", "kind": "enum", "values": ["nonprob", "slightly_prob", "problematic"], "representative": {}, "source": "nursery.names section 7 (spelled non-prob there; nonprob in nursery.data and nursery.c45-names, see CONVERSION.md)"},
+    {"name": "health", "kind": "enum", "values": ["recommended", "priority", "not_recom"], "representative": {}, "source": "nursery.names section 7"}
+  ],
+  "output": {
+    "name": "NURSERY",
+    "values": ["not_recom", "recommend", "very_recom", "priority", "spec_prior"],
+    "source": "nursery.names section 9 (class distribution); same order in nursery.c45-names"
+  },
+  "exclusions": [],
+  "fixed_inputs": {},
+  "notes": "Control sample. The data set completely covers the declared space (nursery.names section 5), so there are no exclusions and no REJECTED rows. There are no official test cases; official_examples.csv holds only its header."
+}
