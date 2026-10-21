@@ -31,12 +31,25 @@ compiles Mathlib from source, which takes hours. A clean build ends with no erro
 `sorry` warnings. `LatcFormal/Axioms.lean` runs `#print axioms` on every main theorem;
 each should list only `propext`, `Classical.choice` and `Quot.sound`.
 
-Verification status (2026-10-21, Windows, Lean 4.35.0): `Basic`, `Prop2`, `Prop3`, `Prop4`
-and `Examples` built with no errors and no `sorry`. The axiom audit printed only the three
-standard axioms for `prop3`, both parts of `prop4`, the two §6.2 theorems and the three
-examples. In that run, `Axioms.lean` lacked `import LatcFormal.Prop2`, so its four
-`prop2*` lines failed with "unknown constant". The import was then added, but the full
-`lake build` has not been rerun on the final tree.
+Verification status (2026-10-21, Linux cloud machine, x86_64): on the final tree (commit
+`caa1514`, where `Axioms.lean` imports `LatcFormal.Prop2`), Lean 4.35.0 (commit
+`eb6cafb7290e8bd5f2937522d8d804f58f02bafc`, Lake 5.0.0) and Mathlib `v4.35.0` (commit
+`56a005855ea17e0b0958f73ec801ae140b0a1679`, from `lake exe cache get`, 9031 cached files),
+the full `lake build` ended with `Build completed successfully (9054 jobs)` and exit
+code 0. All seven files of this library (`Basic`, `Prop2`, `Prop3`, `Prop4`, `Examples`,
+`Axioms` and the root `LatcFormal`) built with no errors and no `sorry` warnings; the
+other 9047 jobs were Mathlib and its dependencies. The single warning was Lake's advisory
+that `Basic.lean` imports Mathlib without the `module` keyword, which does not affect the
+proofs. The axiom audit printed `[propext, Classical.choice, Quot.sound]` for each of
+`Latc.prop2`, `Latc.prop2_missed`, `Latc.prop2_extra`, `Latc.prop2_missed_iff`,
+`Latc.prop3`, `Latc.prop4_necessity`, `Latc.prop4_insufficiency`,
+`Latc.prop4_insufficiency_needs_an_attribute`, `Latc.check_membership_sufficient`,
+`Latc.check_wrong_output_cases`, `Latc.Examples.prop4_counterexample`,
+`Latc.Examples.twins_same_profile` and `Latc.Examples.complete_pair`, and `sorryAx` appears
+in none. A search of the folder for `sorry`, `axiom`, `admit` and `native_decide` finds
+them only in comments, in this README and in the `#print axioms` commands of
+`Axioms.lean`. An earlier Windows run built every file except the four `prop2*` audit
+lines, which failed because the `Prop2` import was missing at the time.
 
 ## Model (Section 3)
 
