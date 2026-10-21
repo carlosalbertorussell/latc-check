@@ -20,7 +20,7 @@ so that it does not count as a sample (deviation 3).
 
 | ID | Declared space | EXCLUDED | REJECTED | Valid | Valid True | Valid False |
 |---|---:|---:|---:|---:|---:|---:|
-| NZ-SLP | 256 | 32 | 0 | 224 | 48 | 176 |
+| NZ-SLP | 256 | 0 | 0 | 256 | 51 | 205 |
 | NZ-AS | 86,016 | 37,632 | 0 | 48,384 | 28 | 48,356 |
 | NZ-SPS | 122,880 | 23,040 | 0 | 99,840 | 6,867 | 92,973 |
 | *NZ-AS-1964 (supplementary)* | 512 | 128 | 0 | 384 | 5 | 379 |
@@ -151,12 +151,13 @@ AGPL notice or separate licensing, is for the author to decide before publicatio
    Act section named. Two candidate exclusions that would have needed the Act's text
    (s 67(b)(ii) with (iii) for the same grant; citizen holding a residence visa) were not
    declared. The author may want to check these against the Act.
-   Exclusions declared: SLP-X1 (self-inflicted flag without restricted capacity or
-   blindness), SPS-X1 (principal caregiver without a dependent child), SPS-X2 (s 32
+   Exclusions declared: SPS-X1 (principal caregiver without a dependent child), SPS-X2 (s 32
    child flags without a dependent child), AS-X1 (partner receiving AS without a
    relationship), AS-X2 (independent circumstances grant eligibility while receiving a
    basic grant, reg 8(3) of the Student Allowances Regulations 1998), AS64-X1 (permanent
-   resident who is not a resident in the encoding's sense). NZ-AS has a large excluded
+   resident who is not a resident in the encoding's sense). SLP-X1 (self-inflicted flag
+   without restricted capacity or blindness) was declared in the first version and removed
+   on 2026-10-21 (Correction below). NZ-AS has a large excluded
    share (43.75%) because its two exclusions each remove a quarter of the space.
 7. **Official cases are mapped per person**, and a case that overrides an intermediate
    variable maps only when the override equals what the row computes (CONVERSION.md C6).
@@ -171,3 +172,34 @@ AGPL notice or separate licensing, is for the author to decide before publicatio
 9. **Test logs** in `paperC/openfisca_nz/test_logs/` contain the absolute path of the
    clone used (`/home/user/work/...`); they are records of the run and are not inputs of
    the harness.
+
+## Correction (2026-10-21): NZ-SLP exclusion SLP-X1 removed
+
+An analysis of the two conversions (`paperc-analysis`, `paperC/analysis/REPORT-M2-M6.md`,
+"Findings for the author" item 1) found that SLP-X1 rested on a claim about outputs
+(the 32 rows "would be False in any case") and that the claim is false for 3 rows,
+which the s 40 carer route makes True. An exclusion needs a legal or definitional
+impossibility. Section 36 disqualifies only on the s 34 ground and refers to a past act
+(the encoding stores the flag with `definition_period = ETERNITY`, beside a weekly
+restricted-work-capacity input), so a person with the flag set and neither s 34(a)
+condition in week 2019-W01 is possible. The exclusion was removed and every row is now
+evaluated through the encoding (OpenFisca Aotearoa 22.0.0, commit `9d77ea7ce3c4`,
+OpenFisca-Core 41.5.7). Reasoning in full: `NZ-SLP/CONVERSION.md`, "Correction".
+
+| NZ-SLP | \|D\| | valid | EXCLUDED | REJECTED | valid True | valid False |
+|---|---:|---:|---:|---:|---:|---:|
+| before | 256 | 224 | 32 | 0 | 48 | 176 |
+| after | 256 | 256 | 0 | 0 | 51 | 205 |
+
+The 32 rows are 29 False and 3 True; the other 224 rows keep their output.
+`oracle.py --check-official` still passes every mappable official case (13 direct, 13
+mapped, 0 unmappable); `official_examples.csv` is unchanged; `crosscheck.py` agrees on
+256/256 rows. The table now agrees with the second, blinded conversion, which declared
+no exclusion. NZ-AS and NZ-SPS are unchanged.
+
+Not updated with this correction (outside the folder this correction may change):
+`paperC/openfisca_nz/logs/summary.txt` and `paperC/openfisca_nz/docs/NZ-SLP.md` still
+carry the first version's NZ-SLP counts and item 5. `rebuild_all.sh` regenerates
+`NZ-SLP/CONVERSION.md` from `docs/NZ-SLP.md`, so a full rebuild would drop the
+Correction section from it until `docs/NZ-SLP.md` is brought in line; the table,
+`spec.json` and the oracle outputs would rebuild unchanged.

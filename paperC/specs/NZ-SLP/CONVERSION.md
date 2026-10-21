@@ -13,14 +13,34 @@ Entry variable `supported_living_payment__entitled` (`supported_living_payment.p
    * `social_security__dependent_children` (`interpretation/child.py:43`), the number of dependent children, computed from the family's child members. `entitled.yaml` case 6 sets it directly. Only `== 0` is compared (line 87), so the declared values are `0` and `>=1`.
 3. **Age bands.** The formulas compare the age at `period.start` (2018-12-31) with the literals 16 (line 56, s 34(c)), 18 (line 87, s 40(1)(c)(i)) and 20 (line 90, s 40(1)(c)(ii)). No parameter file is involved. Bands `<16`, `16-17`, `18-19`, `>=20` with representatives 15, 16, 18, 20. Age is set directly for every day of the week (`set_input_dispatch_by_period`), as the official tests do; `date_of_birth` is not used.
 4. **Fixed inputs.** The applicant is alone, as principal of a one-person family. Nothing on the path reads another family member. The period is the period of every entitlement case; the formula reads no parameter, so the table is the same for every week from 2018-11-26.
-5. **Exclusion SLP-X1.** `supported_living_payment__disability_self_inflicted` is labelled "The person's restricted capacity for work, or total blindness, was self-inflicted and brought about by the person with a view to qualifying for a benefit" (line 151, SSA 2018 s 36). The flag presupposes restricted work capacity or total blindness; when both are False it describes something impossible by definition. 32 rows. The output of those rows would be False in any case (the s 34 branch already fails), so the exclusion changes labels and never outcomes.
-6. **Exclusions considered and rejected.** Age under 16 with dependent children (possible: the Act does not bar a parent under 16 from having a dependent child); caring for another person combined with restricted work capacity (possible; the two grounds are independent).
+5. **No exclusion.** Every one of the 256 declared rows is evaluated through the encoding. Until 2026-10-21 the table declared exclusion SLP-X1 (self-inflicted flag set while restricted work capacity and total blindness are both False, 32 rows); it was removed because no provision makes that combination impossible (see Correction below).
+6. **Exclusions considered and rejected.** The former SLP-X1 (see Correction); age under 16 with dependent children (possible: the Act does not bar a parent under 16 from having a dependent child); caring for another person combined with restricted work capacity (possible; the two grounds are independent).
 7. **Official cases.** 50 cases. The 43 cases of `base.yaml` assert the benefit amount with `supported_living_payment__entitled` set as an input, so they assert nothing about eligibility. The 7 cases of `entitled.yaml` assert eligibility for 13 persons; all 13 map onto the table and pass. Every mapped case also sets `citizenship__citizen`, which the table reads only through `social_security__residential_requirement`.
 
 ## Encoding behaviour reproduced
 
 * The s 40 carer route with dependent children: an applicant aged 18-19 with dependent children is not eligible (line 87-90), as the Act states.
 * No further departures were found on this path.
+
+## Correction (2026-10-21)
+
+**What changed.** Exclusion SLP-X1 was removed from `spec.json`; `ground_truth.csv` was regenerated with `oracle.py --enumerate` in the environment of `paperC/openfisca_nz/requirements.lock` (OpenFisca Aotearoa 22.0.0 at commit `9d77ea7ce3c4`, OpenFisca-Core 41.5.7, Python 3.11.17), and `SHA256SUMS` was rewritten. Nothing else in the folder changed in substance: `oracle.py`, `official_examples.csv` and `ENVIRONMENT.md` are byte-identical, and the `--check-official` log is identical to `paperC/openfisca_nz/logs/check_official_NZ-SLP.txt`.
+
+**Why.** An exclusion must rest on a legal or definitional impossibility. SLP-X1 rested on two claims (item 5 of the first version):
+
+1. *"The flag presupposes restricted work capacity or total blindness; when both are False it describes something impossible by definition."* Section 36 is a disqualification attached to the s 34 ground: it removes entitlement on the ground of restricted work capacity or total blindness when that condition was self-inflicted with a view to qualifying for a benefit. When s 34(a) fails, s 36 has nothing to act on; an inapplicable disqualification leaves the person's facts possible. The facts s 36 refers to (the person's own act and its purpose) are historical, and the encoding records them that way: `supported_living_payment__disability_self_inflicted` has `definition_period = ETERNITY` (`supported_living_payment.py:147-152`), while `supported_living_payment__restricted_work_capacity` is a weekly variable (`:109-116`, read at `period.first_week`, `:50`). A person whose capacity for work was once restricted by a self-inflicted act, and who in week 2019-W01 no longer meets s 35 (for example after a reassessment under s 37), has the flag True and both s 34(a) inputs False. The same holds with total blindness on either side. No provision of ss 34-36 or s 40 rules the combination out, for any of the 32 rows.
+2. *"The output of those rows would be False in any case."* This is a claim about outputs, which is no ground for an exclusion. It is also false for 3 rows: the s 40 carer route (`supported_living_payment.py:79-106`) reads neither the s 34 grounds nor the self-inflicted flag, and s 40 is a separate ground of entitlement in the Act. A carer who meets the residential requirement and the s 40(1)(c) age test is eligible whatever their s 36 history.
+
+The text of the Act could not be fetched from the build environment (legislation.govt.nz and NZLII return HTTP 403, as for the first conversion, README-NZ.md deviation 6); the reasoning relies on the sections the encoding cites, its variable labels and its references. The author may wish to confirm it against ss 34-36 and 40 of the Act.
+
+**Counts.**
+
+| | \|D\| | valid | EXCLUDED | REJECTED | valid True | valid False |
+|---|---:|---:|---:|---:|---:|---:|
+| before (`origin/paperc-data-nz`) | 256 | 224 | 32 | 0 | 48 | 176 |
+| after | 256 | 256 | 0 | 0 | 51 | 205 |
+
+The 32 former EXCLUDED rows are 29 False and 3 True. The 3 True rows all have the self-inflicted flag True, restricted work capacity False, totally blind False, residential requirement True and caring for another person True, with (age 18-19, no dependent children), (age >=20, no dependent children) or (age >=20, >=1 dependent child). The other 224 rows keep their output. The official cases are unaffected: 13/13 asserted person-values pass directly and 13/13 mapped rows pass through the oracle; none of them falls on a former SLP-X1 row. `crosscheck.py` agrees on 256/256 rows, `--batch-diagnostic` on 256/256, and two `--enumerate` runs gave byte-identical files. This agrees with the second, blinded conversion (`paperc-code2-nz`, `paperC/specs2/NZ-SLP`), which declared no exclusion. Full record: `paperC/results/REPORT-NZ-SLP-FIX.md`.
 
 ## Conventions shared by the NZ samples
 

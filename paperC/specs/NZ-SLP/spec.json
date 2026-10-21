@@ -33,16 +33,11 @@
   ],
   "output": {"name": "supported_living_payment__entitled", "values": ["True", "False"],
              "source": "supported_living_payment.py:9-38, value at week 2019-W01 of the applicant"},
-  "exclusions": [
-    {"id": "SLP-X1",
-     "description": "The self-inflicted flag is set although the person has neither restricted work capacity nor total blindness. The variable is defined as 'The person's restricted capacity for work, or total blindness, was self-inflicted ...', which presupposes one of the two.",
-     "predicate": "supported_living_payment__disability_self_inflicted == 'True' and supported_living_payment__restricted_work_capacity == 'False' and totally_blind == 'False'",
-     "source": "SSA 2018 s 36; supported_living_payment.py:151 (variable label)"}
-  ],
+  "exclusions": [],
   "fixed_inputs": {
     "period": {"value": "2019-W01", "why": "The period of all 7 official entitlement cases (entitled.yaml). formula_2018_11_26 applies from 2018-11-26; it reads no parameter, so every week since then gives the same table."},
     "household": {"value": "the applicant alone, principal of a one-person family", "why": "The eligibility formula reads only person-level variables; dependent children enter as the count social_security__dependent_children, which the official tests also set directly."},
     "date_of_birth": {"value": "not set; age is set directly for every day of the week", "why": "The official tests set age directly; the formula reads age at period.start."}
   },
-  "notes": "Applicant-level eligibility for Supported Living Payment on either ground (s 34 restricted work capacity or total blindness; s 40 carer). The two defined terms social_security__residential_requirement and social_security__dependent_children are attributes in their own right (CONVERSION.md 2). Interpretive choices and the mapping of the official cases: CONVERSION.md."
+  "notes": "Applicant-level eligibility for Supported Living Payment on either ground (s 34 restricted work capacity or total blindness; s 40 carer). The two defined terms social_security__residential_requirement and social_security__dependent_children are attributes in their own right (CONVERSION.md 2). Interpretive choices and the mapping of the official cases: CONVERSION.md. No exclusion: the former SLP-X1 was removed on 2026-10-21 (CONVERSION.md, Correction)."
 }
