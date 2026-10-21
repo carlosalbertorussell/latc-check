@@ -1,0 +1,1966 @@
+{
+ "alignment": {
+  "FR-PF": [
+   {
+    "input": "date_courante",
+    "first": "fixed 2020-05-01",
+    "second": "fixed 2020-05-01",
+    "nesting": "coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/spec.json:101",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/spec.json:113"
+   },
+   {
+    "input": "résidence",
+    "first": "attribute, 9 collectivités",
+    "second": "attribute, 3 classes (metropole = Métropole+SaintPierreEtMiquelon; drom_l751_1 = 6 L751-1 territories; mayotte)",
+    "nesting": "first refines second",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/spec.json:21",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/CONVERSION_2.md:50"
+   },
+   {
+    "input": "obligation_scolaire",
+    "first": "attribute Avant/Pendant/Apres",
+    "second": "attribute Avant/Pendant/Apres",
+    "nesting": "coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/spec.json:28",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/spec.json:40"
+   },
+   {
+    "input": "date_de_naissance",
+    "first": "attribute age, cuts at 3, 16, 20 years (a00_03, a03_16, a16_20, a20_plus)",
+    "second": "attribute age_20_ans, cut at 20 years (moins_20, 20_ou_plus)",
+    "nesting": "first refines second (same strictness at 20: b + 20 an > date_courante)",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/spec.json:42",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/CONVERSION_2.md:110"
+   },
+   {
+    "input": "rémuneration_mensuelle",
+    "first": "attribute, 3 bands relative to the residence's ceiling: < ceiling, = ceiling, > ceiling (943,02 EUR; Mayotte 711,49 EUR)",
+    "second": "attribute, 3 absolute bands: [0, 711,49], (711,49, 943,02], > 943,02 EUR",
+    "nesting": "cross (first isolates the ceiling point and is residence-relative; second cuts at both ceilings for every residence)",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/CONVERSION.md:83",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/CONVERSION_2.md:57"
+   },
+   {
+    "input": "prise_en_charge",
+    "first": "attribute, 5 values (not read by droit_ouvert)",
+    "second": "fixed EffectiveEtPermanente",
+    "nesting": "first varies, second fixes",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/CONVERSION.md:52",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/CONVERSION_2.md:97"
+   },
+   {
+    "input": "a_déjà_ouvert_droit_aux_allocations_familiales",
+    "first": "fixed vrai",
+    "second": "fixed vrai",
+    "nesting": "coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/CONVERSION.md:98",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/spec.json:121"
+   },
+   {
+    "input": "bénéficie_titre_personnel_aide_personnelle_logement",
+    "first": "attribute apl",
+    "second": "attribute aide_logement_personnelle",
+    "nesting": "coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/spec.json:68",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/spec.json:83"
+   },
+   {
+    "input": "identifiant",
+    "first": "fixed 1",
+    "second": "fixed 1",
+    "nesting": "coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/spec.json:102",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/spec.json:125"
+   },
+   {
+    "input": "exclusions",
+    "first": "X1-X3: obligation_scolaire inconsistent with the 3/16-year cuts (2 160 of 3 240 rows)",
+    "second": "X-PF-SCOL: Avant or Pendant with age 20 or more (36 of 108 rows)",
+    "nesting": "first's exclusions contain the second's (every X-PF-SCOL cell is in X1 or X2); the first also excludes Avant at 3-19, Pendant under 3 or at 16-19 and Apres under 16, which the second's single age cut cannot state",
+    "src1": "paperc-data-fr:paperC/specs/FR-PF/CONVERSION.md:103",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-PF/CONVERSION_2.md:119"
+   }
+  ],
+  "FR-AF": [
+   {
+    "input": "date_courante",
+    "first": "fixed 2020-05-01 (all three tables)",
+    "second": "fixed 2020-05-01 (all three tables)",
+    "nesting": "coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:102",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:24"
+   },
+   {
+    "input": "number of children (i_enfants length)",
+    "first": "FR-AF-1: 0-3 (slots with `absent`); FR-AF-2: exactly 2; FR-AF-3: exactly 3",
+    "second": "FR-AF-1: exactly 1; FR-AF-2: exactly 2; FR-AF-3: exactly 3",
+    "nesting": "first FR-AF-1 covers the 1-, 2- and 3-child shapes of all three second tables (with fewer per-child inputs); 0 children only in the first",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:16",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:93"
+   },
+   {
+    "input": "i_résidence",
+    "first": "attribute 9 values in FR-AF-1, FR-AF-2; fixed Métropole in FR-AF-3",
+    "second": "attribute 3 classes in all three tables",
+    "nesting": "first refines second where both vary",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/spec.json:24",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:39"
+   },
+   {
+    "input": "i_ressources_ménage",
+    "first": "FR-AF-1: 5 bands < pI, = pI, (pI, pII), = pII, > pII; FR-AF-2: 3 bands <= pI, (pI, pII], > pII; FR-AF-3: fixed 30 000 EUR; pI = 57 759 + 5 775 n, pII = 80 831 + 5 775 n EUR",
+    "second": "5 bands in all tables: <= pI, (pI, pI + 12a], (pI + 12a, pII], (pII, pII + 12a], > pII + 12a, a = allocation computed by the encoding",
+    "nesting": "cross. Both cut at pI and pII. The second adds the complément dégressif cuts pI + 12a and pII + 12a; the first FR-AF-1 isolates the points pI and pII. First FR-AF-2's 3 bands are refined by the second's 5",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:148",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:195"
+   },
+   {
+    "input": "i_personne_charge_effective_permanente_est_parent / _remplit_titre_I",
+    "first": "two attributes in FR-AF-1 (both false = REJECTED); fixed (vrai, faux) in FR-AF-2, FR-AF-3",
+    "second": "one attribute attributaire in FR-AF-1: parent (vrai, faux), tiers_titre_I (faux, vrai), aucun (EXCLUDED); (vrai, vrai) has no label; fixed parent in FR-AF-2, FR-AF-3",
+    "nesting": "first refines second on FR-AF-1 ((vrai, vrai) is a cell of its own in the first)",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:139",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:134"
+   },
+   {
+    "input": "i_avait_enfant_à_charge_avant_1er_janvier_2012",
+    "first": "attribute in FR-AF-1; fixed faux in FR-AF-2, FR-AF-3",
+    "second": "attribute in all three tables",
+    "nesting": "coincide where both vary",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/spec.json:87",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-2/spec.json:59"
+   },
+   {
+    "input": "d_date_de_naissance (per child)",
+    "first": "7 bands a00_03, a03_11, a11_14, a14_16 (14th birthday to 16th birthday inclusive), a16_19, a19_20, a20_plus; slot k is (k - 1) days younger than slot 1",
+    "second": "9 bands moins_3, 3_11, 11_14, 14_16 (16th birthday excluded), anniversaire_16 (the 16th birthday), 16_19, 19_20, 20_23, 23_plus (born on or before 1997-04-30); all slots share the band representative",
+    "nesting": "second refines first: a14_16 = 14_16 + anniversaire_16; a20_plus = 20_23 + 23_plus; other bands coincide",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:160",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:148"
+   },
+   {
+    "input": "d_rémuneration_mensuelle (per child)",
+    "first": "fixed 0 EUR in FR-AF-1; 2 bands <= ceiling of the residence (943,02 / Mayotte 711,49) and above, in FR-AF-2, FR-AF-3",
+    "second": "3 absolute bands [0, 711,49], (711,49, 943,02], > 943,02 in FR-AF-1, FR-AF-2; fixed 0 EUR in FR-AF-3",
+    "nesting": "second refines first (for Mayotte the first's cut is 711,49, for the others 943,02; both are cuts of the second)",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:186",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:57"
+   },
+   {
+    "input": "d_prise_en_charge (per child)",
+    "first": "fixed EffectiveEtPermanente in FR-AF-1, FR-AF-3; attribute 5 values in FR-AF-2",
+    "second": "attribute 3 classes (complete, partagee, services_sociaux) in FR-AF-1, FR-AF-2; fixed EffectiveEtPermanente in FR-AF-3",
+    "nesting": "first refines second where both vary (FR-AF-2)",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:16",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:177"
+   },
+   {
+    "input": "d_a_déjà_ouvert_droit_aux_allocations_familiales",
+    "first": "fixed vrai in FR-AF-1, FR-AF-2; attribute in FR-AF-3",
+    "second": "attribute in FR-AF-1, FR-AF-3; fixed vrai in FR-AF-2",
+    "nesting": "coincide where both vary (FR-AF-3)",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-3/spec.json:105",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-3/spec.json:99"
+   },
+   {
+    "input": "d_bénéficie_titre_personnel_aide_personnelle_logement",
+    "first": "fixed faux in FR-AF-1, FR-AF-2; attribute in FR-AF-3",
+    "second": "attribute in FR-AF-1; fixed faux in FR-AF-2, FR-AF-3",
+    "nesting": "never varied together in tables of the same shape",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-3/spec.json:118",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/spec.json:157"
+   },
+   {
+    "input": "d_identifiant",
+    "first": "fixed 0, 1, 2 in list order",
+    "second": "fixed 1, 2, 3 in list order",
+    "nesting": "coincide in effect (distinct values in list order)",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/spec.json:334",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/spec.json:212"
+   },
+   {
+    "input": "output",
+    "first": "FR-AF-1, FR-AF-2: regime zero, general_t1-3, outre_mer_1_enfant, mayotte; FR-AF-3: components zero, base, base_majoration, base_forfaitaire, base_majoration_forfaitaire",
+    "second": "sans_droit or bareme/tier/parts (19, 54 and 62 labels)",
+    "nesting": "second refines first: each second label maps to one first label (`coarsen`)",
+    "src1": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:114",
+    "src2": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:227"
+   }
+  ]
+ },
+ "FR-PF": {
+  "A": {
+   "rows": 3240,
+   "counts": {
+    "first prise_en_charge differs from the second coder's fixed value": 2592,
+    "agree": 216,
+    "first EXCLUDED; second valid": 324,
+    "first EXCLUDED; second EXCLUDED": 108
+   }
+  },
+  "A_disagreements": [],
+  "B": {
+   "rows": 108,
+   "counts": {
+    "second valid; first EXCLUDED": 36,
+    "second EXCLUDED; first EXCLUDED": 36,
+    "agree": 36
+   }
+  },
+  "B_disagreements": []
+ },
+ "FR-PF_common_refinement": {
+  "cells": 1080,
+  "counts": {
+   "agree": 360,
+   "first EXCLUDED; second valid": 540,
+   "first EXCLUDED; second EXCLUDED": 180
+  },
+  "disagreements": []
+ },
+ "FR-AF": [
+  {
+   "pair": "P1",
+   "first": "FR-AF-1",
+   "first_slice": "one child in slot 1 (slots 2-3 absent)",
+   "second": "FR-AF-1",
+   "second_slice": "e1 earnings jusqu_plafond_mayotte, prise complete, deja true, aide false",
+   "A": {
+    "rows": 2520,
+    "counts": {
+     "first REJECTED; second EXCLUDED": 630,
+     "agree": 1890
+    },
+    "first_repr_reproduces_gt_failures": 0
+   },
+   "A_dis": 0,
+   "B": {
+    "rows": 810,
+    "counts": {
+     "agree": 540,
+     "second EXCLUDED; first REJECTED": 270
+    }
+   },
+   "B_dis": 0,
+   "A_groups": [],
+   "B_groups": []
+  },
+  {
+   "pair": "P2",
+   "first": "FR-AF-1",
+   "first_slice": "two children in slots 1-2 (slot 3 absent); est_parent true, titre_I false",
+   "second": "FR-AF-2",
+   "second_slice": "both children earnings jusqu_plafond_mayotte, prise complete",
+   "A": {
+    "rows": 4410,
+    "counts": {
+     "agree": 4410
+    },
+    "first_repr_reproduces_gt_failures": 0
+   },
+   "A_dis": 0,
+   "B": {
+    "rows": 2430,
+    "counts": {
+     "agree": 2430
+    }
+   },
+   "B_dis": 0,
+   "A_groups": [],
+   "B_groups": []
+  },
+  {
+   "pair": "P3",
+   "first": "FR-AF-1",
+   "first_slice": "three children; est_parent true, titre_I false",
+   "second": "FR-AF-3",
+   "second_slice": "all deja true",
+   "A": {
+    "rows": 30870,
+    "counts": {
+     "agree": 30870
+    },
+    "first_repr_reproduces_gt_failures": 0
+   },
+   "A_dis": 0,
+   "B": {
+    "rows": 21870,
+    "counts": {
+     "agree": 21870
+    }
+   },
+   "B_dis": 0,
+   "A_groups": [],
+   "B_groups": []
+  },
+  {
+   "pair": "P4",
+   "first": "FR-AF-2",
+   "first_slice": "all rows",
+   "second": "FR-AF-2",
+   "second_slice": "avant_2012 false",
+   "A": {
+    "rows": 132300,
+    "counts": {
+     "agree": 131964,
+     "disagree": 336
+    },
+    "first_repr_reproduces_gt_failures": 0
+   },
+   "A_dis": 336,
+   "B": {
+    "rows": 98415,
+    "counts": {
+     "agree": 98255,
+     "disagree": 160
+    }
+   },
+   "B_dis": 160,
+   "A_groups": [
+    {
+     "first_out": "outre_mer_1_enfant",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 72,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "GardeAlterneePartageAllocations"
+      },
+      "first_out": "outre_mer_1_enfant",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "16_19",
+       "e2_remuneration": "au_dessus_plafonds",
+       "e2_prise_en_charge": "partagee",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "outre_mer_un_enfant/nul",
+      "explanation": {
+       "src_label": "outre_mer_1_enfant",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 1175,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 18,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=GardeAlterneeAllocataireUnique | enfant2_remuneration=gt_plafond": 18,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 18,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant2_remuneration=gt_plafond": 18
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "outre_mer_1_enfant",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 72,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "GardeAlterneePartageAllocations",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "au_dessus_plafonds",
+       "e1_prise_en_charge": "partagee",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "16_19",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "outre_mer_un_enfant/M",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "outre_mer_1_enfant",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 1175
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=GardeAlterneeAllocataireUnique | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18
+     }
+    },
+    {
+     "first_out": "outre_mer_1_enfant",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 72,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "GardeAlterneePartageAllocations"
+      },
+      "first_out": "outre_mer_1_enfant",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "19_20",
+       "e2_remuneration": "au_dessus_plafonds",
+       "e2_prise_en_charge": "partagee",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "outre_mer_un_enfant/nul",
+      "explanation": {
+       "src_label": "outre_mer_1_enfant",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 1175,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 18,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=GardeAlterneeAllocataireUnique | enfant2_remuneration=gt_plafond": 18,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 18,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant2_remuneration=gt_plafond": 18
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "outre_mer_1_enfant",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 72,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "GardeAlterneePartageAllocations",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "au_dessus_plafonds",
+       "e1_prise_en_charge": "partagee",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "19_20",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "outre_mer_un_enfant/M",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "outre_mer_1_enfant",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 1175
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=GardeAlterneeAllocataireUnique | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 18
+     }
+    },
+    {
+     "first_out": "mayotte",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 12,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "GardeAlterneePartageAllocations"
+      },
+      "first_out": "mayotte",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "16_19",
+       "e2_remuneration": "au_dessus_plafonds",
+       "e2_prise_en_charge": "partagee",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "mayotte/T1/nul",
+      "explanation": {
+       "src_label": "mayotte",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 3315,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 3,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=GardeAlterneeAllocataireUnique | enfant2_remuneration=gt_plafond": 3,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 3,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant2_remuneration=gt_plafond": 3
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "mayotte",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 12,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "GardeAlterneePartageAllocations",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "au_dessus_plafonds",
+       "e1_prise_en_charge": "partagee",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "16_19",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "mayotte/T1/M",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "mayotte",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 3315
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=GardeAlterneeAllocataireUnique | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3
+     }
+    },
+    {
+     "first_out": "mayotte",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 12,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "GardeAlterneePartageAllocations"
+      },
+      "first_out": "mayotte",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "19_20",
+       "e2_remuneration": "au_dessus_plafonds",
+       "e2_prise_en_charge": "partagee",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "mayotte/T1/nul",
+      "explanation": {
+       "src_label": "mayotte",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 3315,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 3,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=GardeAlterneeAllocataireUnique | enfant2_remuneration=gt_plafond": 3,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 3,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant2_remuneration=gt_plafond": 3
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "mayotte",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 12,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "GardeAlterneePartageAllocations",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "au_dessus_plafonds",
+       "e1_prise_en_charge": "partagee",
+       "e1_deja_ouvert": "true",
+       "e1_aide_logement": "false",
+       "e2_age": "19_20",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux",
+       "e2_deja_ouvert": "true",
+       "e2_aide_logement": "false"
+      },
+      "second_out": "mayotte/T1/M",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "mayotte",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 3315
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "1000.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "1500.00",
+         "prise": "GardeAlterneePartageAllocations",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=GardeAlterneeAllocataireUnique | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeALaFamille | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 3
+     }
+    }
+   ],
+   "B_groups": [
+    {
+     "first_out": "outre_mer_1_enfant",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "EffectiveEtPermanente"
+      },
+      "first_out": "outre_mer_1_enfant",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e2_age": "16_19",
+       "e2_remuneration": "au_dessus_plafonds",
+       "e2_prise_en_charge": "complete"
+      },
+      "second_out": "outre_mer_un_enfant/nul",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "outre_mer_1_enfant",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 2350
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "1500.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 10,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 10
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "outre_mer_1_enfant",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "EffectiveEtPermanente",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "au_dessus_plafonds",
+       "e1_prise_en_charge": "complete",
+       "e2_age": "16_19",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux"
+      },
+      "second_out": "outre_mer_un_enfant/M",
+      "explanation": {
+       "src_label": "outre_mer_1_enfant",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 2350,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "1500.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10
+     }
+    },
+    {
+     "first_out": "outre_mer_1_enfant",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "EffectiveEtPermanente"
+      },
+      "first_out": "outre_mer_1_enfant",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e2_age": "19_20",
+       "e2_remuneration": "au_dessus_plafonds",
+       "e2_prise_en_charge": "complete"
+      },
+      "second_out": "outre_mer_un_enfant/nul",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "outre_mer_1_enfant",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 2350
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "1500.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 10,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 10
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "outre_mer_1_enfant",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Guadeloupe",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "EffectiveEtPermanente",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "drom_l751_1",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "au_dessus_plafonds",
+       "e1_prise_en_charge": "complete",
+       "e2_age": "19_20",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux"
+      },
+      "second_out": "outre_mer_un_enfant/M",
+      "explanation": {
+       "src_label": "outre_mer_1_enfant",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 2350,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "1500.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Guadeloupe",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10
+     }
+    },
+    {
+     "first_out": "mayotte",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "EffectiveEtPermanente"
+      },
+      "first_out": "mayotte",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e2_age": "16_19",
+       "e2_remuneration": "entre_plafonds",
+       "e2_prise_en_charge": "complete"
+      },
+      "second_out": "mayotte/T1/nul",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "mayotte",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 6630
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "800.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 10,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 10
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "mayotte",
+     "flipping_inputs": [
+      "child2 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a16_19",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "EffectiveEtPermanente",
+       "enfant2_age": "a16_19",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "16_19",
+       "e1_remuneration": "entre_plafonds",
+       "e1_prise_en_charge": "complete",
+       "e2_age": "16_19",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux"
+      },
+      "second_out": "mayotte/T1/M",
+      "explanation": {
+       "src_label": "mayotte",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child2 birth date"
+       ],
+       "src_amount": 6630,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "800.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2002-05-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2003-01-01",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2003-01-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10,
+      "enfant1_age=a16_19 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a16_19 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10
+     }
+    },
+    {
+     "first_out": "mayotte",
+     "second_coarse": "zero",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "le_plafond",
+       "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "gt_plafond",
+       "enfant2_prise_en_charge": "EffectiveEtPermanente"
+      },
+      "first_out": "mayotte",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "jusqu_plafond_mayotte",
+       "e1_prise_en_charge": "services_sociaux",
+       "e2_age": "19_20",
+       "e2_remuneration": "entre_plafonds",
+       "e2_prise_en_charge": "complete"
+      },
+      "second_out": "mayotte/T1/nul",
+      "explanation": {
+       "src_label": "zero",
+       "dst_label": "mayotte",
+       "differing": [
+        "child1 birth date",
+        "child2 birth date",
+        "child2 earnings"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 0,
+       "dst_amount": 6630
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "800.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=EffectiveEtPermanente | enfant2_remuneration=gt_plafond": 10,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant1_remuneration=le_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=GardeAlterneePartageAllocations | enfant2_remuneration=gt_plafond": 10
+     }
+    },
+    {
+     "first_out": "zero",
+     "second_coarse": "mayotte",
+     "flipping_inputs": [
+      "child1 birth date"
+     ],
+     "all_children_same_first_band": true,
+     "count": 20,
+     "example": {
+      "first_row": {
+       "residence": "Mayotte",
+       "ressources": "le_plafond_I",
+       "enfant1_age": "a19_20",
+       "enfant1_remuneration": "gt_plafond",
+       "enfant1_prise_en_charge": "EffectiveEtPermanente",
+       "enfant2_age": "a19_20",
+       "enfant2_remuneration": "le_plafond",
+       "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      },
+      "first_out": "zero",
+      "second_row": {
+       "residence": "mayotte",
+       "ressources": "jusqu_plafond_I",
+       "avant_2012": "false",
+       "e1_age": "19_20",
+       "e1_remuneration": "entre_plafonds",
+       "e1_prise_en_charge": "complete",
+       "e2_age": "19_20",
+       "e2_remuneration": "jusqu_plafond_mayotte",
+       "e2_prise_en_charge": "services_sociaux"
+      },
+      "second_out": "mayotte/T1/M",
+      "explanation": {
+       "src_label": "mayotte",
+       "dst_label": "zero",
+       "differing": [
+        "child1 birth date",
+        "child1 earnings",
+        "child2 birth date"
+       ],
+       "single_flips": [
+        "child1 birth date"
+       ],
+       "src_amount": 6630,
+       "dst_amount": 0
+      },
+      "source_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "800.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-11-01",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      },
+      "target_inputs": {
+       "residence": "Mayotte",
+       "ressources": 30000.0,
+       "kids": [
+        {
+         "naissance": "2000-08-01",
+         "remuneration": "1000.00",
+         "prise": "EffectiveEtPermanente",
+         "deja": true,
+         "apl": false
+        },
+        {
+         "naissance": "2000-08-02",
+         "remuneration": "0.00",
+         "prise": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+         "deja": true,
+         "apl": false
+        }
+       ],
+       "est_parent": true,
+       "titre_I": false,
+       "avant": false
+      }
+     },
+     "shapes": {
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=EffectiveEtPermanente | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10,
+      "enfant1_age=a19_20 | enfant1_prise_en_charge=GardeAlterneePartageAllocations | enfant1_remuneration=gt_plafond | enfant2_age=a19_20 | enfant2_prise_en_charge=ServicesSociauxAllocationVerseeAuxServicesSociaux | enfant2_remuneration=le_plafond": 10
+     }
+    }
+   ]
+  },
+  {
+   "pair": "P5",
+   "first": "FR-AF-3",
+   "first_slice": "all earnings le_plafond, all apl false",
+   "second": "FR-AF-3",
+   "second_slice": "residence metropole, ressources jusqu_plafond_I, avant_2012 false",
+   "A": {
+    "rows": 2744,
+    "counts": {
+     "agree": 2744
+    },
+    "first_repr_reproduces_gt_failures": 0
+   },
+   "A_dis": 0,
+   "B": {
+    "rows": 5832,
+    "counts": {
+     "agree": 5832
+    }
+   },
+   "B_dis": 0,
+   "A_groups": [],
+   "B_groups": []
+  }
+ ]
+}

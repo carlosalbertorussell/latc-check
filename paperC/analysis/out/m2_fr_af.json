@@ -1,0 +1,5265 @@
+{
+ "shift_check": [],
+ "tables": [
+  {
+   "conversion": "first",
+   "table": "FR-PF",
+   "branch": "paperc-data-fr",
+   "folder": "paperC/specs/FR-PF",
+   "branch_commit": "0aee62dd2640d92dd46dc8337915bb2c49a35fb6",
+   "mapped_case_ids": [
+    "ouverture_droits.Test1.enfant1",
+    "ouverture_droits.Test1.enfant2",
+    "ouverture_droits.Test1.enfant3",
+    "ouverture_droits.Test1.enfant4"
+   ],
+   "suite": "tests_ouverture_droits.catala_fr Test1 (4 droit_ouvert assertions)",
+   "unmapped": [],
+   "placements": [
+    {
+     "case": "ouverture_droits.Test1.enfant1",
+     "row": {
+      "residence": "Metropole",
+      "obligation_scolaire": "Pendant",
+      "prise_en_charge": "EffectiveEtPermanente",
+      "age": "a03_16",
+      "remuneration": "lt_plafond",
+      "apl": "false"
+     }
+    },
+    {
+     "case": "ouverture_droits.Test1.enfant2",
+     "row": {
+      "residence": "Metropole",
+      "obligation_scolaire": "Apres",
+      "prise_en_charge": "EffectiveEtPermanente",
+      "age": "a16_20",
+      "remuneration": "gt_plafond",
+      "apl": "false"
+     }
+    },
+    {
+     "case": "ouverture_droits.Test1.enfant3",
+     "row": {
+      "residence": "Metropole",
+      "obligation_scolaire": "Apres",
+      "prise_en_charge": "EffectiveEtPermanente",
+      "age": "a16_20",
+      "remuneration": "lt_plafond",
+      "apl": "false"
+     }
+    },
+    {
+     "case": "ouverture_droits.Test1.enfant4",
+     "row": {
+      "residence": "Metropole",
+      "obligation_scolaire": "Apres",
+      "prise_en_charge": "EffectiveEtPermanente",
+      "age": "a20_plus",
+      "remuneration": "lt_plafond",
+      "apl": "false"
+     }
+    }
+   ],
+   "placement_equals_mapped": true,
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "Metropole",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "obligation_scolaire": {
+      "declared": [
+       "Avant",
+       "Pendant",
+       "Apres"
+      ],
+      "unused_mapped": [
+       "Avant"
+      ],
+      "unused_suite": [
+       "Avant"
+      ],
+      "unknown_tests": 0
+     },
+     "prise_en_charge": {
+      "declared": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "EffectiveEtPermanente",
+       "ServicesSociauxAllocationVerseeALaFamille",
+       "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      ],
+      "unused_mapped": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "ServicesSociauxAllocationVerseeALaFamille",
+       "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      ],
+      "unused_suite": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "ServicesSociauxAllocationVerseeALaFamille",
+       "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      ],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "a00_03",
+       "a03_16",
+       "a16_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03"
+      ],
+      "unused_suite": [
+       "a00_03"
+      ],
+      "unknown_tests": 0
+     },
+     "remuneration": {
+      "declared": [
+       "lt_plafond",
+       "eq_plafond",
+       "gt_plafond"
+      ],
+      "unused_mapped": [
+       "eq_plafond"
+      ],
+      "unused_suite": [
+       "eq_plafond"
+      ],
+      "unknown_tests": 0
+     },
+     "apl": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 26,
+    "unused_mapped_total": 16,
+    "unused_suite_total": 16,
+    "valid_total": 1080,
+    "missed_valid_mapped": 1074,
+    "missed_valid_suite": 1074,
+    "n_mapped_rows": 4,
+    "n_suite_rows": 4
+   },
+   "variant": {
+    "suite": "the 4 asserted children plus every child of the 14 household tests (obligation_scolaire derived as epilogue.catala_fr:121-131); droit_ouvert is computed inside those tests and never asserted",
+    "n_children_added": 33,
+    "placements": [
+     {
+      "case": "Test1.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test1.child2",
+      "date": "2020-05-01",
+      "line": 25,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test1.child3",
+      "date": "2020-05-01",
+      "line": 34,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "GardeAlterneePartageAllocations",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test1.child4",
+      "date": "2020-05-01",
+      "line": 43,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a16_20",
+       "remuneration": "gt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test2.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test2.child2",
+      "date": "2020-05-01",
+      "line": 25,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test2.child3",
+      "date": "2020-05-01",
+      "line": 52,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a20_plus",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test3.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "Guyane",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test4.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test4.child2",
+      "date": "2020-05-01",
+      "line": 34,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "GardeAlterneePartageAllocations",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test5.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test6.child1",
+      "date": "2020-05-01",
+      "line": 135,
+      "row": {
+       "residence": "Guadeloupe",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test6.child2",
+      "date": "2020-05-01",
+      "line": 143,
+      "row": {
+       "residence": "Guadeloupe",
+       "obligation_scolaire": "Avant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a00_03",
+       "remuneration": "gt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test7.child1",
+      "date": "2021-02-01",
+      "line": 16,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test7.child2",
+      "date": "2021-02-01",
+      "line": 25,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test7.child3",
+      "date": "2021-02-01",
+      "line": 34,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "GardeAlterneePartageAllocations",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test7.child4",
+      "date": "2021-02-01",
+      "line": 43,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a20_plus",
+       "remuneration": "gt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test8.child1",
+      "date": "2021-01-01",
+      "line": 179,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test8.child2",
+      "date": "2021-01-01",
+      "line": 187,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test9.child1",
+      "date": "2020-05-01",
+      "line": 209,
+      "row": {
+       "residence": "Guadeloupe",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "age": "a16_20",
+       "remuneration": "gt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test9.child2",
+      "date": "2020-05-01",
+      "line": 217,
+      "row": {
+       "residence": "Guadeloupe",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+       "age": "a03_16",
+       "remuneration": "gt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test10.child1",
+      "date": "2020-04-20",
+      "line": 239,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test10.child2",
+      "date": "2020-04-20",
+      "line": 247,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "GardeAlterneePartageAllocations",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test11.child1",
+      "date": "2021-12-31",
+      "line": 269,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test11.child2",
+      "date": "2021-12-31",
+      "line": 277,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test11.child3",
+      "date": "2021-12-31",
+      "line": 285,
+      "row": {
+       "residence": "Metropole",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test12.child1",
+      "date": "2019-08-26",
+      "line": 307,
+      "row": {
+       "residence": "Mayotte",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test12.child2",
+      "date": "2019-08-26",
+      "line": 315,
+      "row": {
+       "residence": "Mayotte",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test12.child3",
+      "date": "2019-08-26",
+      "line": 323,
+      "row": {
+       "residence": "Mayotte",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test12.child4",
+      "date": "2019-08-26",
+      "line": 331,
+      "row": {
+       "residence": "Mayotte",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test13.child1",
+      "date": "2019-08-26",
+      "line": 354,
+      "row": {
+       "residence": "Mayotte",
+       "obligation_scolaire": "Pendant",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a03_16",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test14.child1",
+      "date": "2022-05-01",
+      "line": 376,
+      "row": {
+       "residence": "Guadeloupe",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "EffectiveEtPermanente",
+       "age": "a16_20",
+       "remuneration": "lt_plafond",
+       "apl": "false"
+      }
+     },
+     {
+      "case": "Test14.child2",
+      "date": "2022-05-01",
+      "line": 384,
+      "row": {
+       "residence": "Guadeloupe",
+       "obligation_scolaire": "Apres",
+       "prise_en_charge": "GardeAlterneeAllocataireUnique",
+       "age": "a20_plus",
+       "remuneration": "gt_plafond",
+       "apl": "false"
+      }
+     }
+    ],
+    "usage": {
+     "attributes": {
+      "residence": {
+       "declared": [
+        "Guadeloupe",
+        "Guyane",
+        "Martinique",
+        "LaReunion",
+        "SaintBarthelemy",
+        "SaintMartin",
+        "Metropole",
+        "SaintPierreEtMiquelon",
+        "Mayotte"
+       ],
+       "unused_mapped": [
+        "Guadeloupe",
+        "Guyane",
+        "Martinique",
+        "LaReunion",
+        "SaintBarthelemy",
+        "SaintMartin",
+        "SaintPierreEtMiquelon",
+        "Mayotte"
+       ],
+       "unused_suite": [
+        "Martinique",
+        "LaReunion",
+        "SaintBarthelemy",
+        "SaintMartin",
+        "SaintPierreEtMiquelon"
+       ],
+       "unknown_tests": 0
+      },
+      "obligation_scolaire": {
+       "declared": [
+        "Avant",
+        "Pendant",
+        "Apres"
+       ],
+       "unused_mapped": [
+        "Avant"
+       ],
+       "unused_suite": [],
+       "unknown_tests": 0
+      },
+      "prise_en_charge": {
+       "declared": [
+        "GardeAlterneePartageAllocations",
+        "GardeAlterneeAllocataireUnique",
+        "EffectiveEtPermanente",
+        "ServicesSociauxAllocationVerseeALaFamille",
+        "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+       ],
+       "unused_mapped": [
+        "GardeAlterneePartageAllocations",
+        "GardeAlterneeAllocataireUnique",
+        "ServicesSociauxAllocationVerseeALaFamille",
+        "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+       ],
+       "unused_suite": [
+        "ServicesSociauxAllocationVerseeALaFamille"
+       ],
+       "unknown_tests": 0
+      },
+      "age": {
+       "declared": [
+        "a00_03",
+        "a03_16",
+        "a16_20",
+        "a20_plus"
+       ],
+       "unused_mapped": [
+        "a00_03"
+       ],
+       "unused_suite": [],
+       "unknown_tests": 0
+      },
+      "remuneration": {
+       "declared": [
+        "lt_plafond",
+        "eq_plafond",
+        "gt_plafond"
+       ],
+       "unused_mapped": [
+        "eq_plafond"
+       ],
+       "unused_suite": [
+        "eq_plafond"
+       ],
+       "unknown_tests": 0
+      },
+      "apl": {
+       "declared": [
+        "false",
+        "true"
+       ],
+       "unused_mapped": [
+        "true"
+       ],
+       "unused_suite": [
+        "true"
+       ],
+       "unknown_tests": 0
+      }
+     },
+     "declared_total": 26,
+     "unused_mapped_total": 16,
+     "unused_suite_total": 8,
+     "valid_total": 1080,
+     "missed_valid_mapped": 1074,
+     "missed_valid_suite": 952,
+     "n_mapped_rows": 4,
+     "n_suite_rows": 37
+    }
+   },
+   "readme_check": [],
+   "suite_size": 4,
+   "mapped": 4
+  },
+  {
+   "conversion": "first",
+   "table": "FR-AF-1",
+   "branch": "paperc-data-fr",
+   "folder": "paperC/specs/FR-AF-1",
+   "branch_commit": "0aee62dd2640d92dd46dc8337915bb2c49a35fb6",
+   "mapped_case_ids": [
+    "allocations_familiales.Test2",
+    "allocations_familiales.Test3",
+    "allocations_familiales.Test5"
+   ],
+   "suite": "tests_allocations_familiales.catala_fr Test1-Test14",
+   "placement_equals_mapped": true,
+   "unmapped": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "stated": "Test1: 4 children; the table has 3 child slots",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:62",
+     "categories": [
+      [
+       "other household shape",
+       "4 children; table holds 1-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant3_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "stated": "Test4: enfant2_prise_en_charge = GardeAlterneePartageAllocations, the table fixes it to EffectiveEtPermanente",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:63",
+     "categories": [
+      [
+       "other: fixed input outside its fixed band",
+       "enfant2_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "stated": "Test6: enfant2_remuneration = gt_plafond, the table fixes it to le_plafond",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:64",
+     "categories": [
+      [
+       "other: fixed input outside its fixed band",
+       "enfant2_remuneration gt_plafond (fixed le_plafond)"
+      ]
+     ]
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "stated": "Test7: date_courante 2021-02-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:65",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-02-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 1-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant3_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "stated": "Test8: date_courante 2021-01-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:66",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-01-01 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "stated": "Test9: enfant1_remuneration = gt_plafond, the table fixes it to le_plafond",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:67",
+     "categories": [
+      [
+       "other: fixed input outside its fixed band",
+       "enfant1_remuneration gt_plafond (fixed le_plafond); enfant1_prise_en_charge ServicesSociauxAllocationVerseeAuxServicesSociaux (fixed EffectiveEtPermanente); enfant2_remuneration gt_plafond (fixed le_plafond); enfant2_prise_en_charge ServicesSociauxAllocationVerseeAuxServicesSociaux (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "stated": "Test10: enfant2_prise_en_charge = GardeAlterneePartageAllocations, the table fixes it to EffectiveEtPermanente",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:68",
+     "categories": [
+      [
+       "other: fixed input outside its fixed band",
+       "enfant2_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "stated": "Test11: date_courante 2021-12-31 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:69",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-12-31 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "stated": "Test12: date_courante 2019-08-26 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:70",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 1-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "stated": "Test13: date_courante 2019-08-26 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:71",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "stated": "Test14: date_courante 2022-05-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-1/CONVERSION.md:72",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2022-05-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant2_remuneration gt_plafond (fixed le_plafond); enfant2_prise_en_charge GardeAlterneeAllocataireUnique (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a11_14",
+      "enfant2_age": "a11_14",
+      "enfant3_age": "a16_19"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a11_14",
+      "enfant2_age": "a11_14",
+      "enfant3_age": "a20_plus"
+     },
+     "children": 3,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "Guyane",
+      "ressources": "entre_I_II",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a11_14",
+      "enfant2_age": "absent",
+      "enfant3_age": "absent"
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a11_14",
+      "enfant2_age": "a16_19",
+      "enfant3_age": "absent"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a11_14",
+      "enfant2_age": "absent",
+      "enfant3_age": "absent"
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Guadeloupe",
+      "ressources": "entre_I_II",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a03_11",
+      "enfant2_age": "a00_03",
+      "enfant3_age": "absent"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "date": "2021-02-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a14_16",
+      "enfant2_age": "a11_14",
+      "enfant3_age": "a16_19"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "date": "2021-01-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "entre_I_II",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a16_19",
+      "enfant2_age": "a14_16",
+      "enfant3_age": "absent"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Guadeloupe",
+      "ressources": "entre_I_II",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a16_19",
+      "enfant2_age": "a11_14",
+      "enfant3_age": "absent"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "date": "2020-04-20",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a16_19",
+      "enfant2_age": "a03_11",
+      "enfant3_age": "absent"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "date": "2021-12-31",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a16_19",
+      "enfant2_age": "a03_11",
+      "enfant3_age": "a14_16"
+     },
+     "children": 3,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "Mayotte",
+      "ressources": "lt_plafond_I",
+      "avait_enfant_avant_2012": "true",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a16_19",
+      "enfant2_age": "a03_11",
+      "enfant3_age": "a11_14"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 4
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "Mayotte",
+      "ressources": "entre_I_II",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a11_14",
+      "enfant2_age": "absent",
+      "enfant3_age": "absent"
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "date": "2022-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Guadeloupe",
+      "ressources": "entre_I_II",
+      "avait_enfant_avant_2012": "false",
+      "est_parent": "true",
+      "titre_I": "false",
+      "enfant1_age": "a16_19",
+      "enfant2_age": "a20_plus",
+      "enfant3_age": "absent"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "Metropole",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "Guadeloupe",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unknown_tests": 0
+     },
+     "ressources": {
+      "declared": [
+       "lt_plafond_I",
+       "eq_plafond_I",
+       "entre_I_II",
+       "eq_plafond_II",
+       "gt_plafond_II"
+      ],
+      "unused_mapped": [
+       "eq_plafond_I",
+       "eq_plafond_II",
+       "gt_plafond_II"
+      ],
+      "unused_suite": [
+       "eq_plafond_I",
+       "eq_plafond_II",
+       "gt_plafond_II"
+      ],
+      "unknown_tests": 0
+     },
+     "avait_enfant_avant_2012": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "est_parent": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 0
+     },
+     "titre_I": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant1_age": {
+      "declared": [
+       "absent",
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "absent",
+       "a00_03",
+       "a03_11",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_suite": [
+       "absent",
+       "a00_03",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant2_age": {
+      "declared": [
+       "absent",
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03",
+       "a03_11",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_suite": [
+       "a19_20"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant3_age": {
+      "declared": [
+       "absent",
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20"
+      ],
+      "unused_suite": [
+       "a00_03",
+       "a03_11",
+       "a19_20"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 44,
+    "unused_mapped_total": 32,
+    "unused_suite_total": 18,
+    "valid_total": 138240,
+    "missed_valid_mapped": 138224,
+    "missed_valid_suite": 136000,
+    "n_mapped_rows": 3,
+    "n_suite_rows": 14
+   },
+   "readme_check": [],
+   "suite_size": 14,
+   "mapped": 3
+  },
+  {
+   "conversion": "first",
+   "table": "FR-AF-2",
+   "branch": "paperc-data-fr",
+   "folder": "paperC/specs/FR-AF-2",
+   "branch_commit": "0aee62dd2640d92dd46dc8337915bb2c49a35fb6",
+   "mapped_case_ids": [
+    "allocations_familiales.Test4",
+    "allocations_familiales.Test6",
+    "allocations_familiales.Test9",
+    "allocations_familiales.Test10"
+   ],
+   "suite": "tests_allocations_familiales.catala_fr Test1-Test14",
+   "placement_equals_mapped": true,
+   "unmapped": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "stated": "Test1: 4 children; the table has 2 child slots",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:73",
+     "categories": [
+      [
+       "other household shape",
+       "4 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "stated": "Test2: 3 children; the table has 2 child slots",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:74",
+     "categories": [
+      [
+       "other household shape",
+       "3 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "stated": "Test3: 1 child(ren); the table describes households of exactly 2 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:75",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "stated": "Test5: 1 child(ren); the table describes households of exactly 2 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:76",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "stated": "Test7: date_courante 2021-02-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:77",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-02-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "stated": "Test8: date_courante 2021-01-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:78",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-01-01 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "stated": "Test11: date_courante 2021-12-31 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:79",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-12-31 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "3 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "stated": "Test12: date_courante 2019-08-26 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:80",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 2-2"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "avait_enfant_avant_2012 true (fixed false)"
+      ]
+     ]
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "stated": "Test13: date_courante 2019-08-26 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:81",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "1 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "stated": "Test14: date_courante 2022-05-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-2/CONVERSION.md:82",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2022-05-01 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 4,
+     "children_not_placed": 2,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 3,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Guyane",
+      "ressources": "gt_I_le_II",
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": null,
+      "enfant2_remuneration": null,
+      "enfant2_prise_en_charge": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a16_19",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "GardeAlterneePartageAllocations"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": null,
+      "enfant2_remuneration": null,
+      "enfant2_prise_en_charge": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "Guadeloupe",
+      "ressources": "gt_I_le_II",
+      "enfant1_age": "a03_11",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a00_03",
+      "enfant2_remuneration": "gt_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "date": "2021-02-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a14_16",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 4,
+     "children_not_placed": 2,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "date": "2021-01-01",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "gt_I_le_II",
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a14_16",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "Guadeloupe",
+      "ressources": "gt_I_le_II",
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "gt_plafond",
+      "enfant1_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "gt_plafond",
+      "enfant2_prise_en_charge": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "date": "2020-04-20",
+     "mapped": true,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a03_11",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "GardeAlterneePartageAllocations"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "date": "2021-12-31",
+     "mapped": false,
+     "row": {
+      "residence": "Metropole",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a03_11",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 3,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "Mayotte",
+      "ressources": "le_plafond_I",
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a03_11",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_prise_en_charge": "EffectiveEtPermanente"
+     },
+     "children": 4,
+     "children_not_placed": 2,
+     "n_droit_ouvert": 4
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "Mayotte",
+      "ressources": "gt_I_le_II",
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": null,
+      "enfant2_remuneration": null,
+      "enfant2_prise_en_charge": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "date": "2022-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "Guadeloupe",
+      "ressources": "gt_I_le_II",
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_prise_en_charge": "EffectiveEtPermanente",
+      "enfant2_age": "a20_plus",
+      "enfant2_remuneration": "gt_plafond",
+      "enfant2_prise_en_charge": "GardeAlterneeAllocataireUnique"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "Metropole",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unknown_tests": 0
+     },
+     "ressources": {
+      "declared": [
+       "le_plafond_I",
+       "gt_I_le_II",
+       "gt_plafond_II"
+      ],
+      "unused_mapped": [
+       "gt_plafond_II"
+      ],
+      "unused_suite": [
+       "gt_plafond_II"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant1_age": {
+      "declared": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03",
+       "a14_16",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_suite": [
+       "a00_03",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant1_remuneration": {
+      "declared": [
+       "le_plafond",
+       "gt_plafond"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "enfant1_prise_en_charge": {
+      "declared": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "EffectiveEtPermanente",
+       "ServicesSociauxAllocationVerseeALaFamille",
+       "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      ],
+      "unused_mapped": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "ServicesSociauxAllocationVerseeALaFamille"
+      ],
+      "unused_suite": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "ServicesSociauxAllocationVerseeALaFamille"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant2_age": {
+      "declared": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a14_16",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_suite": [
+       "a19_20"
+      ],
+      "unknown_tests": 3
+     },
+     "enfant2_remuneration": {
+      "declared": [
+       "le_plafond",
+       "gt_plafond"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 3
+     },
+     "enfant2_prise_en_charge": {
+      "declared": [
+       "GardeAlterneePartageAllocations",
+       "GardeAlterneeAllocataireUnique",
+       "EffectiveEtPermanente",
+       "ServicesSociauxAllocationVerseeALaFamille",
+       "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+      ],
+      "unused_mapped": [
+       "GardeAlterneeAllocataireUnique",
+       "ServicesSociauxAllocationVerseeALaFamille"
+      ],
+      "unused_suite": [
+       "ServicesSociauxAllocationVerseeALaFamille"
+      ],
+      "unknown_tests": 3
+     }
+    },
+    "declared_total": 40,
+    "unused_mapped_total": 20,
+    "unused_suite_total": 14,
+    "valid_total": 132300,
+    "missed_valid_mapped": 131148,
+    "missed_valid_suite": 126156,
+    "n_mapped_rows": 4,
+    "n_suite_rows": 14
+   },
+   "readme_check": [],
+   "suite_size": 14,
+   "mapped": 4
+  },
+  {
+   "conversion": "first",
+   "table": "FR-AF-3",
+   "branch": "paperc-data-fr",
+   "folder": "paperC/specs/FR-AF-3",
+   "branch_commit": "0aee62dd2640d92dd46dc8337915bb2c49a35fb6",
+   "mapped_case_ids": [
+    "allocations_familiales.Test2"
+   ],
+   "suite": "tests_allocations_familiales.catala_fr Test1-Test14",
+   "placement_equals_mapped": true,
+   "unmapped": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "stated": "Test1: 4 children; the table has 3 child slots",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:73",
+     "categories": [
+      [
+       "other household shape",
+       "4 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant3_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "stated": "Test3: 1 child(ren); the table describes households of exactly 3 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:74",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "residence Guyane (fixed Metropole); ressources above plafond I (fixed le_plafond_I)"
+      ]
+     ]
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "stated": "Test4: 2 child(ren); the table describes households of exactly 3 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:75",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant2_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "stated": "Test5: 1 child(ren); the table describes households of exactly 3 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:76",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 3-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "stated": "Test6: 2 child(ren); the table describes households of exactly 3 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:77",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "residence Guadeloupe (fixed Metropole); ressources above plafond I (fixed le_plafond_I)"
+      ]
+     ]
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "stated": "Test7: date_courante 2021-02-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:78",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-02-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant3_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "stated": "Test8: date_courante 2021-01-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:79",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-01-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "ressources above plafond I (fixed le_plafond_I)"
+      ]
+     ]
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "stated": "Test9: 2 child(ren); the table describes households of exactly 3 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:80",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "residence Guadeloupe (fixed Metropole); ressources above plafond I (fixed le_plafond_I); enfant1_prise_en_charge ServicesSociauxAllocationVerseeAuxServicesSociaux (fixed EffectiveEtPermanente); enfant2_prise_en_charge ServicesSociauxAllocationVerseeAuxServicesSociaux (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "stated": "Test10: 2 child(ren); the table describes households of exactly 3 children",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:81",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "enfant2_prise_en_charge GardeAlterneePartageAllocations (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "stated": "Test11: date_courante 2021-12-31 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:82",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-12-31 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "stated": "Test12: date_courante 2019-08-26 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:83",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "avait_enfant_avant_2012 true (fixed false); residence Mayotte (fixed Metropole)"
+      ]
+     ]
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "stated": "Test13: date_courante 2019-08-26 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:84",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "1 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "residence Mayotte (fixed Metropole); ressources above plafond I (fixed le_plafond_I)"
+      ]
+     ]
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "stated": "Test14: date_courante 2022-05-01 lies outside the 2020 parameter period [2020-04-01, 2020-12-31] of this table",
+     "stated_source": "paperc-data-fr:paperC/specs/FR-AF-3/CONVERSION.md:85",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2022-05-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "residence Guadeloupe (fixed Metropole); ressources above plafond I (fixed le_plafond_I); enfant2_prise_en_charge GardeAlterneeAllocataireUnique (fixed EffectiveEtPermanente)"
+      ]
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": "a16_19",
+      "enfant3_remuneration": "le_plafond",
+      "enfant3_deja_ouvert": "true",
+      "enfant3_apl": "false"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": "a20_plus",
+      "enfant3_remuneration": "le_plafond",
+      "enfant3_deja_ouvert": "true",
+      "enfant3_apl": "false"
+     },
+     "children": 3,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": null,
+      "enfant2_remuneration": null,
+      "enfant2_deja_ouvert": null,
+      "enfant2_apl": null,
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a16_19",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": null,
+      "enfant2_remuneration": null,
+      "enfant2_deja_ouvert": null,
+      "enfant2_apl": null,
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a03_11",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a00_03",
+      "enfant2_remuneration": "gt_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "date": "2021-02-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a14_16",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": "a16_19",
+      "enfant3_remuneration": "le_plafond",
+      "enfant3_deja_ouvert": "true",
+      "enfant3_apl": "false"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "date": "2021-01-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a14_16",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "gt_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a11_14",
+      "enfant2_remuneration": "gt_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "date": "2020-04-20",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a03_11",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "date": "2021-12-31",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a03_11",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": "a14_16",
+      "enfant3_remuneration": "le_plafond",
+      "enfant3_deja_ouvert": "true",
+      "enfant3_apl": "false"
+     },
+     "children": 3,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a03_11",
+      "enfant2_remuneration": "le_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": "a11_14",
+      "enfant3_remuneration": "le_plafond",
+      "enfant3_deja_ouvert": "true",
+      "enfant3_apl": "false"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert": 4
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a11_14",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": null,
+      "enfant2_remuneration": null,
+      "enfant2_deja_ouvert": null,
+      "enfant2_apl": null,
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "date": "2022-05-01",
+     "mapped": false,
+     "row": {
+      "enfant1_age": "a16_19",
+      "enfant1_remuneration": "le_plafond",
+      "enfant1_deja_ouvert": "true",
+      "enfant1_apl": "false",
+      "enfant2_age": "a20_plus",
+      "enfant2_remuneration": "gt_plafond",
+      "enfant2_deja_ouvert": "true",
+      "enfant2_apl": "false",
+      "enfant3_age": null,
+      "enfant3_remuneration": null,
+      "enfant3_deja_ouvert": null,
+      "enfant3_apl": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert": 1
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "enfant1_age": {
+      "declared": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03",
+       "a03_11",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_suite": [
+       "a00_03",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant1_remuneration": {
+      "declared": [
+       "le_plafond",
+       "gt_plafond"
+      ],
+      "unused_mapped": [
+       "gt_plafond"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "enfant1_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant1_apl": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 0
+     },
+     "enfant2_age": {
+      "declared": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03",
+       "a03_11",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_suite": [
+       "a19_20"
+      ],
+      "unknown_tests": 3
+     },
+     "enfant2_remuneration": {
+      "declared": [
+       "le_plafond",
+       "gt_plafond"
+      ],
+      "unused_mapped": [
+       "gt_plafond"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 3
+     },
+     "enfant2_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 3
+     },
+     "enfant2_apl": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 3
+     },
+     "enfant3_age": {
+      "declared": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20",
+       "a20_plus"
+      ],
+      "unused_mapped": [
+       "a00_03",
+       "a03_11",
+       "a11_14",
+       "a14_16",
+       "a16_19",
+       "a19_20"
+      ],
+      "unused_suite": [
+       "a00_03",
+       "a03_11",
+       "a19_20"
+      ],
+      "unknown_tests": 9
+     },
+     "enfant3_remuneration": {
+      "declared": [
+       "le_plafond",
+       "gt_plafond"
+      ],
+      "unused_mapped": [
+       "gt_plafond"
+      ],
+      "unused_suite": [
+       "gt_plafond"
+      ],
+      "unknown_tests": 9
+     },
+     "enfant3_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 9
+     },
+     "enfant3_apl": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 9
+     }
+    },
+    "declared_total": 39,
+    "unused_mapped_total": 27,
+    "unused_suite_total": 14,
+    "valid_total": 175616,
+    "missed_valid_mapped": 175615,
+    "missed_valid_suite": 175232,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 14
+   },
+   "readme_check": [],
+   "suite_size": 14,
+   "mapped": 1
+  },
+  {
+   "conversion": "second",
+   "table": "FR-PF",
+   "branch": "paperc-code2-fr",
+   "folder": "paperC/specs2/FR-PF",
+   "branch_commit": "c9574173dc42b2ec03464662d64a42c24e8611ad",
+   "mapped_case_ids": [
+    "tests_ouverture_droits/Test1/enfant1",
+    "tests_ouverture_droits/Test1/enfant2",
+    "tests_ouverture_droits/Test1/enfant3",
+    "tests_ouverture_droits/Test1/enfant4"
+   ],
+   "suite": "tests_ouverture_droits.catala_fr Test1 (4 droit_ouvert assertions)",
+   "unmapped": [],
+   "placements": [
+    {
+     "case": "ouverture_droits.Test1.enfant1",
+     "row": {
+      "residence": "metropole",
+      "obligation_scolaire": "Pendant",
+      "remuneration_mensuelle": "jusqu_plafond_mayotte",
+      "age_20_ans": "moins_20",
+      "aide_logement_personnelle": "false"
+     }
+    },
+    {
+     "case": "ouverture_droits.Test1.enfant2",
+     "row": {
+      "residence": "metropole",
+      "obligation_scolaire": "Apres",
+      "remuneration_mensuelle": "au_dessus_plafonds",
+      "age_20_ans": "moins_20",
+      "aide_logement_personnelle": "false"
+     }
+    },
+    {
+     "case": "ouverture_droits.Test1.enfant3",
+     "row": {
+      "residence": "metropole",
+      "obligation_scolaire": "Apres",
+      "remuneration_mensuelle": "jusqu_plafond_mayotte",
+      "age_20_ans": "moins_20",
+      "aide_logement_personnelle": "false"
+     }
+    },
+    {
+     "case": "ouverture_droits.Test1.enfant4",
+     "row": {
+      "residence": "metropole",
+      "obligation_scolaire": "Apres",
+      "remuneration_mensuelle": "jusqu_plafond_mayotte",
+      "age_20_ans": "20_ou_plus",
+      "aide_logement_personnelle": "false"
+     }
+    }
+   ],
+   "placement_equals_mapped": true,
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "metropole",
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unused_mapped": [
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unused_suite": [
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "obligation_scolaire": {
+      "declared": [
+       "Avant",
+       "Pendant",
+       "Apres"
+      ],
+      "unused_mapped": [
+       "Avant"
+      ],
+      "unused_suite": [
+       "Avant"
+      ],
+      "unknown_tests": 0
+     },
+     "remuneration_mensuelle": {
+      "declared": [
+       "jusqu_plafond_mayotte",
+       "entre_plafonds",
+       "au_dessus_plafonds"
+      ],
+      "unused_mapped": [
+       "entre_plafonds"
+      ],
+      "unused_suite": [
+       "entre_plafonds"
+      ],
+      "unknown_tests": 0
+     },
+     "age_20_ans": {
+      "declared": [
+       "moins_20",
+       "20_ou_plus"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "aide_logement_personnelle": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 13,
+    "unused_mapped_total": 5,
+    "unused_suite_total": 5,
+    "valid_total": 72,
+    "missed_valid_mapped": 66,
+    "missed_valid_suite": 66,
+    "n_mapped_rows": 4,
+    "n_suite_rows": 4
+   },
+   "variant": {
+    "suite": "the 4 asserted children plus every child of the 14 household tests (obligation_scolaire derived as epilogue.catala_fr:121-131); droit_ouvert is computed inside those tests and never asserted",
+    "n_children_added": 33,
+    "placements": [
+     {
+      "case": "Test1.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test1.child2",
+      "date": "2020-05-01",
+      "line": 25,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test1.child3",
+      "date": "2020-05-01",
+      "line": 34,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test1.child4",
+      "date": "2020-05-01",
+      "line": 43,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "au_dessus_plafonds",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test2.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test2.child2",
+      "date": "2020-05-01",
+      "line": 25,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test2.child3",
+      "date": "2020-05-01",
+      "line": 52,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "20_ou_plus",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test3.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test4.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test4.child2",
+      "date": "2020-05-01",
+      "line": 34,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test5.child1",
+      "date": "2020-05-01",
+      "line": 16,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test6.child1",
+      "date": "2020-05-01",
+      "line": 135,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test6.child2",
+      "date": "2020-05-01",
+      "line": 143,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Avant",
+       "remuneration_mensuelle": "au_dessus_plafonds",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test7.child1",
+      "date": "2021-02-01",
+      "line": 16,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test7.child2",
+      "date": "2021-02-01",
+      "line": 25,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test7.child3",
+      "date": "2021-02-01",
+      "line": 34,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test7.child4",
+      "date": "2021-02-01",
+      "line": 43,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "au_dessus_plafonds",
+       "age_20_ans": "20_ou_plus",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test8.child1",
+      "date": "2021-01-01",
+      "line": 179,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test8.child2",
+      "date": "2021-01-01",
+      "line": 187,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test9.child1",
+      "date": "2020-05-01",
+      "line": 209,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "au_dessus_plafonds",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test9.child2",
+      "date": "2020-05-01",
+      "line": 217,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "au_dessus_plafonds",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test10.child1",
+      "date": "2020-04-20",
+      "line": 239,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test10.child2",
+      "date": "2020-04-20",
+      "line": 247,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test11.child1",
+      "date": "2021-12-31",
+      "line": 269,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test11.child2",
+      "date": "2021-12-31",
+      "line": 277,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test11.child3",
+      "date": "2021-12-31",
+      "line": 285,
+      "row": {
+       "residence": "metropole",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test12.child1",
+      "date": "2019-08-26",
+      "line": 307,
+      "row": {
+       "residence": "mayotte",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test12.child2",
+      "date": "2019-08-26",
+      "line": 315,
+      "row": {
+       "residence": "mayotte",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test12.child3",
+      "date": "2019-08-26",
+      "line": 323,
+      "row": {
+       "residence": "mayotte",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test12.child4",
+      "date": "2019-08-26",
+      "line": 331,
+      "row": {
+       "residence": "mayotte",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test13.child1",
+      "date": "2019-08-26",
+      "line": 354,
+      "row": {
+       "residence": "mayotte",
+       "obligation_scolaire": "Pendant",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test14.child1",
+      "date": "2022-05-01",
+      "line": 376,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "jusqu_plafond_mayotte",
+       "age_20_ans": "moins_20",
+       "aide_logement_personnelle": "false"
+      }
+     },
+     {
+      "case": "Test14.child2",
+      "date": "2022-05-01",
+      "line": 384,
+      "row": {
+       "residence": "drom_l751_1",
+       "obligation_scolaire": "Apres",
+       "remuneration_mensuelle": "au_dessus_plafonds",
+       "age_20_ans": "20_ou_plus",
+       "aide_logement_personnelle": "false"
+      }
+     }
+    ],
+    "usage": {
+     "attributes": {
+      "residence": {
+       "declared": [
+        "metropole",
+        "drom_l751_1",
+        "mayotte"
+       ],
+       "unused_mapped": [
+        "drom_l751_1",
+        "mayotte"
+       ],
+       "unused_suite": [],
+       "unknown_tests": 0
+      },
+      "obligation_scolaire": {
+       "declared": [
+        "Avant",
+        "Pendant",
+        "Apres"
+       ],
+       "unused_mapped": [
+        "Avant"
+       ],
+       "unused_suite": [],
+       "unknown_tests": 0
+      },
+      "remuneration_mensuelle": {
+       "declared": [
+        "jusqu_plafond_mayotte",
+        "entre_plafonds",
+        "au_dessus_plafonds"
+       ],
+       "unused_mapped": [
+        "entre_plafonds"
+       ],
+       "unused_suite": [
+        "entre_plafonds"
+       ],
+       "unknown_tests": 0
+      },
+      "age_20_ans": {
+       "declared": [
+        "moins_20",
+        "20_ou_plus"
+       ],
+       "unused_mapped": [],
+       "unused_suite": [],
+       "unknown_tests": 0
+      },
+      "aide_logement_personnelle": {
+       "declared": [
+        "false",
+        "true"
+       ],
+       "unused_mapped": [
+        "true"
+       ],
+       "unused_suite": [
+        "true"
+       ],
+       "unknown_tests": 0
+      }
+     },
+     "declared_total": 13,
+     "unused_mapped_total": 5,
+     "unused_suite_total": 2,
+     "valid_total": 72,
+     "missed_valid_mapped": 66,
+     "missed_valid_suite": 48,
+     "n_mapped_rows": 4,
+     "n_suite_rows": 37
+    }
+   },
+   "readme_check": [],
+   "suite_size": 4,
+   "mapped": 4
+  },
+  {
+   "conversion": "second",
+   "table": "FR-AF-1",
+   "branch": "paperc-code2-fr",
+   "folder": "paperC/specs2/FR-AF-1",
+   "branch_commit": "c9574173dc42b2ec03464662d64a42c24e8611ad",
+   "mapped_case_ids": [
+    "tests_allocations_familiales/Test3",
+    "tests_allocations_familiales/Test5"
+   ],
+   "suite": "tests_allocations_familiales.catala_fr Test1-Test14",
+   "placement_equals_mapped": true,
+   "unmapped": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:295",
+     "categories": [
+      [
+       "other household shape",
+       "4 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "stated": "* Test2 (`:80-87`), Test11 (`:266-298`): three children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:296",
+     "categories": [
+      [
+       "other household shape",
+       "3 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "stated": "* Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:297",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "stated": "* Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:297",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:295",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-02-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "stated": "* Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:297",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-01-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "2 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "stated": "* Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:297",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "stated": "* Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:297",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "stated": "* Test2 (`:80-87`), Test11 (`:266-298`): three children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:296",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-12-31 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "3 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:295",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 1-1"
+      ]
+     ]
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "stated": "* Test13 (`:351-367`, Mayotte, one child): date 2019-08-26 lies outside the period of C1",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:298",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "stated": "* Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-1/CONVERSION_2.md:297",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2022-05-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "2 children; table holds 1-1"
+      ]
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 4,
+     "children_not_placed": 3,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 3,
+     "children_not_placed": 2,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 2,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "3_11",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 2,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "date": "2021-02-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "14_16",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 4,
+     "children_not_placed": 3,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "date": "2021-01-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 2,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "16_19",
+      "e1_remuneration": "au_dessus_plafonds",
+      "e1_prise_en_charge": "services_sociaux",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 2,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "date": "2020-04-20",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 2,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "date": "2021-12-31",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 3,
+     "children_not_placed": 2,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "mayotte",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "true",
+      "attributaire": "parent",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 4,
+     "children_not_placed": 3,
+     "n_droit_ouvert_encoding": 4,
+     "n_droit_ouvert": 4
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "mayotte",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "date": "2022-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "attributaire": "parent",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e1_deja_ouvert": "true",
+      "e1_aide_logement": "false"
+     },
+     "children": 2,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "metropole",
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unused_mapped": [
+       "mayotte"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "attributaire": {
+      "declared": [
+       "parent",
+       "tiers_titre_I",
+       "aucun"
+      ],
+      "unused_mapped": [
+       "tiers_titre_I",
+       "aucun"
+      ],
+      "unused_suite": [
+       "tiers_titre_I",
+       "aucun"
+      ],
+      "unknown_tests": 0
+     },
+     "ressources": {
+      "declared": [
+       "jusqu_plafond_I",
+       "zone_degressive_I",
+       "entre_plafonds_I_II",
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unused_mapped": [
+       "entre_plafonds_I_II",
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unused_suite": [
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unknown_tests": 0
+     },
+     "avant_2012": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "e1_age": {
+      "declared": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_mapped": [
+       "moins_3",
+       "3_11",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_suite": [
+       "moins_3",
+       "anniversaire_16",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_remuneration": {
+      "declared": [
+       "jusqu_plafond_mayotte",
+       "entre_plafonds",
+       "au_dessus_plafonds"
+      ],
+      "unused_mapped": [
+       "entre_plafonds",
+       "au_dessus_plafonds"
+      ],
+      "unused_suite": [
+       "entre_plafonds"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_prise_en_charge": {
+      "declared": [
+       "complete",
+       "partagee",
+       "services_sociaux"
+      ],
+      "unused_mapped": [
+       "partagee",
+       "services_sociaux"
+      ],
+      "unused_suite": [
+       "partagee"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_aide_logement": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [
+       "true"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 32,
+    "unused_mapped_total": 21,
+    "unused_suite_total": 13,
+    "valid_total": 19440,
+    "missed_valid_mapped": 19436,
+    "missed_valid_suite": 19152,
+    "n_mapped_rows": 2,
+    "n_suite_rows": 14
+   },
+   "readme_check": [],
+   "suite_size": 14,
+   "mapped": 2
+  },
+  {
+   "conversion": "second",
+   "table": "FR-AF-2",
+   "branch": "paperc-code2-fr",
+   "folder": "paperC/specs2/FR-AF-2",
+   "branch_commit": "c9574173dc42b2ec03464662d64a42c24e8611ad",
+   "mapped_case_ids": [
+    "tests_allocations_familiales/Test4",
+    "tests_allocations_familiales/Test6",
+    "tests_allocations_familiales/Test9",
+    "tests_allocations_familiales/Test10"
+   ],
+   "suite": "tests_allocations_familiales.catala_fr Test1-Test14",
+   "placement_equals_mapped": true,
+   "unmapped": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:301",
+     "categories": [
+      [
+       "other household shape",
+       "4 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "stated": "* Test2 (`:80-87`), Test11 (`:266-298`): three children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:302",
+     "categories": [
+      [
+       "other household shape",
+       "3 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "stated": "* Test3 (`:94-100`), Test5 (`:120-126`), Test13 (`:351-367`): one child.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:303",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "stated": "* Test3 (`:94-100`), Test5 (`:120-126`), Test13 (`:351-367`): one child.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:303",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:301",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-02-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "stated": "* Test8 (`:176-200`): date 2021-01-01, outside the period of C1 (2021 ceilings).",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:304",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-01-01 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "stated": "* Test2 (`:80-87`), Test11 (`:266-298`): three children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:302",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-12-31 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "3 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:301",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "stated": "* Test3 (`:94-100`), Test5 (`:120-126`), Test13 (`:351-367`): one child.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:303",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "1 children; table holds 2-2"
+      ]
+     ]
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "stated": "* Test14 (`:373-397`): date 2022-05-01, outside the period of C1.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-2/CONVERSION_2.md:305",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2022-05-01 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "11_14",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 4,
+     "children_not_placed": 2,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "11_14",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 3,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": null,
+      "e2_remuneration": null,
+      "e2_prise_en_charge": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "16_19",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "partagee"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": null,
+      "e2_remuneration": null,
+      "e2_prise_en_charge": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "e1_age": "3_11",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "moins_3",
+      "e2_remuneration": "au_dessus_plafonds",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "date": "2021-02-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "14_16",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "11_14",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 4,
+     "children_not_placed": 2,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "date": "2021-01-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "anniversaire_16",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_remuneration": "au_dessus_plafonds",
+      "e1_prise_en_charge": "services_sociaux",
+      "e2_age": "11_14",
+      "e2_remuneration": "au_dessus_plafonds",
+      "e2_prise_en_charge": "services_sociaux"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "date": "2020-04-20",
+     "mapped": true,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "3_11",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "partagee"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "date": "2021-12-31",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "3_11",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 3,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "mayotte",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "true",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "3_11",
+      "e2_remuneration": "jusqu_plafond_mayotte",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 4,
+     "children_not_placed": 2,
+     "n_droit_ouvert_encoding": 4,
+     "n_droit_ouvert": 4
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "mayotte",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": null,
+      "e2_remuneration": null,
+      "e2_prise_en_charge": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "date": "2022-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_remuneration": "jusqu_plafond_mayotte",
+      "e1_prise_en_charge": "complete",
+      "e2_age": "20_23",
+      "e2_remuneration": "au_dessus_plafonds",
+      "e2_prise_en_charge": "complete"
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "metropole",
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unused_mapped": [
+       "mayotte"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "ressources": {
+      "declared": [
+       "jusqu_plafond_I",
+       "zone_degressive_I",
+       "entre_plafonds_I_II",
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unused_mapped": [
+       "zone_degressive_I",
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unused_suite": [
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unknown_tests": 0
+     },
+     "avant_2012": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "e1_age": {
+      "declared": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_mapped": [
+       "moins_3",
+       "14_16",
+       "anniversaire_16",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_suite": [
+       "moins_3",
+       "anniversaire_16",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_remuneration": {
+      "declared": [
+       "jusqu_plafond_mayotte",
+       "entre_plafonds",
+       "au_dessus_plafonds"
+      ],
+      "unused_mapped": [
+       "entre_plafonds"
+      ],
+      "unused_suite": [
+       "entre_plafonds"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_prise_en_charge": {
+      "declared": [
+       "complete",
+       "partagee",
+       "services_sociaux"
+      ],
+      "unused_mapped": [
+       "partagee"
+      ],
+      "unused_suite": [
+       "partagee"
+      ],
+      "unknown_tests": 0
+     },
+     "e2_age": {
+      "declared": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_mapped": [
+       "14_16",
+       "anniversaire_16",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_suite": [
+       "14_16",
+       "19_20",
+       "23_plus"
+      ],
+      "unknown_tests": 3
+     },
+     "e2_remuneration": {
+      "declared": [
+       "jusqu_plafond_mayotte",
+       "entre_plafonds",
+       "au_dessus_plafonds"
+      ],
+      "unused_mapped": [
+       "entre_plafonds"
+      ],
+      "unused_suite": [
+       "entre_plafonds"
+      ],
+      "unknown_tests": 3
+     },
+     "e2_prise_en_charge": {
+      "declared": [
+       "complete",
+       "partagee",
+       "services_sociaux"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 3
+     }
+    },
+    "declared_total": 40,
+    "unused_mapped_total": 19,
+    "unused_suite_total": 13,
+    "valid_total": 196830,
+    "missed_valid_mapped": 195678,
+    "missed_valid_suite": 186462,
+    "n_mapped_rows": 4,
+    "n_suite_rows": 14
+   },
+   "readme_check": [],
+   "suite_size": 14,
+   "mapped": 4
+  },
+  {
+   "conversion": "second",
+   "table": "FR-AF-3",
+   "branch": "paperc-code2-fr",
+   "folder": "paperC/specs2/FR-AF-3",
+   "branch_commit": "c9574173dc42b2ec03464662d64a42c24e8611ad",
+   "mapped_case_ids": [
+    "tests_allocations_familiales/Test2"
+   ],
+   "suite": "tests_allocations_familiales.catala_fr Test1-Test14",
+   "placement_equals_mapped": true,
+   "unmapped": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:292",
+     "categories": [
+      [
+       "other household shape",
+       "4 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e3 prise_en_charge GardeAlterneePartageAllocations (fixed complete)"
+      ]
+     ]
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 3-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e2 prise_en_charge GardeAlterneePartageAllocations (fixed complete)"
+      ]
+     ]
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other household shape",
+       "1 children; table holds 3-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e2 earnings 1949.00 (fixed jusqu_plafond_mayotte)"
+      ]
+     ]
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:292",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-02-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e3 prise_en_charge GardeAlterneePartageAllocations (fixed complete)"
+      ]
+     ]
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-01-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e1 earnings 1258.00 (fixed jusqu_plafond_mayotte); e1 prise_en_charge ServicesSociauxAllocationVerseeAuxServicesSociaux (fixed complete); e2 earnings 1766.00 (fixed jusqu_plafond_mayotte); e2 prise_en_charge ServicesSociauxAllocationVerseeAuxServicesSociaux (fixed complete)"
+      ]
+     ]
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e2 prise_en_charge GardeAlterneePartageAllocations (fixed complete)"
+      ]
+     ]
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "stated": "* Test11 (`:266-298`, three children): date 2021-12-31, outside the period of C1.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:294",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2021-12-31 outside [2020-04-01, 2020-12-31]"
+      ]
+     ]
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "stated": "* Test1 (`:66-73`), Test7 (`:163-170`), Test12 (`:304-345`): four children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:292",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "4 children; table holds 3-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2019-08-26 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "1 children; table holds 3-3"
+      ]
+     ]
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "stated": "* Test3, Test5, Test13: one child. Test4, Test6, Test8, Test9, Test10, Test14: two children.",
+     "stated_source": "paperc-code2-fr:paperC/specs2/FR-AF-3/CONVERSION_2.md:293",
+     "categories": [
+      [
+       "other period",
+       "date_courante 2022-05-01 outside [2020-04-01, 2020-12-31]"
+      ],
+      [
+       "other household shape",
+       "2 children; table holds 3-3"
+      ],
+      [
+       "other: fixed input outside its fixed band",
+       "e2 earnings 1682.00 (fixed jusqu_plafond_mayotte)"
+      ]
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "line": 66,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_deja_ouvert": "true",
+      "e2_age": "11_14",
+      "e2_deja_ouvert": "true",
+      "e3_age": "16_19",
+      "e3_deja_ouvert": "true"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test2",
+     "line": 80,
+     "date": "2020-05-01",
+     "mapped": true,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_deja_ouvert": "true",
+      "e2_age": "11_14",
+      "e2_deja_ouvert": "true",
+      "e3_age": "20_23",
+      "e3_deja_ouvert": "true"
+     },
+     "children": 3,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test3",
+     "line": 94,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_deja_ouvert": "true",
+      "e2_age": null,
+      "e2_deja_ouvert": null,
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test4",
+     "line": 107,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_deja_ouvert": "true",
+      "e2_age": "16_19",
+      "e2_deja_ouvert": "true",
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test5",
+     "line": 120,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_deja_ouvert": "true",
+      "e2_age": null,
+      "e2_deja_ouvert": null,
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test6",
+     "line": 132,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "e1_age": "3_11",
+      "e1_deja_ouvert": "true",
+      "e2_age": "moins_3",
+      "e2_deja_ouvert": "true",
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test7",
+     "line": 163,
+     "date": "2021-02-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "14_16",
+      "e1_deja_ouvert": "true",
+      "e2_age": "11_14",
+      "e2_deja_ouvert": "true",
+      "e3_age": "16_19",
+      "e3_deja_ouvert": "true"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test8",
+     "line": 176,
+     "date": "2021-01-01",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_deja_ouvert": "true",
+      "e2_age": "anniversaire_16",
+      "e2_deja_ouvert": "true",
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test9",
+     "line": 206,
+     "date": "2020-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_deja_ouvert": "true",
+      "e2_age": "11_14",
+      "e2_deja_ouvert": "true",
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test10",
+     "line": 236,
+     "date": "2020-04-20",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_deja_ouvert": "true",
+      "e2_age": "3_11",
+      "e2_deja_ouvert": "true",
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 2,
+     "n_droit_ouvert": 2
+    },
+    {
+     "test": "Test11",
+     "line": 266,
+     "date": "2021-12-31",
+     "mapped": false,
+     "row": {
+      "residence": "metropole",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_deja_ouvert": "true",
+      "e2_age": "3_11",
+      "e2_deja_ouvert": "true",
+      "e3_age": "14_16",
+      "e3_deja_ouvert": "true"
+     },
+     "children": 3,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 3,
+     "n_droit_ouvert": 3
+    },
+    {
+     "test": "Test12",
+     "line": 304,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "mayotte",
+      "ressources": "jusqu_plafond_I",
+      "avant_2012": "true",
+      "e1_age": "16_19",
+      "e1_deja_ouvert": "true",
+      "e2_age": "3_11",
+      "e2_deja_ouvert": "true",
+      "e3_age": "11_14",
+      "e3_deja_ouvert": "true"
+     },
+     "children": 4,
+     "children_not_placed": 1,
+     "n_droit_ouvert_encoding": 4,
+     "n_droit_ouvert": 4
+    },
+    {
+     "test": "Test13",
+     "line": 351,
+     "date": "2019-08-26",
+     "mapped": false,
+     "row": {
+      "residence": "mayotte",
+      "ressources": "entre_plafonds_I_II",
+      "avant_2012": "false",
+      "e1_age": "11_14",
+      "e1_deja_ouvert": "true",
+      "e2_age": null,
+      "e2_deja_ouvert": null,
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 1,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    },
+    {
+     "test": "Test14",
+     "line": 373,
+     "date": "2022-05-01",
+     "mapped": false,
+     "row": {
+      "residence": "drom_l751_1",
+      "ressources": "zone_degressive_I",
+      "avant_2012": "false",
+      "e1_age": "16_19",
+      "e1_deja_ouvert": "true",
+      "e2_age": "20_23",
+      "e2_deja_ouvert": "true",
+      "e3_age": null,
+      "e3_deja_ouvert": null
+     },
+     "children": 2,
+     "children_not_placed": 0,
+     "n_droit_ouvert_encoding": 1,
+     "n_droit_ouvert": 1
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "metropole",
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unused_mapped": [
+       "drom_l751_1",
+       "mayotte"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "ressources": {
+      "declared": [
+       "jusqu_plafond_I",
+       "zone_degressive_I",
+       "entre_plafonds_I_II",
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unused_mapped": [
+       "zone_degressive_I",
+       "entre_plafonds_I_II",
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unused_suite": [
+       "zone_degressive_II",
+       "au_dela_plafond_II"
+      ],
+      "unknown_tests": 0
+     },
+     "avant_2012": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "true"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "e1_age": {
+      "declared": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_mapped": [
+       "moins_3",
+       "3_11",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_suite": [
+       "moins_3",
+       "anniversaire_16",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "e1_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 0
+     },
+     "e2_age": {
+      "declared": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_mapped": [
+       "moins_3",
+       "3_11",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_suite": [
+       "14_16",
+       "19_20",
+       "23_plus"
+      ],
+      "unknown_tests": 3
+     },
+     "e2_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 3
+     },
+     "e3_age": {
+      "declared": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "20_23",
+       "23_plus"
+      ],
+      "unused_mapped": [
+       "moins_3",
+       "3_11",
+       "11_14",
+       "14_16",
+       "anniversaire_16",
+       "16_19",
+       "19_20",
+       "23_plus"
+      ],
+      "unused_suite": [
+       "moins_3",
+       "3_11",
+       "anniversaire_16",
+       "19_20",
+       "23_plus"
+      ],
+      "unknown_tests": 9
+     },
+     "e3_deja_ouvert": {
+      "declared": [
+       "false",
+       "true"
+      ],
+      "unused_mapped": [
+       "false"
+      ],
+      "unused_suite": [
+       "false"
+      ],
+      "unknown_tests": 9
+     }
+    },
+    "declared_total": 43,
+    "unused_mapped_total": 34,
+    "unused_suite_total": 18,
+    "valid_total": 174960,
+    "missed_valid_mapped": 174959,
+    "missed_valid_suite": 173232,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 14
+   },
+   "readme_check": [],
+   "suite_size": 14,
+   "mapped": 1
+  }
+ ]
+}
