@@ -1,0 +1,6 @@
+NZ-AS: 86016 rows evaluated directly in OpenFisca
+ground_truth=EXCLUDED openfisca=False: 37620
+ground_truth=EXCLUDED openfisca=True: 12
+ground_truth=False openfisca=False: 48356
+ground_truth=True openfisca=True: 28
+valid rows disagreeing: 0

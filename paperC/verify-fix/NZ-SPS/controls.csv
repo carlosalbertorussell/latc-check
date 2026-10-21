@@ -1,0 +1,7 @@
+sample,control,result,detail
+NZ-SPS,CTRL-HASH,pass,6 files match
+NZ-SPS,CTRL-GT,pass,|D|=122880 rows in odometer order; 14 OFFICIAL rows use declared labels
+NZ-SPS,CTRL-EXCL,pass,0 disagreeing rows
+NZ-SPS,CTRL-FULL,n/a,no pass criterion outside CTRL-NUR
+NZ-SPS,CTRL-PLANT,pass,"422 example sets, 0 failures; C1 count for v nonzero in 0 sets"
+NZ-SPS,CTRL-H3,pass,"422 C3 runs, 0 failures; |R|=0"

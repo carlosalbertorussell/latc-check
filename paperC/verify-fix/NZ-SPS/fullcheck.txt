@@ -1,0 +1,6 @@
+NZ-SPS: 122880 rows evaluated directly in OpenFisca
+ground_truth=EXCLUDED openfisca=False: 21024
+ground_truth=EXCLUDED openfisca=True: 2016
+ground_truth=False openfisca=False: 92973
+ground_truth=True openfisca=True: 6867
+valid rows disagreeing: 0

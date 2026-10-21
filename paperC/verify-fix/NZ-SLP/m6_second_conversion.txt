@@ -1,0 +1,3 @@
+attribute map: {'supported_living_payment__restricted_work_capacity': 'restricted_work_capacity', 'totally_blind': 'totally_blind', 'social_security__residential_requirement': 'residential_requirement', 'age': 'age', 'supported_living_payment__disability_self_inflicted': 'disability_self_inflicted', 'supported_living_payment__caring_for_another_person': 'caring_for_another_person', 'social_security__dependent_children': 'dependent_children'}
+rows first 256, second 256, compared 256, distinct second rows reached 256
+tally: {'agree': 256}
