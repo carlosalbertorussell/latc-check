@@ -1,0 +1,6640 @@
+{
+ "reading_rules": "Reader for the OpenFisca Aotearoa official tests of the three NZ rules.\n\nTurns every YAML case into person records: one record per person and per week at\nwhich the case asserts an output. Used by m2_nz.py.\n\nReading rules (stated in REPORT-M2-M6.md and fragments/nz.md):\n* A case's persons are its named persons (`input.persons`) or, for vector cases, one\n  person per position of the input/output vectors.\n* The weeks of a case are the weeks of the periods its outputs are keyed by\n  (`2019-W05-4` -> 2019-W05, `2022-W01`); unkeyed outputs use the case's `period`.\n* An input keyed by periods takes the value whose period contains the Monday of the\n  record's week (the day `period.start` / `period.first_day` that the formulas read);\n  `ETERNITY` covers every week. An input without period keys applies to every week of\n  the case. An input with period keys none of which covers the Monday is unset.\n",
+ "defaults": {
+  "bool": "OpenFisca bool variables without default_value default to False",
+  "age": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/demographics/ages.py:41 (default_value = -9999; formula from date_of_birth, lines 45-53)",
+  "accommodation_type": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/demographics/housing.py:25 (default AccommodationType.unknown)",
+  "accommodation_costs": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/demographics/housing.py:36 (default 0)",
+  "cash_assets": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/regulation/social_security_regulation/accommodation_supplement/assets.py:75 (default 0)",
+  "social_housing__eligible": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:144 (default True)",
+  "below_thresholds": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/entitled.py:153, 161 (default True)",
+  "residential_requirement": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/resident.py:35-74 (both formulas are 0 unless social_security__ordinarily_resident_in_new_zealand or ..._in_country_with_reciprocity_agreement is True; both default False)",
+  "dependent_children": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/interpretation/child.py:43-54 (default_value 0 at line 44; count of family members in role child that are dependent children; 0 for a person in role child)",
+  "dependent_child": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/interpretation/child.py:17-40 (child: age < 16, or < 18 and not financially independent; and role child; financially_independent.py:23-29 is False when none of its four inputs is set)",
+  "in_a_relationship": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/relationships.py:16-25 (principal AND (married or civil union or de facto or a member in role partner))",
+  "immigration__resident": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/immigration/residence.py:41-42 (holds_resident_visa + permanent_resident)",
+  "as_costs": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/acts/social_security/accommodation_supplement/costs.py:17 (default False; formula_2018_11_26 lines 20-94 from 2018-11-26)",
+  "basic_grant__entitled": "openfisca-aotearoa@9d77ea7ce3c4:openfisca_aotearoa/variables/regulation/student_allowance/basic_grant.py:17-39 (needs student_allowance__secondary_student or __tertiary_student, students.py:15, 24 default False)"
+ },
+ "tables": {
+  "1:NZ-SLP": {
+   "coder": 1,
+   "rule": "SLP",
+   "branch": "paperc-data-nz",
+   "folder": "paperC/specs/NZ-SLP",
+   "branch_commit": "7efbb1e5682aa3526a854b9a159714dfaff7008e",
+   "mapping": {
+    "yaml_cases": 50,
+    "yaml_cases_asserting_entry": 7,
+    "persons_in_all_cases": 105,
+    "person_values_asserting_entry": 13,
+    "mapped_rows": 13,
+    "mapped_distinct_persons": 13,
+    "unmapped_asserting": [],
+    "cases_without_entry_assertion": [
+     {
+      "case": "supported_living_payment/base.yaml#1",
+      "line": 1,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#2",
+      "line": 20,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#3",
+      "line": 39,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#4",
+      "line": 58,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#5",
+      "line": 89,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#6",
+      "line": 120,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#7",
+      "line": 151,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#8",
+      "line": 182,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#9",
+      "line": 213,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#10",
+      "line": 244,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#11",
+      "line": 275,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#12",
+      "line": 306,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#13",
+      "line": 338,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#14",
+      "line": 370,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#15",
+      "line": 402,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#16",
+      "line": 434,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#17",
+      "line": 466,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#18",
+      "line": 498,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#19",
+      "line": 530,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#20",
+      "line": 562,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#21",
+      "line": 594,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#22",
+      "line": 626,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#23",
+      "line": 658,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#24",
+      "line": 690,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#25",
+      "line": 722,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#26",
+      "line": 754,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#27",
+      "line": 786,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#28",
+      "line": 818,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#29",
+      "line": 850,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#30",
+      "line": 882,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#31",
+      "line": 914,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#32",
+      "line": 946,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#33",
+      "line": 978,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#34",
+      "line": 1010,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#35",
+      "line": 1042,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#36",
+      "line": 1074,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#37",
+      "line": 1106,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#38",
+      "line": 1138,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#39",
+      "line": 1170,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#40",
+      "line": 1202,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#41",
+      "line": 1234,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#42",
+      "line": 1266,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#43",
+      "line": 1298,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     }
+    ]
+   },
+   "records": 105,
+   "placement_rows": 105,
+   "primary": {
+    "attributes": {
+     "supported_living_payment__restricted_work_capacity": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 101
+     },
+     "totally_blind": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 103
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 93
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       ">=20"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "supported_living_payment__disability_self_inflicted": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 103
+     },
+     "supported_living_payment__caring_for_another_person": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 99
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 11
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 224,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 105
+   },
+   "secondary": {
+    "attributes": {
+     "supported_living_payment__restricted_work_capacity": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "totally_blind": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       ">=20"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "supported_living_payment__disability_self_inflicted": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "supported_living_payment__caring_for_another_person": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 224,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 105
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "supported_living_payment__restricted_work_capacity": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 61
+     },
+     "totally_blind": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 63
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 53
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       ">=20"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "supported_living_payment__disability_self_inflicted": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 63
+     },
+     "supported_living_payment__caring_for_another_person": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 59
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 11
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 224,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 65
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "supported_living_payment__restricted_work_capacity": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "totally_blind": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       ">=20"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "supported_living_payment__disability_self_inflicted": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "supported_living_payment__caring_for_another_person": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 224,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 65
+   },
+   "secondary_unknown": {
+    "supported_living_payment__restricted_work_capacity": 0,
+    "totally_blind": 0,
+    "social_security__residential_requirement": 0,
+    "age": 0,
+    "supported_living_payment__disability_self_inflicted": 0,
+    "supported_living_payment__caring_for_another_person": 0,
+    "social_security__dependent_children": 0
+   },
+   "provenance": {},
+   "readme_check": {
+    "stated_unused": 0,
+    "source": "paperc-data-nz:paperC/specs/README-NZ.md:54",
+    "computed_unused": 0,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": false,
+     "missed_valid>0": false
+    },
+    "suite_primary": {
+     "unused>0": false,
+     "missed_valid>0": false
+    },
+    "suite_secondary": {
+     "unused>0": false,
+     "missed_valid>0": false
+    }
+   }
+  },
+  "1:NZ-AS": {
+   "coder": 1,
+   "rule": "AS",
+   "branch": "paperc-data-nz",
+   "folder": "paperC/specs/NZ-AS",
+   "branch_commit": "7efbb1e5682aa3526a854b9a159714dfaff7008e",
+   "mapping": {
+    "yaml_cases": 47,
+    "yaml_cases_asserting_entry": 7,
+    "persons_in_all_cases": 157,
+    "person_values_asserting_entry": 12,
+    "mapped_rows": 1,
+    "mapped_distinct_persons": 1,
+    "unmapped_asserting": [
+     {
+      "case": "accommodation_supplement/1964/entitled.yaml#1[0]",
+      "category": "other period",
+      "detail": "asserted for 2018-W01, outside 2018-11-26 to ..., where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:76"
+     },
+     {
+      "case": "accommodation_supplement/1964/entitled.yaml#2[0]",
+      "category": "other period",
+      "detail": "asserted for 2018-W01, outside 2018-11-26 to ..., where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:77"
+     },
+     {
+      "case": "accommodation_supplement/1964/entitled.yaml#3[0]",
+      "category": "other period",
+      "detail": "asserted for 2018-W01, outside 2018-11-26 to ..., where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:78"
+     },
+     {
+      "case": "accommodation_supplement/1964/entitled.yaml#4[0]",
+      "category": "other period",
+      "detail": "asserted for 2018-W01, outside 2018-11-26 to ..., where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:79"
+     },
+     {
+      "case": "accommodation_supplement/1964/entitled.yaml#5[0]",
+      "category": "other period",
+      "detail": "asserted for 2018-W01, outside 2018-11-26 to ..., where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:80"
+     },
+     {
+      "case": "accommodation_supplement/1964/entitled.yaml#6[0]",
+      "category": "other period",
+      "detail": "asserted for 2018-W01, outside 2018-11-26 to ..., where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:81"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[0]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets accommodation_supplement__accommodation_costs@2022-W01 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:70"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[1]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets accommodation_supplement__accommodation_costs@2022-W01 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:71"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[3]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets accommodation_supplement__accommodation_costs@2022-W01 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:73"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[4]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets accommodation_supplement__accommodation_costs@2022-W01 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:74"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[5]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets accommodation_supplement__accommodation_costs@2022-W01 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-AS/CONVERSION.md:75"
+     }
+    ],
+    "cases_without_entry_assertion": [
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#2",
+      "line": 40,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#3",
+      "line": 82,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/accommodation_supplement.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/area.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__area_of_residence"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#2",
+      "line": 49,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#3",
+      "line": 96,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#4",
+      "line": 143,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#2",
+      "line": 22,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#3",
+      "line": 86,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#4",
+      "line": 107,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#5",
+      "line": 129,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#6",
+      "line": 197,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#7",
+      "line": 261,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#8",
+      "line": 280,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#9",
+      "line": 301,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#10",
+      "line": 368,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/beneficiary.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__beneficiary",
+       "accommodation_supplement__non_beneficiary"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#2",
+      "line": 21,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#3",
+      "line": 41,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#4",
+      "line": 61,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#5",
+      "line": 81,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#6",
+      "line": 163,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/cutout.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__cutout"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__social_housing_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#2",
+      "line": 18,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#3",
+      "line": 42,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#4",
+      "line": 63,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#5",
+      "line": 82,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#6",
+      "line": 103,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#7",
+      "line": 121,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/rate.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__rate"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/rebate.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__rebate"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#1",
+      "line": 1,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#2",
+      "line": 97,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#3",
+      "line": 192,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#4",
+      "line": 287,
+      "asserts": [
+       "persons"
+      ]
+     }
+    ]
+   },
+   "records": 883,
+   "placement_rows": 883,
+   "primary": {
+    "attributes": {
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 850
+     },
+     "accommodation_type": {
+      "declared": [
+       "unknown",
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_mapped": [
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 672
+     },
+     "accommodation_costs": {
+      "declared": [
+       "<=0",
+       ">0"
+      ],
+      "unused_mapped": [
+       ">0"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 785
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 203
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [
+       ">=1"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 209
+     },
+     "accommodation_supplement__cash_assets": {
+      "declared": [
+       "<=8100",
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_mapped": [
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 837
+     },
+     "partner_accommodation_supplement__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 273
+     },
+     "basic_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 879
+     },
+     "independent_circumstances_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 879
+     },
+     "basic_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 843
+     },
+     "independent_circumstances_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 879
+     },
+     "basic_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 879
+     },
+     "independent_circumstances_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 879
+     },
+     "accommodation_supplement__disability": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 881
+     }
+    },
+    "declared_total": 34,
+    "unused_mapped_total": 20,
+    "unused_suite_total": 0,
+    "valid_total": 48384,
+    "missed_valid_mapped": 48383,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 883
+   },
+   "secondary": {
+    "attributes": {
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "accommodation_type": {
+      "declared": [
+       "unknown",
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_mapped": [
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 10
+     },
+     "accommodation_costs": {
+      "declared": [
+       "<=0",
+       ">0"
+      ],
+      "unused_mapped": [
+       ">0"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [
+       ">=1"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__cash_assets": {
+      "declared": [
+       "<=8100",
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_mapped": [
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "partner_accommodation_supplement__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "basic_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "independent_circumstances_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "basic_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "independent_circumstances_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "basic_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "independent_circumstances_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__disability": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 34,
+    "unused_mapped_total": 20,
+    "unused_suite_total": 0,
+    "valid_total": 48384,
+    "missed_valid_mapped": 48383,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 883
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 316
+     },
+     "accommodation_type": {
+      "declared": [
+       "unknown",
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_mapped": [
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 138
+     },
+     "accommodation_costs": {
+      "declared": [
+       "<=0",
+       ">0"
+      ],
+      "unused_mapped": [
+       ">0"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 251
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 203
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [
+       ">=1"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 209
+     },
+     "accommodation_supplement__cash_assets": {
+      "declared": [
+       "<=8100",
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_mapped": [
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 312
+     },
+     "partner_accommodation_supplement__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 273
+     },
+     "basic_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 345
+     },
+     "independent_circumstances_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 345
+     },
+     "basic_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 309
+     },
+     "independent_circumstances_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 345
+     },
+     "basic_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 345
+     },
+     "independent_circumstances_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 345
+     },
+     "accommodation_supplement__disability": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 347
+     }
+    },
+    "declared_total": 34,
+    "unused_mapped_total": 20,
+    "unused_suite_total": 0,
+    "valid_total": 48384,
+    "missed_valid_mapped": 48383,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 349
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "accommodation_type": {
+      "declared": [
+       "unknown",
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_mapped": [
+       "rent",
+       "board",
+       "lodging",
+       "mortgage",
+       "social_housing",
+       "residential_care"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 10
+     },
+     "accommodation_costs": {
+      "declared": [
+       "<=0",
+       ">0"
+      ],
+      "unused_mapped": [
+       ">0"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__dependent_children": {
+      "declared": [
+       "0",
+       ">=1"
+      ],
+      "unused_mapped": [
+       ">=1"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__cash_assets": {
+      "declared": [
+       "<=8100",
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_mapped": [
+       "8101-16200",
+       ">16200"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "partner_accommodation_supplement__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "basic_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "independent_circumstances_grant__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "basic_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "independent_circumstances_grant__entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "basic_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "independent_circumstances_grant__would_be_entitled": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__disability": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 34,
+    "unused_mapped_total": 20,
+    "unused_suite_total": 0,
+    "valid_total": 48384,
+    "missed_valid_mapped": 48383,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 349
+   },
+   "secondary_unknown": {
+    "social_security__residential_requirement": 6,
+    "accommodation_type": 10,
+    "accommodation_costs": 0,
+    "social_security__in_a_relationship": 0,
+    "social_security__dependent_children": 0,
+    "accommodation_supplement__cash_assets": 0,
+    "partner_accommodation_supplement__receiving": 0,
+    "basic_grant__receiving": 0,
+    "independent_circumstances_grant__receiving": 0,
+    "basic_grant__entitled": 0,
+    "independent_circumstances_grant__entitled": 0,
+    "basic_grant__would_be_entitled": 0,
+    "independent_circumstances_grant__would_be_entitled": 0,
+    "accommodation_supplement__disability": 0
+   },
+   "provenance": {
+    "social_security__residential_requirement=False": {
+     "primary": [
+      "accommodation_supplement/2018/entitled.yaml#1[1]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Anahera]",
+      "accommodation_supplement/2018/area.yaml#1[0]",
+      "accommodation_supplement/2018/area.yaml#1[1]",
+      "accommodation_supplement/2018/area.yaml#1[2]"
+     ],
+     "secondary_n": 137
+    },
+    "accommodation_type=rent": {
+     "primary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]"
+     ],
+     "primary_n": 18,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]"
+     ],
+     "secondary_n": 18
+    },
+    "accommodation_type=board": {
+     "primary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#3[Kai]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[2]"
+     ],
+     "primary_n": 14,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#3[Kai]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[2]"
+     ],
+     "secondary_n": 14
+    },
+    "accommodation_type=lodging": {
+     "primary": [
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[2]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[3]"
+     ],
+     "primary_n": 13,
+     "secondary": [
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[2]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[3]"
+     ],
+     "secondary_n": 13
+    },
+    "accommodation_type=mortgage": {
+     "primary": [
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[2]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[3]"
+     ],
+     "primary_n": 16,
+     "secondary": [
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[1]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[2]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[3]"
+     ],
+     "secondary_n": 16
+    },
+    "accommodation_type=social_housing": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#1[0]",
+      "accommodation_supplement/2018/rate.yaml#1[5]",
+      "accommodation_supplement/2018/rebate.yaml#1[5]",
+      "accommodation_supplement/2018/situation.yaml#1[Vranda]"
+     ],
+     "primary_n": 7,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#1[0]",
+      "accommodation_supplement/2018/rate.yaml#1[5]",
+      "accommodation_supplement/2018/rebate.yaml#1[5]",
+      "accommodation_supplement/2018/situation.yaml#1[Vranda]"
+     ],
+     "secondary_n": 7
+    },
+    "accommodation_type=residential_care": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#6[0]",
+      "accommodation_supplement/2018/rate.yaml#1[6]",
+      "accommodation_supplement/2018/rebate.yaml#1[6]",
+      "accommodation_supplement/2018/situation.yaml#1[Vranda]"
+     ],
+     "primary_n": 7,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#6[0]",
+      "accommodation_supplement/2018/rate.yaml#1[6]",
+      "accommodation_supplement/2018/rebate.yaml#1[6]",
+      "accommodation_supplement/2018/situation.yaml#1[Vranda]"
+     ],
+     "secondary_n": 7
+    },
+    "accommodation_costs=>0": {
+     "primary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#3[Kai]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]"
+     ],
+     "primary_n": 30,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#3[Kai]",
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[0]"
+     ],
+     "secondary_n": 30
+    },
+    "social_security__in_a_relationship=True": {
+     "primary": [
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]",
+      "accommodation_supplement/2018/base.yaml#10[Bob]",
+      "accommodation_supplement/2018/base.yaml#10[Vranda]",
+      "accommodation_supplement/2018/base.yaml#4[0]"
+     ],
+     "primary_n": 11,
+     "secondary": [
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]",
+      "accommodation_supplement/2018/base.yaml#10[Bob]",
+      "accommodation_supplement/2018/base.yaml#10[Vranda]",
+      "accommodation_supplement/2018/base.yaml#4[0]"
+     ],
+     "secondary_n": 11
+    },
+    "social_security__dependent_children=>=1": {
+     "primary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/assets.yaml#1[Jarmich]",
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]"
+     ],
+     "primary_n": 20,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/assets.yaml#1[Jarmich]",
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]"
+     ],
+     "secondary_n": 20
+    },
+    "accommodation_supplement__cash_assets=8101-16200": {
+     "primary": [
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[4]",
+      "accommodation_supplement/2018/assets.yaml#1[Jarmich]",
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]",
+      "accommodation_supplement/2018/assets.yaml#2[Jarmich]"
+     ],
+     "primary_n": 8,
+     "secondary": [
+      "accommodation_supplement/2018/accommodation_supplement.yaml#1[4]",
+      "accommodation_supplement/2018/assets.yaml#1[Jarmich]",
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]",
+      "accommodation_supplement/2018/assets.yaml#2[Jarmich]"
+     ],
+     "secondary_n": 8
+    },
+    "accommodation_supplement__cash_assets=>16200": {
+     "primary": [
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]",
+      "accommodation_supplement/2018/assets.yaml#2[Vranda]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "accommodation_supplement/2018/assets.yaml#1[Vranda]",
+      "accommodation_supplement/2018/assets.yaml#2[Vranda]"
+     ],
+     "secondary_n": 2
+    },
+    "partner_accommodation_supplement__receiving=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#2[Vrenda]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#2[Vrenda]"
+     ],
+     "secondary_n": 1
+    },
+    "basic_grant__receiving=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#3[0]",
+      "accommodation_supplement/2018/exclusion.yaml#3[1]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#3[0]",
+      "accommodation_supplement/2018/exclusion.yaml#3[1]"
+     ],
+     "secondary_n": 2
+    },
+    "independent_circumstances_grant__receiving=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#3[0]",
+      "accommodation_supplement/2018/exclusion.yaml#3[2]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#3[0]",
+      "accommodation_supplement/2018/exclusion.yaml#3[2]"
+     ],
+     "secondary_n": 2
+    },
+    "basic_grant__entitled=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#3[0]",
+      "accommodation_supplement/2018/exclusion.yaml#3[1]",
+      "accommodation_supplement/2018/exclusion.yaml#4[0]",
+      "accommodation_supplement/2018/exclusion.yaml#4[1]"
+     ],
+     "primary_n": 6,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#3[0]",
+      "accommodation_supplement/2018/exclusion.yaml#3[1]",
+      "accommodation_supplement/2018/exclusion.yaml#4[0]",
+      "accommodation_supplement/2018/exclusion.yaml#4[1]"
+     ],
+     "secondary_n": 6
+    },
+    "independent_circumstances_grant__entitled=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#4[0]",
+      "accommodation_supplement/2018/exclusion.yaml#4[2]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#4[0]",
+      "accommodation_supplement/2018/exclusion.yaml#4[2]"
+     ],
+     "secondary_n": 2
+    },
+    "basic_grant__would_be_entitled=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#5[0]",
+      "accommodation_supplement/2018/exclusion.yaml#5[1]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#5[0]",
+      "accommodation_supplement/2018/exclusion.yaml#5[1]"
+     ],
+     "secondary_n": 2
+    },
+    "independent_circumstances_grant__would_be_entitled=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#5[0]",
+      "accommodation_supplement/2018/exclusion.yaml#5[2]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#5[0]",
+      "accommodation_supplement/2018/exclusion.yaml#5[2]"
+     ],
+     "secondary_n": 2
+    },
+    "accommodation_supplement__disability=True": {
+     "primary": [
+      "accommodation_supplement/2018/exclusion.yaml#7[0]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "accommodation_supplement/2018/exclusion.yaml#7[0]"
+     ],
+     "secondary_n": 1
+    }
+   },
+   "readme_check": {
+    "stated_unused": 20,
+    "source": "paperc-data-nz:paperC/specs/README-NZ.md:55",
+    "computed_unused": 20,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_primary": {
+     "unused>0": false,
+     "missed_valid>0": false
+    },
+    "suite_secondary": {
+     "unused>0": false,
+     "missed_valid>0": false
+    }
+   }
+  },
+  "1:NZ-AS-1964": {
+   "coder": 1,
+   "rule": "AS",
+   "branch": "paperc-data-nz",
+   "folder": "paperC/openfisca_nz/supplementary/NZ-AS-1964",
+   "branch_commit": "7efbb1e5682aa3526a854b9a159714dfaff7008e",
+   "mapping": {
+    "yaml_cases": 47,
+    "yaml_cases_asserting_entry": 7,
+    "persons_in_all_cases": 157,
+    "person_values_asserting_entry": 12,
+    "mapped_rows": 6,
+    "mapped_distinct_persons": 6,
+    "unmapped_asserting": [
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[0]",
+      "category": "other period",
+      "detail": "asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/openfisca_nz/supplementary/NZ-AS-1964/CONVERSION.md:55"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[1]",
+      "category": "other period",
+      "detail": "asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/openfisca_nz/supplementary/NZ-AS-1964/CONVERSION.md:56"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[2]",
+      "category": "other period",
+      "detail": "asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/openfisca_nz/supplementary/NZ-AS-1964/CONVERSION.md:57"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[3]",
+      "category": "other period",
+      "detail": "asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/openfisca_nz/supplementary/NZ-AS-1964/CONVERSION.md:58"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[4]",
+      "category": "other period",
+      "detail": "asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/openfisca_nz/supplementary/NZ-AS-1964/CONVERSION.md:59"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[5]",
+      "category": "other period",
+      "detail": "asserted for 2022-W01, outside 1964-12-04 to 2018-11-25, where the table's formula version and parameter values apply",
+      "source": "paperc-data-nz:paperC/openfisca_nz/supplementary/NZ-AS-1964/CONVERSION.md:60"
+     }
+    ],
+    "cases_without_entry_assertion": [
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#2",
+      "line": 40,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#3",
+      "line": 82,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/accommodation_supplement.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/area.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__area_of_residence"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#2",
+      "line": 49,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#3",
+      "line": 96,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#4",
+      "line": 143,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#2",
+      "line": 22,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#3",
+      "line": 86,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#4",
+      "line": 107,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#5",
+      "line": 129,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#6",
+      "line": 197,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#7",
+      "line": 261,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#8",
+      "line": 280,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#9",
+      "line": 301,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#10",
+      "line": 368,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/beneficiary.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__beneficiary",
+       "accommodation_supplement__non_beneficiary"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#2",
+      "line": 21,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#3",
+      "line": 41,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#4",
+      "line": 61,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#5",
+      "line": 81,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#6",
+      "line": 163,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/cutout.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__cutout"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__social_housing_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#2",
+      "line": 18,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#3",
+      "line": 42,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#4",
+      "line": 63,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#5",
+      "line": 82,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#6",
+      "line": 103,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#7",
+      "line": 121,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/rate.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__rate"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/rebate.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__rebate"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#1",
+      "line": 1,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#2",
+      "line": 97,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#3",
+      "line": 192,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#4",
+      "line": 287,
+      "asserts": [
+       "persons"
+      ]
+     }
+    ]
+   },
+   "records": 883,
+   "placement_rows": 883,
+   "primary": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       ">=16"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 779
+     },
+     "immigration__resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 878
+     },
+     "immigration__permanent_resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 882
+     },
+     "citizenship__citizen": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 882
+     },
+     "social_security__ordinarily_resident_in_new_zealand": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 877
+     },
+     "accommodation_supplement__accommodation_costs": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 650
+     },
+     "social_housing__eligible": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 877
+     },
+     "accommodation_supplement__below_income_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 877
+     },
+     "accommodation_supplement__below_cash_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 877
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 3,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 336,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 883
+   },
+   "secondary": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       ">=16"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration__resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration__permanent_resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "citizenship__citizen": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__ordinarily_resident_in_new_zealand": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__accommodation_costs": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_housing__eligible": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__below_income_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__below_cash_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 2,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 288,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 883
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       ">=16"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 295
+     },
+     "immigration__resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 344
+     },
+     "immigration__permanent_resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 348
+     },
+     "citizenship__citizen": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 348
+     },
+     "social_security__ordinarily_resident_in_new_zealand": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 343
+     },
+     "accommodation_supplement__accommodation_costs": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 116
+     },
+     "social_housing__eligible": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 343
+     },
+     "accommodation_supplement__below_income_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 343
+     },
+     "accommodation_supplement__below_cash_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 343
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 3,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 336,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 349
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       ">=16"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration__resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration__permanent_resident": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "citizenship__citizen": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__ordinarily_resident_in_new_zealand": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__accommodation_costs": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_housing__eligible": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__below_income_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     },
+     "accommodation_supplement__below_cash_threshold": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 2,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 288,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 349
+   },
+   "secondary_unknown": {
+    "age": 0,
+    "immigration__resident": 0,
+    "immigration__permanent_resident": 0,
+    "citizenship__citizen": 0,
+    "social_security__ordinarily_resident_in_new_zealand": 0,
+    "accommodation_supplement__accommodation_costs": 0,
+    "social_housing__eligible": 0,
+    "accommodation_supplement__below_income_threshold": 0,
+    "accommodation_supplement__below_cash_threshold": 0
+   },
+   "provenance": {
+    "social_security__ordinarily_resident_in_new_zealand=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Anahera]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#3[Kai]"
+     ],
+     "secondary_n": 151
+    },
+    "accommodation_supplement__below_income_threshold=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "accommodation_supplement__below_cash_threshold=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    }
+   },
+   "readme_check": {
+    "stated_unused": 3,
+    "source": "paperc-data-nz:paperC/specs/README-NZ.md:70",
+    "computed_unused": 3,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_primary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_secondary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    }
+   }
+  },
+  "1:NZ-SPS": {
+   "coder": 1,
+   "rule": "SPS",
+   "branch": "paperc-data-nz",
+   "folder": "paperC/specs/NZ-SPS",
+   "branch_commit": "7efbb1e5682aa3526a854b9a159714dfaff7008e",
+   "mapping": {
+    "yaml_cases": 25,
+    "yaml_cases_asserting_entry": 18,
+    "persons_in_all_cases": 65,
+    "person_values_asserting_entry": 38,
+    "mapped_rows": 14,
+    "mapped_distinct_persons": 14,
+    "unmapped_asserting": [
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:74"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:76"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:78"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:80"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#5[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:82"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#6[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:84"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#1[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:86"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#10[Koro]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets sole_parent_support__lost_regular_support@2019-W05 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:105"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#10[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:106"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#11[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:108"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#12[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:110"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#2[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:88"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[0]",
+      "category": "other: row excluded by the table's own exclusion",
+      "detail": "maps onto a row excluded by the spec: SPS-X1",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:89"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[1]",
+      "category": "other: row excluded by the table's own exclusion",
+      "detail": "maps onto a row excluded by the spec: SPS-X1",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:90"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[2]",
+      "category": "other: row excluded by the table's own exclusion",
+      "detail": "maps onto a row excluded by the spec: SPS-X1",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:91"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[3]",
+      "category": "other: row excluded by the table's own exclusion",
+      "detail": "maps onto a row excluded by the spec: SPS-X1",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:92"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[4]",
+      "category": "other: row excluded by the table's own exclusion",
+      "detail": "maps onto a row excluded by the spec: SPS-X1",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:93"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#4[Koro]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:94"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#4[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:95"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#5[0]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets sole_parent_support__requirement@2019-W05 = True, which the table's attributes compute as False",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:96"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#6[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:98"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#7[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:100"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#8[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:102"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#9[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person has role child in the family; the table describes the family's principal",
+      "source": "paperc-data-nz:paperC/specs/NZ-SPS/CONVERSION.md:104"
+     }
+    ],
+    "cases_without_entry_assertion": [
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#1",
+      "line": 1,
+      "asserts": [
+       "social_security__dependent_children",
+       "sole_parent_support__parents_living_apart",
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#2",
+      "line": 50,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#3",
+      "line": 90,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#4",
+      "line": 131,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#5",
+      "line": 173,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#6",
+      "line": 217,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#7",
+      "line": 263,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     }
+    ]
+   },
+   "records": 65,
+   "placement_rows": 65,
+   "primary": {
+    "attributes": {
+     "children": {
+      "declared": [
+       "none",
+       "1:<14",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_mapped": [
+       "none",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_suite": [
+       "none",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unknown_tests": 6
+     },
+     "social_security__principal_caregiver": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 31
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "sole_parent_support__spouse_or_partner_died": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 61
+     },
+     "sole_parent_support__marriage_or_civil_union_dissolved": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 55
+     },
+     "sole_parent_support__living_apart_and_lost_support": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 61
+     },
+     "sole_parent_support__partner_imprisoned": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 64
+     },
+     "sole_parent_support__partner_supervision": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 64
+     },
+     "sole_parent_support__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 55
+     },
+     "sole_parent_support__principal_caregiver_before_apart": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 57
+     },
+     "sole_parent_support__principal_caregiver_of_youngest": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 60
+     },
+     "sole_parent_support__both_primary_caregiver_by_order": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 63
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 36
+     },
+     "age": {
+      "declared": [
+       "<20",
+       ">=20"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 6
+     }
+    },
+    "declared_total": 41,
+    "unused_mapped_total": 21,
+    "unused_suite_total": 14,
+    "valid_total": 99840,
+    "missed_valid_mapped": 99776,
+    "missed_valid_suite": 91648,
+    "n_mapped_rows": 14,
+    "n_suite_rows": 65
+   },
+   "secondary": {
+    "attributes": {
+     "children": {
+      "declared": [
+       "none",
+       "1:<14",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_mapped": [
+       "none",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_suite": [
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unknown_tests": 0
+     },
+     "social_security__principal_caregiver": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__spouse_or_partner_died": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__marriage_or_civil_union_dissolved": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__living_apart_and_lost_support": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__partner_imprisoned": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__partner_supervision": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__principal_caregiver_before_apart": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__principal_caregiver_of_youngest": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__both_primary_caregiver_by_order": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<20",
+       ">=20"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 41,
+    "unused_mapped_total": 21,
+    "unused_suite_total": 12,
+    "valid_total": 99840,
+    "missed_valid_mapped": 99776,
+    "missed_valid_suite": 82944,
+    "n_mapped_rows": 14,
+    "n_suite_rows": 65
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "children": {
+      "declared": [
+       "none",
+       "1:<14",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_mapped": [
+       "none",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_suite": [
+       "none",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unknown_tests": 6
+     },
+     "social_security__principal_caregiver": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 2
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "sole_parent_support__spouse_or_partner_died": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 25
+     },
+     "sole_parent_support__marriage_or_civil_union_dissolved": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 19
+     },
+     "sole_parent_support__living_apart_and_lost_support": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 25
+     },
+     "sole_parent_support__partner_imprisoned": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 28
+     },
+     "sole_parent_support__partner_supervision": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 28
+     },
+     "sole_parent_support__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 23
+     },
+     "sole_parent_support__principal_caregiver_before_apart": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 24
+     },
+     "sole_parent_support__principal_caregiver_of_youngest": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 26
+     },
+     "sole_parent_support__both_primary_caregiver_by_order": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 27
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<20",
+       ">=20"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [
+       "<20"
+      ],
+      "unknown_tests": 6
+     }
+    },
+    "declared_total": 41,
+    "unused_mapped_total": 21,
+    "unused_suite_total": 15,
+    "valid_total": 99840,
+    "missed_valid_mapped": 99776,
+    "missed_valid_suite": 95744,
+    "n_mapped_rows": 14,
+    "n_suite_rows": 29
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "children": {
+      "declared": [
+       "none",
+       "1:<14",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_mapped": [
+       "none",
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+<14",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unused_suite": [
+       "1:14-15",
+       "1:16-17",
+       "1:>=18",
+       "2:<14+14-15",
+       "2:<14+16-17",
+       "2:<14+>=18",
+       "2:14-15+14-15",
+       "2:14-15+16-17",
+       "2:14-15+>=18",
+       "2:16-17+16-17",
+       "2:16-17+>=18",
+       "2:>=18+>=18"
+      ],
+      "unknown_tests": 0
+     },
+     "social_security__principal_caregiver": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__in_a_relationship": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__spouse_or_partner_died": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__marriage_or_civil_union_dissolved": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__living_apart_and_lost_support": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__partner_imprisoned": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__partner_supervision": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__receiving": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__principal_caregiver_before_apart": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__principal_caregiver_of_youngest": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "sole_parent_support__both_primary_caregiver_by_order": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "True"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_security__residential_requirement": {
+      "declared": [
+       "True",
+       "False"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<20",
+       ">=20"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 41,
+    "unused_mapped_total": 21,
+    "unused_suite_total": 12,
+    "valid_total": 99840,
+    "missed_valid_mapped": 99776,
+    "missed_valid_suite": 82944,
+    "n_mapped_rows": 14,
+    "n_suite_rows": 29
+   },
+   "secondary_unknown": {
+    "children": 0,
+    "social_security__principal_caregiver": 0,
+    "social_security__in_a_relationship": 0,
+    "sole_parent_support__spouse_or_partner_died": 0,
+    "sole_parent_support__marriage_or_civil_union_dissolved": 0,
+    "sole_parent_support__living_apart_and_lost_support": 0,
+    "sole_parent_support__partner_imprisoned": 0,
+    "sole_parent_support__partner_supervision": 0,
+    "sole_parent_support__receiving": 0,
+    "sole_parent_support__principal_caregiver_before_apart": 0,
+    "sole_parent_support__principal_caregiver_of_youngest": 0,
+    "sole_parent_support__both_primary_caregiver_by_order": 0,
+    "social_security__residential_requirement": 0,
+    "age": 0
+   },
+   "provenance": {
+    "children=none": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__entitled.yaml#3[0]",
+      "sole_parent_support/sole_parent_support__entitled.yaml#3[1]",
+      "sole_parent_support/sole_parent_support__entitled.yaml#3[2]",
+      "sole_parent_support/sole_parent_support__entitled.yaml#3[3]"
+     ],
+     "secondary_n": 6
+    },
+    "children=1:14-15": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=1:16-17": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=1:>=18": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:<14+<14": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Koro]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Mike]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Ruru]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Tamaiti]"
+     ],
+     "primary_n": 24,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Koro]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Mike]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Ruru]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#1[Tamaiti]"
+     ],
+     "secondary_n": 24
+    },
+    "children=2:<14+14-15": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:<14+16-17": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:<14+>=18": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:14-15+14-15": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:14-15+16-17": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:14-15+>=18": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:16-17+16-17": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:16-17+>=18": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "children=2:>=18+>=18": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "social_security__principal_caregiver=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "secondary_n": 31
+    },
+    "sole_parent_support__receiving=True": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#2[Koro]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#4[Mike]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#2[Koro]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#4[Mike]"
+     ],
+     "secondary_n": 2
+    },
+    "sole_parent_support__principal_caregiver_before_apart=True": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#3[Koro]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#4[Koro]"
+     ],
+     "primary_n": 2,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#3[Koro]",
+      "sole_parent_support/sole_parent_support__split_care.yaml#4[Koro]"
+     ],
+     "secondary_n": 2
+    },
+    "sole_parent_support__principal_caregiver_of_youngest=True": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#5[Koro]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#5[Koro]"
+     ],
+     "secondary_n": 1
+    },
+    "sole_parent_support__both_primary_caregiver_by_order=True": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#6[Koro]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__split_care.yaml#6[Koro]"
+     ],
+     "secondary_n": 1
+    },
+    "social_security__residential_requirement=False": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__entitled.yaml#3[3]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "secondary_n": 37
+    },
+    "age=<20": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "primary_n": 29,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "secondary_n": 35
+    }
+   },
+   "readme_check": {
+    "stated_unused": 21,
+    "source": "paperc-data-nz:paperC/specs/README-NZ.md:64",
+    "computed_unused": 21,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_primary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_secondary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    }
+   }
+  },
+  "2:NZ-SLP": {
+   "coder": 2,
+   "rule": "SLP",
+   "branch": "paperc-code2-nz",
+   "folder": "paperC/specs2/NZ-SLP",
+   "branch_commit": "723d8e979e094780e3511ac6f9edc14ec249102b",
+   "mapping": {
+    "yaml_cases": 50,
+    "yaml_cases_asserting_entry": 7,
+    "persons_in_all_cases": 105,
+    "person_values_asserting_entry": 13,
+    "mapped_rows": 13,
+    "mapped_distinct_persons": 13,
+    "unmapped_asserting": [],
+    "cases_without_entry_assertion": [
+     {
+      "case": "supported_living_payment/base.yaml#1",
+      "line": 1,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#2",
+      "line": 20,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#3",
+      "line": 39,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#4",
+      "line": 58,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#5",
+      "line": 89,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#6",
+      "line": 120,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#7",
+      "line": 151,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#8",
+      "line": 182,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#9",
+      "line": 213,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#10",
+      "line": 244,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#11",
+      "line": 275,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#12",
+      "line": 306,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#13",
+      "line": 338,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#14",
+      "line": 370,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#15",
+      "line": 402,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#16",
+      "line": 434,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#17",
+      "line": 466,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#18",
+      "line": 498,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#19",
+      "line": 530,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#20",
+      "line": 562,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#21",
+      "line": 594,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#22",
+      "line": 626,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#23",
+      "line": 658,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#24",
+      "line": 690,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#25",
+      "line": 722,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#26",
+      "line": 754,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#27",
+      "line": 786,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#28",
+      "line": 818,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#29",
+      "line": 850,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#30",
+      "line": 882,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#31",
+      "line": 914,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#32",
+      "line": 946,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#33",
+      "line": 978,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#34",
+      "line": 1010,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#35",
+      "line": 1042,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#36",
+      "line": 1074,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#37",
+      "line": 1106,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#38",
+      "line": 1138,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#39",
+      "line": 1170,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#40",
+      "line": 1202,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#41",
+      "line": 1234,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#42",
+      "line": 1266,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     },
+     {
+      "case": "supported_living_payment/base.yaml#43",
+      "line": 1298,
+      "asserts": [
+       "supported_living_payment__base",
+       "supported_living_payment__benefit",
+       "supported_living_payment__reduction"
+      ]
+     }
+    ]
+   },
+   "records": 105,
+   "placement_rows": 105,
+   "primary": {
+    "attributes": {
+     "restricted_work_capacity": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 101
+     },
+     "totally_blind": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 103
+     },
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 93
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       "20+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "disability_self_inflicted": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 103
+     },
+     "caring_for_another_person": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 99
+     },
+     "dependent_children": {
+      "declared": [
+       "0",
+       "1+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 11
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 256,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 105
+   },
+   "secondary": {
+    "attributes": {
+     "restricted_work_capacity": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "totally_blind": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       "20+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "disability_self_inflicted": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "caring_for_another_person": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "dependent_children": {
+      "declared": [
+       "0",
+       "1+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 256,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 105
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "restricted_work_capacity": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 61
+     },
+     "totally_blind": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 63
+     },
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 53
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       "20+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "disability_self_inflicted": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 63
+     },
+     "caring_for_another_person": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 59
+     },
+     "dependent_children": {
+      "declared": [
+       "0",
+       "1+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 11
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 256,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 65
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "restricted_work_capacity": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "totally_blind": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<16",
+       "16-17",
+       "18-19",
+       "20+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "disability_self_inflicted": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "caring_for_another_person": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "dependent_children": {
+      "declared": [
+       "0",
+       "1+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 16,
+    "unused_mapped_total": 0,
+    "unused_suite_total": 0,
+    "valid_total": 256,
+    "missed_valid_mapped": 0,
+    "missed_valid_suite": 0,
+    "n_mapped_rows": 13,
+    "n_suite_rows": 65
+   },
+   "secondary_unknown": {
+    "restricted_work_capacity": 0,
+    "totally_blind": 0,
+    "residential_requirement": 0,
+    "age": 0,
+    "disability_self_inflicted": 0,
+    "caring_for_another_person": 0,
+    "dependent_children": 0
+   },
+   "provenance": {},
+   "readme_check": {
+    "stated_unused": 0,
+    "source": "paperc-code2-nz:paperC/specs2/README-NZ-CODE2.md:22",
+    "computed_unused": 0,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": false,
+     "missed_valid>0": false
+    },
+    "suite_primary": {
+     "unused>0": false,
+     "missed_valid>0": false
+    },
+    "suite_secondary": {
+     "unused>0": false,
+     "missed_valid>0": false
+    }
+   }
+  },
+  "2:NZ-AS": {
+   "coder": 2,
+   "rule": "AS",
+   "branch": "paperc-code2-nz",
+   "folder": "paperC/specs2/NZ-AS",
+   "branch_commit": "723d8e979e094780e3511ac6f9edc14ec249102b",
+   "mapping": {
+    "yaml_cases": 47,
+    "yaml_cases_asserting_entry": 7,
+    "persons_in_all_cases": 157,
+    "person_values_asserting_entry": 12,
+    "mapped_rows": 6,
+    "mapped_distinct_persons": 6,
+    "unmapped_asserting": [
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[0]",
+      "category": "other period",
+      "detail": "entry variable not asserted at the fixed period 2018-W01",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-AS/CONVERSION_2.md:113"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[1]",
+      "category": "other period",
+      "detail": "entry variable not asserted at the fixed period 2018-W01",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-AS/CONVERSION_2.md:114"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[2]",
+      "category": "other period",
+      "detail": "entry variable not asserted at the fixed period 2018-W01",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-AS/CONVERSION_2.md:115"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[3]",
+      "category": "other period",
+      "detail": "entry variable not asserted at the fixed period 2018-W01",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-AS/CONVERSION_2.md:116"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[4]",
+      "category": "other period",
+      "detail": "entry variable not asserted at the fixed period 2018-W01",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-AS/CONVERSION_2.md:117"
+     },
+     {
+      "case": "accommodation_supplement/2018/entitled.yaml#1[5]",
+      "category": "other period",
+      "detail": "entry variable not asserted at the fixed period 2018-W01",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-AS/CONVERSION_2.md:118"
+     }
+    ],
+    "cases_without_entry_assertion": [
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#2",
+      "line": 40,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/_benefit_me.yaml#3",
+      "line": 82,
+      "asserts": [
+       "accommodation_supplement",
+       "family_tax_credit",
+       "jobseeker_support__benefit"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/accommodation_supplement.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/area.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__area_of_residence"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#2",
+      "line": 49,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#3",
+      "line": 96,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/assets.yaml#4",
+      "line": 143,
+      "asserts": [
+       "accommodation_supplement__assets_requirement"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#2",
+      "line": 22,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#3",
+      "line": 86,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#4",
+      "line": 107,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#5",
+      "line": 129,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#6",
+      "line": 197,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#7",
+      "line": 261,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#8",
+      "line": 280,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#9",
+      "line": 301,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/base.yaml#10",
+      "line": 368,
+      "asserts": [
+       "accommodation_supplement__base"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/beneficiary.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__beneficiary",
+       "accommodation_supplement__non_beneficiary"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#2",
+      "line": 21,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#3",
+      "line": 41,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#4",
+      "line": 61,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#5",
+      "line": 81,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/costs.yaml#6",
+      "line": 163,
+      "asserts": [
+       "accommodation_supplement__accommodation_costs"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/cutout.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__cutout"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__social_housing_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#2",
+      "line": 18,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#3",
+      "line": 42,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#4",
+      "line": 63,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#5",
+      "line": 82,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#6",
+      "line": 103,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/exclusion.yaml#7",
+      "line": 121,
+      "asserts": [
+       "accommodation_supplement__other_funding_exclusion"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/rate.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__rate"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/rebate.yaml#1",
+      "line": 1,
+      "asserts": [
+       "accommodation_supplement__rebate"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#1",
+      "line": 1,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#2",
+      "line": 97,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#3",
+      "line": 192,
+      "asserts": [
+       "persons"
+      ]
+     },
+     {
+      "case": "accommodation_supplement/2018/situation.yaml#4",
+      "line": 287,
+      "asserts": [
+       "persons"
+      ]
+     }
+    ]
+   },
+   "records": 883,
+   "placement_rows": 883,
+   "primary": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       "16+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 779
+     },
+     "immigration_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 878
+     },
+     "immigration_permanent_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 882
+     },
+     "citizen": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 882
+     },
+     "ordinarily_resident_in_nz": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 877
+     },
+     "accommodation_costs": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 650
+     },
+     "social_housing": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 877
+     },
+     "below_income_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 877
+     },
+     "below_cash_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 877
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 3,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 336,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 883
+   },
+   "secondary": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       "16+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration_permanent_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "citizen": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "ordinarily_resident_in_nz": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_costs": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_housing": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "below_income_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     },
+     "below_cash_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 2,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 288,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 883
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       "16+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 295
+     },
+     "immigration_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 344
+     },
+     "immigration_permanent_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 348
+     },
+     "citizen": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 348
+     },
+     "ordinarily_resident_in_nz": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 343
+     },
+     "accommodation_costs": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 116
+     },
+     "social_housing": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 343
+     },
+     "below_income_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 343
+     },
+     "below_cash_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 343
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 3,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 336,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 349
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "age": {
+      "declared": [
+       "<16",
+       "16+"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "immigration_permanent_resident": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "citizen": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "ordinarily_resident_in_nz": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "accommodation_costs": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "social_housing": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "below_income_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     },
+     "below_cash_threshold": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 18,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 2,
+    "valid_total": 384,
+    "missed_valid_mapped": 336,
+    "missed_valid_suite": 288,
+    "n_mapped_rows": 6,
+    "n_suite_rows": 349
+   },
+   "secondary_unknown": {
+    "age": 0,
+    "immigration_resident": 0,
+    "immigration_permanent_resident": 0,
+    "citizen": 0,
+    "ordinarily_resident_in_nz": 0,
+    "accommodation_costs": 0,
+    "social_housing": 0,
+    "below_income_threshold": 0,
+    "below_cash_threshold": 0
+   },
+   "provenance": {
+    "ordinarily_resident_in_nz=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [
+      "accommodation_supplement/2018/_benefit_me.yaml#1[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Anahera]",
+      "accommodation_supplement/2018/_benefit_me.yaml#2[Peta]",
+      "accommodation_supplement/2018/_benefit_me.yaml#3[Kai]"
+     ],
+     "secondary_n": 151
+    },
+    "below_income_threshold=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "below_cash_threshold=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    }
+   },
+   "readme_check": {
+    "stated_unused": 3,
+    "source": "paperc-code2-nz:paperC/specs2/README-NZ-CODE2.md:23",
+    "computed_unused": 3,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_primary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_secondary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    }
+   }
+  },
+  "2:NZ-SPS": {
+   "coder": 2,
+   "rule": "SPS",
+   "branch": "paperc-code2-nz",
+   "folder": "paperC/specs2/NZ-SPS",
+   "branch_commit": "723d8e979e094780e3511ac6f9edc14ec249102b",
+   "mapping": {
+    "yaml_cases": 25,
+    "yaml_cases_asserting_entry": 18,
+    "persons_in_all_cases": 65,
+    "person_values_asserting_entry": 38,
+    "mapped_rows": 8,
+    "mapped_distinct_persons": 8,
+    "unmapped_asserting": [
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#1[Koro]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#2[Koro]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#3[Koro]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#4[Koro]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#5[Koro]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#5[Tamaiti]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#6[Koro]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__benefit.yaml#6[Tamaiti]",
+      "category": "other: file outside the second coder's list of official tests",
+      "detail": "asserts sole_parent_support__entitled; the oracle reads only sole_parent_support/sole_parent_support__entitled.yaml",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/oracle.py:22"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#1[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:123"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#10[Koro]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets intermediate variable(s) to values their formulas do not give for this case: sole_parent_support__lost_regular_support",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:137"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#10[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:138"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#11[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:139"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#12[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:140"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#2[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:124"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[0]",
+      "category": "other household shape",
+      "detail": "family is not exactly one principal and one child (the table fixes that composition)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:125"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[1]",
+      "category": "other household shape",
+      "detail": "family is not exactly one principal and one child (the table fixes that composition)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:126"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[2]",
+      "category": "other household shape",
+      "detail": "family is not exactly one principal and one child (the table fixes that composition)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:127"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[3]",
+      "category": "other household shape",
+      "detail": "family is not exactly one principal and one child (the table fixes that composition)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:128"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#3[4]",
+      "category": "other household shape",
+      "detail": "family is not exactly one principal and one child (the table fixes that composition)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:129"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#4[Koro]",
+      "category": "other: case overrides an intermediate variable with a value its attributes do not produce",
+      "detail": "sets intermediate variable(s) to values their formulas do not give for this case: sole_parent_support__entitled_without_split_care_requirement, sole_parent_support__requirement",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:130"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#4[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:131"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#5[0]",
+      "category": "other household shape",
+      "detail": "family is not exactly one principal and one child (the table fixes that composition)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:132"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#6[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:133"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#7[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:134"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#8[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:135"
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__entitled.yaml#9[Tamaiti]",
+      "category": "other household shape",
+      "detail": "person is not the principal of its family (the table is about the principal P)",
+      "source": "paperc-code2-nz:paperC/specs2/NZ-SPS/CONVERSION_2.md:136"
+     }
+    ],
+    "cases_without_entry_assertion": [
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#1",
+      "line": 1,
+      "asserts": [
+       "social_security__dependent_children",
+       "sole_parent_support__parents_living_apart",
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#2",
+      "line": 50,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#3",
+      "line": 90,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#4",
+      "line": 131,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#5",
+      "line": 173,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#6",
+      "line": 217,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     },
+     {
+      "case": "sole_parent_support/sole_parent_support__split_care.yaml#7",
+      "line": 263,
+      "asserts": [
+       "sole_parent_support__split_care"
+      ]
+     }
+    ]
+   },
+   "records": 65,
+   "placement_rows": 89,
+   "primary": {
+    "attributes": {
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 54
+     },
+     "age": {
+      "declared": [
+       "<20",
+       "20+"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "in_a_relationship": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "spouse_or_partner_died": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 85
+     },
+     "marriage_or_civil_union_dissolved": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 79
+     },
+     "living_apart_and_lost_support": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 85
+     },
+     "partner_imprisoned": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 88
+     },
+     "partner_supervision": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 88
+     },
+     "principal_caregiver": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 43
+     },
+     "child_dependent": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 6
+     },
+     "child_age": {
+      "declared": [
+       "<14",
+       "14+"
+      ],
+      "unused_mapped": [
+       "14+"
+      ],
+      "unused_suite": [
+       "14+"
+      ],
+      "unknown_tests": 6
+     }
+    },
+    "declared_total": 22,
+    "unused_mapped_total": 5,
+    "unused_suite_total": 3,
+    "valid_total": 2048,
+    "missed_valid_mapped": 1984,
+    "missed_valid_suite": 1792,
+    "n_mapped_rows": 8,
+    "n_suite_rows": 89
+   },
+   "secondary": {
+    "attributes": {
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<20",
+       "20+"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "in_a_relationship": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "spouse_or_partner_died": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "marriage_or_civil_union_dissolved": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "living_apart_and_lost_support": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "partner_imprisoned": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "partner_supervision": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "principal_caregiver": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "child_dependent": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 6
+     },
+     "child_age": {
+      "declared": [
+       "<14",
+       "14+"
+      ],
+      "unused_mapped": [
+       "14+"
+      ],
+      "unused_suite": [
+       "14+"
+      ],
+      "unknown_tests": 6
+     }
+    },
+    "declared_total": 22,
+    "unused_mapped_total": 5,
+    "unused_suite_total": 2,
+    "valid_total": 2048,
+    "missed_valid_mapped": 1984,
+    "missed_valid_suite": 1536,
+    "n_mapped_rows": 8,
+    "n_suite_rows": 89
+   },
+   "primary_applicants_only": {
+    "attributes": {
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<20",
+       "20+"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [
+       "<20"
+      ],
+      "unknown_tests": 6
+     },
+     "in_a_relationship": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 6
+     },
+     "spouse_or_partner_died": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 31
+     },
+     "marriage_or_civil_union_dissolved": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 25
+     },
+     "living_apart_and_lost_support": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 31
+     },
+     "partner_imprisoned": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 34
+     },
+     "partner_supervision": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 34
+     },
+     "principal_caregiver": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 2
+     },
+     "child_dependent": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 6
+     },
+     "child_age": {
+      "declared": [
+       "<14",
+       "14+"
+      ],
+      "unused_mapped": [
+       "14+"
+      ],
+      "unused_suite": [
+       "14+"
+      ],
+      "unknown_tests": 6
+     }
+    },
+    "declared_total": 22,
+    "unused_mapped_total": 5,
+    "unused_suite_total": 4,
+    "valid_total": 2048,
+    "missed_valid_mapped": 1984,
+    "missed_valid_suite": 1920,
+    "n_mapped_rows": 8,
+    "n_suite_rows": 35
+   },
+   "secondary_applicants_only": {
+    "attributes": {
+     "residential_requirement": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "age": {
+      "declared": [
+       "<20",
+       "20+"
+      ],
+      "unused_mapped": [
+       "<20"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "in_a_relationship": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "spouse_or_partner_died": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "marriage_or_civil_union_dissolved": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "living_apart_and_lost_support": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "partner_imprisoned": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "partner_supervision": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "principal_caregiver": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "child_dependent": {
+      "declared": [
+       "False",
+       "True"
+      ],
+      "unused_mapped": [
+       "False"
+      ],
+      "unused_suite": [
+       "False"
+      ],
+      "unknown_tests": 6
+     },
+     "child_age": {
+      "declared": [
+       "<14",
+       "14+"
+      ],
+      "unused_mapped": [
+       "14+"
+      ],
+      "unused_suite": [
+       "14+"
+      ],
+      "unknown_tests": 6
+     }
+    },
+    "declared_total": 22,
+    "unused_mapped_total": 5,
+    "unused_suite_total": 2,
+    "valid_total": 2048,
+    "missed_valid_mapped": 1984,
+    "missed_valid_suite": 1536,
+    "n_mapped_rows": 8,
+    "n_suite_rows": 35
+   },
+   "secondary_unknown": {
+    "residential_requirement": 0,
+    "age": 0,
+    "in_a_relationship": 0,
+    "spouse_or_partner_died": 0,
+    "marriage_or_civil_union_dissolved": 0,
+    "living_apart_and_lost_support": 0,
+    "partner_imprisoned": 0,
+    "partner_supervision": 0,
+    "principal_caregiver": 0,
+    "child_dependent": 6,
+    "child_age": 6
+   },
+   "provenance": {
+    "residential_requirement=False": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__entitled.yaml#3[3]"
+     ],
+     "primary_n": 1,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "secondary_n": 37
+    },
+    "age=<20": {
+     "primary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "primary_n": 29,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "secondary_n": 35
+    },
+    "principal_caregiver=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [
+      "sole_parent_support/sole_parent_support__benefit.yaml#1[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#2[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#3[Tamaiti]",
+      "sole_parent_support/sole_parent_support__benefit.yaml#4[Tamaiti]"
+     ],
+     "secondary_n": 31
+    },
+    "child_dependent=False": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    },
+    "child_age=14+": {
+     "primary": [],
+     "primary_n": 0,
+     "secondary": [],
+     "secondary_n": 0
+    }
+   },
+   "readme_check": {
+    "stated_unused": 5,
+    "source": "paperc-code2-nz:paperC/specs2/README-NZ-CODE2.md:25",
+    "computed_unused": 5,
+    "agree": true
+   },
+   "h1": {
+    "mapped": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_primary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    },
+    "suite_secondary": {
+     "unused>0": true,
+     "missed_valid>0": true
+    }
+   }
+  }
+ },
+ "notes": {
+  "residential": [
+   "accommodation_supplement/1964/entitled.yaml#1[0]@2018-W01: residential requirement depends on unset leaves (refugee, protected person, 2 years' residence)",
+   "accommodation_supplement/1964/entitled.yaml#2[0]@2018-W01: residential requirement depends on unset leaves (refugee, protected person, 2 years' residence)",
+   "accommodation_supplement/1964/entitled.yaml#3[0]@2018-W01: residential requirement depends on unset leaves (refugee, protected person, 2 years' residence)",
+   "accommodation_supplement/1964/entitled.yaml#4[0]@2018-W01: residential requirement depends on unset leaves (refugee, protected person, 2 years' residence)",
+   "accommodation_supplement/1964/entitled.yaml#5[0]@2018-W01: residential requirement depends on unset leaves (refugee, protected person, 2 years' residence)",
+   "accommodation_supplement/1964/entitled.yaml#6[0]@2018-W01: residential requirement depends on unset leaves (refugee, protected person, 2 years' residence)"
+  ],
+  "as_type": [
+   "accommodation_type 'under_the_moon' is outside the declared enum (accommodation_supplement/2018/costs.yaml#1)",
+   "accommodation_type 'under_the_moon' is outside the declared enum (accommodation_supplement/2018/costs.yaml#2)",
+   "accommodation_type 'under_the_moon' is outside the declared enum (accommodation_supplement/2018/costs.yaml#3)",
+   "accommodation_type 'under_the_moon' is outside the declared enum (accommodation_supplement/2018/costs.yaml#4)",
+   "accommodation_type 'under_the_moon' is outside the declared enum (accommodation_supplement/2018/exclusion.yaml#6)",
+   "accommodation_type 'under_the_sun' is outside the declared enum (accommodation_supplement/2018/costs.yaml#1)",
+   "accommodation_type 'under_the_sun' is outside the declared enum (accommodation_supplement/2018/costs.yaml#2)",
+   "accommodation_type 'under_the_sun' is outside the declared enum (accommodation_supplement/2018/costs.yaml#3)",
+   "accommodation_type 'under_the_sun' is outside the declared enum (accommodation_supplement/2018/costs.yaml#4)",
+   "accommodation_type 'under_the_sun' is outside the declared enum (accommodation_supplement/2018/exclusion.yaml#1)"
+  ],
+  "sps2_kids": [
+   "sole_parent_support/sole_parent_support__split_care.yaml#1: 2 children placed as 2 rows",
+   "sole_parent_support/sole_parent_support__split_care.yaml#2: 2 children placed as 2 rows",
+   "sole_parent_support/sole_parent_support__split_care.yaml#3: 2 children placed as 2 rows",
+   "sole_parent_support/sole_parent_support__split_care.yaml#4: 2 children placed as 2 rows",
+   "sole_parent_support/sole_parent_support__split_care.yaml#5: 2 children placed as 2 rows",
+   "sole_parent_support/sole_parent_support__split_care.yaml#6: 2 children placed as 2 rows"
+  ]
+ }
+}

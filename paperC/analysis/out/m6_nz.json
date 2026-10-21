@@ -1,0 +1,1883 @@
+{
+ "branches": {
+  "paperc-data-nz": "7efbb1e5682aa3526a854b9a159714dfaff7008e",
+  "paperc-code2-nz": "723d8e979e094780e3511ac6f9edc14ec249102b"
+ },
+ "alignment": {
+  "NZ-SLP": [
+   {
+    "input": "supported_living_payment__restricted_work_capacity",
+    "first": [
+     "attribute",
+     "supported_living_payment__restricted_work_capacity"
+    ],
+    "second": [
+     "attribute",
+     "restricted_work_capacity"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "totally_blind",
+    "first": [
+     "attribute",
+     "totally_blind"
+    ],
+    "second": [
+     "attribute",
+     "totally_blind"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "social_security__residential_requirement",
+    "first": [
+     "attribute",
+     "social_security__residential_requirement"
+    ],
+    "second": [
+     "attribute",
+     "residential_requirement"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "age",
+    "first": [
+     "attribute",
+     "age"
+    ],
+    "second": [
+     "attribute",
+     "age"
+    ],
+    "first_values": [
+     "<16",
+     "16-17",
+     "18-19",
+     ">=20"
+    ],
+    "second_values": [
+     "<16",
+     "16-17",
+     "18-19",
+     "20+"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "supported_living_payment__disability_self_inflicted",
+    "first": [
+     "attribute",
+     "supported_living_payment__disability_self_inflicted"
+    ],
+    "second": [
+     "attribute",
+     "disability_self_inflicted"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "supported_living_payment__caring_for_another_person",
+    "first": [
+     "attribute",
+     "supported_living_payment__caring_for_another_person"
+    ],
+    "second": [
+     "attribute",
+     "caring_for_another_person"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "social_security__dependent_children",
+    "first": [
+     "attribute",
+     "social_security__dependent_children"
+    ],
+    "second": [
+     "attribute",
+     "dependent_children"
+    ],
+    "first_values": [
+     "0",
+     ">=1"
+    ],
+    "second_values": [
+     "0",
+     "1+"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "period",
+    "first": [
+     "fixed",
+     "2019-W01"
+    ],
+    "second": [
+     "fixed",
+     "2019-W01"
+    ]
+   },
+   {
+    "input": "household",
+    "first": [
+     "fixed",
+     "applicant alone, principal of a one-person family"
+    ],
+    "second": [
+     "fixed",
+     "one person P, principal of a one-person family"
+    ]
+   },
+   {
+    "input": "leaves of social_security__residential_requirement (citizen_or_resident, ordinarily_resident, ...)",
+    "first": [
+     "left out",
+     "kept whole at the defined term (C2)"
+    ],
+    "second": [
+     "left out",
+     "kept whole at the defined term (rule 1)"
+    ]
+   },
+   {
+    "input": "children of the family (leaves of social_security__dependent_children)",
+    "first": [
+     "left out",
+     "count set directly"
+    ],
+    "second": [
+     "left out",
+     "count set directly"
+    ]
+   }
+  ],
+  "NZ-AS (SSA 1964 formula)": [
+   {
+    "input": "age",
+    "first": [
+     "attribute",
+     "age"
+    ],
+    "second": [
+     "attribute",
+     "age"
+    ],
+    "first_values": [
+     "<16",
+     ">=16"
+    ],
+    "second_values": [
+     "<16",
+     "16+"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "immigration__resident",
+    "first": [
+     "attribute",
+     "immigration__resident"
+    ],
+    "second": [
+     "attribute",
+     "immigration_resident"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "immigration__permanent_resident",
+    "first": [
+     "attribute",
+     "immigration__permanent_resident"
+    ],
+    "second": [
+     "attribute",
+     "immigration_permanent_resident"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "citizenship__citizen",
+    "first": [
+     "attribute",
+     "citizenship__citizen"
+    ],
+    "second": [
+     "attribute",
+     "citizen"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "social_security__ordinarily_resident_in_new_zealand",
+    "first": [
+     "attribute",
+     "social_security__ordinarily_resident_in_new_zealand"
+    ],
+    "second": [
+     "attribute",
+     "ordinarily_resident_in_nz"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "accommodation_supplement__accommodation_costs",
+    "first": [
+     "attribute",
+     "accommodation_supplement__accommodation_costs"
+    ],
+    "second": [
+     "attribute",
+     "accommodation_costs"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "social_housing__eligible",
+    "first": [
+     "attribute",
+     "social_housing__eligible"
+    ],
+    "second": [
+     "attribute",
+     "social_housing"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "accommodation_supplement__below_income_threshold",
+    "first": [
+     "attribute",
+     "accommodation_supplement__below_income_threshold"
+    ],
+    "second": [
+     "attribute",
+     "below_income_threshold"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "accommodation_supplement__below_cash_threshold",
+    "first": [
+     "attribute",
+     "accommodation_supplement__below_cash_threshold"
+    ],
+    "second": [
+     "attribute",
+     "below_cash_threshold"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "period",
+    "first": [
+     "fixed",
+     "2018-W01 (supplementary table)"
+    ],
+    "second": [
+     "fixed",
+     "2018-W01 (main table)"
+    ]
+   },
+   {
+    "input": "immigration__holds_resident_visa (leaf of immigration__resident)",
+    "first": [
+     "left out",
+     "immigration__resident kept whole"
+    ],
+    "second": [
+     "left out",
+     "immigration__resident kept whole"
+    ]
+   }
+  ],
+  "NZ-AS (SSA 2018 formula)": [
+   {
+    "input": "social_security__residential_requirement",
+    "first": [
+     "attribute",
+     "social_security__residential_requirement"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "accommodation_type",
+    "first": [
+     "attribute",
+     "accommodation_type"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "unknown",
+     "rent",
+     "board",
+     "lodging",
+     "mortgage",
+     "social_housing",
+     "residential_care"
+    ]
+   },
+   {
+    "input": "accommodation_costs",
+    "first": [
+     "attribute",
+     "accommodation_costs"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "<=0",
+     ">0"
+    ]
+   },
+   {
+    "input": "social_security__in_a_relationship",
+    "first": [
+     "attribute",
+     "social_security__in_a_relationship"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "social_security__dependent_children",
+    "first": [
+     "attribute",
+     "social_security__dependent_children"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "0",
+     ">=1"
+    ]
+   },
+   {
+    "input": "accommodation_supplement__cash_assets",
+    "first": [
+     "attribute",
+     "accommodation_supplement__cash_assets"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "<=8100",
+     "8101-16200",
+     ">16200"
+    ]
+   },
+   {
+    "input": "partner_accommodation_supplement__receiving",
+    "first": [
+     "attribute",
+     "partner_accommodation_supplement__receiving"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "basic_grant__receiving",
+    "first": [
+     "attribute",
+     "basic_grant__receiving"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "independent_circumstances_grant__receiving",
+    "first": [
+     "attribute",
+     "independent_circumstances_grant__receiving"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "basic_grant__entitled",
+    "first": [
+     "attribute",
+     "basic_grant__entitled"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "independent_circumstances_grant__entitled",
+    "first": [
+     "attribute",
+     "independent_circumstances_grant__entitled"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "basic_grant__would_be_entitled",
+    "first": [
+     "attribute",
+     "basic_grant__would_be_entitled"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "independent_circumstances_grant__would_be_entitled",
+    "first": [
+     "attribute",
+     "independent_circumstances_grant__would_be_entitled"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "accommodation_supplement__disability",
+    "first": [
+     "attribute",
+     "accommodation_supplement__disability"
+    ],
+    "second": [
+     "left out",
+     "the second coder's NZ-AS uses the SSA 1964 formula at 2018-W01, which does not read this input"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "period",
+    "first": [
+     "fixed",
+     "2022-W01"
+    ],
+    "second": [
+     "fixed",
+     "2018-W01 (other formula)"
+    ]
+   },
+   {
+    "input": "household (tenancy, ownership, partner)",
+    "first": [
+     "fixed",
+     "sole principal of family, tenancy and ownership; one partner when in a relationship"
+    ],
+    "second": [
+     "left out",
+     ""
+    ]
+   }
+  ],
+  "NZ-SPS": [
+   {
+    "input": "social_security__residential_requirement",
+    "first": [
+     "attribute",
+     "social_security__residential_requirement"
+    ],
+    "second": [
+     "attribute",
+     "residential_requirement"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "age",
+    "first": [
+     "attribute",
+     "age"
+    ],
+    "second": [
+     "attribute",
+     "age"
+    ],
+    "first_values": [
+     "<20",
+     ">=20"
+    ],
+    "second_values": [
+     "<20",
+     "20+"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "social_security__in_a_relationship",
+    "first": [
+     "attribute",
+     "social_security__in_a_relationship"
+    ],
+    "second": [
+     "attribute",
+     "in_a_relationship"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "sole_parent_support__spouse_or_partner_died",
+    "first": [
+     "attribute",
+     "sole_parent_support__spouse_or_partner_died"
+    ],
+    "second": [
+     "attribute",
+     "spouse_or_partner_died"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "sole_parent_support__marriage_or_civil_union_dissolved",
+    "first": [
+     "attribute",
+     "sole_parent_support__marriage_or_civil_union_dissolved"
+    ],
+    "second": [
+     "attribute",
+     "marriage_or_civil_union_dissolved"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "sole_parent_support__living_apart_and_lost_support",
+    "first": [
+     "attribute",
+     "sole_parent_support__living_apart_and_lost_support"
+    ],
+    "second": [
+     "attribute",
+     "living_apart_and_lost_support"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "sole_parent_support__partner_imprisoned",
+    "first": [
+     "attribute",
+     "sole_parent_support__partner_imprisoned"
+    ],
+    "second": [
+     "attribute",
+     "partner_imprisoned"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "sole_parent_support__partner_supervision",
+    "first": [
+     "attribute",
+     "sole_parent_support__partner_supervision"
+    ],
+    "second": [
+     "attribute",
+     "partner_supervision"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "social_security__principal_caregiver",
+    "first": [
+     "attribute",
+     "social_security__principal_caregiver"
+    ],
+    "second": [
+     "attribute",
+     "principal_caregiver"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ],
+    "second_values": [
+     "False",
+     "True"
+    ],
+    "relation": "coincide",
+    "gaps": []
+   },
+   {
+    "input": "sole_parent_support__receiving",
+    "first": [
+     "attribute",
+     "sole_parent_support__receiving"
+    ],
+    "second": [
+     "fixed",
+     "default False; read only by s 32 split care, which is True for P with one child"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "sole_parent_support__principal_caregiver_before_apart",
+    "first": [
+     "attribute",
+     "sole_parent_support__principal_caregiver_before_apart"
+    ],
+    "second": [
+     "fixed",
+     "default False; read only by s 32 split care, which is True for P with one child"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "sole_parent_support__principal_caregiver_of_youngest",
+    "first": [
+     "attribute",
+     "sole_parent_support__principal_caregiver_of_youngest"
+    ],
+    "second": [
+     "fixed",
+     "default False; read only by s 32 split care, which is True for P with one child"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "sole_parent_support__both_primary_caregiver_by_order",
+    "first": [
+     "attribute",
+     "sole_parent_support__both_primary_caregiver_by_order"
+    ],
+    "second": [
+     "fixed",
+     "default False; read only by s 32 split care, which is True for P with one child"
+    ],
+    "first_values": [
+     "True",
+     "False"
+    ]
+   },
+   {
+    "input": "children of the family (members in role child: social_security__dependent_child, age)",
+    "first": [
+     "attribute",
+     "children"
+    ],
+    "second": [
+     "attribute",
+     "child_dependent x child_age"
+    ],
+    "first_values": [
+     "none",
+     "1:<14",
+     "1:14-15",
+     "1:16-17",
+     "1:>=18",
+     "2:<14+<14",
+     "2:<14+14-15",
+     "2:<14+16-17",
+     "2:<14+>=18",
+     "2:14-15+14-15",
+     "2:14-15+16-17",
+     "2:14-15+>=18",
+     "2:16-17+16-17",
+     "2:16-17+>=18",
+     "2:>=18+>=18"
+    ],
+    "second_values": [
+     "False/<14",
+     "False/14+",
+     "True/<14",
+     "True/14+"
+    ],
+    "relation": "first refines second",
+    "gaps": [
+     "first-coder labels with no counterpart: none, 2:<14+<14, 2:<14+14-15, 2:<14+16-17, 2:<14+>=18, 2:14-15+14-15, 2:14-15+16-17, 2:14-15+>=18, 2:16-17+16-17, 2:16-17+>=18, 2:>=18+>=18",
+     "second-coder labels with no counterpart: False/<14"
+    ]
+   },
+   {
+    "input": "social_security__financially_independent (children)",
+    "first": [
+     "fixed",
+     "False"
+    ],
+    "second": [
+     "left out",
+     "inside child_dependent, kept whole"
+    ]
+   },
+   {
+    "input": "sole_parent_support__parents_living_apart",
+    "first": [
+     "fixed",
+     "not set (no effect without another parent)"
+    ],
+    "second": [
+     "fixed",
+     "default (no effect with one child)"
+    ]
+   },
+   {
+    "input": "household",
+    "first": [
+     "fixed",
+     "principal plus 0-2 children, no partner/parent/other"
+    ],
+    "second": [
+     "fixed",
+     "principal plus exactly one child"
+    ]
+   },
+   {
+    "input": "period",
+    "first": [
+     "fixed",
+     "2019-W05"
+    ],
+    "second": [
+     "fixed",
+     "2019-W05"
+    ]
+   }
+  ]
+ },
+ "NZ-SLP": {
+  "rows_first": 256,
+  "rows_second": 256,
+  "compared": 256,
+  "distinct_second_rows": 256,
+  "tally": {
+   "agree": 224,
+   "excluded on one side: first=EXCLUDED second=False": 29,
+   "excluded on one side: first=EXCLUDED second=True": 3
+  },
+  "disagreements": [
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "True"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "True"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "True"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "<16",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "<16",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "16-17",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "16-17",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "False",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "False",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "False",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "False",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "False"
+   }
+  ],
+  "excluded_rows_true_in_second": [
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": "18-19",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "18-19",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "True"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": "0"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "0"
+    },
+    "first": "EXCLUDED",
+    "second": "True"
+   },
+   {
+    "first_row": {
+     "supported_living_payment__restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20",
+     "supported_living_payment__disability_self_inflicted": "True",
+     "supported_living_payment__caring_for_another_person": "True",
+     "social_security__dependent_children": ">=1"
+    },
+    "second_row": {
+     "restricted_work_capacity": "False",
+     "totally_blind": "False",
+     "residential_requirement": "True",
+     "age": "20+",
+     "disability_self_inflicted": "True",
+     "caring_for_another_person": "True",
+     "dependent_children": "1+"
+    },
+    "first": "EXCLUDED",
+    "second": "True"
+   }
+  ],
+  "first_coder_claim": "paperc-data-nz:paperC/specs/NZ-SLP/CONVERSION.md:16",
+  "carer_route": "supported_living_payment.py:79-106 (s 40 carer: caring AND residential requirement AND ((age >= 18 AND dependent children = 0) OR age >= 20)); the carer branch does not read restricted work capacity, blindness or the self-inflicted flag"
+ },
+ "NZ-AS-1964": {
+  "rows_first": 512,
+  "rows_second": 512,
+  "compared": 512,
+  "tally": {
+   "agree": 512
+  },
+  "excluded_first": 128,
+  "excluded_second": 128,
+  "excluded_both": 128,
+  "exclusion_first": [
+   {
+    "id": "AS64-X1",
+    "description": "Holder of a permanent resident visa who is not 'Holder of a permanent resident visa or a resident visa'. The encoding defines immigration__resident as that disjunction.",
+    "predicate": "immigration__permanent_resident == 'True' and immigration__resident == 'False'",
+    "source": "openfisca_aotearoa/variables/acts/immigration/residence.py:38 (label) and :41-42 (formula)"
+   }
+  ],
+  "exclusion_second": [
+   {
+    "id": "PR-IMPLIES-RESIDENT",
+    "description": "A holder of a permanent resident visa is by definition a resident: the encoding defines immigration__resident as 'Holder of a permanent resident visa or a resident visa' (formula holds_resident_visa OR permanent_resident), and the Immigration Act 2009 s 4 counts a permanent resident visa among residence class visas.",
+    "predicate": "immigration_permanent_resident == 'True' and immigration_resident == 'False'",
+    "source": "immigration/residence.py:34-42; Immigration Act 2009 s 4, http://legislation.govt.nz/act/public/2009/0051/latest/whole.html#DLM1440311"
+   }
+  ],
+  "disagreements": []
+ },
+ "NZ-SPS": {
+  "rows_first": 122880,
+  "rows_second": 2048,
+  "first_rows_compared": 2048,
+  "second_rows_covered": 1536,
+  "tally": {
+   "agree": 1792,
+   "excluded on one side: first=EXCLUDED second=False": 193,
+   "excluded on one side: first=EXCLUDED second=True": 63
+  },
+  "disagreement_groups": [
+   {
+    "children": "1:>=18",
+    "principal_caregiver": "True",
+    "first": "EXCLUDED",
+    "second": "False",
+    "count": 193,
+    "example": {
+     "children": "1:>=18",
+     "social_security__principal_caregiver": "True",
+     "social_security__in_a_relationship": "True",
+     "sole_parent_support__spouse_or_partner_died": "True",
+     "sole_parent_support__marriage_or_civil_union_dissolved": "True",
+     "sole_parent_support__living_apart_and_lost_support": "True",
+     "sole_parent_support__partner_imprisoned": "True",
+     "sole_parent_support__partner_supervision": "True",
+     "sole_parent_support__receiving": "False",
+     "sole_parent_support__principal_caregiver_before_apart": "False",
+     "sole_parent_support__principal_caregiver_of_youngest": "False",
+     "sole_parent_support__both_primary_caregiver_by_order": "False",
+     "social_security__residential_requirement": "True",
+     "age": "<20"
+    }
+   },
+   {
+    "children": "1:>=18",
+    "principal_caregiver": "True",
+    "first": "EXCLUDED",
+    "second": "True",
+    "count": 63,
+    "example": {
+     "children": "1:>=18",
+     "social_security__principal_caregiver": "True",
+     "social_security__in_a_relationship": "True",
+     "sole_parent_support__spouse_or_partner_died": "True",
+     "sole_parent_support__marriage_or_civil_union_dissolved": "True",
+     "sole_parent_support__living_apart_and_lost_support": "True",
+     "sole_parent_support__partner_imprisoned": "True",
+     "sole_parent_support__partner_supervision": "True",
+     "sole_parent_support__receiving": "False",
+     "sole_parent_support__principal_caregiver_before_apart": "False",
+     "sole_parent_support__principal_caregiver_of_youngest": "False",
+     "sole_parent_support__both_primary_caregiver_by_order": "False",
+     "social_security__residential_requirement": "True",
+     "age": ">=20"
+    }
+   }
+  ],
+  "second_rows_without_counterpart": {
+   "child_dependent=False child_age=<14 output=False": 449,
+   "child_dependent=False child_age=<14 output=True": 63
+  },
+  "second_by_child_cell": {
+   "False/14+/pc=False/False": 256,
+   "False/14+/pc=True/False": 193,
+   "False/14+/pc=True/True": 63,
+   "False/<14/pc=False/False": 256,
+   "False/<14/pc=True/False": 193,
+   "False/<14/pc=True/True": 63,
+   "True/14+/pc=False/False": 256,
+   "True/14+/pc=True/False": 256,
+   "True/<14/pc=False/False": 256,
+   "True/<14/pc=True/False": 193,
+   "True/<14/pc=True/True": 63
+  }
+ }
+}
