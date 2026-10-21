@@ -1,0 +1,3339 @@
+{
+ "tables": [
+  {
+   "rule": "FR-APL",
+   "conversion": 1,
+   "table": "FR-APL-1",
+   "branch": "paperc-data-fr2",
+   "folder": "paperC/specs/FR-APL/FR-APL-1",
+   "branch_commit": "6566904f335a9e7a390583a20c676d3f9fac875a",
+   "suite_tests": 3,
+   "mapped_tests": 1,
+   "mapped_ids": [
+    "Exemple1"
+   ],
+   "unmapped": [
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2019-09-01_to_2020-12-31",
+       "residence": "Metropole",
+       "nationalite_demandeur": "francaise"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-01-01_to_2023-12-31",
+       "residence": "Metropole",
+       "nationalite_demandeur": "francaise"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-01-01_to_2023-12-31",
+       "residence": "LaReunion",
+       "nationalite_demandeur": "francaise"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "date_courante": {
+      "declared": [
+       "lt_2019-01-01",
+       "2019-01-01_to_2019-08-31",
+       "2019-09-01_to_2020-12-31",
+       "2021-01-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "ge_2024-11-01"
+      ],
+      "unused_mapped": [
+       "lt_2019-01-01",
+       "2019-01-01_to_2019-08-31",
+       "2021-01-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "ge_2024-11-01"
+      ],
+      "unused_suite": [
+       "lt_2019-01-01",
+       "2019-01-01_to_2019-08-31",
+       "2024-01-01_to_2024-10-31",
+       "ge_2024-11-01"
+      ],
+      "unknown_tests": 0
+     },
+     "residence": {
+      "declared": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "nationalite_demandeur": {
+      "declared": [
+       "francaise",
+       "etrangere_l512_2_et_art_4",
+       "etrangere_l512_2_seulement",
+       "etrangere_art_4_seulement",
+       "etrangere_aucune"
+      ],
+      "unused_mapped": [
+       "etrangere_l512_2_et_art_4",
+       "etrangere_l512_2_seulement",
+       "etrangere_art_4_seulement",
+       "etrangere_aucune"
+      ],
+      "unused_suite": [
+       "etrangere_l512_2_et_art_4",
+       "etrangere_l512_2_seulement",
+       "etrangere_art_4_seulement",
+       "etrangere_aucune"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 20,
+    "unused_mapped_total": 17,
+    "unused_suite_total": 15,
+    "valid_total": 175,
+    "missed_valid_mapped": 174,
+    "missed_valid_suite": 171,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 1,
+   "table": "FR-APL-2",
+   "branch": "paperc-data-fr2",
+   "folder": "paperC/specs/FR-APL/FR-APL-2",
+   "branch_commit": "6566904f335a9e7a390583a20c676d3f9fac875a",
+   "suite_tests": 3,
+   "mapped_tests": 1,
+   "mapped_ids": [
+    "Exemple1"
+   ],
+   "unmapped": [
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "nationalite_demandeur": "francaise",
+       "situation_familiale": "Maries",
+       "personnes_a_charge": "3",
+       "autres_occupants": "1",
+       "surface_m_carres": "ge_52",
+       "personnes_agees_handicapees_r844_4": "faux"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "nationalite_demandeur": "francaise",
+       "situation_familiale": "Concubins",
+       "personnes_a_charge": "2",
+       "autres_occupants": "0",
+       "surface_m_carres": "ge_52",
+       "personnes_agees_handicapees_r844_4": "faux"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "LaReunion",
+       "nationalite_demandeur": "francaise",
+       "situation_familiale": "Concubins",
+       "personnes_a_charge": "1",
+       "autres_occupants": "0",
+       "surface_m_carres": "ge_52",
+       "personnes_agees_handicapees_r844_4": "faux"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "nationalite_demandeur": {
+      "declared": [
+       "francaise",
+       "etrangere_l512_2_et_art_4",
+       "etrangere_l512_2_seulement",
+       "etrangere_art_4_seulement",
+       "etrangere_aucune"
+      ],
+      "unused_mapped": [
+       "etrangere_l512_2_et_art_4",
+       "etrangere_l512_2_seulement",
+       "etrangere_art_4_seulement",
+       "etrangere_aucune"
+      ],
+      "unused_suite": [
+       "etrangere_l512_2_et_art_4",
+       "etrangere_l512_2_seulement",
+       "etrangere_art_4_seulement",
+       "etrangere_aucune"
+      ],
+      "unknown_tests": 0
+     },
+     "situation_familiale": {
+      "declared": [
+       "Celibataire",
+       "Maries",
+       "Pacses",
+       "Concubins",
+       "CelibataireSepareDeFait",
+       "ConcubinageDontSepareDeFait"
+      ],
+      "unused_mapped": [
+       "Celibataire",
+       "Pacses",
+       "Concubins",
+       "CelibataireSepareDeFait",
+       "ConcubinageDontSepareDeFait"
+      ],
+      "unused_suite": [
+       "Celibataire",
+       "Pacses",
+       "CelibataireSepareDeFait",
+       "ConcubinageDontSepareDeFait"
+      ],
+      "unknown_tests": 0
+     },
+     "personnes_a_charge": {
+      "declared": [
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "unused_mapped": [
+       "0",
+       "1",
+       "2"
+      ],
+      "unused_suite": [
+       "0"
+      ],
+      "unknown_tests": 0
+     },
+     "autres_occupants": {
+      "declared": [
+       "0",
+       "1"
+      ],
+      "unused_mapped": [
+       "0"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "surface_m_carres": {
+      "declared": [
+       "lt_9",
+       "9_to_12",
+       "13_to_15",
+       "16_to_17",
+       "18_to_21",
+       "22_to_24",
+       "25_to_26",
+       "27_to_30",
+       "31_to_33",
+       "34_to_35",
+       "36_to_39",
+       "40_to_42",
+       "43_to_44",
+       "45_to_48",
+       "49_to_51",
+       "ge_52"
+      ],
+      "unused_mapped": [
+       "lt_9",
+       "9_to_12",
+       "13_to_15",
+       "16_to_17",
+       "18_to_21",
+       "22_to_24",
+       "25_to_26",
+       "27_to_30",
+       "31_to_33",
+       "34_to_35",
+       "36_to_39",
+       "40_to_42",
+       "43_to_44",
+       "45_to_48",
+       "49_to_51"
+      ],
+      "unused_suite": [
+       "lt_9",
+       "9_to_12",
+       "13_to_15",
+       "16_to_17",
+       "18_to_21",
+       "22_to_24",
+       "25_to_26",
+       "27_to_30",
+       "31_to_33",
+       "34_to_35",
+       "36_to_39",
+       "40_to_42",
+       "43_to_44",
+       "45_to_48",
+       "49_to_51"
+      ],
+      "unknown_tests": 0
+     },
+     "personnes_agees_handicapees_r844_4": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "vrai"
+      ],
+      "unused_suite": [
+       "vrai"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 44,
+    "unused_mapped_total": 37,
+    "unused_suite_total": 32,
+    "valid_total": 67140,
+    "missed_valid_mapped": 67139,
+    "missed_valid_suite": 67116,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 1,
+   "table": "FR-APL-3",
+   "branch": "paperc-data-fr2",
+   "folder": "paperC/specs/FR-APL/FR-APL-3",
+   "branch_commit": "6566904f335a9e7a390583a20c676d3f9fac875a",
+   "suite_tests": 3,
+   "mapped_tests": 1,
+   "mapped_ids": [
+    "Exemple1"
+   ],
+   "unmapped": [
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "mode_occupation": "Locataire",
+       "bailleur": "BailleurSocial_conventionne",
+       "part_propriete_famille": "Autre",
+       "part_usufruit_famille": "Autre",
+       "loue_ou_sous_loue_a_des_tiers": "Non",
+       "logement_decent_l89_462": "vrai",
+       "residence_principale": "vrai",
+       "condition_rattache_foyer_fiscal_parent_ifi": "faux"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "mode_occupation": "Locataire",
+       "bailleur": "BailleurSocial_conventionne",
+       "part_propriete_famille": "Autre",
+       "part_usufruit_famille": "Autre",
+       "loue_ou_sous_loue_a_des_tiers": "Non",
+       "logement_decent_l89_462": "vrai",
+       "residence_principale": "vrai",
+       "condition_rattache_foyer_fiscal_parent_ifi": "faux"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "mode_occupation": "Locataire",
+       "bailleur": "BailleurPrive",
+       "part_propriete_famille": "Autre",
+       "part_usufruit_famille": "Autre",
+       "loue_ou_sous_loue_a_des_tiers": "Non",
+       "logement_decent_l89_462": "vrai",
+       "residence_principale": "vrai",
+       "condition_rattache_foyer_fiscal_parent_ifi": "faux"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "mode_occupation": {
+      "declared": [
+       "Locataire",
+       "SousLocataire"
+      ],
+      "unused_mapped": [
+       "SousLocataire"
+      ],
+      "unused_suite": [
+       "SousLocataire"
+      ],
+      "unknown_tests": 0
+     },
+     "bailleur": {
+      "declared": [
+       "BailleurSocial_conventionne",
+       "BailleurSocial_non_conventionne",
+       "BailleurPriveAvecConventionnementSocial_conventionne",
+       "BailleurPriveAvecConventionnementSocial_non_conventionne",
+       "BailleurPrive"
+      ],
+      "unused_mapped": [
+       "BailleurSocial_non_conventionne",
+       "BailleurPriveAvecConventionnementSocial_conventionne",
+       "BailleurPriveAvecConventionnementSocial_non_conventionne",
+       "BailleurPrive"
+      ],
+      "unused_suite": [
+       "BailleurSocial_non_conventionne",
+       "BailleurPriveAvecConventionnementSocial_conventionne",
+       "BailleurPriveAvecConventionnementSocial_non_conventionne"
+      ],
+      "unknown_tests": 0
+     },
+     "part_propriete_famille": {
+      "declared": [
+       "Autre",
+       "famille_moins_de_10pc",
+       "famille_10pc_ou_plus"
+      ],
+      "unused_mapped": [
+       "famille_moins_de_10pc",
+       "famille_10pc_ou_plus"
+      ],
+      "unused_suite": [
+       "famille_moins_de_10pc",
+       "famille_10pc_ou_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "part_usufruit_famille": {
+      "declared": [
+       "Autre",
+       "famille_moins_de_10pc",
+       "famille_10pc_ou_plus"
+      ],
+      "unused_mapped": [
+       "famille_moins_de_10pc",
+       "famille_10pc_ou_plus"
+      ],
+      "unused_suite": [
+       "famille_moins_de_10pc",
+       "famille_10pc_ou_plus"
+      ],
+      "unknown_tests": 0
+     },
+     "loue_ou_sous_loue_a_des_tiers": {
+      "declared": [
+       "Non",
+       "Oui_moins_de_30_ans_non_conforme_l442_1",
+       "Oui_moins_de_30_ans_conforme_l442_1",
+       "Oui_30_ans_ou_plus_non_conforme_l442_1",
+       "Oui_30_ans_ou_plus_conforme_l442_1"
+      ],
+      "unused_mapped": [
+       "Oui_moins_de_30_ans_non_conforme_l442_1",
+       "Oui_moins_de_30_ans_conforme_l442_1",
+       "Oui_30_ans_ou_plus_non_conforme_l442_1",
+       "Oui_30_ans_ou_plus_conforme_l442_1"
+      ],
+      "unused_suite": [
+       "Oui_moins_de_30_ans_non_conforme_l442_1",
+       "Oui_moins_de_30_ans_conforme_l442_1",
+       "Oui_30_ans_ou_plus_non_conforme_l442_1",
+       "Oui_30_ans_ou_plus_conforme_l442_1"
+      ],
+      "unknown_tests": 0
+     },
+     "logement_decent_l89_462": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "faux"
+      ],
+      "unused_suite": [
+       "faux"
+      ],
+      "unknown_tests": 0
+     },
+     "residence_principale": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "faux"
+      ],
+      "unused_suite": [
+       "faux"
+      ],
+      "unknown_tests": 0
+     },
+     "condition_rattache_foyer_fiscal_parent_ifi": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "vrai"
+      ],
+      "unused_suite": [
+       "vrai"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 24,
+    "unused_mapped_total": 16,
+    "unused_suite_total": 15,
+    "valid_total": 3600,
+    "missed_valid_mapped": 3599,
+    "missed_valid_suite": 3598,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 1,
+   "table": "FR-APL-4",
+   "branch": "paperc-data-fr2",
+   "folder": "paperC/specs/FR-APL/FR-APL-4",
+   "branch_commit": "6566904f335a9e7a390583a20c676d3f9fac875a",
+   "suite_tests": 3,
+   "mapped_tests": 0,
+   "mapped_ids": [],
+   "unmapped": [
+    {
+     "test": "Exemple1",
+     "category": "other: housing tenure fixed by the table",
+     "detail": "Exemple1 is a tenancy (Locataire, aides_logement/tests/tests_eligibilite_apl.catala_fr:71); the table fixes a logement-foyer occupation mode"
+    },
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "date_courante": "2019-09-01_to_2020-12-31",
+       "type_logement_foyer": null,
+       "conventionne_livre_III_titre_V_chap_III": null,
+       "remplit_conditions_r832_21": null,
+       "conventionne_selon_regles_drom": null
+      }
+     ]
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "date_courante": "2021-01-01_to_2023-04-04",
+       "type_logement_foyer": null,
+       "conventionne_livre_III_titre_V_chap_III": null,
+       "remplit_conditions_r832_21": null,
+       "conventionne_selon_regles_drom": null
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "LaReunion",
+       "date_courante": "2021-01-01_to_2023-04-04",
+       "type_logement_foyer": null,
+       "conventionne_livre_III_titre_V_chap_III": null,
+       "remplit_conditions_r832_21": null,
+       "conventionne_selon_regles_drom": null
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon",
+       "Mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "date_courante": {
+      "declared": [
+       "2019-09-01_to_2020-12-31",
+       "2021-01-01_to_2023-04-04",
+       "2023-04-05_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "ge_2024-11-01"
+      ],
+      "unused_mapped": [
+       "2019-09-01_to_2020-12-31",
+       "2021-01-01_to_2023-04-04",
+       "2023-04-05_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "ge_2024-11-01"
+      ],
+      "unused_suite": [
+       "2023-04-05_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "ge_2024-11-01"
+      ],
+      "unknown_tests": 0
+     },
+     "type_logement_foyer": {
+      "declared": [
+       "LogementPersonnesAgeesOuHandicapees",
+       "ResidenceSociale",
+       "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+       "Autre"
+      ],
+      "unused_mapped": [
+       "LogementPersonnesAgeesOuHandicapees",
+       "ResidenceSociale",
+       "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+       "Autre"
+      ],
+      "unused_suite": [
+       "LogementPersonnesAgeesOuHandicapees",
+       "ResidenceSociale",
+       "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+       "Autre"
+      ],
+      "unknown_tests": 3
+     },
+     "conventionne_livre_III_titre_V_chap_III": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "faux",
+       "vrai"
+      ],
+      "unused_suite": [
+       "faux",
+       "vrai"
+      ],
+      "unknown_tests": 3
+     },
+     "remplit_conditions_r832_21": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "faux",
+       "vrai"
+      ],
+      "unused_suite": [
+       "faux",
+       "vrai"
+      ],
+      "unknown_tests": 3
+     },
+     "conventionne_selon_regles_drom": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "faux",
+       "vrai"
+      ],
+      "unused_suite": [
+       "faux",
+       "vrai"
+      ],
+      "unknown_tests": 3
+     }
+    },
+    "declared_total": 24,
+    "unused_mapped_total": 24,
+    "unused_suite_total": 20,
+    "valid_total": 952,
+    "missed_valid_mapped": 952,
+    "missed_valid_suite": 952,
+    "n_mapped_rows": 0,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 1,
+   "table": "FR-APL-5",
+   "branch": "paperc-data-fr2",
+   "folder": "paperC/specs/FR-APL/FR-APL-5",
+   "branch_commit": "6566904f335a9e7a390583a20c676d3f9fac875a",
+   "suite_tests": 3,
+   "mapped_tests": 0,
+   "mapped_ids": [],
+   "unmapped": [
+    {
+     "test": "Exemple1",
+     "category": "other: housing tenure fixed by the table",
+     "detail": "Exemple1 is a tenancy (Locataire, aides_logement/tests/tests_eligibilite_apl.catala_fr:71); the table fixes a home-ownership occupation mode"
+    },
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "mode_occupation": null,
+       "type_pret": null,
+       "titulaire_pret": null,
+       "date_signature_pret": null,
+       "anciennete_logement": null,
+       "zone": "Zone1",
+       "date_courante": "ge_2019-10-01",
+       "residence_principale": "vrai"
+      }
+     ]
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "mode_occupation": null,
+       "type_pret": null,
+       "titulaire_pret": null,
+       "date_signature_pret": null,
+       "anciennete_logement": null,
+       "zone": "Zone2",
+       "date_courante": "ge_2019-10-01",
+       "residence_principale": "vrai"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "mode_occupation": null,
+       "type_pret": null,
+       "titulaire_pret": null,
+       "date_signature_pret": null,
+       "anciennete_logement": null,
+       "zone": "Zone2",
+       "date_courante": "ge_2019-10-01",
+       "residence_principale": "vrai"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "mode_occupation": {
+      "declared": [
+       "AccessionProprieteLocalUsageExclusifHabitation",
+       "LocationAccession"
+      ],
+      "unused_mapped": [
+       "AccessionProprieteLocalUsageExclusifHabitation",
+       "LocationAccession"
+      ],
+      "unused_suite": [
+       "AccessionProprieteLocalUsageExclusifHabitation",
+       "LocationAccession"
+      ],
+      "unknown_tests": 3
+     },
+     "type_pret": {
+      "declared": [
+       "D331_32",
+       "D331_63_64",
+       "D331_59_8",
+       "D331_76_1",
+       "Autre"
+      ],
+      "unused_mapped": [
+       "D331_32",
+       "D331_63_64",
+       "D331_59_8",
+       "D331_76_1",
+       "Autre"
+      ],
+      "unused_suite": [
+       "D331_32",
+       "D331_63_64",
+       "D331_59_8",
+       "D331_76_1",
+       "Autre"
+      ],
+      "unknown_tests": 3
+     },
+     "titulaire_pret": {
+      "declared": [
+       "Demandeur",
+       "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "unused_mapped": [
+       "Demandeur",
+       "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "unused_suite": [
+       "Demandeur",
+       "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "unknown_tests": 3
+     },
+     "date_signature_pret": {
+      "declared": [
+       "lt_2017-12-31",
+       "eq_2017-12-31",
+       "2018-01-01_to_2019-12-31",
+       "ge_2020-01-01"
+      ],
+      "unused_mapped": [
+       "lt_2017-12-31",
+       "eq_2017-12-31",
+       "2018-01-01_to_2019-12-31",
+       "ge_2020-01-01"
+      ],
+      "unused_suite": [
+       "lt_2017-12-31",
+       "eq_2017-12-31",
+       "2018-01-01_to_2019-12-31",
+       "ge_2020-01-01"
+      ],
+      "unknown_tests": 3
+     },
+     "anciennete_logement": {
+      "declared": [
+       "Neuf",
+       "Ancien_ameliore_par_occupant",
+       "Ancien_non_ameliore_par_occupant"
+      ],
+      "unused_mapped": [
+       "Neuf",
+       "Ancien_ameliore_par_occupant",
+       "Ancien_non_ameliore_par_occupant"
+      ],
+      "unused_suite": [
+       "Neuf",
+       "Ancien_ameliore_par_occupant",
+       "Ancien_non_ameliore_par_occupant"
+      ],
+      "unknown_tests": 3
+     },
+     "zone": {
+      "declared": [
+       "Zone1",
+       "Zone2",
+       "Zone3"
+      ],
+      "unused_mapped": [
+       "Zone1",
+       "Zone2",
+       "Zone3"
+      ],
+      "unused_suite": [
+       "Zone3"
+      ],
+      "unknown_tests": 0
+     },
+     "date_courante": {
+      "declared": [
+       "2019-09-01_to_2019-09-30",
+       "ge_2019-10-01"
+      ],
+      "unused_mapped": [
+       "2019-09-01_to_2019-09-30",
+       "ge_2019-10-01"
+      ],
+      "unused_suite": [
+       "2019-09-01_to_2019-09-30"
+      ],
+      "unknown_tests": 0
+     },
+     "residence_principale": {
+      "declared": [
+       "faux",
+       "vrai"
+      ],
+      "unused_mapped": [
+       "faux",
+       "vrai"
+      ],
+      "unused_suite": [
+       "faux"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 23,
+    "unused_mapped_total": 23,
+    "unused_suite_total": 19,
+    "valid_total": 2520,
+    "missed_valid_mapped": 2520,
+    "missed_valid_suite": 2520,
+    "n_mapped_rows": 0,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 2,
+   "table": "FR-APL-1",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/FR-APL-1",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 3,
+   "mapped_tests": 1,
+   "mapped_ids": [
+    "Exemple1"
+   ],
+   "unmapped": [
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2019-10-01_to_2020-12-31",
+       "residence": "Metropole",
+       "mode_occupation": "Locataire",
+       "bailleur": "social_conventionne"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-05-01_to_2023-04-04",
+       "residence": "Metropole",
+       "mode_occupation": "Locataire",
+       "bailleur": "social_conventionne"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-05-01_to_2023-04-04",
+       "residence": "LaReunion",
+       "mode_occupation": "Locataire",
+       "bailleur": "prive"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "date_courante": {
+      "declared": [
+       "2019-09-01_to_2019-09-30",
+       "2019-10-01_to_2020-12-31",
+       "2021-01-01_to_2021-04-30",
+       "2021-05-01_to_2023-04-04",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unused_mapped": [
+       "2019-09-01_to_2019-09-30",
+       "2021-01-01_to_2021-04-30",
+       "2021-05-01_to_2023-04-04",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unused_suite": [
+       "2019-09-01_to_2019-09-30",
+       "2021-01-01_to_2021-04-30",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unknown_tests": 0
+     },
+     "residence": {
+      "declared": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unused_mapped": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unknown_tests": 0
+     },
+     "mode_occupation": {
+      "declared": [
+       "Locataire",
+       "SousLocataire"
+      ],
+      "unused_mapped": [
+       "SousLocataire"
+      ],
+      "unused_suite": [
+       "SousLocataire"
+      ],
+      "unknown_tests": 0
+     },
+     "bailleur": {
+      "declared": [
+       "social_conventionne",
+       "social_non_conventionne",
+       "prive_conventionnement_social_conventionne",
+       "prive_conventionnement_social_non_conventionne",
+       "prive"
+      ],
+      "unused_mapped": [
+       "social_non_conventionne",
+       "prive_conventionnement_social_conventionne",
+       "prive_conventionnement_social_non_conventionne",
+       "prive"
+      ],
+      "unused_suite": [
+       "social_non_conventionne",
+       "prive_conventionnement_social_conventionne",
+       "prive_conventionnement_social_non_conventionne"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 24,
+    "unused_mapped_total": 20,
+    "unused_suite_total": 17,
+    "valid_total": 710,
+    "missed_valid_mapped": 709,
+    "missed_valid_suite": 702,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 2,
+   "table": "FR-APL-2",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/FR-APL-2",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 3,
+   "mapped_tests": 0,
+   "mapped_ids": [],
+   "unmapped": [
+    {
+     "test": "Exemple1",
+     "category": "other: housing tenure fixed by the table",
+     "detail": "Exemple1 is a tenancy (Locataire, aides_logement/tests/tests_eligibilite_apl.catala_fr:71); the table fixes a logement-foyer occupation mode"
+    },
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2019-10-01_to_2020-12-31",
+       "residence": "Metropole",
+       "type_logement_foyer": null,
+       "conventionne_livre_III_titre_V_chap_III": null,
+       "conventionne_selon_regles_drom": null,
+       "remplit_conditions_r832_21": null
+      }
+     ]
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-05-01_to_2023-04-04",
+       "residence": "Metropole",
+       "type_logement_foyer": null,
+       "conventionne_livre_III_titre_V_chap_III": null,
+       "conventionne_selon_regles_drom": null,
+       "remplit_conditions_r832_21": null
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-05-01_to_2023-04-04",
+       "residence": "LaReunion",
+       "type_logement_foyer": null,
+       "conventionne_livre_III_titre_V_chap_III": null,
+       "conventionne_selon_regles_drom": null,
+       "remplit_conditions_r832_21": null
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "date_courante": {
+      "declared": [
+       "2019-09-01_to_2019-09-30",
+       "2019-10-01_to_2020-12-31",
+       "2021-01-01_to_2021-04-30",
+       "2021-05-01_to_2023-04-04",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unused_mapped": [
+       "2019-09-01_to_2019-09-30",
+       "2019-10-01_to_2020-12-31",
+       "2021-01-01_to_2021-04-30",
+       "2021-05-01_to_2023-04-04",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unused_suite": [
+       "2019-09-01_to_2019-09-30",
+       "2021-01-01_to_2021-04-30",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unknown_tests": 0
+     },
+     "residence": {
+      "declared": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unused_mapped": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unknown_tests": 0
+     },
+     "type_logement_foyer": {
+      "declared": [
+       "LogementPersonnesAgeesOuHandicapees",
+       "ResidenceSociale",
+       "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+       "Autre"
+      ],
+      "unused_mapped": [
+       "LogementPersonnesAgeesOuHandicapees",
+       "ResidenceSociale",
+       "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+       "Autre"
+      ],
+      "unused_suite": [
+       "LogementPersonnesAgeesOuHandicapees",
+       "ResidenceSociale",
+       "FoyerJeunesTravailleursOuMigrantsConventionneL353_2Avant1995",
+       "Autre"
+      ],
+      "unknown_tests": 3
+     },
+     "conventionne_livre_III_titre_V_chap_III": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui",
+       "non"
+      ],
+      "unused_suite": [
+       "oui",
+       "non"
+      ],
+      "unknown_tests": 3
+     },
+     "conventionne_selon_regles_drom": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui",
+       "non"
+      ],
+      "unused_suite": [
+       "oui",
+       "non"
+      ],
+      "unknown_tests": 3
+     },
+     "remplit_conditions_r832_21": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui",
+       "non"
+      ],
+      "unused_suite": [
+       "oui",
+       "non"
+      ],
+      "unknown_tests": 3
+     }
+    },
+    "declared_total": 27,
+    "unused_mapped_total": 27,
+    "unused_suite_total": 23,
+    "valid_total": 2272,
+    "missed_valid_mapped": 2272,
+    "missed_valid_suite": 2272,
+    "n_mapped_rows": 0,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 2,
+   "table": "FR-APL-3",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/FR-APL-3",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 3,
+   "mapped_tests": 0,
+   "mapped_ids": [],
+   "unmapped": [
+    {
+     "test": "Exemple1",
+     "category": "other: housing tenure fixed by the table",
+     "detail": "Exemple1 is a tenancy (Locataire, aides_logement/tests/tests_eligibilite_apl.catala_fr:71); the table fixes a home-ownership occupation mode"
+    },
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2019-10-01_to_2020-12-31",
+       "residence": "Metropole",
+       "mode_occupation": null,
+       "type_pret": null,
+       "titulaire_pret": null,
+       "date_signature_pret": null,
+       "anciennete_logement": null,
+       "zone": "Zone1"
+      }
+     ]
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-05-01_to_2023-04-04",
+       "residence": "Metropole",
+       "mode_occupation": null,
+       "type_pret": null,
+       "titulaire_pret": null,
+       "date_signature_pret": null,
+       "anciennete_logement": null,
+       "zone": "Zone2"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "date_courante": "2021-05-01_to_2023-04-04",
+       "residence": "LaReunion",
+       "mode_occupation": null,
+       "type_pret": null,
+       "titulaire_pret": null,
+       "date_signature_pret": null,
+       "anciennete_logement": null,
+       "zone": "Zone2"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "date_courante": {
+      "declared": [
+       "2019-09-01_to_2019-09-30",
+       "2019-10-01_to_2020-12-31",
+       "2021-01-01_to_2021-04-30",
+       "2021-05-01_to_2023-04-04",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unused_mapped": [
+       "2019-09-01_to_2019-09-30",
+       "2019-10-01_to_2020-12-31",
+       "2021-01-01_to_2021-04-30",
+       "2021-05-01_to_2023-04-04",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unused_suite": [
+       "2019-09-01_to_2019-09-30",
+       "2021-01-01_to_2021-04-30",
+       "2023-04-05_to_2023-08-31",
+       "2023-09-01_to_2023-12-31",
+       "2024-01-01_to_2024-10-31",
+       "from_2024-11-01"
+      ],
+      "unknown_tests": 0
+     },
+     "residence": {
+      "declared": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unused_mapped": [
+       "Metropole",
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "LaReunion",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unused_suite": [
+       "Guadeloupe",
+       "Guyane",
+       "Martinique",
+       "Mayotte",
+       "SaintBarthelemy",
+       "SaintMartin",
+       "SaintPierreEtMiquelon"
+      ],
+      "unknown_tests": 0
+     },
+     "mode_occupation": {
+      "declared": [
+       "AccessionProprieteLocalUsageExclusifHabitation",
+       "LocationAccession"
+      ],
+      "unused_mapped": [
+       "AccessionProprieteLocalUsageExclusifHabitation",
+       "LocationAccession"
+      ],
+      "unused_suite": [
+       "AccessionProprieteLocalUsageExclusifHabitation",
+       "LocationAccession"
+      ],
+      "unknown_tests": 3
+     },
+     "type_pret": {
+      "declared": [
+       "D331_32",
+       "D331_63_64",
+       "D331_59_8",
+       "D331_76_1",
+       "Autre"
+      ],
+      "unused_mapped": [
+       "D331_32",
+       "D331_63_64",
+       "D331_59_8",
+       "D331_76_1",
+       "Autre"
+      ],
+      "unused_suite": [
+       "D331_32",
+       "D331_63_64",
+       "D331_59_8",
+       "D331_76_1",
+       "Autre"
+      ],
+      "unknown_tests": 3
+     },
+     "titulaire_pret": {
+      "declared": [
+       "Demandeur",
+       "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "unused_mapped": [
+       "Demandeur",
+       "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "unused_suite": [
+       "Demandeur",
+       "VendeurQuandDemandeurAContratLocationAccession"
+      ],
+      "unknown_tests": 3
+     },
+     "date_signature_pret": {
+      "declared": [
+       "before_2017-12-31",
+       "on_2017-12-31",
+       "2018-01-01_to_2019-12-31",
+       "from_2020-01-01"
+      ],
+      "unused_mapped": [
+       "before_2017-12-31",
+       "on_2017-12-31",
+       "2018-01-01_to_2019-12-31",
+       "from_2020-01-01"
+      ],
+      "unused_suite": [
+       "before_2017-12-31",
+       "on_2017-12-31",
+       "2018-01-01_to_2019-12-31",
+       "from_2020-01-01"
+      ],
+      "unknown_tests": 3
+     },
+     "anciennete_logement": {
+      "declared": [
+       "neuf",
+       "ancien_ameliore_par_occupant",
+       "ancien_non_ameliore_par_occupant"
+      ],
+      "unused_mapped": [
+       "neuf",
+       "ancien_ameliore_par_occupant",
+       "ancien_non_ameliore_par_occupant"
+      ],
+      "unused_suite": [
+       "neuf",
+       "ancien_ameliore_par_occupant",
+       "ancien_non_ameliore_par_occupant"
+      ],
+      "unknown_tests": 3
+     },
+     "zone": {
+      "declared": [
+       "Zone1",
+       "Zone2",
+       "Zone3"
+      ],
+      "unused_mapped": [
+       "Zone1",
+       "Zone2",
+       "Zone3"
+      ],
+      "unused_suite": [
+       "Zone3"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 36,
+    "unused_mapped_total": 36,
+    "unused_suite_total": 30,
+    "valid_total": 49500,
+    "missed_valid_mapped": 49500,
+    "missed_valid_suite": 49500,
+    "n_mapped_rows": 0,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 2,
+   "table": "FR-APL-4",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/FR-APL-4",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 3,
+   "mapped_tests": 1,
+   "mapped_ids": [
+    "Exemple1"
+   ],
+   "unmapped": [
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "nationalite_demandeur": "Francaise",
+       "residence_principale": "oui",
+       "rattache_foyer_fiscal_parent_ifi": "non",
+       "logement_decent": "oui",
+       "loue_ou_sous_loue_a_des_tiers": "non",
+       "age_personne_sous_location": "sans_objet",
+       "sous_locataire_conforme_l442_1": "sans_objet",
+       "proprietaire_famille": "autre",
+       "usufruit_famille": "autre",
+       "mode_occupation": "Locataire"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "nationalite_demandeur": "Francaise",
+       "residence_principale": "oui",
+       "rattache_foyer_fiscal_parent_ifi": "non",
+       "logement_decent": "oui",
+       "loue_ou_sous_loue_a_des_tiers": "non",
+       "age_personne_sous_location": "sans_objet",
+       "sous_locataire_conforme_l442_1": "sans_objet",
+       "proprietaire_famille": "autre",
+       "usufruit_famille": "autre",
+       "mode_occupation": "Locataire"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "LaReunion",
+       "nationalite_demandeur": "Francaise",
+       "residence_principale": "oui",
+       "rattache_foyer_fiscal_parent_ifi": "non",
+       "logement_decent": "oui",
+       "loue_ou_sous_loue_a_des_tiers": "non",
+       "age_personne_sous_location": "sans_objet",
+       "sous_locataire_conforme_l442_1": "sans_objet",
+       "proprietaire_famille": "autre",
+       "usufruit_famille": "autre",
+       "mode_occupation": "Locataire"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Metropole",
+       "LaReunion",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "LaReunion",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "nationalite_demandeur": {
+      "declared": [
+       "Francaise",
+       "Etrangere_T_T",
+       "Etrangere_T_F",
+       "Etrangere_F_T",
+       "Etrangere_F_F"
+      ],
+      "unused_mapped": [
+       "Etrangere_T_T",
+       "Etrangere_T_F",
+       "Etrangere_F_T",
+       "Etrangere_F_F"
+      ],
+      "unused_suite": [
+       "Etrangere_T_T",
+       "Etrangere_T_F",
+       "Etrangere_F_T",
+       "Etrangere_F_F"
+      ],
+      "unknown_tests": 0
+     },
+     "residence_principale": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "non"
+      ],
+      "unused_suite": [
+       "non"
+      ],
+      "unknown_tests": 0
+     },
+     "rattache_foyer_fiscal_parent_ifi": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui"
+      ],
+      "unused_suite": [
+       "oui"
+      ],
+      "unknown_tests": 0
+     },
+     "logement_decent": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "non"
+      ],
+      "unused_suite": [
+       "non"
+      ],
+      "unknown_tests": 0
+     },
+     "loue_ou_sous_loue_a_des_tiers": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui"
+      ],
+      "unused_suite": [
+       "oui"
+      ],
+      "unknown_tests": 0
+     },
+     "age_personne_sous_location": {
+      "declared": [
+       "sans_objet",
+       "under_30",
+       "30th_birthday_on_date",
+       "over_30"
+      ],
+      "unused_mapped": [
+       "under_30",
+       "30th_birthday_on_date",
+       "over_30"
+      ],
+      "unused_suite": [
+       "under_30",
+       "30th_birthday_on_date",
+       "over_30"
+      ],
+      "unknown_tests": 0
+     },
+     "sous_locataire_conforme_l442_1": {
+      "declared": [
+       "sans_objet",
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui",
+       "non"
+      ],
+      "unused_suite": [
+       "oui",
+       "non"
+      ],
+      "unknown_tests": 0
+     },
+     "proprietaire_famille": {
+      "declared": [
+       "autre",
+       "parts_below_10pct",
+       "parts_10pct",
+       "parts_above_10pct"
+      ],
+      "unused_mapped": [
+       "parts_below_10pct",
+       "parts_10pct",
+       "parts_above_10pct"
+      ],
+      "unused_suite": [
+       "parts_below_10pct",
+       "parts_10pct",
+       "parts_above_10pct"
+      ],
+      "unknown_tests": 0
+     },
+     "usufruit_famille": {
+      "declared": [
+       "autre",
+       "parts_below_10pct",
+       "parts_10pct",
+       "parts_above_10pct"
+      ],
+      "unused_mapped": [
+       "parts_below_10pct",
+       "parts_10pct",
+       "parts_above_10pct"
+      ],
+      "unused_suite": [
+       "parts_below_10pct",
+       "parts_10pct",
+       "parts_above_10pct"
+      ],
+      "unknown_tests": 0
+     },
+     "mode_occupation": {
+      "declared": [
+       "Locataire",
+       "AccessionProprieteLocalUsageExclusifHabitation"
+      ],
+      "unused_mapped": [
+       "AccessionProprieteLocalUsageExclusifHabitation"
+      ],
+      "unused_suite": [
+       "AccessionProprieteLocalUsageExclusifHabitation"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 33,
+    "unused_mapped_total": 22,
+    "unused_suite_total": 21,
+    "valid_total": 26880,
+    "missed_valid_mapped": 26879,
+    "missed_valid_suite": 26878,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "FR-APL",
+   "conversion": 2,
+   "table": "FR-APL-5",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/FR-APL-5",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 3,
+   "mapped_tests": 1,
+   "mapped_ids": [
+    "Exemple1"
+   ],
+   "unmapped": [
+    {
+     "test": "Exemple2",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:116), the allocation de logement scope"
+    },
+    {
+     "test": "Exemple3",
+     "category": "other output or scope",
+     "detail": "asserts ÉligibilitéAllocationLogement.éligibilité (aides_logement/tests/tests_eligibilite_apl.catala_fr:202), the allocation de logement scope"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Exemple1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "nationalite_demandeur": "Francaise",
+       "situation_familiale": "Maries",
+       "nombre_autres_occupants_logement": "1",
+       "nombre_personnes_a_charge": "3",
+       "surface_m_carres": "from_72",
+       "personnes_agees_handicapees_foyer_r844_4": "non"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Exemple2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "Metropole",
+       "nationalite_demandeur": "Francaise",
+       "situation_familiale": "Concubins",
+       "nombre_autres_occupants_logement": "0",
+       "nombre_personnes_a_charge": "2",
+       "surface_m_carres": "58_to_60",
+       "personnes_agees_handicapees_foyer_r844_4": "non"
+      }
+     ]
+    },
+    {
+     "test": "Exemple3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "residence": "LaReunion",
+       "nationalite_demandeur": "Francaise",
+       "situation_familiale": "Concubins",
+       "nombre_autres_occupants_logement": "0",
+       "nombre_personnes_a_charge": "1",
+       "surface_m_carres": "58_to_60",
+       "personnes_agees_handicapees_foyer_r844_4": "non"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "residence": {
+      "declared": [
+       "Metropole",
+       "LaReunion",
+       "Mayotte"
+      ],
+      "unused_mapped": [
+       "LaReunion",
+       "Mayotte"
+      ],
+      "unused_suite": [
+       "Mayotte"
+      ],
+      "unknown_tests": 0
+     },
+     "nationalite_demandeur": {
+      "declared": [
+       "Francaise",
+       "Etrangere_T_T"
+      ],
+      "unused_mapped": [
+       "Etrangere_T_T"
+      ],
+      "unused_suite": [
+       "Etrangere_T_T"
+      ],
+      "unknown_tests": 0
+     },
+     "situation_familiale": {
+      "declared": [
+       "Celibataire",
+       "Maries",
+       "Pacses",
+       "Concubins",
+       "CelibataireSepareDeFait",
+       "ConcubinageDontSepareDeFait"
+      ],
+      "unused_mapped": [
+       "Celibataire",
+       "Pacses",
+       "Concubins",
+       "CelibataireSepareDeFait",
+       "ConcubinageDontSepareDeFait"
+      ],
+      "unused_suite": [
+       "Celibataire",
+       "Pacses",
+       "CelibataireSepareDeFait",
+       "ConcubinageDontSepareDeFait"
+      ],
+      "unknown_tests": 0
+     },
+     "nombre_autres_occupants_logement": {
+      "declared": [
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "unused_mapped": [
+       "0",
+       "2",
+       "3"
+      ],
+      "unused_suite": [
+       "2",
+       "3"
+      ],
+      "unknown_tests": 0
+     },
+     "nombre_personnes_a_charge": {
+      "declared": [
+       "0",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "unused_mapped": [
+       "0",
+       "1",
+       "2",
+       "4"
+      ],
+      "unused_suite": [
+       "0",
+       "4"
+      ],
+      "unknown_tests": 0
+     },
+     "surface_m_carres": {
+      "declared": [
+       "below_9",
+       "9_to_12",
+       "13_to_15",
+       "16_to_17",
+       "18_to_21",
+       "22_to_24",
+       "25_to_26",
+       "27_to_30",
+       "31_to_33",
+       "34_to_35",
+       "36_to_39",
+       "40_to_42",
+       "43_to_44",
+       "45_to_48",
+       "49_to_51",
+       "52_to_53",
+       "54_to_57",
+       "58_to_60",
+       "61_to_62",
+       "63_to_66",
+       "67_to_69",
+       "70_to_71",
+       "from_72"
+      ],
+      "unused_mapped": [
+       "below_9",
+       "9_to_12",
+       "13_to_15",
+       "16_to_17",
+       "18_to_21",
+       "22_to_24",
+       "25_to_26",
+       "27_to_30",
+       "31_to_33",
+       "34_to_35",
+       "36_to_39",
+       "40_to_42",
+       "43_to_44",
+       "45_to_48",
+       "49_to_51",
+       "52_to_53",
+       "54_to_57",
+       "58_to_60",
+       "61_to_62",
+       "63_to_66",
+       "67_to_69",
+       "70_to_71"
+      ],
+      "unused_suite": [
+       "below_9",
+       "9_to_12",
+       "13_to_15",
+       "16_to_17",
+       "18_to_21",
+       "22_to_24",
+       "25_to_26",
+       "27_to_30",
+       "31_to_33",
+       "34_to_35",
+       "36_to_39",
+       "40_to_42",
+       "43_to_44",
+       "45_to_48",
+       "49_to_51",
+       "52_to_53",
+       "54_to_57",
+       "61_to_62",
+       "63_to_66",
+       "67_to_69",
+       "70_to_71"
+      ],
+      "unknown_tests": 0
+     },
+     "personnes_agees_handicapees_foyer_r844_4": {
+      "declared": [
+       "oui",
+       "non"
+      ],
+      "unused_mapped": [
+       "oui"
+      ],
+      "unused_suite": [
+       "oui"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 45,
+    "unused_mapped_total": 38,
+    "unused_suite_total": 32,
+    "valid_total": 30472,
+    "missed_valid_mapped": 30471,
+    "missed_valid_suite": 30424,
+    "n_mapped_rows": 1,
+    "n_suite_rows": 3
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "US-121",
+   "conversion": 1,
+   "table": "US-121-1",
+   "branch": "paperc-data-fr2",
+   "folder": "paperC/specs/US-121/US-121-1",
+   "branch_commit": "6566904f335a9e7a390583a20c676d3f9fac875a",
+   "suite_tests": 6,
+   "mapped_tests": 4,
+   "mapped_ids": [
+    "Test1",
+    "Test2",
+    "Test3",
+    "Test4"
+   ],
+   "unmapped": [
+    {
+     "test": "Test5",
+     "category": "other output or scope",
+     "detail": "asserts Section121TwoPersons.income_excluded_from_gross_income (us_tax_code/tests/test_section_121.catala_en:139)"
+    },
+    {
+     "test": "Test6",
+     "category": "other output or scope",
+     "detail": "asserts Section121TwoPersons.income_excluded_from_gross_income (us_tax_code/tests/test_section_121.catala_en:158)"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "ge_730_days",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test2",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "lt_730_days",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test3",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "lt_730_days",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test4",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "ge_730_days",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test5",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "ge_730_days",
+       "other_section_121a_sale": "none"
+      }
+     ]
+    },
+    {
+     "test": "Test6",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "ge_730_days",
+       "other_section_121a_sale": "none"
+      },
+      {
+       "ownership_days_in_5_years": "ge_730_days",
+       "use_days_in_5_years": "ge_730_days",
+       "other_section_121a_sale": "none"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "ownership_days_in_5_years": {
+      "declared": [
+       "lt_730_days",
+       "ge_730_days"
+      ],
+      "unused_mapped": [
+       "lt_730_days"
+      ],
+      "unused_suite": [
+       "lt_730_days"
+      ],
+      "unknown_tests": 0
+     },
+     "use_days_in_5_years": {
+      "declared": [
+       "lt_730_days",
+       "ge_730_days"
+      ],
+      "unused_mapped": [],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "other_section_121a_sale": {
+      "declared": [
+       "none",
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unused_mapped": [
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unused_suite": [
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 7,
+    "unused_mapped_total": 3,
+    "unused_suite_total": 3,
+    "valid_total": 4,
+    "missed_valid_mapped": 2,
+    "missed_valid_suite": 2,
+    "n_mapped_rows": 4,
+    "n_suite_rows": 7
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "US-121",
+   "conversion": 1,
+   "table": "US-121-2",
+   "branch": "paperc-data-fr2-fix",
+   "folder": "paperC/specs/US-121/US-121-2",
+   "branch_commit": "1b9debeb0e2097e4a36016ec8553e8c70c5c0253",
+   "suite_tests": 6,
+   "mapped_tests": 2,
+   "mapped_ids": [
+    "Test5",
+    "Test6"
+   ],
+   "unmapped": [
+    {
+     "test": "Test1",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:79)"
+    },
+    {
+     "test": "Test2",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:94)"
+    },
+    {
+     "test": "Test3",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:109)"
+    },
+    {
+     "test": "Test4",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:124)"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_ownership_days_in_5_years": "ge_730_days",
+       "person1_use_days_in_5_years": "ge_730_days",
+       "person1_other_section_121a_sale": "none",
+       "gain": "250000_to_lt_500000",
+       "person2_ownership_days_in_5_years": null,
+       "person2_use_days_in_5_years": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_ownership_days_in_5_years": "ge_730_days",
+       "person1_use_days_in_5_years": "lt_730_days",
+       "person1_other_section_121a_sale": "none",
+       "gain": "250000_to_lt_500000",
+       "person2_ownership_days_in_5_years": null,
+       "person2_use_days_in_5_years": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_ownership_days_in_5_years": "ge_730_days",
+       "person1_use_days_in_5_years": "lt_730_days",
+       "person1_other_section_121a_sale": "none",
+       "gain": "250000_to_lt_500000",
+       "person2_ownership_days_in_5_years": null,
+       "person2_use_days_in_5_years": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test4",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_ownership_days_in_5_years": "ge_730_days",
+       "person1_use_days_in_5_years": "ge_730_days",
+       "person1_other_section_121a_sale": "none",
+       "gain": "250000_to_lt_500000",
+       "person2_ownership_days_in_5_years": null,
+       "person2_use_days_in_5_years": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test5",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "return_type": "single",
+       "person1_ownership_days_in_5_years": "ge_730_days",
+       "person1_use_days_in_5_years": "ge_730_days",
+       "person1_other_section_121a_sale": "none",
+       "gain": "250000_to_lt_500000",
+       "person2_ownership_days_in_5_years": "ge_730_days",
+       "person2_use_days_in_5_years": "ge_730_days",
+       "person2_other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test6",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "return_type": "joint",
+       "person1_ownership_days_in_5_years": "ge_730_days",
+       "person1_use_days_in_5_years": "ge_730_days",
+       "person1_other_section_121a_sale": "none",
+       "gain": "250000_to_lt_500000",
+       "person2_ownership_days_in_5_years": "ge_730_days",
+       "person2_use_days_in_5_years": "ge_730_days",
+       "person2_other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "return_type": {
+      "declared": [
+       "single",
+       "joint",
+       "surviving_spouse"
+      ],
+      "unused_mapped": [
+       "surviving_spouse"
+      ],
+      "unused_suite": [
+       "surviving_spouse"
+      ],
+      "unknown_tests": 4
+     },
+     "person1_ownership_days_in_5_years": {
+      "declared": [
+       "lt_730_days",
+       "ge_730_days"
+      ],
+      "unused_mapped": [
+       "lt_730_days"
+      ],
+      "unused_suite": [
+       "lt_730_days"
+      ],
+      "unknown_tests": 0
+     },
+     "person1_use_days_in_5_years": {
+      "declared": [
+       "lt_730_days",
+       "ge_730_days"
+      ],
+      "unused_mapped": [
+       "lt_730_days"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "person1_other_section_121a_sale": {
+      "declared": [
+       "none",
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unused_mapped": [
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unused_suite": [
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unknown_tests": 0
+     },
+     "person2_ownership_days_in_5_years": {
+      "declared": [
+       "lt_730_days",
+       "ge_730_days"
+      ],
+      "unused_mapped": [
+       "lt_730_days"
+      ],
+      "unused_suite": [
+       "lt_730_days"
+      ],
+      "unknown_tests": 4
+     },
+     "person2_use_days_in_5_years": {
+      "declared": [
+       "lt_730_days",
+       "ge_730_days"
+      ],
+      "unused_mapped": [
+       "lt_730_days"
+      ],
+      "unused_suite": [
+       "lt_730_days"
+      ],
+      "unknown_tests": 4
+     },
+     "person2_other_section_121a_sale": {
+      "declared": [
+       "none",
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unused_mapped": [
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unused_suite": [
+       "within_2_years",
+       "more_than_2_years"
+      ],
+      "unknown_tests": 4
+     },
+     "gain": {
+      "declared": [
+       "gt_0_lt_250000",
+       "250000_to_lt_500000",
+       "ge_500000"
+      ],
+      "unused_mapped": [
+       "gt_0_lt_250000",
+       "ge_500000"
+      ],
+      "unused_suite": [
+       "gt_0_lt_250000",
+       "ge_500000"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 20,
+    "unused_mapped_total": 11,
+    "unused_suite_total": 10,
+    "valid_total": 204,
+    "missed_valid_mapped": 202,
+    "missed_valid_suite": 201,
+    "n_mapped_rows": 2,
+    "n_suite_rows": 6
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "US-121",
+   "conversion": 2,
+   "table": "US-121-1",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/US-121-1",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 6,
+   "mapped_tests": 4,
+   "mapped_ids": [
+    "Test1",
+    "Test2",
+    "Test3",
+    "Test4"
+   ],
+   "unmapped": [
+    {
+     "test": "Test5",
+     "category": "other output or scope",
+     "detail": "asserts Section121TwoPersons.income_excluded_from_gross_income (us_tax_code/tests/test_section_121.catala_en:139)"
+    },
+    {
+     "test": "Test6",
+     "category": "other output or scope",
+     "detail": "asserts Section121TwoPersons.income_excluded_from_gross_income (us_tax_code/tests/test_section_121.catala_en:158)"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "one_inside_window_over_730d",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test2",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "one_inside_window_under_730d",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test3",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "one_across_5y_mark_under_730d",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test4",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "two_total_730d_or_more",
+       "other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test5",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "one_inside_window_over_730d",
+       "other_section_121a_sale": "none"
+      }
+     ]
+    },
+    {
+     "test": "Test6",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "one_inside_window_over_730d",
+       "other_section_121a_sale": "none"
+      },
+      {
+       "property_ownage": "one_inside_window_over_730d",
+       "property_usage_as_principal_residence": "two_total_730d_or_more",
+       "other_section_121a_sale": "none"
+      }
+     ]
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "property_ownage": {
+      "declared": [
+       "none",
+       "one_inside_window_over_730d",
+       "one_inside_window_730d",
+       "one_inside_window_under_730d",
+       "one_across_5y_mark_over_730d",
+       "one_across_5y_mark_730d",
+       "one_across_5y_mark_under_730d",
+       "one_ended_before_5y_mark",
+       "two_total_730d_or_more",
+       "two_total_under_730d"
+      ],
+      "unused_mapped": [
+       "none",
+       "one_inside_window_730d",
+       "one_inside_window_under_730d",
+       "one_across_5y_mark_over_730d",
+       "one_across_5y_mark_730d",
+       "one_across_5y_mark_under_730d",
+       "one_ended_before_5y_mark",
+       "two_total_730d_or_more",
+       "two_total_under_730d"
+      ],
+      "unused_suite": [
+       "none",
+       "one_inside_window_730d",
+       "one_inside_window_under_730d",
+       "one_across_5y_mark_over_730d",
+       "one_across_5y_mark_730d",
+       "one_across_5y_mark_under_730d",
+       "one_ended_before_5y_mark",
+       "two_total_730d_or_more",
+       "two_total_under_730d"
+      ],
+      "unknown_tests": 0
+     },
+     "property_usage_as_principal_residence": {
+      "declared": [
+       "none",
+       "one_inside_window_over_730d",
+       "one_inside_window_730d",
+       "one_inside_window_under_730d",
+       "one_across_5y_mark_over_730d",
+       "one_across_5y_mark_730d",
+       "one_across_5y_mark_under_730d",
+       "one_ended_before_5y_mark",
+       "two_total_730d_or_more",
+       "two_total_under_730d"
+      ],
+      "unused_mapped": [
+       "none",
+       "one_inside_window_730d",
+       "one_across_5y_mark_over_730d",
+       "one_across_5y_mark_730d",
+       "one_ended_before_5y_mark",
+       "two_total_under_730d"
+      ],
+      "unused_suite": [
+       "none",
+       "one_inside_window_730d",
+       "one_across_5y_mark_over_730d",
+       "one_across_5y_mark_730d",
+       "one_ended_before_5y_mark",
+       "two_total_under_730d"
+      ],
+      "unknown_tests": 0
+     },
+     "other_section_121a_sale": {
+      "declared": [
+       "none",
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unused_mapped": [
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unused_suite": [
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 24,
+    "unused_mapped_total": 18,
+    "unused_suite_total": 18,
+    "valid_total": 100,
+    "missed_valid_mapped": 96,
+    "missed_valid_suite": 96,
+    "n_mapped_rows": 4,
+    "n_suite_rows": 7
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  },
+  {
+   "rule": "US-121",
+   "conversion": 2,
+   "table": "US-121-2",
+   "branch": "paperc-code2-fr2",
+   "folder": "paperC/specs2/US-121-2",
+   "branch_commit": "9e448d584692ce3db3839f344bf22738385166c4",
+   "suite_tests": 6,
+   "mapped_tests": 2,
+   "mapped_ids": [
+    "Test5",
+    "Test6"
+   ],
+   "unmapped": [
+    {
+     "test": "Test1",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:79)"
+    },
+    {
+     "test": "Test2",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:94)"
+    },
+    {
+     "test": "Test3",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:109)"
+    },
+    {
+     "test": "Test4",
+     "category": "other output or scope",
+     "detail": "asserts Section121SinglePerson.requirements_met (us_tax_code/tests/test_section_121.catala_en:124)"
+    }
+   ],
+   "placements": [
+    {
+     "test": "Test1",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_property_ownage": "730d_or_more",
+       "person1_property_usage_as_principal_residence": "730d_or_more",
+       "person1_other_section_121a_sale": "none",
+       "gain_from_sale_or_exchange_of_property": "250000_to_500000",
+       "person2_property_ownage": null,
+       "person2_property_usage_as_principal_residence": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test2",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_property_ownage": "730d_or_more",
+       "person1_property_usage_as_principal_residence": "under_730d",
+       "person1_other_section_121a_sale": "none",
+       "gain_from_sale_or_exchange_of_property": "250000_to_500000",
+       "person2_property_ownage": null,
+       "person2_property_usage_as_principal_residence": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test3",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_property_ownage": "730d_or_more",
+       "person1_property_usage_as_principal_residence": "under_730d",
+       "person1_other_section_121a_sale": "none",
+       "gain_from_sale_or_exchange_of_property": "250000_to_500000",
+       "person2_property_ownage": null,
+       "person2_property_usage_as_principal_residence": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test4",
+     "mapped": false,
+     "labels_by_cut_points": [
+      {
+       "return_type": null,
+       "person1_property_ownage": "730d_or_more",
+       "person1_property_usage_as_principal_residence": "730d_or_more",
+       "person1_other_section_121a_sale": "none",
+       "gain_from_sale_or_exchange_of_property": "250000_to_500000",
+       "person2_property_ownage": null,
+       "person2_property_usage_as_principal_residence": null,
+       "person2_other_section_121a_sale": null
+      }
+     ]
+    },
+    {
+     "test": "Test5",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "return_type": "single_return",
+       "person1_property_ownage": "730d_or_more",
+       "person1_property_usage_as_principal_residence": "730d_or_more",
+       "person1_other_section_121a_sale": "none",
+       "gain_from_sale_or_exchange_of_property": "250000_to_500000",
+       "person2_property_ownage": "not_applicable",
+       "person2_property_usage_as_principal_residence": "not_applicable",
+       "person2_other_section_121a_sale": "not_applicable"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    },
+    {
+     "test": "Test6",
+     "mapped": true,
+     "labels_by_cut_points": [
+      {
+       "return_type": "joint_return",
+       "person1_property_ownage": "730d_or_more",
+       "person1_property_usage_as_principal_residence": "730d_or_more",
+       "person1_other_section_121a_sale": "none",
+       "gain_from_sale_or_exchange_of_property": "250000_to_500000",
+       "person2_property_ownage": "730d_or_more",
+       "person2_property_usage_as_principal_residence": "730d_or_more",
+       "person2_other_section_121a_sale": "none"
+      }
+     ],
+     "agrees_with_official_examples_row": true
+    }
+   ],
+   "usage": {
+    "attributes": {
+     "return_type": {
+      "declared": [
+       "single_return",
+       "joint_return",
+       "surviving_spouse_return"
+      ],
+      "unused_mapped": [
+       "surviving_spouse_return"
+      ],
+      "unused_suite": [
+       "surviving_spouse_return"
+      ],
+      "unknown_tests": 4
+     },
+     "person1_property_ownage": {
+      "declared": [
+       "under_730d",
+       "730d_or_more"
+      ],
+      "unused_mapped": [
+       "under_730d"
+      ],
+      "unused_suite": [
+       "under_730d"
+      ],
+      "unknown_tests": 0
+     },
+     "person1_property_usage_as_principal_residence": {
+      "declared": [
+       "under_730d",
+       "730d_or_more"
+      ],
+      "unused_mapped": [
+       "under_730d"
+      ],
+      "unused_suite": [],
+      "unknown_tests": 0
+     },
+     "person1_other_section_121a_sale": {
+      "declared": [
+       "none",
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unused_mapped": [
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unused_suite": [
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unknown_tests": 0
+     },
+     "person2_property_ownage": {
+      "declared": [
+       "under_730d",
+       "730d_or_more",
+       "not_applicable"
+      ],
+      "unused_mapped": [
+       "under_730d"
+      ],
+      "unused_suite": [
+       "under_730d"
+      ],
+      "unknown_tests": 4
+     },
+     "person2_property_usage_as_principal_residence": {
+      "declared": [
+       "under_730d",
+       "730d_or_more",
+       "not_applicable"
+      ],
+      "unused_mapped": [
+       "under_730d"
+      ],
+      "unused_suite": [
+       "under_730d"
+      ],
+      "unknown_tests": 4
+     },
+     "person2_other_section_121a_sale": {
+      "declared": [
+       "none",
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before",
+       "not_applicable"
+      ],
+      "unused_mapped": [
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unused_suite": [
+       "under_2_years_before",
+       "exactly_2_years_before",
+       "over_2_years_before"
+      ],
+      "unknown_tests": 4
+     },
+     "gain_from_sale_or_exchange_of_property": {
+      "declared": [
+       "under_250000",
+       "250000_to_500000",
+       "over_500000"
+      ],
+      "unused_mapped": [
+       "under_250000",
+       "over_500000"
+      ],
+      "unused_suite": [
+       "under_250000",
+       "over_500000"
+      ],
+      "unknown_tests": 0
+     }
+    },
+    "declared_total": 25,
+    "unused_mapped_total": 13,
+    "unused_suite_total": 12,
+    "valid_total": 744,
+    "missed_valid_mapped": 736,
+    "missed_valid_suite": 728,
+    "n_mapped_rows": 2,
+    "n_suite_rows": 6
+   },
+   "H1_mapped": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   },
+   "H1_suite": {
+    "unused_gt_0": true,
+    "missed_valid_gt_0": true
+   }
+  }
+ ],
+ "reason_sources": {
+  "1|FR-APL": [
+   "paperc-data-fr2:paperC/specs/README-FR2.md:57",
+   "paperc-data-fr2:paperC/specs/FR-APL/FR-APL-4/CONVERSION.md:84",
+   "paperc-data-fr2:paperC/specs/FR-APL/FR-APL-5/CONVERSION.md:82"
+  ],
+  "2|FR-APL": [
+   "paperc-code2-fr2:paperC/specs2/README-FR2-CODE2.md:68",
+   "paperc-code2-fr2:paperC/specs2/README-FR2-CODE2.md:69",
+   "paperc-code2-fr2:paperC/specs2/FR-APL-1/CONVERSION_2.md:63"
+  ],
+  "1|US-121": [
+   "paperc-data-fr2:paperC/specs/US-121/US-121-1/CONVERSION.md:104",
+   "paperc-data-fr2-fix:paperC/specs/US-121/US-121-2/CONVERSION.md:112"
+  ],
+  "2|US-121": [
+   "paperc-code2-fr2:paperC/specs2/US-121-1/CONVERSION_2.md:97",
+   "paperc-code2-fr2:paperC/specs2/US-121-2/CONVERSION_2.md:101"
+  ]
+ },
+ "variant_us121_2_single_return": [
+  {
+   "conversion": 1,
+   "table": "US-121-2",
+   "unused_suite_total": 9,
+   "missed_valid_suite": 198,
+   "unused_suite": {
+    "return_type": [
+     "surviving_spouse"
+    ],
+    "person1_ownership_days_in_5_years": [
+     "lt_730_days"
+    ],
+    "person1_use_days_in_5_years": [],
+    "person1_other_section_121a_sale": [
+     "within_2_years",
+     "more_than_2_years"
+    ],
+    "person2_ownership_days_in_5_years": [
+     "lt_730_days"
+    ],
+    "person2_use_days_in_5_years": [],
+    "person2_other_section_121a_sale": [
+     "within_2_years",
+     "more_than_2_years"
+    ],
+    "gain": [
+     "gt_0_lt_250000",
+     "ge_500000"
+    ]
+   }
+  },
+  {
+   "conversion": 2,
+   "table": "US-121-2",
+   "unused_suite_total": 12,
+   "missed_valid_suite": 728,
+   "unused_suite": {
+    "return_type": [
+     "surviving_spouse_return"
+    ],
+    "person1_property_ownage": [
+     "under_730d"
+    ],
+    "person1_property_usage_as_principal_residence": [],
+    "person1_other_section_121a_sale": [
+     "under_2_years_before",
+     "exactly_2_years_before",
+     "over_2_years_before"
+    ],
+    "person2_property_ownage": [
+     "under_730d"
+    ],
+    "person2_property_usage_as_principal_residence": [
+     "under_730d"
+    ],
+    "person2_other_section_121a_sale": [
+     "under_2_years_before",
+     "exactly_2_years_before",
+     "over_2_years_before"
+    ],
+    "gain_from_sale_or_exchange_of_property": [
+     "under_250000",
+     "over_500000"
+    ]
+   }
+  }
+ ]
+}
