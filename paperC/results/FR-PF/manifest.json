@@ -1,0 +1,70 @@
+{
+  "sample_id": "FR-PF",
+  "protocol": {
+    "path": "paperC/PROTOCOL.md",
+    "registered_commit": "ee7c527080e665df70b906f0cbf091098e84ad5f"
+  },
+  "harness_commit": "b8feeca189acdbd74a6a53e3159ecb0b11539072",
+  "tracked_inputs_unmodified": true,
+  "python": {
+    "version": "3.12.3",
+    "implementation": "CPython"
+  },
+  "design": {
+    "sources": [
+      "OFFICIAL",
+      "FULL",
+      "UNIFORM",
+      "ZIPF"
+    ],
+    "sizes": [
+      10,
+      20,
+      50,
+      100,
+      200,
+      500,
+      1000
+    ],
+    "seeds": [
+      0,
+      29
+    ],
+    "conditions": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "zipf_s": 1.0
+  },
+  "counts": {
+    "runs": 1266,
+    "controls_rows": 428
+  },
+  "inputs": {
+    "paperC/specs/FR-PF/CONVERSION.md": "b73bd24f331d61bd071933b48259a7f142c31b4c97f5f080e0008a8b28532293",
+    "paperC/specs/FR-PF/ENVIRONMENT.md": "d2c7795bfb606001847b6175e0b4d900bd720de9bd41f49012fd1c9c6c34ed89",
+    "paperC/specs/FR-PF/frcatala.py": "bef7b7efd4b2141f1f0ce0998821af72a44d1bee3f647d09173af3b420e200f5",
+    "paperC/specs/FR-PF/ground_truth.csv": "6df59ca359d1588822f06a5b594e96685a1953a2e55252416c244756e5e89e2d",
+    "paperC/specs/FR-PF/official_examples.csv": "946617b6f83d5f44394d04b878d3091bb1b854cdab67e9b64018fe0c3241a31a",
+    "paperC/specs/FR-PF/oracle.py": "08e9e9d2dca312ca683a14c70d34b80cdc57c44e192cd000ef58db49fb5279a4",
+    "paperC/specs/FR-PF/spec.json": "20573dba735f10c42c51263888e199f40c588a4bb77be1778930d03a6e6ed3ae",
+    "paperC/specs/FR-PF/SHA256SUMS": "0f36901f55aa6022dfbe3fb6fa46f5e6569a29ae8024acf7b03278df8c1d5447",
+    "paperC/PROTOCOL.md": "3ceab66fe2cfcda05508949e9f6e35702430620351416113889d2f8e1af75462",
+    "paperC/harness/__init__.py": "f22c44537c32376398cd9f3058108fcdb3b200224ee7c10757215b2322b97f40",
+    "paperC/harness/determinism.py": "249f09b67649809ca30305035b6684d60b6c9840b46cc8cda8118091895ab168",
+    "paperC/harness/experiment.py": "603971cb700b51a850bb2a24a1e8f1706c7490a519c252a1a599207f20a41525",
+    "paperC/harness/run.py": "aa7cda5ed30d24a58dce423dc586e2151c19a1b2b583491a52eaa4e5fe59b025",
+    "paperC/harness/spec.py": "f04a5cc0f0e78c904ec14a3793d273963738ab6039f0ab7cc476b032a260c14a",
+    "paperC/harness/stats.py": "a003178bac85f1a83f0343712f0b4e57917375f8262453bf9b62759b56c6a8ff",
+    "latc_check/__init__.py": "2065b78ce59b052f3da932279d303a4c799062cc899d1d524211eca80137bee0",
+    "latc_check/latc.py": "5efbc69f9bdfd0e87952402581cb40c852076b41e98f0568f057307a3626ec57",
+    "latc_check/model.py": "8695ec6e0e16fc7e524945431eecab3267bbcb727b360ebd3e7e89448ad2ac90",
+    "latc_check/reference.py": "2ff558e8eb1a767e2b457cf0751f7bdef2c64df4efb0dc51d9b9ded29d4aab74"
+  },
+  "outputs": {
+    "paperC/results/FR-PF/runs.csv": "13fcf58f77c727f4088dd246d3725e0c06af2bd06566d5ab7fb184e99b49a314",
+    "paperC/results/FR-PF/controls.csv": "9426c17725b8889c9f827e23866ab0feae5535d8df2264e4e0670236f1f6882f",
+    "paperC/results/FR-PF/summary.md": "a8c159190e174d20b9002d3394e6895e61cdd55e57333f242874833929dcd600"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "sample_id": "NZ-SLP",
+  "protocol": {
+    "path": "paperC/PROTOCOL.md",
+    "registered_commit": "ee7c527080e665df70b906f0cbf091098e84ad5f"
+  },
+  "harness_commit": "d3993595ed6ea4bc92b59a97a424fea234120dea",
+  "tracked_inputs_unmodified": true,
+  "python": {
+    "version": "3.12.3",
+    "implementation": "CPython"
+  },
+  "design": {
+    "sources": [
+      "OFFICIAL",
+      "FULL",
+      "UNIFORM",
+      "ZIPF"
+    ],
+    "sizes": [
+      10,
+      20,
+      50,
+      100,
+      200,
+      500,
+      1000
+    ],
+    "seeds": [
+      0,
+      29
+    ],
+    "conditions": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "zipf_s": 1.0
+  },
+  "counts": {
+    "runs": 1266,
+    "controls_rows": 428
+  },
+  "inputs": {
+    "paperC/specs/NZ-SLP/CONVERSION.md": "fe2f362c5edb996d5432928fc021d08aad46a0f99fac79f434ea26079e691a89",
+    "paperC/specs/NZ-SLP/ENVIRONMENT.md": "ed25b4fac7289fdf819ef5d788997d4736aa6fa73ef6f4af46cab46ebc535c7c",
+    "paperC/specs/NZ-SLP/ground_truth.csv": "26020ee83302a166b27803e61cff478c4f97b9627cbbab70b9c70d85622993c7",
+    "paperC/specs/NZ-SLP/official_examples.csv": "6cced520e43ef68c003b367c11a1e0e7826d570c8d04e23931deda8c3aa318bf",
+    "paperC/specs/NZ-SLP/oracle.py": "0729f52a6ae743abc63cc0c7f7716e6e88800df3f7b965541362785d2df45766",
+    "paperC/specs/NZ-SLP/spec.json": "ec82c695b493b836d90d8210685da5f370e9939358b865dc3f6534e097e5dc2b",
+    "paperC/specs/NZ-SLP/SHA256SUMS": "d843de81b326c32a48f91d432100cd62cb88f3b19888a83f569808a202bc9390",
+    "paperC/PROTOCOL.md": "3ceab66fe2cfcda05508949e9f6e35702430620351416113889d2f8e1af75462",
+    "paperC/harness/__init__.py": "f22c44537c32376398cd9f3058108fcdb3b200224ee7c10757215b2322b97f40",
+    "paperC/harness/determinism.py": "249f09b67649809ca30305035b6684d60b6c9840b46cc8cda8118091895ab168",
+    "paperC/harness/experiment.py": "603971cb700b51a850bb2a24a1e8f1706c7490a519c252a1a599207f20a41525",
+    "paperC/harness/run.py": "aa7cda5ed30d24a58dce423dc586e2151c19a1b2b583491a52eaa4e5fe59b025",
+    "paperC/harness/spec.py": "f04a5cc0f0e78c904ec14a3793d273963738ab6039f0ab7cc476b032a260c14a",
+    "paperC/harness/stats.py": "a003178bac85f1a83f0343712f0b4e57917375f8262453bf9b62759b56c6a8ff",
+    "latc_check/__init__.py": "2065b78ce59b052f3da932279d303a4c799062cc899d1d524211eca80137bee0",
+    "latc_check/latc.py": "5efbc69f9bdfd0e87952402581cb40c852076b41e98f0568f057307a3626ec57",
+    "latc_check/model.py": "8695ec6e0e16fc7e524945431eecab3267bbcb727b360ebd3e7e89448ad2ac90",
+    "latc_check/reference.py": "2ff558e8eb1a767e2b457cf0751f7bdef2c64df4efb0dc51d9b9ded29d4aab74"
+  },
+  "outputs": {
+    "paperC/results/NZ-SLP/runs.csv": "7e344318d5e4ede1b8fd17439727a3f7751c940fed118deac9347827f63cd652",
+    "paperC/results/NZ-SLP/controls.csv": "030dce73b71849aa03fe6a87885770decac58b947624be6617fee860ef6000cd",
+    "paperC/results/NZ-SLP/summary.md": "3f3a46f868a89f1848cac1814542dbf93b2ccef0779221a2419881bf29d46ca5"
+  }
+}
