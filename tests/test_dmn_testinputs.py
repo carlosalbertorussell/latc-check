@@ -1,5 +1,8 @@
+import contextlib
+import io
 import json
 import os
+import sys
 import tempfile
 import unittest
 
@@ -213,6 +216,52 @@ class RunTest(unittest.TestCase):
                 md = fh.read()
             self.assertIn("`blue`", md)
             self.assertIn("no_match", md)
+
+    def test_no_test_files_warns_and_writes_nothing(self):
+        with tempfile.TemporaryDirectory() as d:
+            tck = os.path.join(d, "dmn-tck")
+            os.makedirs(os.path.join(tck, "TestCases"))
+            with open(os.path.join(tck, "TestCases", "m.dmn"), "wb") as fh:
+                fh.write(model(decision("D", dtable(["Colour"], [['"red"']]))))
+            out = os.path.join(d, "out")
+            sources = [{"name": "dmn-tck/tck", "path": tck, "role": "tck"}]
+            with self.assertRaises(ti.NoTestFiles) as cm:
+                ti.run(sources, out)
+            self.assertIn("*-test-NN.xml", str(cm.exception))
+            self.assertIn("*-test-*.xml", str(cm.exception))
+            self.assertIn(tck, str(cm.exception))
+            self.assertFalse(os.path.exists(out))
+            src = os.path.join(d, "sources.json")
+            with open(src, "w", encoding="utf-8") as fh:
+                json.dump({"sources": sources}, fh)
+            err = io.StringIO()
+            with contextlib.redirect_stderr(err):
+                self.assertEqual(ti.main(["--sources", src, "--out", out]), 1)
+            self.assertIn("warning: no DMN TCK test files found", err.getvalue())
+            self.assertFalse(os.path.exists(out))
+
+    def test_script_exits_non_zero_without_test_files(self):
+        here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        sys.path.insert(0, here)
+        try:
+            import run_dmn_testinputs
+        finally:
+            sys.path.remove(here)
+        with tempfile.TemporaryDirectory() as d:
+            for p in ("corpus", "tools", os.path.join("dmn-tck", "TestCases")):
+                os.makedirs(os.path.join(d, p))
+            out = os.path.join(d, "out")
+            argv, sys.argv = sys.argv, ["run_dmn_testinputs.py", "--corpus", os.path.join(d, "corpus"),
+                                        "--tck", os.path.join(d, "dmn-tck"),
+                                        "--tools", os.path.join(d, "tools"), "--out", out]
+            err = io.StringIO()
+            try:
+                with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(run_dmn_testinputs.main(), 1)
+            finally:
+                sys.argv = argv
+            self.assertIn(os.path.join(d, "dmn-tck"), err.getvalue())
+            self.assertFalse(os.path.exists(os.path.join(out, "testinputs.json")))
 
 
 if __name__ == "__main__":

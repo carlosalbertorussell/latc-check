@@ -6,6 +6,8 @@ Uses the sources of ``run_dmn_corpus.py`` (same clones, same commits) and writes
 ``testinputs.json`` and ``TESTINPUTS.md`` to the output folder; the corpus results
 (``results.json``, ``inputs.csv``, ``SUMMARY.md``, ``sources.json``) are left unchanged.
 Nothing is downloaded: the other formats are only counted from the local git trees.
+When no TCK test file (``*-test-NN.xml``) is found, a warning names the pattern and the TCK
+path, nothing is written, and the exit status is 1.
 """
 import argparse
 import json
@@ -34,7 +36,11 @@ def main():
         for s in sources:
             if s["name"] in shas and shas[s["name"]] != s["sha"]:
                 print(f"warning: {s['name']} is at {s['sha']}, sources.json records {shas[s['name']]}")
-    res = dmn_testinputs.run(sources, a.out)
+    try:
+        res = dmn_testinputs.run(sources, a.out)
+    except dmn_testinputs.NoTestFiles as e:
+        print(e, file=sys.stderr)
+        return 1
     for g, v in res["summary"].items():
         print(f"{g:13s} test files={v['test_files']} cases={v['test_cases']} values={v['input_values']} "
               f"resolved={v['input_values_resolved']} links={v['links']} string={v['links_string_value']} "

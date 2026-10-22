@@ -204,6 +204,22 @@ class CorpusTest(unittest.TestCase):
         self.assertEqual(s["sources_files"], 1)          # the duplicate is kept in s1 (example)
         self.assertEqual(res["unmatched_combinations"]["combinations_unmatched"], 1)
 
+    def test_collect_skips_node_modules_and_target(self):
+        a = model(table([("c", "string", None)], [['"a"']]))
+        b = model(table([("c", "string", None)], [['"b"']]))
+        c = model(table([("c", "string", None)], [['"c"']]))
+        with tempfile.TemporaryDirectory() as tmp:
+            for rel, data in (("src/a.dmn", a), ("node_modules/pkg/b.dmn", b),
+                              ("web/node_modules/b.dmn", b), ("mod/target/classes/c.dmn", c),
+                              ("target/c.dmn", c), ("targets/c.dmn", c)):
+                p = os.path.join(tmp, *rel.split("/"))
+                os.makedirs(os.path.dirname(p), exist_ok=True)
+                with open(p, "wb") as fh:
+                    fh.write(data)
+            files, dups = dc.collect([{"name": "s", "path": tmp, "role": "example"}])
+        self.assertEqual(sorted(f["rel"] for f in files), ["src/a.dmn", "targets/c.dmn"])
+        self.assertEqual(sum(dups.values()), 0)
+
 
 def summary_of(data, path="m.dmn"):
     f, t, r = dc.analyse_bytes(data, path)

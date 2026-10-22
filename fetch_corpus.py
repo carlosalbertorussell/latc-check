@@ -12,7 +12,12 @@ parent folder):
 
 Each source is fetched with ``git`` at exactly the recorded commit, depth 1, with a sparse
 checkout of ``*.dmn`` files (the two analyser repositories are checked out in full, as the tool
-audit builds them).  Existing folders are left alone.  ``--dry-run`` prints the commands.
+audit builds them; the DMN TCK checkout adds its ``*-test-*.xml`` test files, which
+``run_dmn_testinputs.py`` reads).  Every git command runs with ``core.autocrlf=false`` and
+``core.eol=lf``, and both are also set in each clone's local config, so the checked-out bytes
+are those the repository stores, on Windows as on Linux: the corpus survey deduplicates files
+by the SHA-256 of their bytes, and a line-ending conversion would split copies of one model.
+Existing folders are left alone.  ``--dry-run`` prints the commands.
 Standard library only; needs ``git`` 2.25 or later and network access.
 """
 import argparse
@@ -30,22 +35,33 @@ TOOL_DIRS = {
 }
 
 
+# checked-out bytes equal the stored bytes on every platform (no CRLF conversion)
+EOL = ["-c", "core.autocrlf=false", "-c", "core.eol=lf"]
+
+# sparse patterns; the TCK also needs its test cases (see run_dmn_testinputs.py)
+SPARSE = ["*.dmn"]
+TCK_SPARSE = ["*.dmn", "*-test-*.xml"]
+
+
 def target(root, src):
     name = src["name"]
     if name in TOOL_DIRS:
-        return os.path.join(root, "tools", TOOL_DIRS[name]), False
+        return os.path.join(root, "tools", TOOL_DIRS[name]), None
     if name == "dmn-tck/tck":
-        return os.path.join(root, "dmn-tck"), True
-    return os.path.join(root, "corpus", name.replace("/", "__")), True
+        return os.path.join(root, "dmn-tck"), TCK_SPARSE
+    return os.path.join(root, "corpus", name.replace("/", "__")), SPARSE
 
 
 def commands(path, url, sha, sparse):
-    cmds = [["git", "init", "-q", path],
-            ["git", "-C", path, "remote", "add", "origin", url]]
+    git = ["git", *EOL]
+    cmds = [[*git, "init", "-q", path],
+            [*git, "-C", path, "config", "core.autocrlf", "false"],
+            [*git, "-C", path, "config", "core.eol", "lf"],
+            [*git, "-C", path, "remote", "add", "origin", url]]
     if sparse:
-        cmds.append(["git", "-C", path, "sparse-checkout", "set", "--no-cone", "*.dmn"])
-    cmds += [["git", "-C", path, "fetch", "-q", "--depth", "1", "origin", sha],
-             ["git", "-C", path, "checkout", "-q", "FETCH_HEAD"]]
+        cmds.append([*git, "-C", path, "sparse-checkout", "set", "--no-cone", *sparse])
+    cmds += [[*git, "-C", path, "fetch", "-q", "--depth", "1", "origin", sha],
+             [*git, "-C", path, "checkout", "-q", "FETCH_HEAD"]]
     return cmds
 
 
@@ -69,7 +85,7 @@ def main():
             continue
         for cmd in commands(path, src["url"], src["sha"], sparse):
             if a.dry_run:
-                print(" ".join(f'"{c}"' if " " in c else c for c in cmd))
+                print(" ".join(f'"{c}"' if " " in c or "*" in c else c for c in cmd))
                 continue
             if subprocess.run(cmd).returncode != 0:
                 print(f"failed {src['name']}: {' '.join(cmd)}")

@@ -63,6 +63,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 
@@ -475,6 +476,19 @@ def find_tck_tests(sources):
     return out
 
 
+class NoTestFiles(RuntimeError):
+    """No TCK test file was found: the results would be empty."""
+
+
+def no_tests_warning(sources):
+    """Message for a run that found no TCK test file (expected pattern and TCK path)."""
+    tck = [s["path"] for s in sources if s.get("role") == "tck"]
+    where = ", ".join(tck) if tck else "no TCK source (expected ../dmn-tck)"
+    return (f"warning: no DMN TCK test files found (expected *-test-NN.xml files holding <testCases>) "
+            f"under {where}; the TCK checkout needs the sparse pattern *-test-*.xml "
+            f"(python -I fetch_corpus.py adds it). No results written.")
+
+
 INVENTORY_SKIP = {"package.json", "package-lock.json", "tsconfig.json", "pom.xml", "kmodule.xml",
                   "kie-deployment-descriptor.xml"}
 
@@ -564,6 +578,8 @@ def summarise(links, files):
 
 def run(sources, out_dir):
     tests = find_tck_tests(sources)
+    if not tests:
+        raise NoTestFiles(no_tests_warning(sources))
     files, links, seen = [], [], {}
     for src, rel, full in tests:
         with open(full, "rb") as fh:
@@ -749,5 +765,9 @@ def main(argv=None):
     a = ap.parse_args(argv)
     with open(a.sources, encoding="utf-8") as fh:
         sources = json.load(fh)["sources"]
-    run(sources, a.out)
+    try:
+        run(sources, a.out)
+    except NoTestFiles as e:
+        print(e, file=sys.stderr)
+        return 1
     return 0

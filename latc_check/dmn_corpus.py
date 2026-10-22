@@ -7,8 +7,12 @@ a value no rule mentions is never reported missing.
 
 Every ``.dmn`` file under the corpus sources is parsed as data with
 ``xml.etree.ElementTree`` (DMN 1.1 to 1.5 model namespaces; documents with a
-DOCTYPE or ENTITY are refused, nothing is evaluated).  Files are deduplicated
-by the SHA-256 of their bytes.  For every decision table and every input
+DOCTYPE or ENTITY are refused, nothing is evaluated).  The walk skips every path
+with a ``.git``, ``node_modules`` or ``target`` directory component
+(``SKIP_DIRS``): installed packages and build output hold copies of models,
+not models of the source.  Files are deduplicated by the SHA-256 of their
+bytes, so the checkouts must keep the stored line endings (``fetch_corpus.py``
+sets ``core.autocrlf=false``).  For every decision table and every input
 clause one row is recorded:
 
 * ``type_ref`` of the inputExpression, and ``base`` = the base type after
@@ -476,6 +480,10 @@ def classify(source, rel):
 KIND_PRIORITY = {"tck": 0, "example": 1, "product-test": 2, "analyser": 3, "other": 4}
 
 
+# directories never walked: git data, installed packages, build output
+SKIP_DIRS = {".git", "node_modules", "target"}
+
+
 def collect(sources):
     """[(sha256, source, rel, kind, bytes)] of unique files, plus duplicate count per kind."""
     seen = {}
@@ -483,7 +491,7 @@ def collect(sources):
     for src in sources:
         base = src["path"]
         for dp, dn, fn in os.walk(base):
-            dn[:] = sorted(d for d in dn if d != ".git")
+            dn[:] = sorted(d for d in dn if d not in SKIP_DIRS)
             for f in sorted(fn):
                 if not f.lower().endswith(".dmn"):
                     continue
