@@ -468,36 +468,44 @@ this repository; `SOURCES` in `run_dmn_corpus.py` lists them and
 fetches every source at its recorded commit into the layout the script expects, next to
 this repository: `../corpus/<owner>__<repo>/`, `../dmn-tck/`, `../tools/dmn-js-verifier/`
 and `../tools/corea-verifier/src/` (`--dry-run` prints the git commands; it needs git 2.25
-or later and network access). Every file is parsed as data,
+or later and network access). Every git command runs with `-c core.autocrlf=false -c
+core.eol=lf`, and both settings are kept in each clone's local config, so the files have the
+bytes the repositories store on Windows as on Linux: files are deduplicated by the SHA-256 of
+their bytes, and a CRLF conversion would count copies of one model twice. The TCK checkout adds
+the sparse pattern `*-test-*.xml` for its test cases. The walk skips `node_modules` and
+`target` folders. `results/corpus/REPRODUCIBILITY.md` compares these figures with those of
+the first release (a Windows checkout with `core.autocrlf=true`). Every file is parsed as data,
 nothing in it is executed. Outputs: `results/corpus/results.json`, `inputs.csv` (one row
 per decision-table input) and `SUMMARY.md`.
 
-* 3,766 distinct files, 2,906 decision tables, 2,092 string inputs.
-* 50.3% of string inputs declare a domain (inputValues or reachable allowedValues), 43.6% in
+* 3,725 distinct files, 2,882 decision tables, 2,088 string inputs.
+* 50.5% of string inputs declare a domain (inputValues or reachable allowedValues), 44.2% in
   a form Drools uses for gap analysis; in examples and tutorials, 40.0% and 33.8%.
-* 724 of 1,559 tables with string inputs declare no string domain at all.
-* In 7.0% of declared literal lists some declared value can be matched by no rule entry,
+* 720 of 1,548 tables with string inputs declare no string domain at all.
+* In 6.9% of declared literal lists some declared value can be matched by no rule entry,
   including spelling slips ("US" declared, "USA" in the rules). Counting each distinct
-  (input, declaration, unmatched values) combination once: 10 of 160 (6.2%), 8 of 140 with
+  (input, declaration, unmatched values) combination once: 10 of 164 (6.1%), 8 of 144 with
   fixture-like paths (gap, missing, incomplete, dtanalysis, ...) excluded.
-* Exposure: 369 of 1,559 tables with string inputs (23.7%; 30.4% in examples) are single-hit,
+* Exposure: 363 of 1,548 tables with string inputs (23.4%; 30.4% in examples) are single-hit,
   have an undeclared string input and no catch-all rule, so a value no rule mentions can reach
   no rule. Counting only columns whose entries are all string literals (no `-`, `not(...)` or
-  other FEEL expression): 258 (16.5%). Exposure is an upper bound on risk: see
-  `EXPOSED_SAMPLE.md` and `TESTINPUTS.md`. In single-hit tables, 49.5% of string inputs declare a domain, 41.8% usable by Drools.
-* In 308 of 1,045 declared literal lists (29.5%) some declared value appears in no rule; in
-  724 (69.3%) the declared set equals the set the rules mention (a copied declaration looks
+  other FEEL expression): 252 (16.3%). Exposure is an upper bound on risk: see
+  `EXPOSED_SAMPLE.md` and `TESTINPUTS.md`. In single-hit tables, 49.6% of string inputs declare a domain, 42.3% usable by Drools.
+* In 307 of 1,046 declared literal lists (29.3%) some declared value appears in no rule; in
+  726 (69.4%) the declared set equals the set the rules mention (a copied declaration looks
   exactly like a correct one).
 * Each figure is also given by distinct table contents in `SUMMARY.md`.
 
 The sample leans towards test and conformance models; production models are rarely public.
 
 **How many exposed tables are real risks?** (`run_dmn_exposed_sample.py`,
-`latc_check/dmn_exposed_sample.py`). The 369 exposed tables are 190 distinct table contents;
+`latc_check/dmn_exposed_sample.py`). The 363 exposed tables are 190 distinct table contents;
 a simple random sample of 50 (seed 20210101) was read and classified (first coder) as
 OPEN (an unmentioned value can plausibly arrive), CLOSED, PARTIAL (test fixture or deliberate
 fragment) or UNCLEAR. Result: 1 OPEN, 2 CLOSED, 46 PARTIAL, 1 UNCLEAR; OPEN share 2% (Wilson
-95%: 0% to 10%), about 4 of the 190 distinct tables (range 1 to 20). 151 of the 190 are test
+95%: 0% to 10%), about 4 of the 190 distinct tables (range 1 to 20); weighting each sampled
+table by its copies in distinct files gives 4 of 75 copies (5%), about 19 of the 363 exposed
+tables. 151 of the 190 are test
 resources of engines and editors. Five sampled tables are counted as exposed although
 `not(...)` or expression entries already cover every value. Outputs:
 `results/corpus/exposed_sample.csv`, `EXPOSED_SAMPLE.md`; the classification is in
@@ -513,7 +521,9 @@ consistency of the coding and does not replace an independent human check.
 `latc_check/dmn_testinputs.py`). Each test value is linked to the decision-table columns it
 feeds (evaluated decisions and their requirements; BKMs through plain-name bindings), and a
 string value is checked against the literals of its column. Only the DMN TCK test cases
-(`*-test-NN.xml`) are on disk: the other sources are `.dmn`-only sparse clones, so their 58
+(`*-test-NN.xml`, fetched through the TCK's `*-test-*.xml` sparse pattern) are on disk; when
+none is found, the script prints a warning naming the pattern and the TCK path and exits with
+status 1. The other sources are `.dmn`-only sparse clones, so their 58
 `.scesim` scenarios and JSON / YAML fixtures are counted from the git trees and left unread.
 In 158 TCK test files (3,456 test cases, 442 input values, 198 of them resolved to a
 column), 58 links carry a string into a string column with literal entries; 2 of these

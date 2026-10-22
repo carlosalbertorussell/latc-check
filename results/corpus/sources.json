@@ -389,14 +389,14 @@
    "url": "https://github.com/ulaurson/dmn-js",
    "role": "analyser",
    "sha": "e0b6417a95ea2685e2cd8b46421634afd08b23ec",
-   "dmn_files_in_checkout": 7
+   "dmn_files_in_checkout": 5
   },
   {
    "name": "jonasblatt/ma-jonasblatt-dmn-verifier (Corea, Blatt, Delfmann)",
    "url": "https://gitlab.uni-koblenz.de/jonasblatt/ma-jonasblatt-dmn-verifier",
    "role": "analyser",
    "sha": "5b307e8481170d37b63a9b256a45c3c38c7fa50c",
-   "dmn_files_in_checkout": 2
+   "dmn_files_in_checkout": 5
   }
  ],
  "missing": []

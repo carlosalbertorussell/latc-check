@@ -65,7 +65,6 @@ Candidate test-input files in the git trees of the other sources (names only, fr
 | camunda/camunda | 0 | 0 | 4 | 0 |
 | camunda/camunda-modeler | 0 | 0 | 2 | 0 |
 | goldmansachs/jdmn | 0 | 1055 | 51 | 0 |
-| jonasblatt/ma-jonasblatt-dmn-verifier (Corea, Blatt, Delfmann) | ? | ? | ? | ? |
 | kiegroup/kie-wb-playground | 2 | 0 | 0 | 0 |
 | operaton/operaton-examples | 0 | 0 | 6 | 0 |
 | redhat-cop/businessautomation-cop | 2 | 0 | 0 | 0 |
