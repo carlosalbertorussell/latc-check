@@ -2,9 +2,7 @@
 
 Everything here is a draft. Nothing goes into the manuscript until the author approves it.
 
-**Status: 343 of 345 cross-checks pass. Two values printed in the paper disagree with
-the data (see "Mismatches" below).** The data were left as they are. `make_figures.py`
-exits with status 1 until the printed values agree with the data.
+**Status: 345 of 345 cross-checks pass.** `make_figures.py` exits with status 0.
 
 ## Files
 
@@ -53,14 +51,17 @@ The older US-121-2 and NZ-SLP results on `paperc-run-fr2` and `paperc-run-nz` ar
 when the examples are the encoding's own official test cases, for the 12 tables that have
 official examples. FR-APL-4 and FR-APL-5 have no official examples and are left out. The
 x-axis is logarithmic. Labels give the share and the count of valid cases covered, and
-FR-AF-3 (1 of 175,616) is drawn at the 0.001% floor. Open circles mark the seven tables
-where LATC reported no missing case at all. In ten of the twelve tables the official
-examples reach less than 1% of the valid cases, and only NZ-SLP is completed.
+FR-AF-3 (1 of 175,616) is drawn at the 0.001% floor. Open circles mark the tables where
+LATC reported no missing case: six report none, and US-121-1 reports a negative count.
+In ten of the twelve tables the official examples reach less than 1% of the valid cases,
+and only NZ-SLP is completed.
 
 **What is plotted** (`fig1_data.csv`): OFFICIAL, condition C1, `valid_coverage`
 (= `covered_valid` / |V|). A dot is open when `reported_missing` ≤ 0 and `workload` = 0.
 US-121-1 has `reported_missing` = −2: its four official rows outnumber the product of the
-observed values (2), and LATC generates nothing.
+observed values (2), and LATC generates nothing. The manuscript's Figure 1 caption reads "Open
+circles mark the tables where LATC reported no missing case: six report none, and US-121-1
+reports a negative count", and the draft caption above uses the same wording.
 
 ## Figure 2. Coverage versus number of random examples
 
@@ -97,42 +98,32 @@ NZ-SLP use the corrected tables.
 
 ---
 
-## Cross-checks: 343 / 345 passed
+## Cross-checks: 345 / 345 passed
 
 | Group | Checks | Passed |
 |---|---:|---:|
 | Copied result files match the git blob on the source branch (`SOURCES.csv`) | 45 | 45 |
 | Fig. 1: `covered_valid`/\|V\| equals `valid_coverage`; value equals `summary.md` | 24 | 24 |
-| Fig. 1: C1 official coverage against Table 2 | 12 | **11** |
+| Fig. 1: C1 official coverage against Table 2 | 12 | 12 |
 | Fig. 1: FR-APL-4 and FR-APL-5 have no OFFICIAL runs | 2 | 2 |
 | Fig. 2: mean, p2.5 and p97.5 recomputed from `runs.csv` equal `summary.md` (15 tables × 2 sources × 7 sizes) | 210 | 210 |
-| Fig. 2: n = 10 means against Table 3 (5 tables × 2 sources) | 10 | **9** |
+| Fig. 2: n = 10 means against Table 3 (5 tables × 2 sources) | 10 | 10 |
 | Fig. 2: n = 10 means against the text (NZ-AS ≈ 74%, NZ-SPS 50–58%) | 4 | 4 |
 | Fig. 2: NZ-SLP complete seeds at n = 10 (23/30 uniform, 20/30 Zipf) | 2 | 2 |
 | Fig. 3: spurious share recomputed from counts equals `runs.csv` and `summary.md` | 24 | 24 |
 | Fig. 3: C2 spurious share against Table 2 | 12 | 12 |
-| **Total** | **345** | **343** |
+| **Total** | **345** | **345** |
 
 A value printed in the paper passes when the data, rounded to the printed precision, give
 the printed figure. "<0.01%" means strictly between 0 and 0.01%. "0%" means exactly zero.
 
-### Mismatches (author to decide; the data were not changed)
+### Corrections to the manuscript
 
-1. **Table 2, FR-AF-3, C1 valid coverage with the official examples.** The paper prints
-   **0%**. The data give **1/175,616 = 0.00057%** (`covered_valid` = 1). The single
-   official example is itself a valid case, and C1 generates no row (`workload` = 0).
-   Table 2 prints "<0.01%" for FR-APL-2 (0.0015%) and NZ-AS (0.0021%), which are on the
-   same footing. Suggested fix: print "<0.01%" for FR-AF-3 as well. If "0%" is meant as
-   "C1 generated nothing", the column would need a different definition, and that would
-   also apply to FR-APL-1, FR-APL-2, FR-APL-3, US-121-1, US-121-2 and NZ-AS. Figure 1
-   shows the data value, drawn at the 0.001% floor.
-2. **Table 3, FR-AF-1, Zipf, n = 10.** The paper prints **20.8**. The mean over 30 seeds is
-   **20.747%**, which rounds to **20.7**. `summary.md` prints 0.2075, and rounding that
-   figure a second time gives 20.8. Suggested fix: print 20.7. The other nine Table 3
-   values agree whether they are rounded from the exact means or from `summary.md`.
-
-Once Table 2 and Table 3 are corrected, update `TABLE2["FR-AF-3"]` and
-`TABLE3["FR-AF-1"]` in `make_figures.py`. The script then exits with status 0.
+On 2026-10-22 the author corrected two values in the manuscript: Table 2 now prints
+"<0.01%" for FR-AF-3 (C1 valid coverage with the official examples, 1/175,616), and Table 3
+now prints 20.7 for FR-AF-1, Zipf, n = 10 (exact mean 20.747%). The expected values
+`TABLE2["FR-AF-3"]` and `TABLE3["FR-AF-1"]` in `make_figures.py` were updated to match.
+The data and the figures are unchanged.
 
 ## Suggested placement
 
