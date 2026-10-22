@@ -282,7 +282,7 @@ def bkm_bindings(g, closure, scope):
     """{bkm name: {param: lookup result (input name, path, tree)}} for BKMs invoked by the closure's decisions with
     parameters bound to plain input names (or paths into them)."""
     out = defaultdict(dict)
-    for dname in closure:
+    for dname in sorted(closure):  # sets iterate in hash-seed order
         del_ = g["decisions"][dname]["el"]
         for inv in (e for e in del_.iter() if dc._local(e.tag)[1] == "invocation"):
             callee = dc._child(inv, "literalExpression")

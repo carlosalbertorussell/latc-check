@@ -9,8 +9,8 @@ Every ``.dmn`` file under the corpus sources is parsed as data with
 ``xml.etree.ElementTree`` (DMN 1.1 to 1.5 model namespaces; documents with a
 DOCTYPE or ENTITY are refused, nothing is evaluated).  The walk skips every path
 with a ``.git``, ``node_modules`` or ``target`` directory component
-(``SKIP_DIRS``): installed packages and build output hold copies of models,
-not models of the source.  Files are deduplicated by the SHA-256 of their
+(``SKIP_DIRS``): installed packages and build output hold copies of models
+from other places, and a local checkout may hold them outside the repository.  Files are deduplicated by the SHA-256 of their
 bytes, so the checkouts must keep the stored line endings (``fetch_corpus.py``
 sets ``core.autocrlf=false``).  For every decision table and every input
 clause one row is recorded:
