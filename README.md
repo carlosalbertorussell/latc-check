@@ -1,6 +1,6 @@
 # latc_check: independent checks for finite-domain decision-table completion
 
-This is the reproducibility package for *Completeness Needs Declared Domains: LATC, DMN
+This is the reproducibility package for *Where Declared Domains Are Lost: LATC, DMN
 Analysers and Public DMN Models* (C. A. Russell), which re-examines Raggio & Russell,
 "Business Rules (BR); Expert Systems (KBS); LATC Algorithm. A proposal for functional
 integration", *International Journal of Scientific & Engineering Research* 12(1), January
