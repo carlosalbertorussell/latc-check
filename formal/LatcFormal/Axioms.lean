@@ -1,5 +1,6 @@
 import LatcFormal.Prop2
 import LatcFormal.Examples
+import LatcFormal.Prop5Reduction
 
 /-!
 # Axiom audit
@@ -22,3 +23,32 @@ no `sorryAx`.
 #print axioms Latc.Examples.prop4_counterexample
 #print axioms Latc.Examples.twins_same_profile
 #print axioms Latc.Examples.complete_pair
+#print axioms Latc.Prop5.encode_validSpace
+#print axioms Latc.Prop5.decode_validSpace
+#print axioms Latc.Prop5.decode_encode
+#print axioms Latc.Prop5.encode_decode
+#print axioms Latc.Prop5.encode_size
+#print axioms Latc.Prop5.prop5_missing_empty
+#print axioms Latc.Prop5.prop5_nonempty_iff_satisfiable
+#print axioms Latc.Prop5.prop5_complete_iff_unsatisfiable
+#print axioms Latc.Prop5.prop5_decode_nonempty_iff_satisfiable
+#print axioms Latc.Prop5.prop5_decode_complete_iff_unsatisfiable
+#print axioms Latc.Prop5.prop5_card_validSpace
+#print axioms Latc.Prop5.card_missing_of_subset
+#print axioms Latc.Prop5.prop5_card_missing
+#print axioms Latc.Prop5.encode_isPos2_iff
+#print axioms Latc.Prop5.decode_isPos2
+#print axioms Latc.Prop5.encode_isPos2Distinct_iff
+#print axioms Latc.Prop5.holdsClause_dup
+#print axioms Latc.Prop5.verify_correct
+#print axioms Latc.Prop5.nonempty_iff_exists_certificate
+#print axioms Latc.Prop5.card_missing_eq_certificates
+#print axioms Latc.Prop5.single_value_nonempty_iff
+#print axioms Latc.Prop5.purify_single_valued
+#print axioms Latc.Prop5.prop5_pure_clauses
+#print axioms Latc.Prop5.Examples.unsat_complete
+#print axioms Latc.Prop5.Examples.sat_nonempty
+#print axioms Latc.Prop5.Examples.triangle_count
+#print axioms Latc.Prop5.Examples.triangle_table
+#print axioms Latc.Prop5.Examples.dup_clause
+#print axioms Latc.Prop5.Examples.repeated_condition_tuple

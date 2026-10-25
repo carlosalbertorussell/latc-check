@@ -133,3 +133,110 @@ membership check of Section 6.2.
 - The vector z of Proposition 1 is a function 𝒟 → ℤ with values in {−1, 0, 1} that
   vanishes outside 𝒱 (`Latc.ZeroMarginVector`).
 - Propositions 1, 5, 6 and 7, Theorem 1 and Corollaries 1–4 are not formalized.
+
+## Proposition 5: the reduction
+
+`LatcFormal/Prop5Reduction.lean` machine-checks the combinatorial correspondence on which
+the proof of Proposition 5 rests. Variables form an arbitrary finite type `V` (the paper's
+n attributes are `V = Fin n`), states are functions `V → Bool` (domains {0, 1}, with
+`false` for 0 and `true` for 1), and the clause constraints feed the `validSpace` and
+`missing` of `Basic.lean` through the predicate `conPred S`.
+
+### Theorem map
+
+| Paper statement or proof step | Lean theorem (namespace `Latc.Prop5`) |
+|---|---|
+| CNF over Boolean variables, literals xᵢ and ¬xᵢ, satisfaction | `Lit`, `CNF`, `evalCNF`, `Satisfiable`, `satSet`, `numSat` |
+| a constraint is a clause, a disjunction of conditions Aᵢ = v | `Cond`, `ClauseCon`, `ConSet`, `holdsAll`, `conPred` |
+| every CNF formula is a set of clause constraints with the same satisfying assignments | `encode_validSpace` (𝒱 = satSet φ), `encode_size` (one constraint per clause, same lengths) |
+| every set of clause constraints over {0, 1} is a CNF formula with the same satisfying assignments | `decode_validSpace`, with `decode_encode` and `encode_decode` (mutually inverse) |
+| with T₀ = ∅, M(T₀) = 𝒱 = the satisfying assignments | `missing_empty`, `prop5_missing_empty` |
+| M(∅) non-empty iff satisfiable (the reduction from SAT) | `prop5_nonempty_iff_satisfiable`, `prop5_decode_nonempty_iff_satisfiable` |
+| completeness (M(∅) = ∅) iff unsatisfiable | `prop5_complete_iff_unsatisfiable`, `prop5_decode_complete_iff_unsatisfiable` |
+| \|𝒱\| is the number of satisfying assignments (the reduction from #SAT) | `prop5_card_validSpace` |
+| \|M(T₀)\| = \|𝒱\| − \|T₀\| for distinct condition tuples inside 𝒱 | `card_missing_of_subset` (any constraint predicate), `prop5_card_missing` |
+| monotone two-literal clauses (xᵢ ∨ xⱼ) are the clauses of two conditions Aᵢ = 1 | `encode_isPos2_iff`, `decode_isPos2`; with i ≠ j, `encode_isPos2Distinct_iff` |
+| the certificate check of NP membership: x ∉ cond(T₀) and x satisfies every clause | `verify`, `verify_correct`, `nonempty_iff_exists_certificate` |
+| #P membership: \|M(T₀)\| is the number of accepted certificates | `card_missing_eq_certificates` |
+| one value only: non-emptiness is trivial | `single_value_nonempty_iff` |
+| satisfiability reduces to constraint sets whose clauses each use one value | `purify`, `purify_single_valued`, `prop5_pure_clauses` |
+| unsatisfiable CNF x₀ ∧ ¬x₀ gives a complete empty table | `Examples.unsat_complete` |
+| satisfiable CNF (x₀ ∨ ¬x₁) ∧ x₁ gives M(∅) = {(1, 1)} | `Examples.sat_nonempty` |
+| triangle (x₀ ∨ x₁)(x₁ ∨ x₂)(x₀ ∨ x₂): \|𝒱\| = 4; with T₀ = {(1, 1, 1)}, \|M(T₀)\| = 3, and the certificate check on three states | `Examples.triangle_count`, `Examples.triangle_table` |
+| repeated condition Aᵢ = 1 ∨ Aᵢ = 1 is a unit clause | `holdsClause_dup`, `Examples.dup_clause` |
+| two rows with one condition tuple | `Examples.repeated_condition_tuple` |
+
+All examples are checked by the kernel with `decide`.
+
+### What is machine-checked, and what rests on Cook (1971) and Valiant (1979)
+
+Machine-checked: the translations between CNF formulas and clause constraints over
+{0, 1} in both directions, with equal sets of satisfying assignments and linear size;
+M(∅) = 𝒱 = the satisfying assignments, hence non-emptiness ⟺ satisfiability, completeness
+⟺ unsatisfiability and |𝒱| = #SAT; |M(T₀)| = |𝒱| − |T₀| for distinct condition tuples
+inside 𝒱; the exact match between monotone two-literal clauses and clauses of two
+conditions Aᵢ = 1; and the correctness of the certificate check used for membership in
+NP, coNP and #P.
+
+Unchecked: complexity classes, polynomial time and reductions as such. The statements that
+`verify`, `encode`, `decode` and `purify` run in polynomial time are read off their
+definitions (one pass over the clauses, one membership test in T₀) and are outside the
+formal model. The hardness rests on two cited theorems that are outside the library:
+Cook (1971), that CNF satisfiability is NP-complete, which with
+`prop5_nonempty_iff_satisfiable` gives the NP-hardness of non-emptiness and the
+coNP-hardness of completeness; and Valiant (1979), that counting the satisfying
+assignments of monotone two-literal CNF formulas is #P-complete under polynomial-time
+Turing reductions, which with `prop5_card_validSpace` and `encode_isPos2_iff` gives the
+#P-hardness of computing |𝒱|.
+
+### Discrepancies found
+
+None of these is an error in a result of Proposition 5. Each one makes a phrase of the
+statement precise.
+
+1. **"Clauses may mix A_i = 0 and A_i = 1" is stronger than needed within a clause, and
+   both values must occur in the constraint set.** If every condition of the constraint
+   set uses one value v, M(∅) is non-empty iff no clause is empty, because the constant
+   state v satisfies every non-empty clause (`single_value_nonempty_iff`); the question is
+   then decided by one scan. Mixing inside a clause is unnecessary: `purify` translates a
+   CNF formula over n variables into |φ| + 2n clause constraints over 2n attributes in
+   which each clause uses one value only (`purify_single_valued`), with M(∅) non-empty iff
+   the formula is satisfiable (`prop5_pure_clauses`). With Cook's theorem, non-emptiness is
+   NP-hard already for such constraint sets. The paper's wording is correct as it stands,
+   because it states hardness for a class that contains them.
+   *Minimal fix:* none needed. Optional precision: "(many-one reductions; both A_i = 0 and
+   A_i = 1 must occur, though each clause may use one value)".
+2. **"Clauses of two conditions A_i = 1" matches monotone two-literal CNF exactly when
+   both sides allow i = j.** As lists, the clauses of two conditions Aᵢ = 1, Aⱼ = 1 are
+   exactly the encodings of the clauses xᵢ ∨ xⱼ (`encode_isPos2_iff`, `decode_isPos2`).
+   With i = j the clause is the unit clause xᵢ (`holdsClause_dup`, `Examples.dup_clause`).
+   Read as two distinct conditions, the class is monotone 2-CNF with i ≠ j
+   (`encode_isPos2Distinct_iff`), one clause per edge of a graph, whose count is the
+   number of vertex covers. Counting vertex covers of a graph is the standard #P-complete
+   form of Valiant's monotone 2-SAT, so the hardness claim holds under either reading.
+   *Minimal fix:* none needed. Optional precision: "clauses of two distinct conditions
+   A_i = 1 and A_j = 1".
+3. **"for distinct rows inside 𝒱" needs distinct condition tuples.** Two rows that share a
+   condition tuple and differ in the outcome are distinct rows. In the triangle example,
+   two such rows over the state (0, 1, 1) give |M(T₀)| = 3, while |𝒱| minus the number of
+   rows is 2 (`Examples.repeated_condition_tuple`). Section 3.2 assumes distinct condition
+   tuples, so the statement holds in the paper's setting, and `prop5_card_missing`
+   carries that hypothesis (T₀ is a `Finset` of condition tuples).
+   *Minimal fix:* "for distinct condition tuples inside 𝒱" in place of "for distinct rows
+   inside 𝒱".
+
+### Verification status
+
+2026-10-25, Linux cloud machine, x86_64, Lean 4.35.0 (commit
+`eb6cafb7290e8bd5f2937522d8d804f58f02bafc`, Lake 5.0.0), Mathlib `v4.35.0` (commit
+`56a005855ea17e0b0958f73ec801ae140b0a1679`, from `lake exe cache get`, 9031 cached files).
+After removing `.lake/build`, `lake build` on the final tree ended with
+`Build completed successfully (9055 jobs)` and exit code 0. All eight files of the library
+(`Basic`, `Prop2`, `Prop3`, `Prop4`, `Prop5Reduction`, `Examples`, `Axioms` and the root
+`LatcFormal`) built with no errors and no `sorry` warnings; the single warning was the
+advisory about the `module` keyword in `Basic.lean`. The axiom audit printed
+`[propext, Classical.choice, Quot.sound]` for every `Latc.Prop5` theorem in `Axioms.lean`,
+except `decode_encode`, `encode_decode` and `encode_size`, which printed the smaller
+`[propext, Quot.sound]`; `sorryAx` appears in none. A search of the folder for `sorry`,
+`axiom`, `admit` and `native_decide` finds them only in comments, in this README and in the
+`#print axioms` commands of `Axioms.lean`.
