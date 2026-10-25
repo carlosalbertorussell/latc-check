@@ -489,7 +489,9 @@ per decision-table input) and `SUMMARY.md`.
 * Exposure: 363 of 1,548 tables with string inputs (23.4%; 30.4% in examples) are single-hit,
   have an undeclared string input and no catch-all rule, so a value no rule mentions can reach
   no rule. Counting only columns whose entries are all string literals (no `-`, `not(...)` or
-  other FEEL expression): 252 (16.3%). Exposure is an upper bound on risk: see
+  other FEEL expression): 252 (16.3%). Exposure is a structural indicator with biases in both
+  directions: it counts tables whose default output or FEEL entries already answer every value,
+  and it misses copied declarations, typeRefs to imported types and numeric inputs; see
   `EXPOSED_SAMPLE.md` and `TESTINPUTS.md`. In single-hit tables, 49.6% of string inputs declare a domain, 42.3% usable by Drools.
 * In 307 of 1,046 declared literal lists (29.3%) some declared value appears in no rule; in
   726 (69.4%) the declared set equals the set the rules mention (a copied declaration looks
@@ -514,7 +516,11 @@ resources of engines and editors. Five sampled tables are counted as exposed alt
 A second coder classified the same 50 tables blind, from a sheet without the first coder's
 labels (`exposed_sample_rater2.json`): 2 OPEN, 9 CLOSED, 39 PARTIAL. Agreement on the class is
 84% (Cohen's kappa 0.42) and on OPEN against the rest 98% (kappa 0.66); `EXPOSED_SAMPLE.md`
-gives the table. Both coders are instances of the Claude language model, so this measures the
+gives the table. On the second judgement, of what each column's domain would be if the table
+were used for real, the first coder judged 7 of 50 open and the second 18 of 50 (36%; Wilson
+95%: 24% to 50%); they agree on 70% of the domain classes (kappa 0.60) and on 78% for OPEN
+against the rest (kappa 0.45). The first coder knew the study's hypotheses. That most exposed
+tables are test resources rests on the class judgement, on which the coders agree. Both coders are instances of the Claude language model, so this measures the
 consistency of the coding and does not replace an independent human check.
 
 **Do shipped test inputs hit the trap?** (`run_dmn_testinputs.py`,
