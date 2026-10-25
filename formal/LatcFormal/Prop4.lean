@@ -43,7 +43,7 @@ theorem prop4_necessity (T : Finset (∀ i, D i)) (hT : T ⊆ validSpace C)
 /-- Section 6.2, membership checks close the gap: an output with no repeated tuple, every
 tuple in 𝒱 and none in cond(T₀), and of size |𝒱| − |T₀|, is exactly the missing set.
 (The hypothesis cond(T₀) ⊆ 𝒱 is the standing one of Proposition 4 and of COMPLETE's
-second `require`.) -/
+first `require`.) -/
 theorem check_membership_sufficient (T : Finset (∀ i, D i)) (hT : T ⊆ validSpace C)
     (out : List (∀ i, D i)) (hnd : out.Nodup)
     (hmem : ∀ x ∈ out, C x ∧ x ∉ T)

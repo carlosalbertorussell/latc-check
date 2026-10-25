@@ -20,7 +20,7 @@ Assumptions: domains finite and declared; each constraint a decidable predicate;
 are exact conjunctions; key() injective on the valid space.
 
 Here T₀ is a finite set of rows `(x, y)` with outcomes in an arbitrary type `Y`, so that
-the first `require` is meaningful. The loop's fixed visiting order is a parameter
+the second `require` is meaningful. The loop's fixed visiting order is a parameter
 `enum : List (∀ i, D i)` that lists every tuple of 𝒟 exactly once; the lexicographic
 order is one such list. The output is the list of added condition tuples, in visiting
 order (the outcome ⊥ carries no information and is left out).
@@ -82,7 +82,7 @@ theorem prop3 (enum : List (∀ i, D i)) (henum : enum.Nodup) (hall : ∀ x, x �
       have : r.1 = x := hkey (mem_validSpace.mpr (hreq2 r hr)) (mem_validSpace.mpr hC) hkr
       rw [← this]
       exact mem_image.mpr ⟨r, hr, rfl⟩
-  -- the first `require` makes the condition tuples of T₀ distinct, so |cond(T₀)| = |T₀|
+  -- the second `require` makes the condition tuples of T₀ distinct, so |cond(T₀)| = |T₀|
   have hcard : (cond T₀).card = T₀.card := by
     rw [cond, card_image_iff]
     have hinj := card_image_iff.mp hreq1

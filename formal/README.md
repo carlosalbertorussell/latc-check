@@ -1,7 +1,7 @@
 # Machine-checked core results of Paper A (Lean 4 + Mathlib)
 
 This folder machine-checks the set-theoretic core of the LATC re-examination
-("Completeness Needs Declared Domains"): Propositions 2, 3 and 4, and the generalized
+("Where Declared Domains Are Lost"): Propositions 2, 3 and 4, and the generalized
 cardinality check of Section 6.2. The Lean kernel checks every proof. Nothing is assumed
 (`sorry` and `axiom` appear nowhere), and the concrete examples use kernel `decide`, not
 `native_decide`. Propositions 1 (frequency profiles and Ryser interchanges) and
@@ -69,7 +69,7 @@ lines, which failed because the `Prop2` import was missing at the time.
 | correct output (Section 3.2): no repeats, set = M(T₀) | `Correct C out T` |
 
 COMPLETE (`LatcFormal/Prop3.lean`) takes T₀ as a `Finset` of rows `(x, y)`, because its
-first `require` is what makes the condition tuples distinct. The fixed visiting order is
+second `require` is what makes the condition tuples distinct. The fixed visiting order is
 a parameter `enum`, any list that contains every tuple of 𝒟 exactly once. The
 lexicographic order is one such list.
 
@@ -94,8 +94,9 @@ lexicographic order is one such list.
 
 ## Discrepancies found
 
-None of these changes a result of the paper. Each is recorded here and has not been
-changed in the paper.
+None of these changes a result of the paper. Each is recorded here, and the paper now
+states the hypotheses involved: n ≥ 1 in Section 3.1, and distinct condition tuples in 𝒱 for the
+membership check of Section 6.2.
 
 1. **Proposition 4, insufficiency, needs at least one attribute (n ≥ 1).** The general
    case in Appendix F says that for any non-zero zero-margin vector z, the output
@@ -104,8 +105,8 @@ changed in the paper.
    {()} has one row where |𝒱| − |T₀| = 0, so it fails the check
    (`Latc.prop4_insufficiency_needs_an_attribute`). The size equation is the step that
    breaks: it needs Σ_x z_x = 0, which follows from the margins of any one attribute.
-   *Minimal fix:* assume n ≥ 1, which the paper's "Let A₁, …, Aₙ be attributes" implicitly
-   does. The Lean statement carries `[Nonempty ι]`.
+   *Minimal fix:* assume n ≥ 1, which Section 3.1 of the paper now states explicitly ("Let A1, …, An, with n ≥ 1, be attributes") and earlier assumed implicitly.
+   The Lean statement carries `[Nonempty ι]`.
 2. **Appendix F, proof of Proposition 2, first sentence.** "If T₀ = ∅, then Π = R = ∅"
    holds only for n ≥ 1. For n = 0, Π is the one-element product {()}. The proposition
    itself is unaffected: both identities hold for every T₀ and every n, and the
