@@ -1,18 +1,36 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
+type: software
 title: "latc_check: independent checks for finite-domain decision-table completion"
 version: 0.1.0
-license: MIT
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: >-
+  Reference implementation, tests, transcribed worked example and result files for the
+  re-examination of LATC (Learning Assistant through Cardinality) in "Where Declared Domains
+  Are Lost: LATC, DMN Analysers and Public DMN Models". It regenerates or scores every result
+  of the paper: exact completion over declared domains, LATC's readings, DMN gap and overlap
+  analysis, the analyser audit, the public DMN corpus survey and the Lean formalisation.
+  Code is under the MIT licence; transcribed tables and result files are under CC BY 4.0.
+keywords:
+  - decision tables
+  - completeness
+  - DMN
+  - gap analysis
+  - knowledge acquisition
+  - rule-base verification
+  - reproducibility
 authors:
   - family-names: Russell
     given-names: Carlos A.
     orcid: "https://orcid.org/0009-0003-3741-0230"
     affiliation: "Independent Researcher, Buenos Aires, Argentina"
-date-released: 2026-10-17
+date-released: 2026-10-25
 repository-code: "https://github.com/carlosalbertorussell/latc-check"
 references:
   - type: article
-    title: "Business Rules (BR); Expert Systems (KBS); LATC Algorithm. A proposal for functional integration"
+    title: "Business Rules (BR); Expert Systems (KBS); LATC Algorithm: A proposal for functional integration"
     authors:
       - family-names: Raggio
         given-names: Raul A.
@@ -21,4 +39,7 @@ references:
     journal: "International Journal of Scientific & Engineering Research"
     volume: 12
     issue: 1
+    start: 576
+    end: 612
     year: 2021
+    issn: 2229-5518
