@@ -75,6 +75,24 @@ of the 27 new ones: `Latc.thm1`, `Latc.thm1_noConstraint`, `Latc.thm1_remark`,
 `Latc.prop7_may_or_may_not`. `sorryAx` appears in none. The search for `sorry`, `axiom`,
 `admit` and `native_decide` in the `.lean` files finds no match.
 
+Verification status of the combined tree (2026-10-25, Linux cloud machine, x86_64, Linux
+6.18, 4 cores, Intel Xeon at 2.10 GHz): on commit `0d108ec` of branch
+`formal-lean-combined`, which merges `formal-lean-more` and `formal-lean-prop5`, with
+Lean 4.35.0 (commit `eb6cafb7290e8bd5f2937522d8d804f58f02bafc`, Lake 5.0.0) and Mathlib
+`v4.35.0` (commit `56a005855ea17e0b0958f73ec801ae140b0a1679`, from `lake exe cache get`,
+9031 cached files), a full `lake build` from an empty `.lake/build` ended with
+`Build completed successfully (9059 jobs)` and exit code 0. All twelve files of the
+library (`Basic`, `Prop2`, `Prop3`, `Prop4`, `Examples`, `Thm1`, `Prop1`, `Prop6`,
+`Prop7`, `Prop5Reduction`, `Axioms` and the root `LatcFormal`) built with no errors and
+no `sorry` warnings; the single warning is the same `module` advisory for `Basic.lean`.
+The axiom audit covers 69 theorems: the 13 of Propositions 2–4, the 27 of the extension
+and the 29 of the Proposition 5 reduction. It printed
+`[propext, Classical.choice, Quot.sound]` for 66 of them and `[propext, Quot.sound]` for
+`Latc.Prop5.decode_encode`, `Latc.Prop5.encode_decode` and `Latc.Prop5.encode_size`;
+`sorryAx` appears in none. A whole-word search of the `.lean` files for `sorry`, `axiom`,
+`admit` and `native_decide` finds them only in the `#print axioms` commands of
+`Axioms.lean`; the remaining substring matches lie in comments and in this README.
+
 ## Model (Section 3)
 
 | Paper | Lean (`LatcFormal/Basic.lean`) |
