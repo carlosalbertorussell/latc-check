@@ -1,11 +1,12 @@
 # Machine-checked core results of Paper A (Lean 4 + Mathlib)
 
 This folder machine-checks the set-theoretic core of the LATC re-examination
-("Where Declared Domains Are Lost"): Propositions 2, 3 and 4, and the generalized
-cardinality check of Section 6.2. The Lean kernel checks every proof. Nothing is assumed
-(`sorry` and `axiom` appear nowhere), and the concrete examples use kernel `decide`, not
-`native_decide`. Propositions 1 (frequency profiles and Ryser interchanges) and
-5 (complexity) are not formalized.
+("Where Declared Domains Are Lost"): Theorem 1, Corollaries 1, 3 and 4, Propositions 1,
+2, 3, 4, 6 and 7, and the generalized cardinality check of Section 6.2. The Lean kernel
+checks every proof. Nothing is assumed (`sorry` and `axiom` appear nowhere), and the
+concrete examples use kernel `decide` and never `native_decide`. Proposition 5 is covered
+by the reduction its proof rests on (section "Proposition 5: the reduction"), and
+Corollary 2 is not formalized.
 
 ## Versions
 
@@ -51,6 +52,47 @@ them only in comments, in this README and in the `#print axioms` commands of
 `Axioms.lean`. An earlier Windows run built every file except the four `prop2*` audit
 lines, which failed because the `Prop2` import was missing at the time.
 
+Verification status of the extension (2026-10-25, Linux cloud machine, x86_64, Linux
+6.18, 4 cores): on commit `9f5bf0d` of branch `formal-lean-more`, which adds `Thm1`,
+`Prop1`, `Prop6` and `Prop7`, with the same Lean 4.35.0 (commit
+`eb6cafb7290e8bd5f2937522d8d804f58f02bafc`, Lake 5.0.0) and Mathlib `v4.35.0` (commit
+`56a005855ea17e0b0958f73ec801ae140b0a1679`, from `lake exe cache get`, 9031 cached
+files), a full `lake build` from an empty `.lake/build` ended with
+`Build completed successfully (9058 jobs)` and exit code 0. All eleven files of this
+library built with no errors and no `sorry` warnings. The single warning is the same
+`module` advisory for `Basic.lean`. The axiom audit printed
+`[propext, Classical.choice, Quot.sound]` for each of the 13 theorems above and for each
+of the 27 new ones: `Latc.thm1`, `Latc.thm1_noConstraint`, `Latc.thm1_remark`,
+`Latc.validSpace_isProduct_of_noConstraint`, `Latc.cor1`,
+`Latc.obsProduct_eq_validSpace_of_all_observed`, `Latc.cor3`, `Latc.cor4`, `Latc.prop1`,
+`Latc.prop1_condSets`, `Latc.prop1_exists`, `Latc.prop1_exists_full`,
+`Latc.prop1_exists_full_needs_nonempty`, `Latc.prop1_procedure`,
+`Latc.evenParity_space`, `Latc.evenParity_profile_determines`,
+`Latc.evenParity_no_zeroMarginVector`, `Latc.rankFin_bijective`, `Latc.prop6`,
+`Latc.prop6_existsUnique`, `Latc.prop6_empty_domain`, `Latc.prop7_injective`,
+`Latc.prop7_not_injective`, `Latc.prop7_not_injective_needs_nonempty`,
+`Latc.prop7_shared_injective`, `Latc.prop7_shared_not_injective` and
+`Latc.prop7_may_or_may_not`. `sorryAx` appears in none. The search for `sorry`, `axiom`,
+`admit` and `native_decide` in the `.lean` files finds no match.
+
+Verification status of the combined tree (2026-10-25, Linux cloud machine, x86_64, Linux
+6.18, 4 cores, Intel Xeon at 2.10 GHz): on commit `0d108ec` of branch
+`formal-lean-combined`, which merges `formal-lean-more` and `formal-lean-prop5`, with
+Lean 4.35.0 (commit `eb6cafb7290e8bd5f2937522d8d804f58f02bafc`, Lake 5.0.0) and Mathlib
+`v4.35.0` (commit `56a005855ea17e0b0958f73ec801ae140b0a1679`, from `lake exe cache get`,
+9031 cached files), a full `lake build` from an empty `.lake/build` ended with
+`Build completed successfully (9059 jobs)` and exit code 0. All twelve files of the
+library (`Basic`, `Prop2`, `Prop3`, `Prop4`, `Examples`, `Thm1`, `Prop1`, `Prop6`,
+`Prop7`, `Prop5Reduction`, `Axioms` and the root `LatcFormal`) built with no errors and
+no `sorry` warnings; the single warning is the same `module` advisory for `Basic.lean`.
+The axiom audit covers 69 theorems: the 13 of Propositions 2–4, the 27 of the extension
+and the 29 of the Proposition 5 reduction. It printed
+`[propext, Classical.choice, Quot.sound]` for 66 of them and `[propext, Quot.sound]` for
+`Latc.Prop5.decode_encode`, `Latc.Prop5.encode_decode` and `Latc.Prop5.encode_size`;
+`sorryAx` appears in none. A whole-word search of the `.lean` files for `sorry`, `axiom`,
+`admit` and `native_decide` finds them only in the `#print axioms` commands of
+`Axioms.lean`; the remaining substring matches lie in comments and in this README.
+
 ## Model (Section 3)
 
 | Paper | Lean (`LatcFormal/Basic.lean`) |
@@ -67,6 +109,12 @@ lines, which failed because the `Prop2` import was missing at the time.
 | frequency f_{i,v}(S) | `freq S i v` |
 | generalized check CHECK (Sections 6.1–6.2) | `Check C out q T`, on an output sequence `out : List _` with multiplicities; differences in `ℤ` |
 | correct output (Section 3.2): no repeats, set = M(T₀) | `Correct C out T` |
+| T₀ complete: M(T₀) = ∅ | `Complete C T` (`Thm1.lean`) |
+| P = Card₁ × ⋯ × Cardₙ, Cardᵢ = \|Obsᵢ(T₀)\| | `obsCardProd T` (`Thm1.lean`) |
+| 𝒱 is the product of its projections | `obsProduct (validSpace C) = validSpace C` |
+| frequency profile of T₀ | the function `freq T : (i : ι) → D i → ℕ` |
+| order of Dᵢ, idxᵢ(v) | `e i : D i ≃ Fin (Fintype.card (D i))`, idxᵢ(v) = `e i v`; attributes `Fin n` (`Prop6.lean`) |
+| prime assignment p(Aᵢ, v), key K(x) | `p : (Σ i, D i) → ℕ`, `primeKey p x = ∏ i, p ⟨i, x i⟩` (`Prop7.lean`) |
 
 COMPLETE (`LatcFormal/Prop3.lean`) takes T₀ as a `Finset` of rows `(x, y)`, because its
 second `require` is what makes the condition tuples distinct. The fixed visiting order is
@@ -91,6 +139,26 @@ lexicographic order is one such list.
 | §6.2, "an output that passes the counts is wrong only if it contains a tuple twice, a tuple of cond(T₀) or a tuple outside 𝒱" | `Latc.check_wrong_output_cases` | `Prop4.lean` |
 | §5.1, the twins have the same profile and different missing sets | `Latc.Examples.twins_same_profile` | `Examples.lean` |
 | COMPLETE and Reading B on the pair | `Latc.Examples.complete_pair`, `Latc.Examples.readingB_pair`, `Latc.Examples.missing_T0` | `Examples.lean` |
+| **Thm. 1**, cond(T₀) ⊆ 𝒱, 𝒱 the product of its projections, T₀ complete ⟹ q(T₀) = P | `Latc.thm1` | `Thm1.lean` |
+| Thm. 1, the case C = ∅ (𝒱 = 𝒟 is a product, for any domains) | `Latc.thm1_noConstraint`, `Latc.validSpace_isProduct_of_noConstraint` | `Thm1.lean` |
+| Thm. 1, remark: a constraint excludes a tuple of Π ⟹ q(T₀) = \|𝒱\| < P | `Latc.thm1_remark` | `Thm1.lean` |
+| **Cor. 1**, q(T₀) < P ⟹ T₀ incomplete | `Latc.cor1` | `Thm1.lean` |
+| Cor. 3, the precondition of [3] (every declared value observed) with C = ∅ gives Π = 𝒱 | `Latc.obsProduct_eq_validSpace_of_all_observed` | `Thm1.lean` |
+| **Cor. 3**, Π = 𝒱 ⟹ \|M(T₀)\| = P − q(T₀), with q(T₀) ≤ P | `Latc.cor3` | `Thm1.lean` |
+| **Cor. 4**, Π = 𝒱 ⟹ v ∈ Obsᵢ appears P / Cardᵢ times in 𝒱 and d_{i,v} = P / Cardᵢ − f_{i,v}(T₀) | `Latc.cor4` (Cardᵢ divides P: `Latc.freq_obsProduct`) | `Thm1.lean` |
+| **Prop. 1**, equal profiles ⟹ equal missing sets, for all tables in 𝒱, ⟺ no non-zero zero-margin z | `Latc.prop1` | `Prop1.lean` |
+| Prop. 1, read with condition sets | `Latc.prop1_condSets` | `Prop1.lean` |
+| Prop. 1, a 2 × 2 grid of states in 𝒱 gives such a z | `Latc.prop1_exists` | `Prop1.lean` |
+| Prop. 1, 𝒱 = 𝒟 and two attributes with ≥ 2 values give such a z (non-empty domains) | `Latc.prop1_exists_full`; the need for non-empty domains: `Latc.prop1_exists_full_needs_nonempty` | `Prop1.lean` |
+| Prop. 1, a procedure of (domains, constraints, profile) is incorrect for some T₀ ⊆ 𝒱 | `Latc.prop1_procedure` | `Prop1.lean` |
+| App. F, the even-parity space {000, 011, 101, 110} has no non-zero zero-margin z | `Latc.evenParity_no_zeroMarginVector`, from `Latc.evenParity_space` and `Latc.evenParity_profile_determines` (kernel `decide` over all 16 × 16 pairs of subsets of 𝒱) | `Prop1.lean` |
+| **Prop. 6**, rank is a bijection from 𝒟 onto {0, …, \|𝒟\| − 1} | `Latc.prop6`, `Latc.prop6_existsUnique` (digit vectors: `Latc.rankFin_bijective`) | `Prop6.lean` |
+| Prop. 6, the hypothesis \|Dᵢ\| ≥ 1 is unused | `Latc.prop6_empty_domain` | `Prop6.lean` |
+| **Prop. 7**, p prime-valued and one-to-one on attribute-value pairs ⟹ K injective | `Latc.prop7_injective` | `Prop7.lean` |
+| Prop. 7, two values of one attribute share a prime ⟹ K not injective (non-empty domains) | `Latc.prop7_not_injective`; the need for non-empty domains: `Latc.prop7_not_injective_needs_nonempty` | `Prop7.lean` |
+| Prop. 7, primes 2, 3 and 2, 5: keys 4, 10, 6, 15, K injective | `Latc.prop7_shared_injective` | `Prop7.lean` |
+| Prop. 7, primes 2, 3 and 2, 3: (v, b) and (a, w) both get 6 | `Latc.prop7_shared_not_injective` | `Prop7.lean` |
+| Prop. 7, sharing across attributes: K may or may not be injective | `Latc.prop7_may_or_may_not` | `Prop7.lean` |
 
 ## Discrepancies found
 
@@ -122,14 +190,156 @@ membership check of Section 6.2.
    hypotheses of Proposition 4 and of COMPLETE's `require` lines, and the Lean statement
    assumes them. Without cond(T₀) ⊆ 𝒱, |𝒱 ∖ cond(T₀)| can exceed |𝒱| − |T₀|, and a
    strict subset of the missing set passes.
+5. **Proposition 1, the case 𝒱 = 𝒟, uses non-empty domains.** "When 𝒱 = 𝒟, this holds
+   as soon as two attributes have two or more values" needs fixed values for the other
+   attributes, so every other domain must be non-empty. With three attributes of sizes
+   2, 2 and 0, 𝒟 is empty and no vector on it is non-zero
+   (`Latc.prop1_exists_full_needs_nonempty`). Section 3.1 assumes non-empty domains, so
+   the statement holds as the paper reads. The Lean statement carries
+   `[∀ k, Nonempty (D k)]`. The first form of the criterion ("for some fixed values of
+   the other attributes, the four states … lie in 𝒱") supplies these values itself and
+   needs nothing more. The equivalence and the procedure clause hold for every n,
+   including n = 0.
+   *Minimal fix:* none needed. Optionally: "when 𝒱 = 𝒟, and all domains being
+   non-empty (Section 3.1), this holds as soon as two attributes have two or more values".
+6. **Proposition 6's hypothesis "every |Dᵢ| ≥ 1" is unused.** If some domain is empty,
+   𝒟 is empty and {0, 1, …, |𝒟| − 1} is empty too, so rank is the empty bijection.
+   `Latc.prop6` has no size hypothesis, and `Latc.prop6_empty_domain` shows the case
+   with sizes 2 and 0. The statement is true as written.
+   *Minimal fix:* none needed. Optionally: "rank is a bijection from the product space
+   onto {0, 1, …, |𝒟| − 1}" with the hypothesis deleted.
+7. **Proposition 7, "if two values of the same attribute share a prime, K is not
+   injective", uses non-empty domains.** Two rows that differ only in those two values
+   exist only if every other domain has a value. With domains of sizes 2 and 0 and the
+   prime 2 for every pair, the two values of the first attribute share a prime and K is
+   injective, because the product space is empty
+   (`Latc.prop7_not_injective_needs_nonempty`). Section 3.1 assumes non-empty domains,
+   so the statement holds as the paper reads; the Lean statement carries
+   `[∀ j, Nonempty (D j)]`. Part (a) needs every p(Aᵢ, v) to be prime, which the
+   paper states.
+   *Minimal fix:* none needed. Optionally append "(the domains being non-empty)".
 
 ## Scope and modelling choices
 
 - Reading B is modelled by its output set Π ∖ cond(T₀), which is how Appendix F's proof
-  characterizes it. The claim that the odometer enumeration lists every tuple of Π exactly
-  once (the mixed-radix bijection, Proposition 6) is not formalized.
-- COMPLETE's `key()` is an arbitrary function injective on 𝒱. The canonical form of
+  characterizes it. The mixed-radix bijection of Proposition 6 is formalized in
+  `Prop6.lean`, for any finite domains, so it applies with Dᵢ replaced by Obsᵢ(T₀). The
+  step from the odometer loop of the implementation to that rank is not formalized.
+- COMPLETE's `key()` is an arbitrary function injective on 𝒱. Proposition 7
+  (`Prop7.lean`) shows when a prime-product key is one. The canonical form of
   Appendix D.3 is not formalized.
+- Theorem 1 reads "T₀ is complete" as M(T₀) = ∅, and Corollary 4 states
+  d_{i,v} = P / Cardᵢ − f_{i,v}(T₀) in ℕ together with f_{i,v}(T₀) ≤ P / Cardᵢ, so the
+  subtraction does not truncate. The procedure clause of Proposition 1 takes the domains
+  as the finite sets `univ` of the fixed types `D i`, the constraint as a predicate and
+  the profile, and returns an output sequence judged by `Correct`.
 - The vector z of Proposition 1 is a function 𝒟 → ℤ with values in {−1, 0, 1} that
   vanishes outside 𝒱 (`Latc.ZeroMarginVector`).
-- Propositions 1, 5, 6 and 7, Theorem 1 and Corollaries 1–4 are not formalized.
+- Corollary 2 is not formalized. Proposition 5 is formalized as the reduction its proof rests on (section below); its hardness rests on Cook (1971) and Valiant (1979).
+
+## Proposition 5: the reduction
+
+`LatcFormal/Prop5Reduction.lean` machine-checks the combinatorial correspondence on which
+the proof of Proposition 5 rests. Variables form an arbitrary finite type `V` (the paper's
+n attributes are `V = Fin n`), states are functions `V → Bool` (domains {0, 1}, with
+`false` for 0 and `true` for 1), and the clause constraints feed the `validSpace` and
+`missing` of `Basic.lean` through the predicate `conPred S`.
+
+### Theorem map
+
+| Paper statement or proof step | Lean theorem (namespace `Latc.Prop5`) |
+|---|---|
+| CNF over Boolean variables, literals xᵢ and ¬xᵢ, satisfaction | `Lit`, `CNF`, `evalCNF`, `Satisfiable`, `satSet`, `numSat` |
+| a constraint is a clause, a disjunction of conditions Aᵢ = v | `Cond`, `ClauseCon`, `ConSet`, `holdsAll`, `conPred` |
+| every CNF formula is a set of clause constraints with the same satisfying assignments | `encode_validSpace` (𝒱 = satSet φ), `encode_size` (one constraint per clause, same lengths) |
+| every set of clause constraints over {0, 1} is a CNF formula with the same satisfying assignments | `decode_validSpace`, with `decode_encode` and `encode_decode` (mutually inverse) |
+| with T₀ = ∅, M(T₀) = 𝒱 = the satisfying assignments | `missing_empty`, `prop5_missing_empty` |
+| M(∅) non-empty iff satisfiable (the reduction from SAT) | `prop5_nonempty_iff_satisfiable`, `prop5_decode_nonempty_iff_satisfiable` |
+| completeness (M(∅) = ∅) iff unsatisfiable | `prop5_complete_iff_unsatisfiable`, `prop5_decode_complete_iff_unsatisfiable` |
+| \|𝒱\| is the number of satisfying assignments (the reduction from #SAT) | `prop5_card_validSpace` |
+| \|M(T₀)\| = \|𝒱\| − \|T₀\| for distinct condition tuples inside 𝒱 | `card_missing_of_subset` (any constraint predicate), `prop5_card_missing` |
+| monotone two-literal clauses (xᵢ ∨ xⱼ) are the clauses of two conditions Aᵢ = 1 | `encode_isPos2_iff`, `decode_isPos2`; with i ≠ j, `encode_isPos2Distinct_iff` |
+| the certificate check of NP membership: x ∉ cond(T₀) and x satisfies every clause | `verify`, `verify_correct`, `nonempty_iff_exists_certificate` |
+| #P membership: \|M(T₀)\| is the number of accepted certificates | `card_missing_eq_certificates` |
+| one value only: non-emptiness is trivial | `single_value_nonempty_iff` |
+| satisfiability reduces to constraint sets whose clauses each use one value | `purify`, `purify_single_valued`, `prop5_pure_clauses` |
+| unsatisfiable CNF x₀ ∧ ¬x₀ gives a complete empty table | `Examples.unsat_complete` |
+| satisfiable CNF (x₀ ∨ ¬x₁) ∧ x₁ gives M(∅) = {(1, 1)} | `Examples.sat_nonempty` |
+| triangle (x₀ ∨ x₁)(x₁ ∨ x₂)(x₀ ∨ x₂): \|𝒱\| = 4; with T₀ = {(1, 1, 1)}, \|M(T₀)\| = 3, and the certificate check on three states | `Examples.triangle_count`, `Examples.triangle_table` |
+| repeated condition Aᵢ = 1 ∨ Aᵢ = 1 is a unit clause | `holdsClause_dup`, `Examples.dup_clause` |
+| two rows with one condition tuple | `Examples.repeated_condition_tuple` |
+
+All examples are checked by the kernel with `decide`.
+
+### What is machine-checked, and what rests on Cook (1971) and Valiant (1979)
+
+Machine-checked: the translations between CNF formulas and clause constraints over
+{0, 1} in both directions, with equal sets of satisfying assignments and linear size;
+M(∅) = 𝒱 = the satisfying assignments, hence non-emptiness ⟺ satisfiability, completeness
+⟺ unsatisfiability and |𝒱| = #SAT; |M(T₀)| = |𝒱| − |T₀| for distinct condition tuples
+inside 𝒱; the exact match between monotone two-literal clauses and clauses of two
+conditions Aᵢ = 1; and the correctness of the certificate check used for membership in
+NP, coNP and #P.
+
+Unchecked: complexity classes, polynomial time and reductions as such. The statements that
+`verify`, `encode`, `decode` and `purify` run in polynomial time are read off their
+definitions (one pass over the clauses, one membership test in T₀) and are outside the
+formal model. The hardness rests on two cited theorems that are outside the library:
+Cook (1971), that CNF satisfiability is NP-complete, which with
+`prop5_nonempty_iff_satisfiable` gives the NP-hardness of non-emptiness and the
+coNP-hardness of completeness; and Valiant (1979), that counting the satisfying
+assignments of monotone two-literal CNF formulas is #P-complete under polynomial-time
+Turing reductions, which with `prop5_card_validSpace` and `encode_isPos2_iff` gives the
+#P-hardness of computing |𝒱|.
+
+### Discrepancies found
+
+None of these is an error in a result of Proposition 5. Each one makes a phrase of the
+statement precise.
+
+1. **"Clauses may mix A_i = 0 and A_i = 1" is stronger than needed within a clause, and
+   both values must occur in the constraint set.** If every condition of the constraint
+   set uses one value v, M(∅) is non-empty iff no clause is empty, because the constant
+   state v satisfies every non-empty clause (`single_value_nonempty_iff`); the question is
+   then decided by one scan. Mixing inside a clause is unnecessary: `purify` translates a
+   CNF formula over n variables into |φ| + 2n clause constraints over 2n attributes in
+   which each clause uses one value only (`purify_single_valued`), with M(∅) non-empty iff
+   the formula is satisfiable (`prop5_pure_clauses`). With Cook's theorem, non-emptiness is
+   NP-hard already for such constraint sets. The paper's wording is correct as it stands,
+   because it states hardness for a class that contains them.
+   *Minimal fix:* none needed. Optional precision: "(many-one reductions; both A_i = 0 and
+   A_i = 1 must occur, though each clause may use one value)".
+2. **"Clauses of two conditions A_i = 1" matches monotone two-literal CNF exactly when
+   both sides allow i = j.** As lists, the clauses of two conditions Aᵢ = 1, Aⱼ = 1 are
+   exactly the encodings of the clauses xᵢ ∨ xⱼ (`encode_isPos2_iff`, `decode_isPos2`).
+   With i = j the clause is the unit clause xᵢ (`holdsClause_dup`, `Examples.dup_clause`).
+   Read as two distinct conditions, the class is monotone 2-CNF with i ≠ j
+   (`encode_isPos2Distinct_iff`), one clause per edge of a graph, whose count is the
+   number of vertex covers. Counting vertex covers of a graph is the standard #P-complete
+   form of Valiant's monotone 2-SAT, so the hardness claim holds under either reading.
+   *Minimal fix:* none needed. Optional precision: "clauses of two distinct conditions
+   A_i = 1 and A_j = 1".
+3. **"for distinct rows inside 𝒱" needs distinct condition tuples.** Two rows that share a
+   condition tuple and differ in the outcome are distinct rows. In the triangle example,
+   two such rows over the state (0, 1, 1) give |M(T₀)| = 3, while |𝒱| minus the number of
+   rows is 2 (`Examples.repeated_condition_tuple`). Section 3.2 assumes distinct condition
+   tuples, so the statement holds in the paper's setting, and `prop5_card_missing`
+   carries that hypothesis (T₀ is a `Finset` of condition tuples).
+   *Minimal fix:* "for distinct condition tuples inside 𝒱" in place of "for distinct rows
+   inside 𝒱".
+
+### Verification status
+
+2026-10-25, Linux cloud machine, x86_64, Lean 4.35.0 (commit
+`eb6cafb7290e8bd5f2937522d8d804f58f02bafc`, Lake 5.0.0), Mathlib `v4.35.0` (commit
+`56a005855ea17e0b0958f73ec801ae140b0a1679`, from `lake exe cache get`, 9031 cached files).
+After removing `.lake/build`, `lake build` on the final tree ended with
+`Build completed successfully (9055 jobs)` and exit code 0. All eight files of the library
+(`Basic`, `Prop2`, `Prop3`, `Prop4`, `Prop5Reduction`, `Examples`, `Axioms` and the root
+`LatcFormal`) built with no errors and no `sorry` warnings; the single warning was the
+advisory about the `module` keyword in `Basic.lean`. The axiom audit printed
+`[propext, Classical.choice, Quot.sound]` for every `Latc.Prop5` theorem in `Axioms.lean`,
+except `decode_encode`, `encode_decode` and `encode_size`, which printed the smaller
+`[propext, Quot.sound]`; `sorryAx` appears in none. A search of the folder for `sorry`,
+`axiom`, `admit` and `native_decide` finds them only in comments, in this README and in the
+`#print axioms` commands of `Axioms.lean`.
