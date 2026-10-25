@@ -1,0 +1,25 @@
+{
+  "upload_type": "software",
+  "title": "latc_check: independent checks for finite-domain decision-table completion",
+  "version": "0.1.0",
+  "publication_date": "2026-10-25",
+  "creators": [
+    {
+      "name": "Russell, Carlos A.",
+      "affiliation": "Independent Researcher, Buenos Aires, Argentina",
+      "orcid": "0009-0003-3741-0230"
+    }
+  ],
+  "description": "<p>Reference implementation, tests, transcribed worked example and result files for the re-examination of LATC (Learning Assistant through Cardinality) in \"Where Declared Domains Are Lost: LATC, DMN Analysers and Public DMN Models\". It regenerates or scores every result of the paper: exact completion over declared domains, LATC's readings, DMN gap and overlap analysis, the analyser audit, the public DMN corpus survey and the Lean formalisation.</p><p>Code is released under the MIT licence; the transcribed tables and result files under CC BY 4.0 (see LICENSE and LICENSE-DATA).</p>",
+  "license": "mit",
+  "access_right": "open",
+  "keywords": [
+    "decision tables",
+    "completeness",
+    "DMN",
+    "gap analysis",
+    "knowledge acquisition",
+    "rule-base verification",
+    "reproducibility"
+  ]
+}
