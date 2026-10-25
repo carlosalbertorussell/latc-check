@@ -8,3 +8,4 @@ import LatcFormal.Prop1
 import LatcFormal.Prop6
 import LatcFormal.Prop7
 import LatcFormal.Axioms
+import LatcFormal.Prop5Reduction
