@@ -748,3 +748,11 @@ The code is released under the MIT licence (`LICENSE`). The transcribed tables, 
 files and the result files in `results/` and `results_report.txt` are released under
 Creative Commons Attribution 4.0 International (`LICENSE-DATA`). Citation metadata is in
 `CITATION.cff`.
+
+Release 0.1.0 is archived at Zenodo with DOI
+[10.5281/zenodo.23646699](https://doi.org/10.5281/zenodo.23646699); the concept DOI
+[10.5281/zenodo.23646698](https://doi.org/10.5281/zenodo.23646698) always resolves to the
+latest version. To cite the release used in the paper:
+
+> Russell, C. A. (2026). *latc_check*, version 0.1.0 [Software]. Zenodo.
+> https://doi.org/10.5281/zenodo.23646699
