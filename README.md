@@ -9,7 +9,7 @@ which maps each result to the module and output file that produces it. The label
 RQ4 below are the package's internal names for its two groups of checks; the report
 scripts print them.
 
-This work is dedicated to the memory of Raul A. Raggio, co-author of the LATC algorithm.
+This work is dedicated to Raul A. Raggio, co-author of the LATC algorithm.
 
 It answers two questions that need independent evidence:
 
